@@ -6,62 +6,62 @@ const ITINERARY_STEPS = [
     time: '03:00 PM',
     title: 'Free Hotel Pickup',
     desc: 'Clean, air-conditioned 4×4 Land Cruiser picks you up directly from any Dubai hotel or residence.',
-    image: '/images/dune-bashing.jpg',
+    image: '/images/dune-bashing.webp',
   },
   {
     time: '04:15 PM',
     title: 'High Red Dune Bashing & Sandboarding',
     desc: '35–45 minutes of thrilling off-road dune bashing in Lehbab red dunes followed by sandboarding.',
-    image: '/images/sandboarding.jpg',
+    image: '/images/sandboarding.webp',
   },
   {
     time: '05:30 PM',
     title: 'Sunset Camel Ride & Golden Hour Photos',
     desc: 'Capture breathtaking golden-hour sunset photos on the high dunes and enjoy an authentic camel ride.',
-    image: '/images/camel-sunset.jpg',
+    image: '/images/camel-sunset.webp',
   },
   {
     time: '06:15 PM',
     title: 'Bedouin Camp Welcome, Falconry & Henna',
     desc: 'Arrive at the illuminated desert camp for Arabic Gahwa coffee, hunting falcon photos, and henna art.',
-    image: '/images/falcon-portrait.jpg',
+    image: '/images/falcon-portrait.webp',
   },
   {
     time: '07:15 PM',
     title: 'Live 5-Star BBQ Buffet Feast',
     desc: 'Feast on live outdoor BBQ grill with smoking lamb kebabs, chicken tikka, mezze, and vegetarian delicacies.',
-    image: '/images/bbq-buffet.jpg',
+    image: '/images/bbq-buffet.webp',
   },
   {
     time: '08:15 PM',
     title: 'Tanoura Show & Fire Stunt Performance',
     desc: 'Spectacular spinning Tanoura dancer and daring fire eater performances under the starry desert sky.',
-    image: '/images/tanoura-dance.jpg',
+    image: '/images/tanoura-dance.webp',
   },
 ];
 
 export default function VisualItinerary() {
   return (
-    <section id="itinerary" className="py-12 sm:py-16 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="itinerary" className="py-10 sm:py-16 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>
-            <div className="text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-2">
+            <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-1.5">
               Evening Tour Timeline
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
               What Your 6 Hours Look Like
             </h2>
           </div>
-          <p className="text-[#475569] font-medium text-sm sm:text-base max-w-md">
+          <p className="text-[#475569] font-medium text-xs sm:text-base max-w-md">
             Seamlessly organized from pickup to drop-off. 14 years of operating safaris means zero waiting and maximum adventure.
           </p>
         </div>
 
         {/* 6 Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {ITINERARY_STEPS.map((step, idx) => (
             <div
               key={idx}
@@ -74,18 +74,19 @@ export default function VisualItinerary() {
                   alt={step.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                 />
-                <div className="absolute top-3 left-3 bg-[#0F172A]/90 backdrop-blur-md text-white px-2.5 py-1 rounded-lg text-xs font-mono font-bold">
+                <div className="absolute top-2.5 left-2.5 bg-[#0F172A]/90 backdrop-blur-md text-white px-2 py-0.5 rounded-md text-[11px] font-mono font-bold">
                   Step 0{idx + 1}
                 </div>
-                <div className="absolute bottom-3 left-3 bg-[#EA580C] text-white px-2.5 py-0.5 rounded-md text-xs font-bold flex items-center gap-1 shadow">
+                <div className="absolute bottom-2.5 left-2.5 bg-[#EA580C] text-white px-2 py-0.5 rounded-md text-[11px] font-bold flex items-center gap-1 shadow">
                   <Clock size={11} /> {step.time}
                 </div>
               </div>
 
               {/* Step Info */}
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-bold text-[#0F172A] mb-1.5">{step.title}</h3>
+              <div className="p-4 sm:p-5 flex flex-col flex-1">
+                <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-1">{step.title}</h3>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed flex-1">
                   {step.desc}
                 </p>
@@ -95,12 +96,12 @@ export default function VisualItinerary() {
         </div>
 
         {/* Direct CTA */}
-        <div className="mt-10 text-center">
+        <div className="mt-8 sm:mt-10 text-center">
           <a
             href={getWhatsAppLink('Hi! I want to book the Evening Safari. Please confirm available slots.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-[#EA580C]/20 transition-all hover:scale-105"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-[#EA580C]/20 transition-all h-[48px]"
           >
             <MessageCircle size={17} />
             <span>Book This Itinerary on WhatsApp (AED 79)</span>

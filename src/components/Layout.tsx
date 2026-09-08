@@ -1,9 +1,8 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 import MobileBar from './MobileBar';
-import Preloader from './Preloader';
 import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import gsap from 'gsap';
@@ -13,7 +12,12 @@ export default function Layout() {
   const pageContainerRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const isFirstMount = useRef(true);
-  const [preloaderFinished, setPreloaderFinished] = useState(false);
+
+  // Ensure body scroll is never locked
+  useEffect(() => {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }, []);
 
   // Lenis smooth scroll — init once for the lifetime of the app
   useSmoothScroll();
@@ -22,21 +26,17 @@ export default function Layout() {
   // Global reveal animations
   useScrollReveal();
 
-  // Smooth Blurry Page Transition on route changes (skip on initial mount to allow preloader)
+  // Smooth loading and page transition
   useEffect(() => {
-    if (isFirstMount.current) {
-      isFirstMount.current = false;
-      return;
-    }
-
-    // 1. Top navigation progress bar
+    // 1. Sleek top progress indicator
     if (progressBarRef.current) {
+      gsap.killTweensOf(progressBarRef.current);
       gsap.fromTo(
         progressBarRef.current,
         { scaleX: 0, opacity: 1, transformOrigin: '0% 50%' },
         {
           scaleX: 1,
-          duration: 0.35,
+          duration: isFirstMount.current ? 0.65 : 0.35,
           ease: 'power2.out',
           onComplete: () => {
             gsap.to(progressBarRef.current, { opacity: 0, duration: 0.25 });
@@ -45,42 +45,63 @@ export default function Layout() {
       );
     }
 
-    // 2. Main page blur & fade dissolve
+    // 2. Smooth page dissolve entrance
     if (pageContainerRef.current) {
-      gsap.fromTo(
-        pageContainerRef.current,
-        {
-          opacity: 0,
-          filter: 'blur(16px)',
-          y: 12,
-          scale: 0.995,
-        },
-        {
-          opacity: 1,
-          filter: 'blur(0px)',
-          y: 0,
-          scale: 1,
-          duration: 0.55,
-          ease: 'power3.out',
-          clearProps: 'filter,transform',
-        }
-      );
+      gsap.killTweensOf(pageContainerRef.current);
+
+      if (isFirstMount.current) {
+        // Initial website load smooth transition for the client
+        gsap.fromTo(
+          pageContainerRef.current,
+          {
+            opacity: 0,
+            filter: 'blur(8px)',
+            y: 8,
+          },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            duration: 0.65,
+            ease: 'power2.out',
+            clearProps: 'filter,transform',
+          }
+        );
+        isFirstMount.current = false;
+      } else {
+        // Subsequent route change smooth transition
+        gsap.fromTo(
+          pageContainerRef.current,
+          {
+            opacity: 0,
+            filter: 'blur(10px)',
+            y: 8,
+            scale: 0.998,
+          },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out',
+            clearProps: 'filter,transform',
+          }
+        );
+      }
     }
   }, [location.pathname]);
 
   return (
-    <div className="bg-[#F7F5F0] min-h-screen relative selection:bg-safari-orange selection:text-white">
-      {/* 1. Global Mountain Line-Tracing Preloader */}
-      <Preloader onComplete={() => setPreloaderFinished(true)} />
-
-      {/* 2. Top Route Progress Bar */}
+    <div className="bg-[#F7F5F0] min-h-screen relative selection:bg-safari-orange selection:text-white w-full max-w-full overflow-x-clip">
+      {/* Top Accent / Route Progress Bar */}
       <div 
         ref={progressBarRef}
         className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-safari-orange via-amber-400 to-safari-orange z-[9999] pointer-events-none opacity-0 shadow-[0_0_12px_#D96B27]"
       />
 
       <Nav />
-      <main ref={pageContainerRef} data-preloader-done={preloaderFinished}>
+      <main ref={pageContainerRef} className="w-full max-w-full page-smooth-entrance">
         <Outlet />
       </main>
       <Footer />

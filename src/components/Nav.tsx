@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, MessageCircle, Compass, ArrowRight } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Phone, MessageCircle, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
 import gsap from 'gsap';
 import { getWhatsAppLink } from '../data/safariPackages';
 
@@ -35,41 +35,65 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [mobileSafariAccordion, setMobileSafariAccordion] = useState(false);
+  const [mobileSafariAccordion, setMobileSafariAccordion] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   const megaRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => setScrolled(window.scrollY > 25);
     window.addEventListener('scroll', handleScroll, { passive: true });
     if (navRef.current) {
-      gsap.fromTo(navRef.current, { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
+      gsap.fromTo(navRef.current, { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' });
     }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Close menus on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMegaMenuOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll on mobile when menu is active
   useEffect(() => {
     if (mobileMenuOpen) {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
     return () => {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     };
   }, [mobileMenuOpen]);
 
-  // Close mega menu on outside click
+  // Close mega menu on outside click or ESC
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
+    const handleDown = (e: MouseEvent) => {
       if (megaRef.current && !megaRef.current.contains(e.target as Node)) {
         setMegaMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMegaMenuOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleDown);
+    document.addEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('mousedown', handleDown);
+      document.removeEventListener('keydown', handleKey);
+    };
   }, []);
 
   const handleNavClick = (to: string) => {
@@ -89,26 +113,26 @@ export default function Nav() {
         <span className="text-slate-600 uppercase tracking-wider">DET Licensed Operator · Since 2010</span>
       </div>
 
-      {/* Main Navbar */}
-      <div className="px-3 sm:px-4 md:px-6 pointer-events-auto">
+      {/* Main Navbar Bar */}
+      <div className="px-2.5 sm:px-4 md:px-6 pointer-events-auto" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div
           ref={navRef}
           className={`max-w-[1780px] mx-auto flex items-center justify-between transition-all duration-300 ease-out ${
             scrolled
-              ? 'bg-white/95 backdrop-blur-xl shadow-[0_10px_35px_rgba(0,0,0,0.08)] border border-slate-200/80 rounded-2xl px-4 sm:px-6 py-2.5 mt-2'
-              : 'bg-transparent px-2 py-3'
+              ? 'bg-white/95 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-slate-200/80 rounded-2xl px-3.5 sm:px-6 py-2 sm:py-2.5 mt-1 sm:mt-2'
+              : 'bg-transparent px-2 py-2.5 sm:py-3'
           }`}
         >
           {/* Brand */}
-          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all ${scrolled ? 'bg-[#EA580C] text-white shadow-md' : 'bg-white/90 text-[#EA580C] border border-white/60 shadow-md backdrop-blur-md'}`}>
-              <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform duration-300" />
+          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 sm:gap-3 group shrink min-w-0">
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 transition-all ${scrolled ? 'bg-[#EA580C] text-white shadow-md' : 'bg-white/95 text-[#EA580C] border border-white/60 shadow-md backdrop-blur-md'}`}>
+              <Compass className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform duration-300" />
             </div>
-            <div>
-              <div className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-[#0F172A] leading-tight">
-                Dubai Desert Adventures
+            <div className="min-w-0">
+              <div className="text-xs min-[360px]:text-sm sm:text-lg md:text-xl font-black tracking-tight text-[#0F172A] leading-tight truncate max-w-[140px] min-[360px]:max-w-[185px] sm:max-w-none">
+                Dubai Dune Tours
               </div>
-              <div className="text-[10px] font-bold tracking-wider text-[#EA580C] uppercase leading-none">
+              <div className="text-[9px] sm:text-[10px] font-extrabold tracking-wider text-[#EA580C] uppercase leading-none truncate">
                 Direct Operator · 4.9★
               </div>
             </div>
@@ -126,6 +150,7 @@ export default function Nav() {
               className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
                 megaMenuOpen ? 'text-[#EA580C] bg-[#EA580C]/10' : 'text-[#334155] hover:bg-slate-100'
               }`}
+              aria-expanded={megaMenuOpen}
             >
               Desert Safaris
               <ChevronDown size={15} className={`transition-transform duration-200 ${megaMenuOpen ? 'rotate-180 text-[#EA580C]' : ''}`} />
@@ -187,22 +212,33 @@ export default function Nav() {
           </nav>
 
           {/* CTA & Mobile Hamburger Button */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
+            {/* Desktop WhatsApp Button */}
             <a
-              href={getWhatsAppLink('Hi! I want to book a desert safari with Dubai Desert Adventures.')}
+              href={getWhatsAppLink('Hi! I want to book a desert safari with Dubai Dune Tours.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 hover:scale-105"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 hover:scale-105 active:scale-95"
             >
               <MessageCircle size={16} />
               <span>WhatsApp Booking</span>
             </a>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Direct Call Shortcut button */}
+            <a
+              href="tel:+971556015834"
+              className="sm:hidden w-10 h-10 rounded-xl bg-slate-100/90 text-[#0F172A] border border-slate-200/80 flex items-center justify-center active:scale-95 transition-transform"
+              aria-label="Call Dubai Dune Tours"
+            >
+              <Phone size={17} className="text-[#EA580C]" />
+            </a>
+
+            {/* Mobile Menu Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden w-10 h-10 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
-              aria-label="Toggle navigation menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X size={20} className="text-[#0F172A]" /> : <Menu size={20} className="text-[#0F172A]" />}
             </button>
@@ -210,62 +246,85 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Full-Screen Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-md pointer-events-auto flex flex-col justify-start pt-16 px-3 pb-6 animate-in fade-in duration-200">
-          <div className="bg-white border border-slate-200 rounded-3xl shadow-2xl p-5 max-h-[86vh] overflow-y-auto flex flex-col justify-between">
+        <div 
+          className="lg:hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-md pointer-events-auto flex flex-col justify-end sm:justify-center p-2.5 sm:p-4 animate-in fade-in duration-200"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setMobileMenuOpen(false);
+          }}
+        >
+          <div 
+            ref={drawerRef}
+            className="bg-white border border-slate-200 rounded-3xl shadow-2xl p-4 sm:p-5 max-h-[90vh] overflow-y-auto flex flex-col justify-between w-full max-w-lg mx-auto"
+            style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+          >
             <div>
-              {/* Header inside mobile drawer */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
-                <div className="text-xs font-black text-[#EA580C] tracking-wider uppercase">Menu</div>
+              {/* Drawer Top Bar */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#EA580C] text-white flex items-center justify-center">
+                    <Compass size={15} />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-[#0F172A]">Dubai Dune Tours</span>
+                    <div className="text-[9px] font-bold text-emerald-600">Pay On Arrival · No Deposit</div>
+                  </div>
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#0F172A]"
+                  className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-[#0F172A] active:scale-95 transition-transform"
+                  aria-label="Close menu"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
 
-              {/* Links */}
-              <nav className="flex flex-col gap-1.5">
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-1">
                 <button
                   onClick={() => handleNavClick('/')}
-                  className="text-left text-base font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
-                  <span>Home</span>
-                  <ArrowRight size={15} className="text-slate-400" />
+                  <span>Home Page</span>
+                  <ArrowRight size={14} className="text-slate-400" />
                 </button>
 
                 {/* Desert Safari Accordion */}
-                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
+                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 my-1">
                   <button
                     onClick={() => setMobileSafariAccordion(!mobileSafariAccordion)}
-                    className="w-full text-left text-base font-bold text-[#0F172A] py-3 px-3.5 flex items-center justify-between"
+                    className="w-full text-left text-sm font-bold text-[#0F172A] py-3 px-3.5 flex items-center justify-between"
+                    aria-expanded={mobileSafariAccordion}
                   >
                     <span className="flex items-center gap-2">
-                      <Compass size={17} className="text-[#EA580C]" />
-                      <span>Desert Safari Packages</span>
+                      <Compass size={16} className="text-[#EA580C]" />
+                      <span>Safari Packages & Tiers</span>
                     </span>
                     <ChevronDown size={16} className={`text-slate-500 transition-transform duration-200 ${mobileSafariAccordion ? 'rotate-180' : ''}`} />
                   </button>
 
                   {mobileSafariAccordion && (
-                    <div className="px-3 pb-3 pt-1 flex flex-col gap-1 border-t border-slate-200 bg-white">
+                    <div className="px-2.5 pb-2.5 pt-1 flex flex-col gap-1 border-t border-slate-200 bg-white">
                       {[
-                        { label: '⭐ Evening Standard Safari (AED 79)', to: '/evening-safari/standard' },
-                        { label: '🔥 Evening Premium + Quad Bike (AED 119)', to: '/evening-safari/premium' },
-                        { label: '👑 Evening VIP + Private Majlis (AED 299)', to: '/evening-safari/vip' },
-                        { label: '🌅 Sunrise Desert Safari (AED 349)', to: '/morning-safari' },
-                        { label: '🏎️ Self-Drive Convoy (AED 35)', to: '/self-drive' },
-                        { label: '🎪 Private Desert Camp Setup', to: '/private-desert-setup' },
+                        { label: '⭐ Evening Standard (AED 79)', sub: 'Dune Bashing, BBQ & Shows', to: '/evening-safari/standard' },
+                        { label: '🔥 Evening Premium + Quad (AED 119)', sub: 'Quad Bike + VIP Seating', to: '/evening-safari/premium' },
+                        { label: '👑 Evening VIP Majlis (AED 299)', sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
+                        { label: '🌅 Sunrise Desert Safari (AED 349)', sub: 'Private dawn tour', to: '/morning-safari' },
+                        { label: '🏎️ Self-Drive Convoy (AED 35)', sub: 'Drive your own 4×4', to: '/self-drive' },
+                        { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
+                        { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
                       ].map((sub) => (
                         <button
                           key={sub.to}
                           onClick={() => handleNavClick(sub.to)}
-                          className="text-left text-xs font-bold text-[#334155] hover:text-[#EA580C] py-2 px-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between"
+                          className="text-left p-2 rounded-xl hover:bg-slate-100 transition-colors flex items-center justify-between group"
                         >
-                          <span>{sub.label}</span>
-                          <ArrowRight size={12} className="text-slate-400" />
+                          <div>
+                            <div className="text-xs font-bold text-[#1E293B] group-hover:text-[#EA580C] transition-colors">{sub.label}</div>
+                            <div className="text-[10px] text-[#64748B] font-medium">{sub.sub}</div>
+                          </div>
+                          <ArrowRight size={12} className="text-slate-400 group-hover:text-[#EA580C] shrink-0" />
                         </button>
                       ))}
                     </div>
@@ -274,40 +333,44 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/about')}
-                  className="text-left text-base font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
-                  <span>About Us</span>
-                  <ArrowRight size={15} className="text-slate-400" />
+                  <span>About Our Fleet & Drivers</span>
+                  <ArrowRight size={14} className="text-slate-400" />
                 </button>
 
                 <button
                   onClick={() => handleNavClick('/contact')}
-                  className="text-left text-base font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
-                  <span>Contact & Location</span>
-                  <ArrowRight size={15} className="text-slate-400" />
+                  <span>Contact & Dispatch Location</span>
+                  <ArrowRight size={14} className="text-slate-400" />
                 </button>
               </nav>
             </div>
 
-            {/* Mobile Footer CTAs */}
-            <div className="flex flex-col gap-2 pt-4 mt-4 border-t border-slate-100">
+            {/* Bottom Drawer Actions */}
+            <div className="flex flex-col gap-2 pt-3 mt-3 border-t border-slate-100">
               <a
-                href={getWhatsAppLink('Hi! I want to book a desert safari package.')}
+                href={getWhatsAppLink('Hi! I want to book a desert safari package with Dubai Dune Tours.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full bg-[#EA580C] text-white text-center py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25"
+                className="w-full bg-[#EA580C] hover:bg-[#C2410C] text-white text-center py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25 active:scale-98"
               >
                 <MessageCircle size={17} /> Instant WhatsApp Booking
               </a>
               <a
                 href="tel:+971556015834"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full border border-slate-200 text-[#0F172A] text-center py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
+                className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#0F172A] text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
               >
-                <Phone size={15} /> +971 55 601 5834
+                <Phone size={14} className="text-[#EA580C]" /> Call Direct: +971 55 601 5834
               </a>
+              <div className="flex items-center justify-center gap-1 text-[10px] font-bold text-slate-400 text-center pt-1">
+                <ShieldCheck size={12} className="text-emerald-500" />
+                <span>DET Licensed Operator Since 2010</span>
+              </div>
             </div>
           </div>
         </div>

@@ -25,33 +25,33 @@ export default function WhyDirect() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-white border-y border-sand/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 sm:py-16 md:py-20 bg-white border-y border-sand/70">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-2">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-1.5">
             Direct Operator Guarantee
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-2.5">
             Why Dubai Locals Book Direct
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] font-medium">
+          <p className="text-xs sm:text-base text-[#475569] font-medium">
             Same luxury 4×4 Land Cruisers. Same high Lehbab red dunes. Transparent direct pricing.
           </p>
         </div>
 
         {/* 4 Pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {perks.map((p, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-[#F8F6F0] border border-sand/70 hover:border-[#EA580C]/40 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col"
+              className="p-4 sm:p-6 rounded-2xl bg-[#F8F6F0] border border-sand/70 hover:border-[#EA580C]/40 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center mb-4">
-                <p.icon size={24} />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center mb-3 sm:mb-4">
+                <p.icon size={22} />
               </div>
-              <h3 className="text-lg font-bold text-[#0F172A] mb-2">{p.title}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-1.5">{p.title}</h3>
               <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">
                 {p.desc}
               </p>

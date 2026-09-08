@@ -17,6 +17,7 @@ export interface SafariPackage {
   includes: string[];
   excludes?: string[];
   whatsAppText: string;
+  detailPath: string;
 }
 
 export const WHATSAPP_NUMBER = '971556015834';
@@ -40,7 +41,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
     rating: 4.9,
     reviewsCount: 401,
-    image: '/images/dune-bashing.jpg',
+    image: '/images/dune-bashing.webp',
+    detailPath: '/evening-safari/standard',
     includes: [
       '4×4 Land Cruiser red dune bashing (35 mins)',
       'Golden hour sunset photo stop on high dunes',
@@ -67,7 +69,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     reviewsCount: 401,
     badge: 'MOST BOOKED',
     isPopular: true,
-    image: '/images/quad-buggy.jpg',
+    image: '/images/quad-buggy.webp',
+    detailPath: '/evening-safari/premium',
     includes: [
       'All Standard Inclusions + smaller group per 4x4 (max 6)',
       '15-Minute guided Quad Bike adventure included',
@@ -93,7 +96,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 5.0,
     reviewsCount: 401,
     badge: 'VIP LUXURY',
-    image: '/images/vip-majlis.jpg',
+    image: '/images/vip-majlis.webp',
+    detailPath: '/evening-safari/vip',
     includes: [
       'Private 4×4 Land Cruiser for your party only',
       'Hands-on falconry training session with master falconer',
@@ -121,7 +125,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 180,
     badge: 'EARLY BIRD',
-    image: '/images/camel-sunset.jpg',
+    image: '/images/camel-sunset.webp',
+    detailPath: '/morning-safari',
     includes: [
       'Private Land Cruiser & professional licensed driver',
       'Stunning sunrise view over untouched red dunes',
@@ -145,7 +150,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Pickup 08:00 AM · Return 12:00 PM',
     rating: 4.8,
     reviewsCount: 220,
-    image: '/images/sandboarding.jpg',
+    image: '/images/sandboarding.webp',
+    detailPath: '/morning-safari',
     includes: [
       '4×4 Land Cruiser red dune bashing in Lehbab',
       'Dune sandboarding with instructor guidance',
@@ -171,7 +177,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 165,
     badge: 'BEST BUDGET',
-    image: '/images/dune-bashing.jpg',
+    image: '/images/dune-bashing.webp',
+    detailPath: '/self-drive',
     includes: [
       'Lead convoy guide with satellite radio connection',
       'Full desert dune navigation track access',
@@ -195,7 +202,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 5.0,
     reviewsCount: 95,
     badge: 'EXCLUSIVE',
-    image: '/images/private-camp.jpg',
+    image: '/images/private-camp.webp',
+    detailPath: '/private-desert-setup',
     includes: [
       '100% Private camp setup on isolated red dune (No other guests)',
       'Dedicated private chef with custom 5-course menu',
