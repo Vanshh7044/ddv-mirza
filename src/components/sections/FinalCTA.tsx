@@ -1,5 +1,6 @@
 import { MessageCircle, Phone, Clock, MapPin, ShieldCheck } from 'lucide-react';
 import { getWhatsAppLink } from '../../data/safariPackages';
+import { trackWhatsAppClick, trackPhoneClick } from '../../utils/analytics';
 
 export default function FinalCTA() {
   return (
@@ -27,6 +28,7 @@ export default function FinalCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#EA580C]/25 transition-all h-[48px] sm:h-auto"
+                onClick={() => trackWhatsAppClick('final_cta', undefined, undefined)}
               >
                 <MessageCircle size={18} />
                 <span>Instant WhatsApp Booking</span>
@@ -34,6 +36,7 @@ export default function FinalCTA() {
               <a
                 href="tel:+971556015834"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-700 hover:bg-slate-800 active:scale-98 text-white font-bold text-xs sm:text-base px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl transition-all h-[48px] sm:h-auto"
+                onClick={() => trackPhoneClick('final_cta')}
               >
                 <Phone size={16} />
                 <span>+971 55 601 5834</span>

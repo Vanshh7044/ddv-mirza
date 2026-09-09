@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone, MessageCircle, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
 import gsap from 'gsap';
 import { getWhatsAppLink } from '../data/safariPackages';
+import { trackWhatsAppClick, trackPhoneClick } from '../utils/analytics';
 
 const desertSafariMenu = [
   {
@@ -355,14 +356,14 @@ export default function Nav() {
                 href={getWhatsAppLink('Hi! I want to book a desert safari package with Dubai Dune Tours.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => { trackWhatsAppClick('nav_drawer', undefined, undefined); setMobileMenuOpen(false); }}
                 className="w-full bg-[#EA580C] hover:bg-[#C2410C] text-white text-center py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25 active:scale-98"
               >
                 <MessageCircle size={17} /> Instant WhatsApp Booking
               </a>
               <a
                 href="tel:+971556015834"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => { trackPhoneClick('nav_drawer'); setMobileMenuOpen(false); }}
                 className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#0F172A] text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
               >
                 <Phone size={14} className="text-[#EA580C]" /> Call Direct: +971 55 601 5834

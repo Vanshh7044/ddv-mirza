@@ -1,6 +1,7 @@
 import { MessageCircle, Phone, ShieldCheck } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { getWhatsAppLink, SAFARI_PACKAGES } from '../data/safariPackages';
+import { trackWhatsAppClick, trackPhoneClick } from '../utils/analytics';
 
 export default function MobileBar() {
   const location = useLocation();
@@ -39,6 +40,7 @@ export default function MobileBar() {
           {/* Quick Call Button */}
           <a
             href="tel:+971556015834"
+            onClick={() => trackPhoneClick('mobile_bar')}
             className="w-10 h-10 min-[360px]:w-11 min-[360px]:h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
             aria-label="Call Dubai Dune Tours dispatch directly"
           >
@@ -50,6 +52,7 @@ export default function MobileBar() {
             href={getWhatsAppLink(whatsAppText)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('mobile_bar', currentPkg?.title, currentPkg?.price || 79)}
             className="h-10 min-[360px]:h-11 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-black text-xs px-3 sm:px-4 rounded-xl shadow-lg shadow-[#EA580C]/30 flex items-center justify-center gap-1.5 transition-all whitespace-nowrap"
             aria-label="Book safari instantly via WhatsApp"
           >

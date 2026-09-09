@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle, Phone, MapPin, Mail, Compass, ShieldCheck } from 'lucide-react';
 import { getWhatsAppLink } from '../data/safariPackages';
+import { trackWhatsAppClick, trackPhoneClick, trackEmailClick } from '../utils/analytics';
 
 export default function Footer() {
   return (
@@ -65,10 +66,10 @@ export default function Footer() {
               Direct Contact
             </div>
             <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-medium">
-              <a href="tel:+971556015834" className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
+              <a href="tel:+971556015834" onClick={() => trackPhoneClick('footer')} className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
                 <Phone size={15} className="text-[#EA580C] shrink-0" /> +971 55 601 5834
               </a>
-              <a href="mailto:info@dubaidunetours.com" className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
+              <a href="mailto:info@dubaidunetours.com" onClick={() => trackEmailClick('footer')} className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
                 <Mail size={15} className="text-[#EA580C] shrink-0" /> info@dubaidunetours.com
               </a>
               <div className="flex items-center gap-2 text-slate-400 py-0.5">
@@ -81,6 +82,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white font-bold text-xs px-4 py-3 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 active:scale-98"
+              onClick={() => trackWhatsAppClick('footer', undefined, undefined)}
             >
               <MessageCircle size={15} /> Instant WhatsApp Chat
             </a>

@@ -5,6 +5,7 @@ import Footer from './Footer';
 import MobileBar from './MobileBar';
 import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { trackPageView } from '../utils/analytics';
 import gsap from 'gsap';
 
 export default function Layout() {
@@ -90,6 +91,11 @@ export default function Layout() {
         );
       }
     }
+  }, [location.pathname]);
+
+  // Track SPA page views for GA4 + Meta Pixel
+  useEffect(() => {
+    trackPageView(location.pathname, document.title);
   }, [location.pathname]);
 
   return (

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackBookingFormSubmit } from '../utils/analytics';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -107,6 +108,9 @@ export default function Hero() {
       return;
     }
     setIsSubmitted(true);
+
+    // Fire conversion tracking
+    trackBookingFormSubmit(adventure, arrivalDate || 'Flexible', fullName);
 
     const text = `Hi Dubai Dune Tours! My name is ${fullName}. I would like to book: "${adventure}" for date: ${arrivalDate || 'Flexible'}. Please confirm available slots!`;
     const whatsappUrl = `https://wa.me/971556015834?text=${encodeURIComponent(text)}`;
