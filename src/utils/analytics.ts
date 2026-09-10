@@ -18,8 +18,13 @@ declare global {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 const gtag = (...args: unknown[]) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag(...args);
+  if (typeof window !== 'undefined') {
+    if (window.gtag) {
+      window.gtag(...args);
+    } else if (window.dataLayer) {
+      // Fallback: push directly to dataLayer arguments queue
+      (window.dataLayer as unknown[][]).push(args);
+    }
   }
 };
 
@@ -31,11 +36,13 @@ const fbq = (...args: unknown[]) => {
 
 // ─── Page View (SPA route changes) ─────────────────────────────────────────
 export function trackPageView(path: string, title: string) {
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : `https://dubaidunetours.com${path}`;
+
   // GA4 — send page_view for SPA navigation
   gtag('event', 'page_view', {
     page_path: path,
     page_title: title,
-    page_location: `https://dubaidunetours.com${path}`,
+    page_location: currentUrl,
   });
 
   // Meta Pixel — standard PageView

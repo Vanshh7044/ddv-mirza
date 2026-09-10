@@ -31,16 +31,14 @@
     <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
     <meta name="msvalidate.01" content="PASTE_YOUR_BING_VERIFICATION_CODE_HERE" />
 
-    <!-- Google Analytics 4 (GA4) — swap G-RFXN7RJ1ED with your real Measurement ID -->
+    <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFXN7RJ1ED"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', 'G-RFXN7RJ1ED', {
-        send_page_view: false,  // We fire page_view manually for SPA route changes
-        cookie_flags: 'SameSite=None;Secure',
-      });
+      gtag('config', 'G-RFXN7RJ1ED');
       // Google Ads Conversion Linker (swap AW-XXXXXXXXXX with your Google Ads ID)
       // gtag('config', 'AW-XXXXXXXXXX');
     </script>
