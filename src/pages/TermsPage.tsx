@@ -1,18 +1,26 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import { getBreadcrumbSchema } from '../data/schemaData';
 
 export default function TermsPage() {
+  const breadcrumbs = [
+    { label: 'Home', to: '/' },
+    { label: 'Terms & Conditions' },
+  ];
+
   return (
     <>
       <SEO
         title="Terms & Conditions | Dubai Dune Tours"
         description="Terms and conditions for booking a desert safari with Dubai Dune Tours in Dubai. Read our policies on reservations, inclusions, and liabilities."
         canonical="/terms"
+        schema={getBreadcrumbSchema(breadcrumbs, '/terms')}
       />
       <PageHero
         title="Terms & Conditions"
         subtitle="Please review our terms prior to reservation"
         label="Legal"
+        breadcrumbs={breadcrumbs}
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">

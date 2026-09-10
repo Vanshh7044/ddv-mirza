@@ -2,19 +2,27 @@ import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { CheckCircle2, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink } from '../data/safariPackages';
+import { getBreadcrumbSchema } from '../data/schemaData';
 
 export default function CancellationPolicyPage() {
+  const breadcrumbs = [
+    { label: 'Home', to: '/' },
+    { label: 'Cancellation Policy' },
+  ];
+
   return (
     <>
       <SEO
         title="Cancellation & Refund Policy | Dubai Dune Tours"
         description="Dubai Dune Tours flexible cancellation and refund policy. Cancel up to 24 hours before your desert safari for a full refund."
         canonical="/cancellation-policy"
+        schema={getBreadcrumbSchema(breadcrumbs, '/cancellation-policy')}
       />
       <PageHero
         title="Cancellation Policy"
         subtitle="Flexible booking — cancel anytime up to 24 hours before"
         label="Legal"
+        breadcrumbs={breadcrumbs}
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">

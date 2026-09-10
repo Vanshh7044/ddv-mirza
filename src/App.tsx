@@ -9,7 +9,7 @@ import WhyDirect from './components/sections/WhyDirect';
 import ReviewsSection from './components/sections/ReviewsSection';
 import FaqSection, { FAQS } from './components/sections/FaqSection';
 import FinalCTA from './components/sections/FinalCTA';
-import { travelAgencySchema, getFaqSchema } from './data/schemaData';
+import { travelAgencySchema, getFaqSchema, getBreadcrumbSchema } from './data/schemaData';
 
 export default function App() {
   return (
@@ -19,7 +19,11 @@ export default function App() {
         description="Book direct with Dubai's licensed desert safari operator since 2010. Red dune bashing in Lehbab, live BBQ dinner, camel rides, quad biking & VIP Majlis. Zero advance deposit, free hotel pickup."
         canonical="/"
         ogImage="/images/dune-bashing.webp"
-        schema={[travelAgencySchema, getFaqSchema(FAQS)]}
+        schema={[
+          travelAgencySchema, 
+          getFaqSchema(FAQS),
+          getBreadcrumbSchema([{ label: 'Home', to: '/' }], '/')
+        ]}
       />
       <Hero />
       <TrustStrip />

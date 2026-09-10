@@ -1,18 +1,26 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
+import { getBreadcrumbSchema } from '../data/schemaData';
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbs = [
+    { label: 'Home', to: '/' },
+    { label: 'Privacy Policy' },
+  ];
+
   return (
     <>
       <SEO
         title="Privacy Policy | Dubai Dune Tours"
         description="Learn how Dubai Dune Tours collects, uses, and protects your personal data when you book a desert safari experience in Dubai."
         canonical="/privacy-policy"
+        schema={getBreadcrumbSchema(breadcrumbs, '/privacy-policy')}
       />
       <PageHero
         title="Privacy Policy"
         subtitle="How we handle and protect your personal information"
         label="Legal"
+        breadcrumbs={breadcrumbs}
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">

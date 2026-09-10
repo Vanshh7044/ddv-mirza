@@ -42,7 +42,7 @@ export default function PrivateCampPage() {
         canonical="/private-desert-setup"
         ogImage="/images/private-camp.webp"
         ogType="product"
-        schema={[getBreadcrumbSchema(breadcrumbs), privateCampSchema]}
+        schema={[getBreadcrumbSchema(breadcrumbs, '/private-desert-setup'), privateCampSchema]}
       />
 
       <PageHero

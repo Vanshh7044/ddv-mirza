@@ -112,15 +112,23 @@ export const getFaqSchema = (faqs: { q: string; a: string }[]) => {
   };
 };
 
-export const getBreadcrumbSchema = (crumbs: { label: string; to?: string }[]) => {
+export const getBreadcrumbSchema = (crumbs: { label: string; to?: string }[], currentCanonicalPath?: string) => {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: crumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.label,
-      item: crumb.to ? `${BASE_URL}${crumb.to}` : undefined,
-    })),
+    itemListElement: crumbs.map((crumb, index) => {
+      let itemUrl = crumb.to ? `${BASE_URL}${crumb.to.startsWith('/') ? crumb.to : `/${crumb.to}`}` : undefined;
+      if (!itemUrl && index === crumbs.length - 1 && currentCanonicalPath) {
+        itemUrl = currentCanonicalPath.startsWith('http')
+          ? currentCanonicalPath
+          : `${BASE_URL}${currentCanonicalPath.startsWith('/') ? currentCanonicalPath : `/${currentCanonicalPath}`}`;
+      }
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.label,
+        ...(itemUrl ? { item: itemUrl } : {}),
+      };
+    }),
   };
 };

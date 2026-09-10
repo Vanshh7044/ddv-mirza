@@ -41,7 +41,7 @@ export default function SelfDrivePage() {
         description="Drive your own 4WD / SUV in the high red dunes of Lehbab behind our expert guide convoy. Includes desert camp entry, shows & BBQ dinner buffet. Pay on arrival."
         canonical="/self-drive"
         ogImage="/images/dune-bashing.webp"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={getBreadcrumbSchema(breadcrumbs, '/self-drive')}
       />
       <PageHero
         dark={true}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, MessageCircle } from 'lucide-react';
+import { ChevronRight, MessageCircle, Home } from 'lucide-react';
+import { trackBreadcrumbClick } from '../utils/analytics';
 
 interface PageHeroProps {
   label?: string;
@@ -35,26 +36,33 @@ export default function PageHero({
       <div className="relative max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="w-full max-w-full flex items-center gap-1.5 overflow-x-auto pb-1 mb-3 scrollbar-none touch-pan-x">
-            {breadcrumbs.map((crumb, i) => (
-              <span key={i} className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold whitespace-nowrap">
-                {i > 0 && <ChevronRight size={12} className={dark ? 'text-slate-500 shrink-0' : 'text-slate-400 shrink-0'} />}
-                {crumb.to ? (
-                  <Link
-                    to={crumb.to}
-                    className={`hover:text-[#EA580C] transition-colors ${
-                      dark ? 'text-slate-400' : 'text-slate-600'
-                    }`}
-                  >
-                    {crumb.label}
-                  </Link>
-                ) : (
-                  <span className="text-[#EA580C] font-bold">
-                    {crumb.label}
-                  </span>
-                )}
-              </span>
-            ))}
+          <nav aria-label="Breadcrumb" className="w-full max-w-full pb-1 mb-3">
+            <ol className="flex items-center gap-1.5 overflow-x-auto scrollbar-none touch-pan-x text-[11px] sm:text-xs font-semibold">
+              {breadcrumbs.map((crumb, i) => (
+                <li key={i} className="flex items-center gap-1.5 whitespace-nowrap">
+                  {i > 0 && <ChevronRight size={12} className={dark ? 'text-slate-500 shrink-0' : 'text-slate-400 shrink-0'} />}
+                  {crumb.to ? (
+                    <Link
+                      to={crumb.to}
+                      onClick={() => trackBreadcrumbClick(crumb.label, crumb.to || '/')}
+                      className={`inline-flex items-center gap-1 hover:text-[#EA580C] transition-colors py-0.5 ${
+                        dark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-[#EA580C]'
+                      }`}
+                    >
+                      {i === 0 && <Home size={11} className="shrink-0 -mt-0.5 opacity-80" />}
+                      <span>{crumb.label}</span>
+                    </Link>
+                  ) : (
+                    <span 
+                      aria-current="page"
+                      className="text-[#EA580C] font-bold py-0.5"
+                    >
+                      {crumb.label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
           </nav>
         )}
 

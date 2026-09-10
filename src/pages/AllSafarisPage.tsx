@@ -17,7 +17,7 @@ export default function AllSafarisPage() {
         description="Compare all Dubai desert safari tiers: Evening Standard (AED 79), Premium Quad (AED 119), VIP Majlis (AED 299), Sunrise (AED 349), and Self-Drive (AED 35). Direct operator rates."
         canonical="/desert-safari"
         ogImage="/images/dune-bashing.webp"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={getBreadcrumbSchema(breadcrumbs, '/desert-safari')}
       />
       <PageHero
         dark={true}

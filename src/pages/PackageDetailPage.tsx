@@ -25,7 +25,7 @@ export default function PackageDetailPage() {
         ogImage={selectedPkg.image}
         ogType="product"
         schema={[
-          getBreadcrumbSchema(breadcrumbs),
+          getBreadcrumbSchema(breadcrumbs, `/evening-safari/${selectedPkg.slug}`),
           getTouristTripSchema(selectedPkg, canonicalUrl),
         ]}
       />

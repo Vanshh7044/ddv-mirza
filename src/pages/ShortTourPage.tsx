@@ -44,7 +44,7 @@ export default function ShortTourPage() {
         description="Book a morning dune bashing or private sunrise desert safari in Dubai. Beat the heat, enjoy sandboarding & camel riding with free hotel pickup. Pay on arrival."
         canonical="/morning-safari"
         ogImage="/images/sandboarding.webp"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={getBreadcrumbSchema(breadcrumbs, '/morning-safari')}
       />
       <PageHero
         dark={true}

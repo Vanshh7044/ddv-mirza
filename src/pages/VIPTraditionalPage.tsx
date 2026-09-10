@@ -42,7 +42,7 @@ export default function VIPTraditionalPage() {
         canonical="/vip-traditional-arabic"
         ogImage="/images/vip-majlis.webp"
         ogType="product"
-        schema={[getBreadcrumbSchema(breadcrumbs), vipSchema]}
+        schema={[getBreadcrumbSchema(breadcrumbs, '/vip-traditional-arabic'), vipSchema]}
       />
 
       <PageHero

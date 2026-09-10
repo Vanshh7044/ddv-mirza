@@ -161,3 +161,23 @@ export function trackScrollDepth(percentage: number, pagePath: string) {
     value: percentage,
   });
 }
+
+// ─── Breadcrumb Click Tracking ──────────────────────────────────────────────
+export function trackBreadcrumbClick(label: string, destination: string) {
+  gtag('event', 'breadcrumb_click', {
+    event_category: 'navigation',
+    event_label: label,
+    breadcrumb_label: label,
+    breadcrumb_destination: destination,
+  });
+}
+
+// ─── SEO Keyword Cloud Click Tracking ───────────────────────────────────────
+export function trackKeywordClick(keyword: string, destination: string) {
+  gtag('event', 'seo_keyword_click', {
+    event_category: 'seo_discovery',
+    keyword_text: keyword,
+    keyword_destination: destination,
+  });
+}
+

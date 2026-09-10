@@ -2,6 +2,17 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Check, MessageCircle, ArrowRight, ShieldCheck, Clock, MapPin, Sparkles } from 'lucide-react';
 import { SAFARI_PACKAGES, getWhatsAppLink, SafariPackage } from '../../data/safariPackages';
+import { trackKeywordClick } from '../../utils/analytics';
+
+const TRENDING_KEYWORDS = [
+  { label: '🔥 Red Dune Bashing (Lehbab)', to: '/evening-safari/red-dune' },
+  { label: '🏍️ Quad Biking & Buggy', to: '/evening-safari/premium' },
+  { label: '👑 VIP AC Majlis', to: '/vip-traditional-arabic' },
+  { label: '🌅 Sunrise Desert Tour', to: '/morning-safari' },
+  { label: '🚙 Self-Drive Convoy (AED 35)', to: '/self-drive' },
+  { label: '✨ Private Luxury Camp', to: '/private-desert-setup' },
+  { label: '💵 Pay on Arrival (AED 79)', to: '/evening-safari/standard' },
+];
 
 export default function PackageGrid() {
   const [activeTab, setActiveTab] = useState<'evening' | 'short' | 'all'>('evening');
@@ -19,7 +30,7 @@ export default function PackageGrid() {
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
           <div className="inline-flex items-center gap-1.5 bg-[#EA580C]/10 text-[#EA580C] px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-2.5">
             <Sparkles size={13} className="text-[#EA580C]" /> Direct Operator Rates · No Hidden Fees
           </div>
@@ -62,6 +73,23 @@ export default function PackageGrid() {
             >
               All Packages
             </button>
+          </div>
+
+          {/* Trending Searches Keyword Chips */}
+          <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2 mt-4 text-[11px] sm:text-xs">
+            <span className="text-[#64748B] font-semibold text-[10px] sm:text-xs uppercase tracking-wider mr-0.5">
+              Popular Searches:
+            </span>
+            {TRENDING_KEYWORDS.map((chip, idx) => (
+              <Link
+                key={idx}
+                to={chip.to}
+                onClick={() => trackKeywordClick(chip.label, chip.to)}
+                className="inline-flex items-center bg-white hover:bg-orange-50 hover:text-[#EA580C] hover:border-[#EA580C]/40 border border-sand/90 text-[#334155] px-2.5 sm:px-3 py-1 rounded-full font-medium transition-all shadow-2xs text-[10.5px] sm:text-xs"
+              >
+                {chip.label}
+              </Link>
+            ))}
           </div>
         </div>
 

@@ -19,7 +19,7 @@ export default function EveningSafariPage() {
         description="Experience Dubai's #1 evening desert safari in Lehbab high red dunes. 4x4 dune bashing, camel ride, sandboarding, 5-star live BBQ buffet & fire shows. Zero deposit."
         canonical="/evening-desert-safari"
         ogImage="/images/dune-bashing.webp"
-        schema={[getBreadcrumbSchema(breadcrumbs), getFaqSchema(FAQS)]}
+        schema={[getBreadcrumbSchema(breadcrumbs, '/evening-desert-safari'), getFaqSchema(FAQS)]}
       />
       <PageHero
         dark={true}

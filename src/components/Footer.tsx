@@ -1,7 +1,58 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, Phone, MapPin, Mail, Compass, ShieldCheck } from 'lucide-react';
+import { MessageCircle, Phone, MapPin, Mail, Compass, ShieldCheck, Tag } from 'lucide-react';
 import { getWhatsAppLink } from '../data/safariPackages';
-import { trackWhatsAppClick, trackPhoneClick, trackEmailClick } from '../utils/analytics';
+import { trackWhatsAppClick, trackPhoneClick, trackEmailClick, trackKeywordClick } from '../utils/analytics';
+
+const SEO_KEYWORD_GROUPS = [
+  {
+    category: 'Popular Safari Tours',
+    items: [
+      { label: 'Evening Desert Safari Dubai', to: '/evening-desert-safari' },
+      { label: 'Red Dune Bashing Safari', to: '/evening-safari/red-dune' },
+      { label: 'Budget Desert Safari (AED 79)', to: '/evening-safari/standard' },
+      { label: 'Morning Dune Bash & Sandboard', to: '/morning-safari' },
+      { label: 'Sunrise Desert Safari Dubai', to: '/morning-safari' },
+      { label: 'Self-Drive Convoy Safari (AED 35)', to: '/self-drive' },
+      { label: 'Private Desert Camp Setup', to: '/private-desert-setup' },
+    ],
+  },
+  {
+    category: 'Desert Adventures',
+    items: [
+      { label: 'Quad Biking Dubai (150cc / 250cc)', to: '/evening-safari/premium' },
+      { label: 'Dune Buggy Rental Lehbab', to: '/evening-safari/premium' },
+      { label: 'Sandboarding on High Red Dunes', to: '/morning-safari' },
+      { label: 'Sunset Camel Ride & Photos', to: '/evening-desert-safari' },
+      { label: 'Live BBQ Buffet & Grill', to: '/evening-safari/standard' },
+      { label: 'Fire Show & Tanoura Dance', to: '/evening-desert-safari' },
+      { label: 'Falconry Photo Session', to: '/vip-traditional-arabic' },
+    ],
+  },
+  {
+    category: 'VIP & Luxury Safaris',
+    items: [
+      { label: 'VIP Desert Safari Dubai', to: '/vip-traditional-arabic' },
+      { label: 'Air-Conditioned VIP Majlis', to: '/vip-traditional-arabic' },
+      { label: '100% Private Isolated Camp', to: '/private-desert-setup' },
+      { label: 'Private 4×4 Land Cruiser', to: '/evening-safari/vip' },
+      { label: 'Romantic Stargazing Setup', to: '/private-desert-setup' },
+      { label: 'Corporate Group Desert Safaris', to: '/contact' },
+      { label: 'Gourmet Table Service Feast', to: '/vip-traditional-arabic' },
+    ],
+  },
+  {
+    category: 'Hotel Pickups & Booking',
+    items: [
+      { label: 'Dubai Marina Desert Safari Pickup', to: '/contact' },
+      { label: 'Downtown & Business Bay Pickup', to: '/contact' },
+      { label: 'Deira & Bur Dubai Hotel Pickup', to: '/contact' },
+      { label: 'JBR & Palm Jumeirah Transfers', to: '/contact' },
+      { label: 'Pay on Arrival (Zero Deposit)', to: '/terms' },
+      { label: 'Instant WhatsApp Booking (<3 mins)', to: '/contact' },
+      { label: 'Free 24-Hour Cancellation', to: '/cancellation-policy' },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
@@ -87,6 +138,51 @@ export default function Footer() {
               <MessageCircle size={15} /> Instant WhatsApp Chat
             </a>
           </div>
+        </div>
+
+        {/* SEO Keyword Directory & Popular Searches */}
+        <div className="pt-8 pb-10 border-t border-slate-800/80">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-lg bg-[#EA580C]/15 text-[#EA580C] flex items-center justify-center">
+                <Tag size={12} />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-wider">
+                Popular Dubai Desert Safari Searches & Destinations
+              </h3>
+            </div>
+            <span className="text-[11px] text-slate-400 font-medium">
+              Direct operator booking across Dubai, Sharjah & Lehbab
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            {SEO_KEYWORD_GROUPS.map((group, gIdx) => (
+              <div key={gIdx}>
+                <div className="text-[11px] font-extrabold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#EA580C]" />
+                  <span>{group.category}</span>
+                </div>
+                <ul className="space-y-2 text-[11px] sm:text-xs">
+                  {group.items.map((kw, kIdx) => (
+                    <li key={kIdx}>
+                      <Link
+                        to={kw.to}
+                        onClick={() => trackKeywordClick(kw.label, kw.to)}
+                        className="text-slate-400 hover:text-[#EA580C] transition-colors py-0.5 inline-block"
+                      >
+                        {kw.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 pt-6 border-t border-slate-800/50 text-[11px] text-slate-400 leading-relaxed font-normal">
+            <strong className="text-slate-300">Dubai Dune Tours</strong> is a licensed direct desert safari operator registered with the Dubai Department of Economy and Tourism (DET). All tours operate with an in-house fleet of Toyota Land Cruiser 4×4 vehicles, certified desert captains, comprehensive passenger insurance, free hotel pickup across Dubai, and zero advance deposit requirement with 100% pay on arrival.
+          </p>
         </div>
 
         {/* Bottom Bar */}

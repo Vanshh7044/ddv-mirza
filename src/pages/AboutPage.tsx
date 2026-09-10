@@ -15,7 +15,7 @@ export default function AboutPage() {
         description="Learn why thousands of Dubai travelers choose Dubai Dune Tours. In-house fleet of Toyota Land Cruisers, certified drivers, and zero reseller markups."
         canonical="/about"
         ogImage="/images/dune-bashing.webp"
-        schema={getBreadcrumbSchema(breadcrumbs)}
+        schema={getBreadcrumbSchema(breadcrumbs, '/about')}
       />
       <PageHero
         dark={true}
