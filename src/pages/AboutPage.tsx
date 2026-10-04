@@ -1,6 +1,6 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, FROM_PRICE, aed } from '../data/safariPackages';
 import WhyDirect from '../components/sections/WhyDirect';
 import FinalCTA from '../components/sections/FinalCTA';
 import { getBreadcrumbSchema } from '../data/schemaData';
@@ -25,7 +25,7 @@ export default function AboutPage() {
         subtitle="Founded in 2010 to give travelers an authentic, direct-from-the-operator desert safari without third-party portal markups or hidden fees."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Book on WhatsApp', href: getWhatsAppLink('Hi! I want to book a desert safari.') }}
-        price="AED 79"
+        price={aed(FROM_PRICE)}
         priceNote="direct rate"
       />
 

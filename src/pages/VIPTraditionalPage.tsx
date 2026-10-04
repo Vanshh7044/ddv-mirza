@@ -1,11 +1,11 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { Check, Star, MessageCircle, Crown } from 'lucide-react';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 
 export default function VIPTraditionalPage() {
-  const whatsAppText = 'Hi! I want to book the VIP Traditional Arabic Safari (AED 999 for 2 adults). Please confirm availability.';
+  const whatsAppText = `Hi! I want to book the VIP Traditional Arabic Safari (${aed(PRICES.vipTraditional)} for 2 adults). Please confirm availability.`;
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'VIP Traditional' }];
 
   const vipSchema = {
@@ -17,7 +17,7 @@ export default function VIPTraditionalPage() {
     image: `${BASE_URL}/images/vip-majlis.webp`,
     offers: {
       '@type': 'Offer',
-      price: '999',
+      price: String(PRICES.vipTraditional),
       priceCurrency: 'AED',
       availability: 'https://schema.org/InStock',
       url: `${BASE_URL}/vip-traditional-arabic`,
@@ -37,7 +37,7 @@ export default function VIPTraditionalPage() {
   return (
     <>
       <SEO
-        title="VIP Traditional Arabic Desert Safari Dubai (AED 999/2 Guests) | Private Majlis"
+        title={`VIP Traditional Arabic Desert Safari Dubai (${aed(PRICES.vipTraditional)}/2 Guests) | Private Majlis`}
         description="Luxury VIP desert safari in Dubai: 100% private 4x4, personal falcon trainer session, dedicated AC VIP Majlis tent & 5-course gourmet table service dinner."
         canonical="/vip-traditional-arabic"
         ogImage="/images/vip-majlis.webp"
@@ -53,7 +53,7 @@ export default function VIPTraditionalPage() {
         subtitle="Exclusive private Land Cruiser, hands-on master falconry session, private Majlis tent, and 5-course table service Arabic feast under the stars."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Reserve on WhatsApp', href: getWhatsAppLink(whatsAppText) }}
-        price="AED 999"
+        price={aed(PRICES.vipTraditional)}
         priceNote="for 2 adults (Private 4×4)"
       />
 
@@ -153,7 +153,7 @@ export default function VIPTraditionalPage() {
                 <div className="mb-5">
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
-                      AED 999
+                      {aed(PRICES.vipTraditional)}
                     </span>
                     <span className="text-xs sm:text-sm font-semibold text-[#64748B]">/ 2 adults</span>
                   </div>

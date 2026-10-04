@@ -1,6 +1,6 @@
 import { MessageCircle, Phone, ShieldCheck } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
-import { getWhatsAppLink, SAFARI_PACKAGES } from '../data/safariPackages';
+import { getWhatsAppLink, SAFARI_PACKAGES, FROM_PRICE, aed, UNIT_LABEL } from '../data/safariPackages';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/analytics';
 
 export default function MobileBar() {
@@ -8,10 +8,13 @@ export default function MobileBar() {
 
   // Determine current page package context if any
   const currentPath = location.pathname;
-  const currentPkg = SAFARI_PACKAGES.find(p => p.detailPath === currentPath || currentPath.includes(p.slug));
+  // Some pages host several packages (e.g. morning + sunrise) — show the entry price
+  const currentPkg = SAFARI_PACKAGES
+    .filter(p => p.detailPath === currentPath)
+    .sort((a, b) => a.price - b.price)[0];
 
-  const priceText = currentPkg ? `AED ${currentPkg.price}` : 'AED 79';
-  const priceUnit = currentPkg?.tier === 'Sunrise' || currentPkg?.tier === 'Private Camp' ? '/ vehicle' : '/ person';
+  const priceText = aed(currentPkg ? currentPkg.price : FROM_PRICE);
+  const priceUnit = UNIT_LABEL[currentPkg?.priceUnit ?? 'person'];
   const whatsAppText = currentPkg 
     ? currentPkg.whatsAppText 
     : 'Hi! I want to book a Dubai desert safari on WhatsApp. Please share availability.';
@@ -52,7 +55,7 @@ export default function MobileBar() {
             href={getWhatsAppLink(whatsAppText)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('mobile_bar', currentPkg?.title, currentPkg?.price || 79)}
+            onClick={() => trackWhatsAppClick('mobile_bar', currentPkg?.title, currentPkg?.price || FROM_PRICE)}
             className="h-10 min-[360px]:h-11 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-black text-xs px-3 sm:px-4 rounded-xl shadow-lg shadow-[#EA580C]/30 flex items-center justify-center gap-1.5 transition-all whitespace-nowrap"
             aria-label="Book safari instantly via WhatsApp"
           >

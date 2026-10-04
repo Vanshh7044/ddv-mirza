@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
@@ -7,6 +7,15 @@ import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { trackPageView } from '../utils/analytics';
 import gsap from 'gsap';
+
+// Runs before paint in the browser; harmless no-op during SSR.
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
+const PageLoader = () => (
+  <div className="min-h-[70vh] flex items-center justify-center">
+    <div className="w-10 h-10 border-[3px] border-safari-orange/20 border-t-safari-orange rounded-full animate-spin" />
+  </div>
+);
 
 export default function Layout() {
   const location = useLocation();
@@ -27,9 +36,15 @@ export default function Layout() {
   // Global reveal animations
   useScrollReveal();
 
-  // Smooth loading and page transition
-  useEffect(() => {
-    // 1. Sleek top progress indicator
+  // Page transition. The first load is prerendered HTML, so it is shown as-is
+  // (animating it in would only delay the first paint). Later navigations get a
+  // short fade-up, applied before paint so the new page never flashes.
+  useIsoLayoutEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+
     if (progressBarRef.current) {
       gsap.killTweensOf(progressBarRef.current);
       gsap.fromTo(
@@ -37,7 +52,7 @@ export default function Layout() {
         { scaleX: 0, opacity: 1, transformOrigin: '0% 50%' },
         {
           scaleX: 1,
-          duration: isFirstMount.current ? 0.65 : 0.35,
+          duration: 0.35,
           ease: 'power2.out',
           onComplete: () => {
             gsap.to(progressBarRef.current, { opacity: 0, duration: 0.25 });
@@ -46,50 +61,13 @@ export default function Layout() {
       );
     }
 
-    // 2. Smooth page dissolve entrance
     if (pageContainerRef.current) {
       gsap.killTweensOf(pageContainerRef.current);
-
-      if (isFirstMount.current) {
-        // Initial website load smooth transition for the client
-        gsap.fromTo(
-          pageContainerRef.current,
-          {
-            opacity: 0,
-            filter: 'blur(8px)',
-            y: 8,
-          },
-          {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0,
-            duration: 0.65,
-            ease: 'power2.out',
-            clearProps: 'filter,transform',
-          }
-        );
-        isFirstMount.current = false;
-      } else {
-        // Subsequent route change smooth transition
-        gsap.fromTo(
-          pageContainerRef.current,
-          {
-            opacity: 0,
-            filter: 'blur(10px)',
-            y: 8,
-            scale: 0.998,
-          },
-          {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0,
-            scale: 1,
-            duration: 0.4,
-            ease: 'power2.out',
-            clearProps: 'filter,transform',
-          }
-        );
-      }
+      gsap.fromTo(
+        pageContainerRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out', clearProps: 'opacity,transform' }
+      );
     }
   }, [location.pathname]);
 
@@ -101,14 +79,16 @@ export default function Layout() {
   return (
     <div className="bg-[#F7F5F0] min-h-screen relative selection:bg-safari-orange selection:text-white w-full max-w-full overflow-x-clip">
       {/* Top Accent / Route Progress Bar */}
-      <div 
+      <div
         ref={progressBarRef}
         className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-safari-orange via-amber-400 to-safari-orange z-[9999] pointer-events-none opacity-0 shadow-[0_0_12px_#D96B27]"
       />
 
       <Nav />
-      <main ref={pageContainerRef} className="w-full max-w-full page-smooth-entrance">
-        <Outlet />
+      <main ref={pageContainerRef} className="w-full max-w-full">
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
       <MobileBar />

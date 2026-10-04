@@ -1,52 +1,55 @@
-import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from './components/Layout';
-import App from './App';
+import { createElement, type ComponentType } from 'react';
+import { createBrowserRouter, matchRoutes } from 'react-router-dom';
+import { buildRoutes } from './routes';
 
-const AllSafarisPage = lazy(() => import('./pages/AllSafarisPage'));
-const EveningSafariPage = lazy(() => import('./pages/EveningSafariPage'));
-const PackageDetailPage = lazy(() => import('./pages/PackageDetailPage'));
-const ShortTourPage = lazy(() => import('./pages/ShortTourPage'));
-const SelfDrivePage = lazy(() => import('./pages/SelfDrivePage'));
-const VIPTraditionalPage = lazy(() => import('./pages/VIPTraditionalPage'));
-const PrivateCampPage = lazy(() => import('./pages/PrivateCampPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
-const TermsPage = lazy(() => import('./pages/TermsPage'));
-const CancellationPolicyPage = lazy(() => import('./pages/CancellationPolicyPage'));
+type PageModule = { default: ComponentType };
+type PreloadablePage = ComponentType & { preload: () => Promise<void> };
 
-// Fallback loader for smooth route transition
-const PageLoader = () => (
-  <div className="min-h-[70vh] flex items-center justify-center">
-    <div className="w-10 h-10 border-3 border-safari-orange/20 border-t-safari-orange rounded-full animate-spin" />
-  </div>
-);
+const loaders = import.meta.glob<PageModule>('./pages/*.tsx');
+const pages = new Map<string, PreloadablePage>();
 
-const withSuspense = (Component: React.ComponentType) => (
-  <Suspense fallback={<PageLoader />}>
-    <Component />
-  </Suspense>
-);
+/**
+ * Like React.lazy, but once the chunk is loaded it renders synchronously.
+ * That lets main.tsx preload the current page before hydrating, so the
+ * prerendered HTML hydrates without ever suspending (no mismatch, no spinner).
+ */
+function lazyPage(name: string): PreloadablePage {
+  const cached = pages.get(name);
+  if (cached) return cached;
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      { index: true, element: <App /> },
-      { path: 'desert-safari', element: withSuspense(AllSafarisPage) },
-      { path: 'evening-desert-safari', element: withSuspense(EveningSafariPage) },
-      { path: 'evening-safari/:tier', element: withSuspense(PackageDetailPage) },
-      { path: 'morning-safari', element: withSuspense(ShortTourPage) },
-      { path: 'self-drive', element: withSuspense(SelfDrivePage) },
-      { path: 'vip-traditional-arabic', element: withSuspense(VIPTraditionalPage) },
-      { path: 'private-desert-setup', element: withSuspense(PrivateCampPage) },
-      { path: 'about', element: withSuspense(AboutPage) },
-      { path: 'contact', element: withSuspense(ContactPage) },
-      { path: 'privacy-policy', element: withSuspense(PrivacyPolicyPage) },
-      { path: 'terms', element: withSuspense(TermsPage) },
-      { path: 'cancellation-policy', element: withSuspense(CancellationPolicyPage) },
-    ],
-  },
-]);
+  const loader = loaders[`./pages/${name}.tsx`];
+  let Loaded: ComponentType | null = null;
+  let pending: Promise<void> | null = null;
+  const preload = () =>
+    (pending ??= loader().then((m) => {
+      Loaded = m.default;
+    }));
+
+  const Page = (() => {
+    if (Loaded) return createElement(Loaded);
+    throw preload();
+  }) as unknown as PreloadablePage;
+  Page.preload = preload;
+  pages.set(name, Page);
+  return Page;
+}
+
+const routes = buildRoutes(lazyPage);
+
+export const router = createBrowserRouter(routes);
+
+/** Load the page chunk(s) for a URL. Used before hydration and on link hover. */
+export const preloadPath = (pathname: string) => {
+  const matches = matchRoutes(routes, pathname) ?? [];
+  return Promise.all(
+    matches.map((m) => {
+      const type = (m.route.element as { type?: Partial<PreloadablePage> } | undefined)?.type;
+      return type?.preload?.();
+    })
+  );
+};
+
+/** Warm every page chunk once the browser is idle so navigation is instant. */
+export const preloadAllPages = () => {
+  pages.forEach((p) => p.preload().catch(() => {}));
+};

@@ -2,13 +2,16 @@ import { useParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { Check, Star, Clock, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
-import { SAFARI_PACKAGES, getWhatsAppLink } from '../data/safariPackages';
+import { EVENING_TIERS, getWhatsAppLink, aed, UNIT_LABEL } from '../data/safariPackages';
 import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/schemaData';
+import { trackWhatsAppClick } from '../utils/analytics';
+import NotFoundPage from './NotFoundPage';
 
 export default function PackageDetailPage() {
   const { tier } = useParams<{ tier: string }>();
 
-  const selectedPkg = SAFARI_PACKAGES.find((p) => p.slug === tier) || SAFARI_PACKAGES[0];
+  const selectedPkg = EVENING_TIERS.find((p) => p.slug === tier);
+  if (!selectedPkg) return <NotFoundPage />;
   const canonicalUrl = `${BASE_URL}/evening-safari/${selectedPkg.slug}`;
   const breadcrumbs = [
     { label: 'Home', to: '/' },
@@ -19,7 +22,7 @@ export default function PackageDetailPage() {
   return (
     <>
       <SEO
-        title={`${selectedPkg.title} Dubai (AED ${selectedPkg.price}) | Direct Operator Safari`}
+        title={`${selectedPkg.title} Dubai (${aed(selectedPkg.price)}) | Direct Operator Safari`}
         description={`${selectedPkg.tagline} Inclusions: ${selectedPkg.includes.slice(0, 4).join(', ')}. Free hotel pickup in Dubai, zero deposit & pay on arrival.`}
         canonical={`/evening-safari/${selectedPkg.slug}`}
         ogImage={selectedPkg.image}
@@ -37,8 +40,8 @@ export default function PackageDetailPage() {
         subtitle={selectedPkg.tagline}
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Instant WhatsApp Booking', href: getWhatsAppLink(selectedPkg.whatsAppText) }}
-        price={`AED ${selectedPkg.price}`}
-        priceNote="per person (No deposit)"
+        price={aed(selectedPkg.price)}
+        priceNote={`${UNIT_LABEL[selectedPkg.priceUnit].slice(2)} (No deposit)`}
       />
 
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
@@ -151,19 +154,19 @@ export default function PackageDetailPage() {
                   </span>
                   <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
                     <Star size={13} className="fill-amber-500" />
-                    <span>4.9 (401+ reviews)</span>
+                    <span>{selectedPkg.rating} ({selectedPkg.reviewsCount}+ reviews)</span>
                   </div>
                 </div>
 
                 <div className="mb-5">
                   <div className="text-xs text-[#94A3B8] line-through font-bold">
-                    AED {selectedPkg.originalPrice}
+                    {aed(selectedPkg.originalPrice)}
                   </div>
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
-                      AED {selectedPkg.price}
+                      {aed(selectedPkg.price)}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#64748B]">/ person</span>
+                    <span className="text-xs sm:text-sm font-semibold text-[#64748B]">{UNIT_LABEL[selectedPkg.priceUnit]}</span>
                   </div>
                   <div className="text-xs text-emerald-600 font-bold mt-1">
                     ✓ Free Hotel Pickup & Drop-off Included
@@ -186,6 +189,7 @@ export default function PackageDetailPage() {
                   href={getWhatsAppLink(selectedPkg.whatsAppText)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('detail_widget', selectedPkg.title, selectedPkg.price)}
                   className="w-full flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#EA580C]/30 transition-all h-[48px]"
                 >
                   <MessageCircle size={18} />

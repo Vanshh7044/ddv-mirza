@@ -4,7 +4,7 @@ import PackageGrid from '../components/sections/PackageGrid';
 import VIPSection from '../components/sections/VIPSection';
 import WhyDirect from '../components/sections/WhyDirect';
 import FinalCTA from '../components/sections/FinalCTA';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, FROM_PRICE, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema } from '../data/schemaData';
 
 export default function AllSafarisPage() {
@@ -13,8 +13,8 @@ export default function AllSafarisPage() {
   return (
     <>
       <SEO
-        title="Compare All Dubai Desert Safari Packages & Rates (AED 35–2,299)"
-        description="Compare all Dubai desert safari tiers: Evening Standard (AED 79), Premium Quad (AED 119), VIP Majlis (AED 299), Sunrise (AED 349), and Self-Drive (AED 35). Direct operator rates."
+        title={`Compare All Dubai Desert Safaris & City Tours (${aed(PRICES.selfDrive)}–${aed(PRICES.privateCamp).slice(4)})`}
+        description={`Compare all Dubai desert safari tiers: Evening Standard (${aed(PRICES.eveningStandard)}), Premium Quad (${aed(PRICES.eveningPremium)}), VIP Majlis (${aed(PRICES.eveningVip)}), Sunrise (${aed(PRICES.sunrise)}), Self-Drive (${aed(PRICES.selfDrive)}) plus Dubai & Abu Dhabi city tours. Direct operator rates.`}
         canonical="/desert-safari"
         ogImage="/images/dune-bashing.webp"
         schema={getBreadcrumbSchema(breadcrumbs, '/desert-safari')}
@@ -27,10 +27,10 @@ export default function AllSafarisPage() {
         subtitle="From budget-friendly self-drives to luxury VIP Majlis experiences. Pick your package, book directly on WhatsApp, and pay on the day of the tour."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'WhatsApp Inquiry', href: getWhatsAppLink('Hi! I would like help picking the best safari package.') }}
-        price="AED 79"
+        price={aed(FROM_PRICE)}
         priceNote="per person"
       />
-      <PackageGrid />
+      <PackageGrid initialTab="all" />
       <VIPSection />
       <WhyDirect />
       <FinalCTA />

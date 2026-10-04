@@ -1,7 +1,7 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { Check, MessageCircle } from 'lucide-react';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema } from '../data/schemaData';
 
 const TOURS = [
@@ -9,7 +9,7 @@ const TOURS = [
     type: 'Sunrise Desert Safari',
     time: '05:00 AM – 09:30 AM',
     desc: 'Chase the dawn light before the desert awakens. Total solitude on red dunes with hot Arabic breakfast.',
-    price: '349',
+    price: PRICES.sunrise,
     unit: '/ private vehicle (Up to 6 guests)',
     image: '/images/camel-sunset.webp',
     includes: ['Private 4×4 Land Cruiser', 'Sunrise dune bashing', 'Sandboarding', 'Hot Arabic coffee & breakfast', 'Free hotel pickup'],
@@ -18,7 +18,7 @@ const TOURS = [
     type: 'Morning Dune Bash & Sandboard',
     time: '08:00 AM – 12:00 PM',
     desc: 'Action-packed morning adventure in Lehbab red dunes before the afternoon heat. Back for lunch.',
-    price: '130',
+    price: PRICES.morning,
     unit: '/ person',
     image: '/images/sandboarding.webp',
     includes: ['4×4 Land Cruiser dune bashing', 'Dune sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
@@ -27,7 +27,7 @@ const TOURS = [
     type: 'Evening Express Safari',
     time: '03:30 PM – 07:30 PM',
     desc: 'Condensed private evening tour — dune bashing, sunset photo stop, and camel ride without the camp show.',
-    price: '349',
+    price: PRICES.eveningExpress,
     unit: '/ private vehicle (Up to 6 guests)',
     image: '/images/dune-bashing.webp',
     includes: ['Private 4×4 Land Cruiser', 'Sunset dune bashing', 'Sandboarding', 'Scenic photography stops', 'Free hotel pickup'],
@@ -40,7 +40,7 @@ export default function ShortTourPage() {
   return (
     <>
       <SEO
-        title="Morning & Sunrise Desert Safari Dubai (From AED 130) | Dune Bashing"
+        title={`Morning & Sunrise Desert Safari Dubai (From ${aed(PRICES.morning)}) | Dune Bashing`}
         description="Book a morning dune bashing or private sunrise desert safari in Dubai. Beat the heat, enjoy sandboarding & camel riding with free hotel pickup. Pay on arrival."
         canonical="/morning-safari"
         ogImage="/images/sandboarding.webp"
@@ -54,7 +54,7 @@ export default function ShortTourPage() {
         subtitle="Private vehicles, flexible stops, and zero shared buses. Experience the untouched morning dunes with free hotel pickup."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'WhatsApp Instant Booking', href: getWhatsAppLink('Hi! I would like to book a Morning / Sunrise Safari.') }}
-        price="AED 130"
+        price={aed(PRICES.morning)}
         priceNote="per person"
       />
 
@@ -96,12 +96,12 @@ export default function ShortTourPage() {
 
                   <div className="flex items-center justify-between gap-2.5 pt-2">
                     <div>
-                      <div className="text-xl sm:text-2xl font-black text-[#0F172A]">AED {tour.price}</div>
+                      <div className="text-xl sm:text-2xl font-black text-[#0F172A]">{aed(tour.price)}</div>
                       <div className="text-[10px] sm:text-[11px] font-semibold text-[#64748B]">{tour.unit}</div>
                     </div>
 
                     <a
-                      href={getWhatsAppLink(`Hi! I want to book the ${tour.type} (AED ${tour.price}). Please confirm available dates.`)}
+                      href={getWhatsAppLink(`Hi! I want to book the ${tour.type} (${aed(tour.price)}). Please confirm available dates.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-md transition-all h-[44px]"

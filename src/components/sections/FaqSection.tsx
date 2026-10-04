@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus, MessageCircle, HelpCircle } from 'lucide-react';
-import { getWhatsAppLink } from '../../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
 
 export const FAQS = [
   {
@@ -13,7 +13,7 @@ export const FAQS = [
   },
   {
     q: 'What is the difference between Standard, Premium, and VIP?',
-    a: 'Standard (AED 79) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (AED 119) adds a smaller group size, quad biking, and reserved VIP table seating. VIP (AED 299) gives you a 100% private 4x4, private majlis tent, waiter table service, and falconry session.',
+    a: `Standard (${aed(PRICES.eveningStandard)}) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (${aed(PRICES.eveningPremium)}) adds a smaller group size, quad biking, and reserved VIP table seating. VIP (${aed(PRICES.eveningVip)}) gives you a 100% private 4x4, private majlis tent, waiter table service, and falconry session.`,
   },
   {
     q: 'What is your cancellation policy?',

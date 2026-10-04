@@ -78,23 +78,23 @@
   .tear-line::after { right: -7px; }
   .reveal { @apply opacity-0 translate-y-6 transition-all duration-700 ease-out; }
   .reveal.in { @apply opacity-100 translate-y-0; }
-  .page-smooth-entrance {
-    animation: pageSmoothFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: opacity, transform, filter;
-  }
+  /* Dropdown / drawer entrance */
+  .nav-pop { animation: navPop 0.18s cubic-bezier(0.16, 1, 0.3, 1); }
+  .nav-fade { animation: navFade 0.2s ease-out; }
 }
 
-@keyframes pageSmoothFadeIn {
-  0% {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(8px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0);
-  }
+@keyframes navPop {
+  from { opacity: 0; transform: translate(-50%, -6px) scale(0.98); }
+  to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+@keyframes navFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pop, .nav-fade, .marquee-track { animation: none; }
+  .reveal { transition: none; }
 }
 
 @layer utilities {

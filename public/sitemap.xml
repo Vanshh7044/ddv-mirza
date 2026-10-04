@@ -116,4 +116,36 @@
     <priority>0.4</priority>
   </url>
 
+
+  <!-- City Tours & Cruises -->
+  <url>
+    <loc>https://dubaidunetours.com/city-tours</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dubaidunetours.com/tours/dubai-city-tour</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubaidunetours.com/tours/abu-dhabi-city-tour</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubaidunetours.com/tours/dhow-cruise-dubai-marina</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dubaidunetours.com/tours/dubai-city-tour-desert-safari-combo</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

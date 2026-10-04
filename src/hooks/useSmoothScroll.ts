@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 // Singleton lenis instance so the ticker is never duplicated
 let lenisInstance: Lenis | null = null;
@@ -56,13 +58,15 @@ export const useSmoothScroll = () => {
 export const useScrollReset = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    // Immediately snap to top
-    window.scrollTo({ top: 0, behavior: 'instant' });
-
-    // If Lenis is active, also tell it to jump to top
-    if (lenisInstance) {
-      lenisInstance.scrollTo(0, { immediate: true });
+  // Layout effect: jump before the new page paints, so it never flashes at the old scroll position
+  useIsoLayoutEffect(() => {
+    const target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+    if (target) {
+      if (lenisInstance) lenisInstance.scrollTo(target, { offset: -80 });
+      else target.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      lenisInstance?.scrollTo(0, { immediate: true });
     }
 
     // Refresh ScrollTrigger calculations after DOM paint
@@ -71,5 +75,5 @@ export const useScrollReset = () => {
     }, 80);
 
     return () => clearTimeout(timer);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 };

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle, Phone, MapPin, Mail, Compass, ShieldCheck, Tag } from 'lucide-react';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { trackWhatsAppClick, trackPhoneClick, trackEmailClick, trackKeywordClick } from '../utils/analytics';
 
 const SEO_KEYWORD_GROUPS = [
@@ -8,11 +8,11 @@ const SEO_KEYWORD_GROUPS = [
     category: 'Popular Safari Tours',
     items: [
       { label: 'Evening Desert Safari Dubai', to: '/evening-desert-safari' },
-      { label: 'Red Dune Bashing Safari', to: '/evening-safari/red-dune' },
-      { label: 'Budget Desert Safari (AED 79)', to: '/evening-safari/standard' },
+      { label: 'Red Dune Bashing Safari', to: '/evening-safari/standard' },
+      { label: `Budget Desert Safari (${aed(PRICES.eveningStandard)})`, to: '/evening-safari/standard' },
       { label: 'Morning Dune Bash & Sandboard', to: '/morning-safari' },
       { label: 'Sunrise Desert Safari Dubai', to: '/morning-safari' },
-      { label: 'Self-Drive Convoy Safari (AED 35)', to: '/self-drive' },
+      { label: `Self-Drive Convoy Safari (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
       { label: 'Private Desert Camp Setup', to: '/private-desert-setup' },
     ],
   },
@@ -86,12 +86,15 @@ export default function Footer() {
               Safari Packages
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/evening-safari/standard" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Standard (AED 79)</Link>
-              <Link to="/evening-safari/premium" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Premium + Quad (AED 119)</Link>
-              <Link to="/evening-safari/vip" className="hover:text-[#EA580C] transition-colors py-0.5">Evening VIP + Majlis (AED 299)</Link>
-              <Link to="/morning-safari" className="hover:text-[#EA580C] transition-colors py-0.5">Sunrise Desert Safari (AED 349)</Link>
-              <Link to="/self-drive" className="hover:text-[#EA580C] transition-colors py-0.5">Self-Drive Convoy (AED 35)</Link>
-              <Link to="/vip-traditional-arabic" className="hover:text-[#EA580C] transition-colors py-0.5">VIP Traditional Arabic (AED 999)</Link>
+              <Link to="/evening-safari/standard" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
+              <Link to="/evening-safari/premium" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Premium + Quad ({aed(PRICES.eveningPremium)})</Link>
+              <Link to="/evening-safari/vip" className="hover:text-[#EA580C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
+              <Link to="/morning-safari" className="hover:text-[#EA580C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
+              <Link to="/self-drive" className="hover:text-[#EA580C] transition-colors py-0.5">Self-Drive Convoy ({aed(PRICES.selfDrive)})</Link>
+              <Link to="/vip-traditional-arabic" className="hover:text-[#EA580C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
+              <Link to="/tours/dubai-city-tour" className="hover:text-[#EA580C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
+              <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#EA580C] transition-colors py-0.5">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
+              <Link to="/tours/dhow-cruise-dubai-marina" className="hover:text-[#EA580C] transition-colors py-0.5">Marina Dhow Cruise ({aed(PRICES.dhowCruise)})</Link>
               <Link to="/private-desert-setup" className="hover:text-[#EA580C] transition-colors py-0.5">Private Desert Camp Setup</Link>
             </div>
           </div>

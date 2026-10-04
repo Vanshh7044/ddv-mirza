@@ -1,5 +1,5 @@
 import { Clock, MessageCircle } from 'lucide-react';
-import { getWhatsAppLink } from '../../data/safariPackages';
+import { getWhatsAppLink, FROM_PRICE, aed } from '../../data/safariPackages';
 
 const ITINERARY_STEPS = [
   {
@@ -104,7 +104,7 @@ export default function VisualItinerary() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-[#EA580C]/20 transition-all h-[48px]"
           >
             <MessageCircle size={17} />
-            <span>Book This Itinerary on WhatsApp (AED 79)</span>
+            <span>Book This Itinerary on WhatsApp ({aed(FROM_PRICE)})</span>
           </a>
         </div>
 

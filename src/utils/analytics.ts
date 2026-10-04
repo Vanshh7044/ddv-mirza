@@ -1,3 +1,4 @@
+import { FROM_PRICE, PRICES } from '../data/safariPackages';
 /**
  * Dubai Dune Tours — Analytics & Conversion Tracking
  * 
@@ -62,7 +63,7 @@ export function trackWhatsAppClick(source: string, packageName?: string, price?:
 
   // GA4 — also fire as generate_lead (standard event for Google Ads conversion tracking)
   gtag('event', 'generate_lead', {
-    value: price || 79,
+    value: price || FROM_PRICE,
     currency: 'AED',
     event_label: packageName || 'whatsapp_booking',
   });
@@ -71,7 +72,7 @@ export function trackWhatsAppClick(source: string, packageName?: string, price?:
   fbq('track', 'Lead', {
     content_name: packageName || 'General Safari Inquiry',
     content_category: 'Desert Safari',
-    value: price || 79,
+    value: price || FROM_PRICE,
     currency: 'AED',
     source: source,
   });
@@ -112,7 +113,7 @@ export function trackBookingFormSubmit(packageName: string, date: string, custom
   });
 
   gtag('event', 'generate_lead', {
-    value: 119,
+    value: PRICES.eveningPremium,
     currency: 'AED',
     event_label: 'booking_form',
   });

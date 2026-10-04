@@ -1,17 +1,17 @@
 import { Check, MessageCircle, Crown, Sparkles } from 'lucide-react';
-import { getWhatsAppLink } from '../../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
 
 export default function VIPSection() {
   const vipExperiences = [
     {
       title: 'VIP Traditional Arabic Safari',
       subtitle: 'Hands-on falcon training, private Majlis tent, and 5-course gourmet dinner.',
-      price: 'AED 999',
+      price: aed(PRICES.vipTraditional),
       unit: '/ 2 adults (Private)',
       image: '/images/vip-majlis.webp',
       badge: 'POPULAR VIP',
       link: '/vip-traditional-arabic',
-      whatsAppText: 'Hi! I want to book the VIP Traditional Arabic Safari (AED 999 for 2 adults). Please confirm date.',
+      whatsAppText: `Hi! I want to book the VIP Traditional Arabic Safari (${aed(PRICES.vipTraditional)} for 2 adults). Please confirm date.`,
       highlights: [
         'Private Land Cruiser for your party only',
         'Hands-on falcon training session',
@@ -24,12 +24,12 @@ export default function VIPSection() {
     {
       title: 'Private Desert Camp Setup',
       subtitle: 'Secluded private dune, personal chef, romantic lighting. Zero other tourists.',
-      price: 'AED 2,299',
+      price: aed(PRICES.privateCamp),
       unit: '/ group (Up to 8 guests)',
       image: '/images/private-camp.webp',
       badge: '100% EXCLUSIVE',
       link: '/private-desert-setup',
-      whatsAppText: 'Hi! I am inquiring about booking the 100% Private Desert Camp Setup (AED 2,299).',
+      whatsAppText: `Hi! I am inquiring about booking the 100% Private Desert Camp Setup (${aed(PRICES.privateCamp)}).`,
       highlights: [
         'Entire private camp on an isolated dune',
         'Dedicated private chef & customized menu',

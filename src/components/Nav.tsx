@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone, MessageCircle, Compass, ArrowRight, ShieldCheck } from 'lucide-react';
-import gsap from 'gsap';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/analytics';
 
 const desertSafariMenu = [
@@ -10,26 +9,46 @@ const desertSafariMenu = [
     heading: 'Evening Safari (Most Popular)',
     items: [
       { label: 'All Evening Packages', sub: 'Compare Standard / Premium / VIP', href: '/evening-desert-safari' },
-      { label: 'Standard Package (AED 79)', sub: 'Dune Bashing, BBQ & Shows', href: '/evening-safari/standard' },
-      { label: 'Premium Package (AED 119)', sub: 'Quad Bike + VIP Seating', href: '/evening-safari/premium' },
-      { label: 'VIP Experience (AED 299)', sub: 'Private 4×4 & Majlis Tent', href: '/evening-safari/vip' },
+      { label: `Standard Package (${aed(PRICES.eveningStandard)})`, sub: 'Dune Bashing, BBQ & Shows', href: '/evening-safari/standard' },
+      { label: `Premium Package (${aed(PRICES.eveningPremium)})`, sub: 'Quad Bike + VIP Seating', href: '/evening-safari/premium' },
+      { label: `VIP Experience (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & Majlis Tent', href: '/evening-safari/vip' },
     ],
   },
   {
     heading: 'Morning & Self-Drive',
     items: [
-      { label: 'Sunrise Safari (AED 349)', sub: 'Private Land Cruiser at dawn', href: '/morning-safari' },
-      { label: 'Morning Safari (AED 130)', sub: 'Dune Bashing & Sandboarding', href: '/morning-safari' },
-      { label: 'Self-Drive Convoy (AED 35)', sub: 'Drive your own 4×4 in dunes', href: '/self-drive' },
+      { label: `Sunrise Safari (${aed(PRICES.sunrise)})`, sub: 'Private Land Cruiser at dawn', href: '/morning-safari' },
+      { label: `Morning Safari (${aed(PRICES.morning)})`, sub: 'Dune Bashing & Sandboarding', href: '/morning-safari' },
+      { label: `Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4 in dunes', href: '/self-drive' },
     ],
   },
   {
     heading: 'VIP & Private Setups',
     items: [
-      { label: 'VIP Traditional Arabic', sub: 'AED 999 / 2 adults · Falcon & Majlis', href: '/vip-traditional-arabic' },
-      { label: 'Private Desert Camp Setup', sub: 'From AED 2,299 · Custom Private Camp', href: '/private-desert-setup' },
+      { label: 'VIP Traditional Arabic', sub: `${aed(PRICES.vipTraditional)} / 2 adults · Falcon & Majlis`, href: '/vip-traditional-arabic' },
+      { label: 'Private Desert Camp Setup', sub: `From ${aed(PRICES.privateCamp)} · Custom Private Camp`, href: '/private-desert-setup' },
     ],
   },
+  {
+    heading: 'City Tours & Cruises',
+    items: [
+      { label: `Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, sub: 'Souks, Creek abra & landmarks', href: '/tours/dubai-city-tour' },
+      { label: `Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)})`, sub: 'Grand Mosque & Corniche', href: '/tours/abu-dhabi-city-tour' },
+      { label: `Marina Dhow Cruise (${aed(PRICES.dhowCruise)})`, sub: 'Dinner cruise with transfers', href: '/tours/dhow-cruise-dubai-marina' },
+      { label: `City + Safari Combo (${aed(PRICES.cityTourSafariCombo)})`, sub: 'Full day, best value', href: '/tours/dubai-city-tour-desert-safari-combo' },
+    ],
+  },
+];
+
+const mobileMenuItems = [
+  { label: `⭐ Evening Standard (${aed(PRICES.eveningStandard)})`, sub: 'Dune Bashing, BBQ & Shows', to: '/evening-safari/standard' },
+  { label: `🔥 Evening Premium + Quad (${aed(PRICES.eveningPremium)})`, sub: 'Quad Bike + VIP Seating', to: '/evening-safari/premium' },
+  { label: `👑 Evening VIP Majlis (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
+  { label: `🌅 Sunrise Desert Safari (${aed(PRICES.sunrise)})`, sub: 'Private dawn tour', to: '/morning-safari' },
+  { label: `🏎️ Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4', to: '/self-drive' },
+  { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
+  { label: '🏙️ City Tours & Dhow Cruise', sub: `Dubai, Abu Dhabi & Marina · from ${aed(PRICES.dubaiCityTour)}`, to: '/city-tours' },
+  { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
 ];
 
 export default function Nav() {
@@ -45,12 +64,17 @@ export default function Nav() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 25);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    if (navRef.current) {
-      gsap.fromTo(navRef.current, { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' });
-    }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Inner pages open on a dark hero, so the unscrolled transparent bar needs light text.
+  const onDark = location.pathname !== '/' && !scrolled;
+  const linkCls = onDark
+    ? 'text-white/85 hover:text-white hover:bg-white/10'
+    : 'text-[#334155] hover:bg-slate-100';
+  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   // Close menus on route change
   useEffect(() => {
@@ -106,12 +130,12 @@ export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       {/* Top utility bar — desktop only */}
-      <div className={`hidden lg:flex items-center justify-end gap-6 px-10 py-1.5 text-xs font-bold text-slate-700 transition-all duration-300 ${scrolled ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100'}`}>
-        <a href="tel:+971556015834" className="flex items-center gap-1.5 hover:text-[#EA580C] transition-colors pointer-events-auto">
+      <div className={`hidden lg:flex items-center justify-end gap-6 px-10 py-1.5 text-xs font-bold transition-all duration-300 ${onDark ? 'text-white/80' : 'text-slate-700'} ${scrolled ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100'}`}>
+        <a href="tel:+971556015834" onClick={() => trackPhoneClick('nav_utility')} className="flex items-center gap-1.5 hover:text-[#EA580C] transition-colors pointer-events-auto">
           <Phone size={13} className="text-[#EA580C]" /> +971 55 601 5834
         </a>
-        <span className="text-slate-300">·</span>
-        <span className="text-slate-600 uppercase tracking-wider">DET Licensed Operator · Since 2010</span>
+        <span className={onDark ? 'text-white/30' : 'text-slate-300'}>·</span>
+        <span className={`uppercase tracking-wider ${onDark ? 'text-white/60' : 'text-slate-600'}`}>DET Licensed Operator · Since 2010</span>
       </div>
 
       {/* Main Navbar Bar */}
@@ -130,7 +154,7 @@ export default function Nav() {
               <Compass className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform duration-300" />
             </div>
             <div className="min-w-0">
-              <div className="text-xs min-[360px]:text-sm sm:text-lg md:text-xl font-black tracking-tight text-[#0F172A] leading-tight truncate max-w-[140px] min-[360px]:max-w-[185px] sm:max-w-none">
+              <div className={`text-xs min-[360px]:text-sm sm:text-lg md:text-xl font-black tracking-tight leading-tight truncate max-w-[140px] min-[360px]:max-w-[185px] sm:max-w-none transition-colors ${onDark ? 'text-white' : 'text-[#0F172A]'}`}>
                 Dubai Dune Tours
               </div>
               <div className="text-[9px] sm:text-[10px] font-extrabold tracking-wider text-[#EA580C] uppercase leading-none truncate">
@@ -141,7 +165,7 @@ export default function Nav() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1 relative" ref={megaRef}>
-            <Link to="/" className="px-4 py-2 text-sm font-bold text-[#0F172A] rounded-xl hover:bg-slate-100 transition-colors">
+            <Link to="/" className={`px-4 py-2 text-sm font-bold rounded-xl transition-colors ${linkCls}`}>
               Home
             </Link>
 
@@ -149,7 +173,7 @@ export default function Nav() {
             <button
               onClick={() => setMegaMenuOpen(!megaMenuOpen)}
               className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
-                megaMenuOpen ? 'text-[#EA580C] bg-[#EA580C]/10' : 'text-[#334155] hover:bg-slate-100'
+                megaMenuOpen ? 'text-[#EA580C] bg-[#EA580C]/10' : linkCls
               }`}
               aria-expanded={megaMenuOpen}
             >
@@ -157,20 +181,27 @@ export default function Nav() {
               <ChevronDown size={15} className={`transition-transform duration-200 ${megaMenuOpen ? 'rotate-180 text-[#EA580C]' : ''}`} />
             </button>
 
-            <Link to="/about" className="px-4 py-2 text-sm font-bold text-[#334155] rounded-xl hover:bg-slate-100 transition-colors">
-              About Us
-            </Link>
-            <Link to="/#itinerary" className="px-4 py-2 text-sm font-bold text-[#334155] rounded-xl hover:bg-slate-100 transition-colors">
-              Itinerary
-            </Link>
-            <Link to="/contact" className="px-4 py-2 text-sm font-bold text-[#334155] rounded-xl hover:bg-slate-100 transition-colors">
-              Contact
-            </Link>
+            {[
+              { to: '/city-tours', label: 'City Tours' },
+              { to: '/about', label: 'About Us' },
+              { to: '/contact', label: 'Contact' },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                aria-current={isActive(l.to) ? 'page' : undefined}
+                className={`px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
+                  isActive(l.to) ? 'text-[#EA580C]' : linkCls
+                }`}
+              >
+                {l.label}
+              </Link>
+            ))}
 
             {/* Mega Menu Dropdown */}
             {megaMenuOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[740px] bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 pointer-events-auto animate-in fade-in zoom-in-95 duration-200">
-                <div className="grid grid-cols-3 gap-6">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[960px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-3xl shadow-2xl p-6 pointer-events-auto nav-pop">
+                <div className="grid grid-cols-4 gap-6">
                   {desertSafariMenu.map((group) => (
                     <div key={group.heading}>
                       <div className="text-xs font-black text-[#EA580C] uppercase tracking-wider mb-3 pb-2 border-b border-slate-100">
@@ -219,6 +250,7 @@ export default function Nav() {
               href={getWhatsAppLink('Hi! I want to book a desert safari with Dubai Dune Tours.')}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('nav_desktop', undefined, undefined)}
               className="hidden sm:inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 hover:scale-105 active:scale-95"
             >
               <MessageCircle size={16} />
@@ -250,7 +282,7 @@ export default function Nav() {
       {/* Mobile Full-Screen Drawer Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-md pointer-events-auto flex flex-col justify-end sm:justify-center p-2.5 sm:p-4 animate-in fade-in duration-200"
+          className="lg:hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-md pointer-events-auto flex flex-col justify-end sm:justify-center p-2.5 sm:p-4 nav-fade"
           onClick={(e) => {
             if (e.target === e.currentTarget) setMobileMenuOpen(false);
           }}
@@ -307,15 +339,7 @@ export default function Nav() {
 
                   {mobileSafariAccordion && (
                     <div className="px-2.5 pb-2.5 pt-1 flex flex-col gap-1 border-t border-slate-200 bg-white">
-                      {[
-                        { label: '⭐ Evening Standard (AED 79)', sub: 'Dune Bashing, BBQ & Shows', to: '/evening-safari/standard' },
-                        { label: '🔥 Evening Premium + Quad (AED 119)', sub: 'Quad Bike + VIP Seating', to: '/evening-safari/premium' },
-                        { label: '👑 Evening VIP Majlis (AED 299)', sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
-                        { label: '🌅 Sunrise Desert Safari (AED 349)', sub: 'Private dawn tour', to: '/morning-safari' },
-                        { label: '🏎️ Self-Drive Convoy (AED 35)', sub: 'Drive your own 4×4', to: '/self-drive' },
-                        { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
-                        { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
-                      ].map((sub) => (
+                      {mobileMenuItems.map((sub) => (
                         <button
                           key={sub.to}
                           onClick={() => handleNavClick(sub.to)}

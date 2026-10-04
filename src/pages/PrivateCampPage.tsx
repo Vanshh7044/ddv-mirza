@@ -1,11 +1,11 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { Check, Sparkles, MessageCircle, Star } from 'lucide-react';
-import { getWhatsAppLink } from '../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 
 export default function PrivateCampPage() {
-  const whatsAppText = 'Hi! I am inquiring about booking the 100% Private Desert Camp Setup (AED 2,299). Please share available dates.';
+  const whatsAppText = `Hi! I am inquiring about booking the 100% Private Desert Camp Setup (${aed(PRICES.privateCamp)}). Please share available dates.`;
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'Private Camp' }];
 
   const privateCampSchema = {
@@ -17,7 +17,7 @@ export default function PrivateCampPage() {
     image: `${BASE_URL}/images/private-camp.webp`,
     offers: {
       '@type': 'Offer',
-      price: '2299',
+      price: String(PRICES.privateCamp),
       priceCurrency: 'AED',
       availability: 'https://schema.org/InStock',
       url: `${BASE_URL}/private-desert-setup`,
@@ -37,7 +37,7 @@ export default function PrivateCampPage() {
   return (
     <>
       <SEO
-        title="Private Desert Camp Setup Dubai (AED 2,299) | Luxury Glamping & Chef"
+        title={`Private Desert Camp Setup Dubai (${aed(PRICES.privateCamp)}) | Luxury Glamping & Chef`}
         description="Exclusive secluded desert camp on an isolated red dune in Dubai. Dedicated private chef, romantic fairy light canopy, stargazing telescope & bespoke dining. Zero other guests."
         canonical="/private-desert-setup"
         ogImage="/images/private-camp.webp"
@@ -53,7 +53,7 @@ export default function PrivateCampPage() {
         subtitle="Your own private desert sanctuary on an isolated red dune with a personal chef, fairy light canopy, and bespoke five-star dining. Zero other tourists."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'WhatsApp Inquiry', href: getWhatsAppLink(whatsAppText) }}
-        price="AED 2,299"
+        price={aed(PRICES.privateCamp)}
         priceNote="per group (Up to 8 guests)"
       />
 
@@ -153,7 +153,7 @@ export default function PrivateCampPage() {
                 <div className="mb-5">
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
-                      AED 2,299
+                      {aed(PRICES.privateCamp)}
                     </span>
                     <span className="text-xs sm:text-sm font-semibold text-[#64748B]">/ group (up to 8)</span>
                   </div>

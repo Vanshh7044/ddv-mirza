@@ -15,21 +15,24 @@ import {
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { trackBookingFormSubmit } from '../utils/analytics';
+import { SAFARI_PACKAGES, PRICES, FROM_PRICE, aed, UNIT_LABEL, getWhatsAppLink } from '../data/safariPackages';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const adventureOptions = [
-  'Evening Standard Safari (AED 79/person)',
-  'Evening Premium Safari + Quad Bike (AED 119/person)',
-  'Evening VIP Safari + Private Majlis (AED 299/person)',
-  'Sunrise Desert Safari (AED 349/vehicle)',
-  'Self-Drive Desert Convoy (AED 35/person)',
-  'Private Desert Camp Setup (AED 2,299/group)',
-];
+const optionLabel = (p: (typeof SAFARI_PACKAGES)[number]) =>
+  `${p.title} (${aed(p.price)}${UNIT_LABEL[p.priceUnit].replace(' ', '')})`;
+
+const adventureOptions = SAFARI_PACKAGES.map(optionLabel);
+const quickPicks = [
+  { label: `🔥 Evening Standard (${aed(PRICES.eveningStandard)})`, id: 'evening-standard' },
+  { label: `⭐ Evening Premium (${aed(PRICES.eveningPremium)})`, id: 'evening-premium' },
+  { label: `👑 VIP Majlis (${aed(PRICES.eveningVip)})`, id: 'evening-vip' },
+  { label: `🏙️ Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, id: 'dubai-city-tour' },
+].map((q) => ({ label: q.label, value: optionLabel(SAFARI_PACKAGES.find((p) => p.id === q.id)!) }));
 
 export default function Hero() {
   const [fullName, setFullName] = useState('');
-  const [adventure, setAdventure] = useState('Evening Standard Safari (AED 79/person)');
+  const [adventure, setAdventure] = useState(adventureOptions[0]);
   const [arrivalDate, setArrivalDate] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -113,7 +116,7 @@ export default function Hero() {
     trackBookingFormSubmit(adventure, arrivalDate || 'Flexible', fullName);
 
     const text = `Hi Dubai Dune Tours! My name is ${fullName}. I would like to book: "${adventure}" for date: ${arrivalDate || 'Flexible'}. Please confirm available slots!`;
-    const whatsappUrl = `https://wa.me/971556015834?text=${encodeURIComponent(text)}`;
+    const whatsappUrl = getWhatsAppLink(text);
 
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
@@ -216,7 +219,7 @@ export default function Hero() {
 
         {/* Bottom Sub-bar */}
         <div className="relative z-20 flex items-center justify-between pt-2.5 border-t border-white/15">
-          <span className="text-[11px] sm:text-xs font-bold text-slate-300">Direct packages from AED 79 / person</span>
+          <span className="text-[11px] sm:text-xs font-bold text-slate-300">Direct packages from {aed(FROM_PRICE)} / person</span>
           <button
             onClick={handleScrollDown}
             className="flex items-center gap-1 text-[11px] sm:text-xs font-bold text-white hover:text-[#EA580C] transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full backdrop-blur-md active:scale-95"
@@ -244,11 +247,7 @@ export default function Hero() {
 
           {/* Quick Select Buttons - Horizontally scrollable on mobile */}
           <div className="w-full max-w-full flex items-center gap-1.5 overflow-x-auto pb-1.5 sm:pb-0 scrollbar-none touch-pan-x">
-            {[
-              { label: '🔥 Evening Standard (AED 79)', value: 'Evening Standard Safari (AED 79/person)' },
-              { label: '⭐ Evening Premium (AED 119)', value: 'Evening Premium Safari + Quad Bike (AED 119/person)' },
-              { label: '👑 VIP Majlis (AED 299)', value: 'Evening VIP Safari + Private Majlis (AED 299/person)' },
-            ].map((chip) => (
+            {quickPicks.map((chip) => (
               <button
                 key={chip.value}
                 type="button"

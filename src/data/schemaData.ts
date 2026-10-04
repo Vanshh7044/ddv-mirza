@@ -1,4 +1,4 @@
-import { SafariPackage, WHATSAPP_NUMBER } from './safariPackages';
+import { SafariPackage, WHATSAPP_NUMBER, PRICES } from './safariPackages';
 
 export const BASE_URL = 'https://dubaidunetours.com';
 
@@ -14,7 +14,7 @@ export const travelAgencySchema = {
   description: "Dubai's licensed direct-operator desert safari company since 2010. Offering red dune bashing, VIP Majlis experiences, quad biking, and private glamping camps with zero deposit.",
   telephone: '+971556015834',
   email: 'info@dubaidunetours.com',
-  priceRange: 'AED 35 - AED 2299',
+  priceRange: `AED ${PRICES.selfDrive} - AED ${PRICES.privateCamp}`,
   currenciesAccepted: 'AED, USD, EUR, GBP',
   paymentAccepted: 'Cash, Credit Card, Debit Card',
   openingHoursSpecification: [
@@ -58,8 +58,8 @@ export const getTouristTripSchema = (pkg: SafariPackage, canonicalUrl: string) =
     '@id': canonicalUrl,
     name: pkg.title,
     description: pkg.tagline,
-    touristType: 'Adventure Tourism',
-    image: `${BASE_URL}${pkg.image}`,
+    touristType: pkg.category === 'city' ? 'Sightseeing' : 'Adventure Tourism',
+    image: `${BASE_URL}${pkg.image ?? '/images/dune-bashing.webp'}`,
     offers: {
       '@type': 'Offer',
       price: pkg.price,
@@ -73,14 +73,16 @@ export const getTouristTripSchema = (pkg: SafariPackage, canonicalUrl: string) =
         name: 'Dubai Dune Tours',
       },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: pkg.rating.toString(),
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: pkg.reviewsCount.toString(),
-      reviewCount: pkg.reviewsCount.toString(),
-    },
+    ...(pkg.reviewsCount > 0 && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: pkg.rating.toString(),
+        bestRating: '5',
+        worstRating: '1',
+        ratingCount: pkg.reviewsCount.toString(),
+        reviewCount: pkg.reviewsCount.toString(),
+      },
+    }),
     provider: {
       '@type': 'TravelAgency',
       name: 'Dubai Dune Tours',
