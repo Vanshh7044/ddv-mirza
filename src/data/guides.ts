@@ -33,13 +33,13 @@ export const GUIDES: Guide[] = [
   {
     slug: 'desert-safari-dubai-price',
     title: 'How Much Does a Desert Safari in Dubai Cost? (2026 Price Guide)',
-    description: `Dubai desert safari prices in 2026: shared evening safaris from ${aed(PRICES.eveningStandard)}, premium with quad biking from ${aed(PRICES.eveningPremium)}, private VIP from ${aed(PRICES.eveningVip)}. What is included at each price and how to avoid hidden fees.`,
+    description: `Dubai desert safari prices in 2026: shared evening safaris from ${aed(PRICES.eveningStandard)}, safari + quad bike combos from ${aed(PRICES.standardQuad)}, VIP from ${aed(PRICES.eveningVip)}. What is included at each price and how to avoid hidden fees.`,
     category: 'Prices',
     readMinutes: 5,
     published: '2026-10-05',
     updated: '2026-10-05',
     image: '/images/dune-bashing.webp',
-    answer: `A shared evening desert safari in Dubai costs roughly AED 89–150 per person in 2026, including hotel pickup, dune bashing, camel ride, BBQ dinner and live shows. Premium packages with quad biking cost about AED 139–260, and private VIP safaris start around AED 349 per person. Booking directly with an operator is usually cheaper than booking through a resale platform.`,
+    answer: `A shared evening desert safari in Dubai costs roughly AED 99–150 per person in 2026, including hotel pickup, dune bashing, camel ride, BBQ dinner and live shows. Adding a 30-minute quad bike ride brings it to about AED 199–260, VIP evening safaris cost around AED 379 per person, and a private short tour in your own car is about AED 499 per vehicle. Booking directly with an operator is usually cheaper than booking through a resale platform.`,
     sections: [
       {
         heading: 'Typical desert safari prices in Dubai (2026)',
@@ -50,9 +50,10 @@ export const GUIDES: Guide[] = [
           head: ['Safari type', 'Typical market price', 'Our direct rate'],
           rows: [
             ['Shared evening safari (BBQ + shows)', 'AED 99–150 / person', `${aed(PRICES.eveningStandard)} / person`],
-            ['Premium evening + quad bike', 'AED 240–260 / person', `${aed(PRICES.eveningPremium)} / person`],
-            ['Private VIP evening safari', 'AED 1,000+ / vehicle', `${aed(PRICES.eveningVip)} / person`],
-            ['Morning dune bashing (4 hrs)', 'AED 149+ / person', `${aed(PRICES.morning)} / person`],
+            ['Premium evening safari', 'AED 139–249 / person', `${aed(PRICES.eveningPremium)} / person`],
+            ['Evening safari + 30-min quad', 'AED 199–260 / person', `from ${aed(PRICES.standardQuad)} / person`],
+            ['VIP evening safari', 'AED 349–450 / person', `${aed(PRICES.eveningVip)} / person`],
+            ['Private morning safari (4–5 hrs)', 'AED 499–600 / vehicle', `${aed(PRICES.morning)} / vehicle`],
             ['Private sunrise safari', 'AED 600 / vehicle', `${aed(PRICES.sunrise)} / vehicle`],
             ['Self-drive convoy', 'AED 35+ / person', `${aed(PRICES.selfDrive)} / person`],
           ],
@@ -228,7 +229,7 @@ export const GUIDES: Guide[] = [
             ['Sunset / sunrise', 'Sunset', '—', 'Sunrise'],
             ['Dinner & shows', 'BBQ + Tanoura, belly dance, fire show', 'No', 'Breakfast picnic'],
             ['Crowds', 'Busiest', 'Quiet', 'Quietest'],
-            ['Our price', `from ${aed(PRICES.eveningStandard)} / person`, `${aed(PRICES.morning)} / person`, `${aed(PRICES.sunrise)} / private vehicle`],
+            ['Our price', `from ${aed(PRICES.eveningStandard)} / person`, `${aed(PRICES.morning)} / private vehicle`, `${aed(PRICES.sunrise)} / private vehicle`],
           ],
         },
       },

@@ -15,16 +15,16 @@ const TOURS = [
     includes: ['Private 4×4 Land Cruiser', 'Sunrise dune bashing', 'Sandboarding', 'Hot Arabic coffee & breakfast', 'Free hotel pickup'],
   },
   {
-    type: 'Morning Dune Bash & Sandboard',
-    time: '08:00 AM – 12:00 PM',
-    desc: 'Action-packed morning adventure in Lehbab red dunes before the afternoon heat. Back for lunch.',
+    type: 'Morning Safari',
+    time: '08:00 AM – 12:30 PM',
+    desc: 'Private action-packed morning adventure in Lehbab red dunes before the afternoon heat. Back for lunch.',
     price: PRICES.morning,
-    unit: '/ person',
+    unit: '/ private vehicle (Up to 6 guests)',
     image: '/images/sandboarding.webp',
-    includes: ['4×4 Land Cruiser dune bashing', 'Dune sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
+    includes: ['Private 4×4 Land Cruiser', 'Red dune bashing & sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
   },
   {
-    type: 'Evening Express Safari',
+    type: 'Evening Short Safari',
     time: '03:30 PM – 07:30 PM',
     desc: 'Condensed private evening tour — dune bashing, sunset photo stop, and camel ride without the camp show.',
     price: PRICES.eveningExpress,
@@ -40,7 +40,7 @@ export default function ShortTourPage() {
   return (
     <>
       <SEO
-        title={`Morning & Sunrise Desert Safari Dubai (From ${aed(PRICES.morning)}) | Dune Bashing`}
+        title={`Private Morning & Sunrise Desert Safari Dubai (From ${aed(PRICES.morning)} per Car) | Dune Bashing`}
         description="Book a morning dune bashing or private sunrise desert safari in Dubai. Beat the heat, enjoy sandboarding & camel riding with free hotel pickup. Pay on arrival."
         canonical="/morning-safari"
         ogImage="/images/sandboarding.webp"
@@ -48,14 +48,14 @@ export default function ShortTourPage() {
       />
       <PageHero
         dark={true}
-        label="Express & Morning Safaris · 4–5 Hours"
-        title="Sunrise & Morning"
-        titleEm="Dune Tours"
+        label="Private Short Tours · 4–5 Hours"
+        title="Sunrise, Morning &"
+        titleEm="Evening Short Tours"
         subtitle="Private vehicles, flexible stops, and zero shared buses. Experience the untouched morning dunes with free hotel pickup."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'WhatsApp Instant Booking', href: getWhatsAppLink('Hi! I would like to book a Morning / Sunrise Safari.') }}
         price={aed(PRICES.morning)}
-        priceNote="per person"
+        priceNote="per private car (up to 6)"
       />
 
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">

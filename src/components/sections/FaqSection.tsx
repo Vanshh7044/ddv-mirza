@@ -13,7 +13,7 @@ export const FAQS = [
   },
   {
     q: 'What is the difference between Standard, Premium, and VIP?',
-    a: `Standard (${aed(PRICES.eveningStandard)}) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (${aed(PRICES.eveningPremium)}) adds a smaller group size, quad biking, and reserved VIP table seating. VIP (${aed(PRICES.eveningVip)}) gives you a 100% private 4x4, private majlis tent, waiter table service, and falconry session.`,
+    a: `Standard (${aed(PRICES.eveningStandard)}) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (${aed(PRICES.eveningPremium)}) adds a smaller group size, extended dune bashing, priority majlis seating and a live-grill BBQ. Add a 30-minute quad ride with our Safari + Quad combos (from ${aed(PRICES.standardQuad)}). VIP (${aed(PRICES.eveningVip)}) gives you a 100% private 4x4, private majlis tent, waiter table service, and falconry session.`,
   },
   {
     q: 'What is your cancellation policy?',

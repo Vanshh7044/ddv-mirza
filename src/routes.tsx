@@ -2,7 +2,7 @@ import type { ComponentType } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import Layout from './components/Layout';
 import App from './App';
-import { SAFARI_PACKAGES } from './data/safariPackages';
+import { SAFARI_PACKAGES, EVENING_TIERS } from './data/safariPackages';
 import { GUIDES } from './data/guides';
 
 /**
@@ -49,7 +49,7 @@ export const buildRoutes = (resolve: PageResolver): RouteObject[] => [
 export const getPrerenderPaths = () => [
   '/',
   ...PAGE_ROUTES.filter((r) => !r.path.includes(':') && r.path !== '*').map((r) => `/${r.path}`),
-  ...SAFARI_PACKAGES.filter((p) => p.category === 'evening').map((p) => `/evening-safari/${p.slug}`),
+  ...EVENING_TIERS.map((p) => `/evening-safari/${p.slug}`),
   ...SAFARI_PACKAGES.filter((p) => p.detailPath.startsWith('/tours/')).map((p) => p.detailPath),
   ...GUIDES.map((g) => `/guides/${g.slug}`),
   '/404',

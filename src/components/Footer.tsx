@@ -19,7 +19,7 @@ const SEO_KEYWORD_GROUPS = [
   {
     category: 'Desert Adventures',
     items: [
-      { label: 'Quad Biking Dubai (150cc / 250cc)', to: '/evening-safari/premium' },
+      { label: 'Quad Biking Dubai (150cc / 250cc)', to: '/evening-safari/premium-quad' },
       { label: 'Dune Buggy Rental Lehbab', to: '/evening-safari/premium' },
       { label: 'Sandboarding on High Red Dunes', to: '/morning-safari' },
       { label: 'Sunset Camel Ride & Photos', to: '/evening-desert-safari' },
@@ -87,7 +87,8 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
               <Link to="/evening-safari/standard" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
-              <Link to="/evening-safari/premium" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Premium + Quad ({aed(PRICES.eveningPremium)})</Link>
+              <Link to="/evening-safari/premium" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
+              <Link to="/evening-safari/premium-quad" className="hover:text-[#EA580C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
               <Link to="/evening-safari/vip" className="hover:text-[#EA580C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
               <Link to="/morning-safari" className="hover:text-[#EA580C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
               <Link to="/self-drive" className="hover:text-[#EA580C] transition-colors py-0.5">Self-Drive Convoy ({aed(PRICES.selfDrive)})</Link>

@@ -15,7 +15,7 @@
 
 ## 2. Direct Operator Value Proposition
 Most online travel platforms (OTA like Viator, GetYourGuide, TripAdvisor) add a 25% to 35% commission markup. Dubai Dune Tours operates its own vehicles, drivers, and camp.
-- **Guaranteed Best Rates**: Prices start from AED 39 (self-drive) and AED 89 (evening standard with hotel transfer).
+- **Guaranteed Best Rates**: Prices start from AED 35 (self-drive) and AED 99 (evening standard with hotel transfer).
 - **No Advance Payment / Zero Deposit**: Guests reserve dates on WhatsApp and pay the driver directly at pickup.
 - **Accepted Payments**: Cash (AED, USD, EUR, GBP, AUD, CAD) or credit/debit card.
 - **24-Hour Free Cancellation**: Plans change without penalty.
@@ -37,14 +37,16 @@ Most online travel platforms (OTA like Viator, GetYourGuide, TripAdvisor) add a 
 
 | Package Tier | Price | Transport | Dune Bash | Quad Bike | Dinner & Seating | Special Features |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Evening Standard** | AED 89 / person | Shared 4x4 Land Cruiser | 35 mins Lehbab | Optional add-on | Standard Camp Buffet | Shows, Camels, Sandboarding, Henna, Soft Drinks |
-| **Evening Premium** | AED 139 / person | Shared 4x4 (max 6 guests) | 40 mins Lehbab | 15 Mins Included | Reserved VIP Table + Table Service | Falcon photo, Live grill stations, Priority queues |
-| **Evening VIP** | AED 349 / person | 100% Private 4x4 Chauffeur | 45 mins Custom | Optional add-on | Private AC Majlis + 5-Course Table Service | Dedicated Butler, Master Falconer session, Shisha |
-| **Sunrise Safari** | AED 399 / vehicle (up to 6) | Private 4x4 (04:30 AM) | 35 mins Sunrise | Optional | Arabic Breakfast Picnic & Hot Coffee | Zero crowds, Golden dawn photography, Return by 9:30 AM |
-| **Morning Dune Bash** | AED 145 / person | Shared 4x4 (08:00 AM) | 40 mins Morning | Optional add-on | Bottled water & soft drinks | Sandboarding & Camel photo stop, Return by 12:00 PM |
-| **Self-Drive Convoy** | AED 39 / person | Own 4x4 Vehicle | Follow Guide Convoy | Optional add-on | Full Camp BBQ Buffet | Convoy satellite radio & full entertainment access |
-| **VIP Traditional** | AED 1,099 / 2 adults | Private 4x4 | 40 mins Sunset | Optional add-on | VIP Majlis 5-Course Table Service | Hands-on falcon training, Private AC tent, Shisha |
-| **Private Camp Glamping** | AED 2,499 / group (up to 8) | Luxury Private Chauffeur | Custom | Optional add-on | Private Chef 5-Course Custom Dinner | 100% Secluded dune, Fairy light canopy, Telescope |
+| **Evening Standard** | AED 99 / person | Shared 4x4 Land Cruiser | 35 mins Lehbab | Optional add-on | Standard Camp Buffet | Shows, Camels, Sandboarding, Henna, Soft Drinks |
+| **Evening Premium** | AED 139 / person | Shared 4x4 (max 6 guests) | 40 mins Lehbab | Optional add-on | Priority Majlis Seating + Table Service | Falcon photo, Live grill stations, Priority queues |
+| **Standard + 30-min Quad** | AED 199 / person | Shared 4x4 Land Cruiser | 35 mins Lehbab | 30 Mins Included | Standard Camp Buffet | Everything in Standard + quad ride |
+| **Premium + 30-min Quad** | AED 229 / person | Shared 4x4 (max 6 guests) | 40 mins Lehbab | 30 Mins Included | Priority Majlis Seating + Table Service | Most booked tier |
+| **Evening VIP** | AED 379 / person | 100% Private 4x4 Chauffeur | 45 mins Custom | Optional add-on | Private AC Majlis + 5-Course Table Service | Dedicated Butler, Master Falconer session, Shisha |
+| **Sunrise Safari** | AED 499 / vehicle (up to 6) | Private 4x4 (04:30 AM) | 35 mins Sunrise | Optional | Arabic Breakfast Picnic & Hot Coffee | Zero crowds, Golden dawn photography, Return by 9:30 AM |
+| **Morning Safari** | AED 499 / vehicle (up to 6) | Private 4x4 (08:00 AM) | 40 mins Morning | Optional add-on | Bottled water & soft drinks | Sandboarding & Camel photo stop, Return by 12:00 PM |
+| **Self-Drive Convoy** | AED 35 / person (Premium 60, VIP 75) | Own 4x4 Vehicle | Follow Guide Convoy | Optional add-on | Full Camp BBQ Buffet | Convoy satellite radio & full entertainment access |
+| **VIP Traditional** | AED 999 / 2 adults | Private 4x4 | 40 mins Sunset | Optional add-on | VIP Majlis 5-Course Table Service | Hands-on falcon training, Private AC tent, Shisha |
+| **Private Camp Glamping** | AED 2,299 / group (up to 8) | Luxury Private Chauffeur | Custom | Optional add-on | Private Chef 5-Course Custom Dinner | 100% Secluded dune, Fairy light canopy, Telescope |
 
 ---
 

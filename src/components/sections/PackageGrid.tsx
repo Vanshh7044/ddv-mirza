@@ -7,7 +7,7 @@ import PackageImage from '../PackageImage';
 
 const TRENDING_KEYWORDS = [
   { label: '🔥 Red Dune Bashing (Lehbab)', to: '/evening-safari/standard' },
-  { label: '🏍️ Quad Biking & Buggy', to: '/evening-safari/premium' },
+  { label: '🏍️ Safari + Quad Combo', to: '/evening-safari/premium-quad' },
   { label: '👑 VIP AC Majlis', to: '/vip-traditional-arabic' },
   { label: '🌅 Sunrise Desert Tour', to: '/morning-safari' },
   { label: `🚙 Self-Drive Convoy (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
@@ -15,10 +15,11 @@ const TRENDING_KEYWORDS = [
   { label: '⛵ Marina Dhow Cruise', to: '/tours/dhow-cruise-dubai-marina' },
 ];
 
-type Tab = 'evening' | 'short' | 'city' | 'all';
+type Tab = 'evening' | 'combo' | 'short' | 'city' | 'all';
 const TABS: { id: Tab; label: string }[] = [
   { id: 'evening', label: '⭐ Evening Safaris (Popular)' },
-  { id: 'short', label: '🌅 Morning & Short Tours' },
+  { id: 'combo', label: '🏍️ Safari + Quad' },
+  { id: 'short', label: '🌅 Private Short Tours' },
   { id: 'city', label: '🏙️ City Tours & Cruises' },
   { id: 'all', label: 'All Packages' },
 ];
@@ -31,6 +32,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
     : SAFARI_PACKAGES.filter((p) => {
         if (activeTab === 'evening') return p.category === 'evening';
         if (activeTab === 'short') return p.category === 'short' || p.category === 'selfdrive';
+        if (activeTab === 'combo') return p.category === 'combo';
         if (activeTab === 'city') return p.category === 'city';
         return true;
       });

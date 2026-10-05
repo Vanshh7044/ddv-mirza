@@ -26,6 +26,7 @@ const adventureOptions = SAFARI_PACKAGES.map(optionLabel);
 const quickPicks = [
   { label: `🔥 Evening Standard (${aed(PRICES.eveningStandard)})`, id: 'evening-standard' },
   { label: `⭐ Evening Premium (${aed(PRICES.eveningPremium)})`, id: 'evening-premium' },
+  { label: `🏍️ Premium + Quad (${aed(PRICES.premiumQuad)})`, id: 'premium-quad' },
   { label: `👑 VIP Majlis (${aed(PRICES.eveningVip)})`, id: 'evening-vip' },
   { label: `🏙️ Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, id: 'dubai-city-tour' },
 ].map((q) => ({ label: q.label, value: optionLabel(SAFARI_PACKAGES.find((p) => p.id === q.id)!) }));

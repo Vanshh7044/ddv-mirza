@@ -14,7 +14,7 @@ export default function AllSafarisPage() {
     <>
       <SEO
         title={`Compare All Dubai Desert Safaris & City Tours (${aed(PRICES.selfDrive)}–${aed(PRICES.privateCamp).slice(4)})`}
-        description={`Compare all Dubai desert safari tiers: Evening Standard (${aed(PRICES.eveningStandard)}), Premium Quad (${aed(PRICES.eveningPremium)}), VIP Majlis (${aed(PRICES.eveningVip)}), Sunrise (${aed(PRICES.sunrise)}), Self-Drive (${aed(PRICES.selfDrive)}) plus Dubai & Abu Dhabi city tours. Direct operator rates.`}
+        description={`Compare all Dubai desert safari tiers: Evening Standard (${aed(PRICES.eveningStandard)}), Premium (${aed(PRICES.eveningPremium)}), VIP (${aed(PRICES.eveningVip)}), Safari + Quad (from ${aed(PRICES.standardQuad)}), private short tours (${aed(PRICES.sunrise)}/car), Self-Drive (${aed(PRICES.selfDrive)}) plus Dubai & Abu Dhabi city tours. Direct operator rates.`}
         canonical="/desert-safari"
         ogImage="/images/dune-bashing.webp"
         schema={getBreadcrumbSchema(breadcrumbs, '/desert-safari')}

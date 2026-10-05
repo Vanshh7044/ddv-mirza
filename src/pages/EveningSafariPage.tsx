@@ -26,7 +26,7 @@ export default function EveningSafariPage() {
         label="Dubai Evening Desert Safari · Direct Operator"
         title="Dubai's Premier Evening"
         titleEm="Desert Safari"
-        subtitle={`Choose from Standard (${aed(PRICES.eveningStandard)}), Premium with Quad Biking (${aed(PRICES.eveningPremium)}), or Private VIP Majlis (${aed(PRICES.eveningVip)}). Free hotel pickup and pay on arrival included in all packages.`}
+        subtitle={`Choose from Standard (${aed(PRICES.eveningStandard)}), Premium (${aed(PRICES.eveningPremium)}) or VIP (${aed(PRICES.eveningVip)}) — or add a 30-minute quad ride from ${aed(PRICES.standardQuad)}. Free hotel pickup and pay on arrival included in all packages.`}
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'WhatsApp Instant Booking', href: getWhatsAppLink('Hi! I would like to book the Evening Safari.') }}
         price={aed(PRICES.eveningStandard)}

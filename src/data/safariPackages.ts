@@ -1,4 +1,4 @@
-export type PackageCategory = 'evening' | 'short' | 'selfdrive' | 'vip' | 'city';
+export type PackageCategory = 'evening' | 'combo' | 'short' | 'selfdrive' | 'vip' | 'city';
 export type PriceUnit = 'person' | 'vehicle' | 'group' | '2 adults';
 
 export interface SafariPackage {
@@ -37,24 +37,27 @@ export const getWhatsAppLink = (text: string) => {
 /**
  * Single source of truth for every price on the site.
  * Change a number here and it flows into cards, menus, SEO titles, schema and WhatsApp messages.
- * Last reviewed: Oct 2026 (fuel-cost adjustment, benchmarked against Dubai market rates).
+ * Last reviewed: Oct 2026 — aligned with the Dubai Desert Ventures package line-up.
  */
 export const PRICES = {
   // Evening desert safaris (per person)
-  eveningStandard: 89,
+  eveningStandard: 99,
   eveningPremium: 139,
-  eveningVip: 349,
-  // Morning & short tours
-  sunrise: 399, // per private vehicle, up to 6
-  morning: 145, // per person
-  eveningExpress: 399, // per private vehicle, up to 6
+  eveningVip: 379,
+  // Safari + 30-min quad combos (per person)
+  standardQuad: 199,
+  premiumQuad: 229,
+  // Private short tours (per vehicle, up to 6)
+  sunrise: 499,
+  morning: 499,
+  eveningExpress: 499,
   // Self-drive convoy (per person)
-  selfDrive: 39,
-  selfDrivePremium: 69,
-  selfDriveVip: 85,
+  selfDrive: 35,
+  selfDrivePremium: 60,
+  selfDriveVip: 75,
   // VIP & private
-  vipTraditional: 1099, // for 2 adults
-  privateCamp: 2499, // per group up to 8
+  vipTraditional: 999, // for 2 adults
+  privateCamp: 2299, // per group up to 8
   // City tours & cruises (per person, shared)
   dubaiCityTour: 119,
   abuDhabiCityTour: 149,
@@ -85,7 +88,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     title: 'Evening Standard Safari',
     tagline: 'The complete classic desert evening with dune bashing & live BBQ show.',
     price: PRICES.eveningStandard,
-    originalPrice: 119,
+    originalPrice: 129,
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
@@ -111,7 +114,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     category: 'evening',
     tier: '02',
     title: 'Evening Premium Safari',
-    tagline: 'VIP reserved table, smaller group size, and quad bike included.',
+    tagline: 'Extended dune bashing, priority majlis seating and a premium live-grill BBQ.',
     price: PRICES.eveningPremium,
     originalPrice: 179,
     priceUnit: 'person',
@@ -120,20 +123,19 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
     rating: 4.9,
     reviewsCount: 401,
-    badge: 'MOST BOOKED',
-    isPopular: true,
-    image: '/images/quad-buggy.webp',
+    badge: 'POPULAR',
+    image: '/images/bbq-buffet.webp',
     detailPath: '/evening-safari/premium',
     includes: [
       'All Standard Inclusions + smaller group per 4x4 (max 6)',
-      '15-Minute guided Quad Bike adventure included',
-      'Reserved VIP camp table seating with table service',
+      'Extended dune bashing with extra photo stops',
+      'Priority majlis seating with table service',
       'Priority queue access for camel rides & activities',
       'Premium BBQ buffet with live grill stations',
       'Free souvenir photo with hunting falcon',
       'VIP lounge access with Arabian hospitality',
     ],
-    whatsAppText: wa('Evening Premium Safari with Quad Bike & VIP Seating', PRICES.eveningPremium, 'person'),
+    whatsAppText: wa('Evening Premium Safari', PRICES.eveningPremium, 'person'),
   },
   {
     id: 'evening-vip',
@@ -143,7 +145,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     title: 'Evening VIP Safari',
     tagline: 'Exclusive private Land Cruiser, private Majlis tent, and falconry session.',
     price: PRICES.eveningVip,
-    originalPrice: 429,
+    originalPrice: 469,
     priceUnit: 'person',
     duration: '7 Hours',
     location: 'Lehbab Red Dunes',
@@ -165,16 +167,74 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     whatsAppText: wa('Evening VIP Safari with Private 4x4 & VIP Majlis', PRICES.eveningVip, 'person', 'Please share details for booking.'),
   },
 
+  // ─── SAFARI + QUAD COMBOS ─────────────────────────────────────────────────
+  {
+    id: 'standard-quad',
+    slug: 'standard-quad',
+    category: 'combo',
+    tier: '04',
+    title: 'Standard Safari + 30-min Quad',
+    tagline: 'The full Evening Standard safari plus a 30-minute guided quad bike ride on the dunes.',
+    price: PRICES.standardQuad,
+    originalPrice: 249,
+    priceUnit: 'person',
+    duration: '6–7 Hours',
+    location: 'Lehbab Red Dunes',
+    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    rating: 4.9,
+    reviewsCount: 401,
+    image: '/images/quad-buggy.webp',
+    detailPath: '/evening-safari/standard-quad',
+    includes: [
+      'Everything in the Evening Standard Safari',
+      '30-minute guided quad bike ride',
+      'Helmet, goggles & safety briefing',
+      '4×4 dune bashing, camel ride & sandboarding',
+      'BBQ buffet dinner with live shows',
+      'Free hotel pickup & drop-off',
+    ],
+    whatsAppText: wa('Standard Safari + 30-min Quad', PRICES.standardQuad, 'person'),
+  },
+  {
+    id: 'premium-quad',
+    slug: 'premium-quad',
+    category: 'combo',
+    tier: '05',
+    title: 'Premium Safari + 30-min Quad',
+    tagline: 'Our most-booked tier: Evening Premium safari with priority seating plus a 30-minute quad ride.',
+    price: PRICES.premiumQuad,
+    originalPrice: 289,
+    priceUnit: 'person',
+    duration: '6–7 Hours',
+    location: 'Lehbab Red Dunes',
+    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    rating: 4.9,
+    reviewsCount: 401,
+    badge: 'MOST BOOKED',
+    isPopular: true,
+    image: '/images/quad-buggy.webp',
+    detailPath: '/evening-safari/premium-quad',
+    includes: [
+      'Everything in the Evening Premium Safari',
+      '30-minute guided quad bike ride',
+      'Priority majlis seating with table service',
+      'Premium BBQ with live grill stations',
+      'Helmet, goggles & safety briefing',
+      'Free hotel pickup & drop-off',
+    ],
+    whatsAppText: wa('Premium Safari + 30-min Quad', PRICES.premiumQuad, 'person'),
+  },
+
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
   {
     id: 'sunrise-safari',
     slug: 'sunrise',
     category: 'short',
-    tier: '04',
+    tier: '06',
     title: 'Sunrise Desert Safari',
     tagline: 'Chase the dawn golden light in a private 4×4 with gourmet desert breakfast.',
     price: PRICES.sunrise,
-    originalPrice: 499,
+    originalPrice: 599,
     priceUnit: 'vehicle',
     duration: '4–5 Hours',
     location: 'Lehbab Red Dunes',
@@ -198,13 +258,13 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'morning-safari',
     slug: 'morning',
     category: 'short',
-    tier: '05',
+    tier: '07',
     title: 'Morning Dune Bash & Sandboard',
-    tagline: 'Quick 4-hour high-adrenaline morning desert safari.',
+    tagline: 'Private 4-hour high-adrenaline morning safari in your own Land Cruiser.',
     price: PRICES.morning,
-    originalPrice: 179,
-    priceUnit: 'person',
-    duration: '4 Hours',
+    originalPrice: 599,
+    priceUnit: 'vehicle',
+    duration: '4–5 Hours',
     location: 'Lehbab Red Dunes',
     pickupInfo: 'Pickup 08:00 AM · Return 12:00 PM',
     rating: 4.8,
@@ -212,13 +272,13 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     image: '/images/sandboarding.webp',
     detailPath: '/morning-safari',
     includes: [
-      '4×4 Land Cruiser red dune bashing in Lehbab',
-      'Dune sandboarding with instructor guidance',
+      'Private 4×4 Land Cruiser for up to 6 guests',
+      'Red dune bashing in Lehbab & sandboarding',
       'Camel ride photo opportunity',
       'Chilled bottled water & refreshments',
       'Free hotel pickup and drop-off in Dubai',
     ],
-    whatsAppText: wa('Morning Safari', PRICES.morning, 'person'),
+    whatsAppText: wa('Private Morning Safari', PRICES.morning, 'vehicle'),
   },
 
   // ─── SELF-DRIVE & PRIVATE EXPERIENCES ─────────────────────────────────────
@@ -226,11 +286,11 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'self-drive-standard',
     slug: 'self-drive',
     category: 'selfdrive',
-    tier: '06',
+    tier: '08',
     title: 'Self-Drive Desert Safari',
     tagline: 'Drive your own 4×4 vehicle behind our expert guide convoy.',
     price: PRICES.selfDrive,
-    originalPrice: 55,
+    originalPrice: 49,
     priceUnit: 'person',
     duration: '5–6 Hours',
     location: 'Lehbab Red Dunes',
@@ -253,11 +313,11 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'vip-traditional',
     slug: 'vip-traditional',
     category: 'vip',
-    tier: '07',
+    tier: '09',
     title: 'VIP Traditional Arabic Safari',
     tagline: 'Hands-on falcon training, private Majlis tent, and 5-course gourmet dinner.',
     price: PRICES.vipTraditional,
-    originalPrice: 1299,
+    originalPrice: 1199,
     priceUnit: '2 adults',
     duration: '7 Hours',
     location: 'Lehbab Red Dunes',
@@ -281,11 +341,11 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'private-camp-glamping',
     slug: 'private-camp',
     category: 'vip',
-    tier: '08',
+    tier: '10',
     title: 'Private Desert Camp Setup',
     tagline: 'Your private secluded dune with private chef, romantic lights & personal service.',
     price: PRICES.privateCamp,
-    originalPrice: 2999,
+    originalPrice: 2799,
     priceUnit: 'group',
     duration: '6 Hours',
     location: 'Lehbab Red Dunes',
@@ -311,7 +371,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'dubai-city-tour',
     slug: 'dubai-city-tour',
     category: 'city',
-    tier: '09',
+    tier: '11',
     title: 'Dubai City Tour (Half Day)',
     tagline: 'Old Dubai souks, an abra ride across the Creek, Burj Al Arab, Palm Jumeirah & Burj Khalifa photo stops.',
     price: PRICES.dubaiCityTour,
@@ -347,7 +407,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'abu-dhabi-city-tour',
     slug: 'abu-dhabi-city-tour',
     category: 'city',
-    tier: '10',
+    tier: '12',
     title: 'Abu Dhabi City Tour from Dubai',
     tagline: 'Sheikh Zayed Grand Mosque, Emirates Palace, Corniche, Heritage Village & Ferrari World photo stop.',
     price: PRICES.abuDhabiCityTour,
@@ -384,7 +444,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'dhow-cruise-marina',
     slug: 'dhow-cruise-dubai-marina',
     category: 'city',
-    tier: '11',
+    tier: '13',
     title: 'Dubai Marina Dhow Cruise Dinner',
     tagline: '2-hour cruise past the Marina skyline with international buffet, Tanoura show and hotel transfers.',
     price: PRICES.dhowCruise,
@@ -412,7 +472,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     id: 'city-tour-safari-combo',
     slug: 'dubai-city-tour-desert-safari-combo',
     category: 'city',
-    tier: '12',
+    tier: '14',
     title: 'Dubai City Tour + Evening Safari Combo',
     tagline: 'Morning city sightseeing, a rest at your hotel, then the full Evening Standard desert safari.',
     price: PRICES.cityTourSafariCombo,
@@ -440,7 +500,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
 
 export const getPackage = (id: string) => SAFARI_PACKAGES.find((p) => p.id === id)!;
 
-export const EVENING_TIERS = SAFARI_PACKAGES.filter((p) => p.category === 'evening');
+export const EVENING_TIERS = SAFARI_PACKAGES.filter((p) => p.category === 'evening' || p.category === 'combo');
 export const CITY_TOURS = SAFARI_PACKAGES.filter((p) => p.category === 'city');
 
 /** Lowest per-person desert-safari price with hotel transfer — used in "from AED X" copy. */

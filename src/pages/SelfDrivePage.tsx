@@ -8,7 +8,7 @@ const SD_PACKAGES = [
   {
     title: 'Self-Drive Standard',
     price: PRICES.selfDrive,
-    originalPrice: 55,
+    originalPrice: 49,
     desc: 'Lead-the-convoy format through Lehbab. Drive your own 4×4 with guide lead and camp BBQ included.',
     image: '/images/dune-bashing.webp',
     includes: ['Lead convoy guide vehicle', 'Satellite radio navigation', 'Camp entry & entertainment', 'BBQ dinner buffet', 'Camel ride & sandboarding'],
@@ -16,7 +16,7 @@ const SD_PACKAGES = [
   {
     title: 'Self-Drive Premium',
     price: PRICES.selfDrivePremium,
-    originalPrice: 89,
+    originalPrice: 79,
     desc: 'Convoy format with reserved VIP camp seating and upgraded BBQ buffet dinner.',
     image: '/images/quad-buggy.webp',
     includes: ['Lead convoy guide vehicle', 'VIP reserved table seating', 'Upgraded BBQ live grill', 'Camp entry & fire show', 'Camel ride & sandboarding'],
@@ -24,7 +24,7 @@ const SD_PACKAGES = [
   {
     title: 'Self-Drive VIP',
     price: PRICES.selfDriveVip,
-    originalPrice: 109,
+    originalPrice: 99,
     desc: 'The complete self-drive package with VIP majlis access and falconry photo opportunity.',
     image: '/images/vip-majlis.webp',
     includes: ['Lead convoy guide vehicle', 'VIP Majlis camp access', 'Falcon photo opportunity', 'Premium BBQ & shisha lounge', 'All shows and entertainment'],

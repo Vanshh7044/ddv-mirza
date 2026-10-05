@@ -10,15 +10,18 @@ const desertSafariMenu = [
     items: [
       { label: 'All Evening Packages', sub: 'Compare Standard / Premium / VIP', href: '/evening-desert-safari' },
       { label: `Standard Package (${aed(PRICES.eveningStandard)})`, sub: 'Dune Bashing, BBQ & Shows', href: '/evening-safari/standard' },
-      { label: `Premium Package (${aed(PRICES.eveningPremium)})`, sub: 'Quad Bike + VIP Seating', href: '/evening-safari/premium' },
+      { label: `Premium Package (${aed(PRICES.eveningPremium)})`, sub: 'Priority Seating & Live Grill', href: '/evening-safari/premium' },
       { label: `VIP Experience (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & Majlis Tent', href: '/evening-safari/vip' },
+      { label: `Standard + Quad (${aed(PRICES.standardQuad)})`, sub: 'Safari + 30-min quad bike', href: '/evening-safari/standard-quad' },
+      { label: `Premium + Quad (${aed(PRICES.premiumQuad)})`, sub: 'Most booked · 30-min quad', href: '/evening-safari/premium-quad' },
     ],
   },
   {
-    heading: 'Morning & Self-Drive',
+    heading: 'Private Short Tours & Self-Drive',
     items: [
-      { label: `Sunrise Safari (${aed(PRICES.sunrise)})`, sub: 'Private Land Cruiser at dawn', href: '/morning-safari' },
-      { label: `Morning Safari (${aed(PRICES.morning)})`, sub: 'Dune Bashing & Sandboarding', href: '/morning-safari' },
+      { label: `Sunrise Safari (${aed(PRICES.sunrise)})`, sub: 'Private car at dawn · up to 6', href: '/morning-safari' },
+      { label: `Morning Safari (${aed(PRICES.morning)})`, sub: 'Private car · dune bashing', href: '/morning-safari' },
+      { label: `Evening Short Safari (${aed(PRICES.eveningExpress)})`, sub: 'Private car · sunset, no camp', href: '/morning-safari' },
       { label: `Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4 in dunes', href: '/self-drive' },
     ],
   },
@@ -42,9 +45,10 @@ const desertSafariMenu = [
 
 const mobileMenuItems = [
   { label: `⭐ Evening Standard (${aed(PRICES.eveningStandard)})`, sub: 'Dune Bashing, BBQ & Shows', to: '/evening-safari/standard' },
-  { label: `🔥 Evening Premium + Quad (${aed(PRICES.eveningPremium)})`, sub: 'Quad Bike + VIP Seating', to: '/evening-safari/premium' },
+  { label: `🔥 Evening Premium (${aed(PRICES.eveningPremium)})`, sub: 'Priority Seating & Live Grill', to: '/evening-safari/premium' },
+  { label: `🏍️ Premium + 30-min Quad (${aed(PRICES.premiumQuad)})`, sub: 'Most booked combo', to: '/evening-safari/premium-quad' },
   { label: `👑 Evening VIP Majlis (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
-  { label: `🌅 Sunrise Desert Safari (${aed(PRICES.sunrise)})`, sub: 'Private dawn tour', to: '/morning-safari' },
+  { label: `🌅 Sunrise / Morning Safari (${aed(PRICES.sunrise)})`, sub: 'Private car · up to 6', to: '/morning-safari' },
   { label: `🏎️ Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4', to: '/self-drive' },
   { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
   { label: '🏙️ City Tours & Dhow Cruise', sub: `Dubai, Abu Dhabi & Marina · from ${aed(PRICES.dubaiCityTour)}`, to: '/city-tours' },
