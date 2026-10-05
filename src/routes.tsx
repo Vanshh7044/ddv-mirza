@@ -3,6 +3,7 @@ import type { RouteObject } from 'react-router-dom';
 import Layout from './components/Layout';
 import App from './App';
 import { SAFARI_PACKAGES } from './data/safariPackages';
+import { GUIDES } from './data/guides';
 
 /**
  * Single route table shared by the browser router (lazy pages), the SSR entry
@@ -18,6 +19,8 @@ export const PAGE_ROUTES: { path: string; page: string }[] = [
   { path: 'private-desert-setup', page: 'PrivateCampPage' },
   { path: 'city-tours', page: 'CityToursPage' },
   { path: 'tours/:slug', page: 'TourDetailPage' },
+  { path: 'guides', page: 'GuidesPage' },
+  { path: 'guides/:slug', page: 'GuideDetailPage' },
   { path: 'about', page: 'AboutPage' },
   { path: 'contact', page: 'ContactPage' },
   { path: 'privacy-policy', page: 'PrivacyPolicyPage' },
@@ -48,5 +51,6 @@ export const getPrerenderPaths = () => [
   ...PAGE_ROUTES.filter((r) => !r.path.includes(':') && r.path !== '*').map((r) => `/${r.path}`),
   ...SAFARI_PACKAGES.filter((p) => p.category === 'evening').map((p) => `/evening-safari/${p.slug}`),
   ...SAFARI_PACKAGES.filter((p) => p.detailPath.startsWith('/tours/')).map((p) => p.detailPath),
+  ...GUIDES.map((g) => `/guides/${g.slug}`),
   '/404',
 ];

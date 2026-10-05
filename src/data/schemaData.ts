@@ -134,3 +134,21 @@ export const getBreadcrumbSchema = (crumbs: { label: string; to?: string }[], cu
     }),
   };
 };
+
+export const getArticleSchema = (
+  a: { title: string; description: string; image: string; published: string; updated: string },
+  path: string
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${BASE_URL}${path}#article`,
+  mainEntityOfPage: `${BASE_URL}${path}`,
+  headline: a.title,
+  description: a.description,
+  image: `${BASE_URL}${a.image}`,
+  datePublished: a.published,
+  dateModified: a.updated,
+  inLanguage: 'en',
+  author: { '@type': 'Organization', name: 'Dubai Dune Tours', url: BASE_URL },
+  publisher: { '@id': `${BASE_URL}/#organization` },
+});

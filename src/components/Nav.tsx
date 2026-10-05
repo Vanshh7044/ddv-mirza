@@ -165,14 +165,14 @@ export default function Nav() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1 relative" ref={megaRef}>
-            <Link to="/" className={`px-4 py-2 text-sm font-bold rounded-xl transition-colors ${linkCls}`}>
+            <Link to="/" className={`px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${linkCls}`}>
               Home
             </Link>
 
             {/* Mega Menu Trigger */}
             <button
               onClick={() => setMegaMenuOpen(!megaMenuOpen)}
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
                 megaMenuOpen ? 'text-[#EA580C] bg-[#EA580C]/10' : linkCls
               }`}
               aria-expanded={megaMenuOpen}
@@ -183,6 +183,7 @@ export default function Nav() {
 
             {[
               { to: '/city-tours', label: 'City Tours' },
+              { to: '/guides', label: 'Guides' },
               { to: '/about', label: 'About Us' },
               { to: '/contact', label: 'Contact' },
             ].map((l) => (
@@ -190,7 +191,7 @@ export default function Nav() {
                 key={l.to}
                 to={l.to}
                 aria-current={isActive(l.to) ? 'page' : undefined}
-                className={`px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
+                className={`px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
                   isActive(l.to) ? 'text-[#EA580C]' : linkCls
                 }`}
               >
@@ -361,6 +362,14 @@ export default function Nav() {
                   className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>About Our Fleet & Drivers</span>
+                  <ArrowRight size={14} className="text-slate-400" />
+                </button>
+
+                <button
+                  onClick={() => handleNavClick('/guides')}
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                >
+                  <span>Travel Guides & Tips</span>
                   <ArrowRight size={14} className="text-slate-400" />
                 </button>
 
