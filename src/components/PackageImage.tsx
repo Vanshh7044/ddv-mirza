@@ -26,7 +26,7 @@ export default function PackageImage({
       <img
         src={pkg.image}
         alt={pkg.title}
-        className={`w-full h-full object-cover object-center ${className}`}
+        className={`w-full h-full object-cover ${pkg.image === pkg.poster ? "object-top" : "object-center"} ${className}`}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
       />

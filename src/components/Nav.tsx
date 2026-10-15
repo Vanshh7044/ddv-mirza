@@ -35,8 +35,8 @@ const desertSafariMenu = [
   {
     heading: 'City Tours & Cruises',
     items: [
-      { label: `Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, sub: 'Souks, Creek abra & landmarks', href: '/tours/dubai-city-tour' },
-      { label: `Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)})`, sub: 'Grand Mosque & Corniche', href: '/tours/abu-dhabi-city-tour' },
+      { label: `Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, sub: 'Private car · up to 6 people', href: '/tours/dubai-city-tour' },
+      { label: `Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)})`, sub: 'Private car · Grand Mosque & more', href: '/tours/abu-dhabi-city-tour' },
       { label: `Marina Dhow Cruise (${aed(PRICES.dhowCruise)})`, sub: 'Dinner cruise with transfers', href: '/tours/dhow-cruise-dubai-marina' },
       { label: `City + Safari Combo (${aed(PRICES.cityTourSafariCombo)})`, sub: 'Full day, best value', href: '/tours/dubai-city-tour-desert-safari-combo' },
     ],
@@ -51,7 +51,7 @@ const mobileMenuItems = [
   { label: `🌅 Sunrise / Morning Safari (${aed(PRICES.sunrise)})`, sub: 'Private car · up to 6', to: '/morning-safari' },
   { label: `🏎️ Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4', to: '/self-drive' },
   { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
-  { label: '🏙️ City Tours & Dhow Cruise', sub: `Dubai, Abu Dhabi & Marina · from ${aed(PRICES.dubaiCityTour)}`, to: '/city-tours' },
+  { label: '🏙️ City Tours & Dhow Cruise', sub: `Private cars from ${aed(PRICES.dubaiCityTour)} · up to 6`, to: '/city-tours' },
   { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
 ];
 

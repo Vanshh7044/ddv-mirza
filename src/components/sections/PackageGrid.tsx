@@ -183,9 +183,11 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {/* Pricing & CTA */}
                   <div className="pt-1 flex items-center justify-between gap-2">
                     <div className="shrink-0 min-w-0">
-                      <div className="text-[10px] sm:text-[11px] text-[#94A3B8] line-through font-bold">
-                        {aed(pkg.originalPrice)}
-                      </div>
+                      {pkg.originalPrice > pkg.price && (
+                        <div className="text-[10px] sm:text-[11px] text-[#94A3B8] line-through font-bold">
+                          {aed(pkg.originalPrice)}
+                        </div>
+                      )}
                       <div className="flex items-baseline gap-1">
                         <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight">
                           {aed(pkg.price)}

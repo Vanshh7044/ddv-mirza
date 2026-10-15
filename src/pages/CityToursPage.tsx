@@ -24,8 +24,8 @@ export default function CityToursPage() {
   return (
     <>
       <SEO
-        title={`Dubai City Tour, Abu Dhabi City Tour & Dhow Cruise (From ${aed(PRICES.dubaiCityTour)})`}
-        description={`Guided Dubai city tour (${aed(PRICES.dubaiCityTour)}), Abu Dhabi city tour with Sheikh Zayed Grand Mosque (${aed(PRICES.abuDhabiCityTour)}), Marina dhow cruise dinner (${aed(PRICES.dhowCruise)}) and city + safari combos. Free hotel pickup, pay on arrival.`}
+        title={`Private Dubai & Abu Dhabi City Tours (From ${aed(PRICES.dubaiCityTour)} per Car) & Dhow Cruise`}
+        description={`Private Dubai city tour (${aed(PRICES.dubaiCityTour)} per car, up to 6), private Abu Dhabi city tour with Sheikh Zayed Grand Mosque (${aed(PRICES.abuDhabiCityTour)} per car), Marina dhow cruise dinner (${aed(PRICES.dhowCruise)}) and city + safari combos. Free hotel pickup, pay on arrival.`}
         canonical="/city-tours"
         schema={[getBreadcrumbSchema(breadcrumbs, '/city-tours'), listSchema]}
       />
@@ -37,7 +37,7 @@ export default function CityToursPage() {
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Ask About City Tours', href: getWhatsAppLink('Hi! I would like information about your Dubai / Abu Dhabi city tours.') }}
         price={aed(PRICES.dubaiCityTour)}
-        priceNote="per person"
+        priceNote="per private car (up to 6)"
       />
       <PackageGrid initialTab="city" />
       <WhyDirect />

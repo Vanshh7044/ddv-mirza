@@ -48,6 +48,15 @@ export default function TourDetailPage() {
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-10">
           <div className="lg:col-span-2 space-y-6 sm:space-y-8">
+            {tour.poster ? (
+              <img
+                src={tour.poster}
+                alt={`${tour.title} — tour poster with included stops`}
+                className="w-full h-auto rounded-2xl sm:rounded-3xl shadow-xl"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
               <PackageImage pkg={tour} eager />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] sm:text-sm font-bold">
@@ -59,6 +68,7 @@ export default function TourDetailPage() {
                 </span>
               </div>
             </div>
+            )}
 
             <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-sand shadow-sm">
               <h2 className="text-lg sm:text-2xl font-extrabold mb-4">What’s included</h2>
@@ -125,7 +135,9 @@ export default function TourDetailPage() {
                 Direct Rate
               </span>
               <div className="mt-4 mb-5">
-                <div className="text-xs text-[#94A3B8] line-through font-bold">{aed(tour.originalPrice)}</div>
+                {tour.originalPrice > tour.price && (
+                  <div className="text-xs text-[#94A3B8] line-through font-bold">{aed(tour.originalPrice)}</div>
+                )}
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">{aed(tour.price)}</span>
                   <span className="text-sm font-semibold text-[#64748B]">{UNIT_LABEL[tour.priceUnit]}</span>
@@ -133,7 +145,7 @@ export default function TourDetailPage() {
                 <div className="text-xs text-emerald-600 font-bold mt-1">✓ {tour.pickupInfo}</div>
               </div>
               <ul className="space-y-2.5 mb-5 pt-3.5 border-t border-slate-100 text-xs text-[#475569] font-medium">
-                {['Pay cash or card on the day', 'Free cancellation up to 24h prior', 'Private vehicle option on request'].map((t) => (
+                {['Pay cash or card on the day', 'Free cancellation up to 24h prior', tour.priceUnit === 'vehicle' ? 'Price is for the whole car (up to 6)' : 'Private vehicle option on request'].map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <Check size={14} className="text-emerald-600 shrink-0" /> {t}
                   </li>

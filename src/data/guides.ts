@@ -376,7 +376,7 @@ export const GUIDES: Guide[] = [
       {
         heading: 'Visiting from Dubai',
         paragraphs: [
-          `The mosque is about a 90-minute drive from Dubai. Our Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)} per person) includes Dubai hotel pickup, a guided mosque visit, Emirates Palace, the Corniche, Heritage Village and a Yas Island photo stop.`,
+          `The mosque is about a 90-minute drive from Dubai. Our private Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)} per car, up to 6 people) includes pickup from Dubai, Sharjah or Ajman, the Grand Mosque, Qasr Al Watan, Emirates Palace, the Corniche, Heritage Village and a Louvre Abu Dhabi photo stop.`,
         ],
       },
     ],
@@ -436,7 +436,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: 'How much does a city tour and desert safari combo cost?',
-        a: `Our combo is ${aed(PRICES.cityTourSafariCombo)} per person, including all hotel pickups, versus ${aed(PRICES.dubaiCityTour + PRICES.eveningStandard)} if booked separately.`,
+        a: `Our City Tour + Evening Safari combo is ${aed(PRICES.cityTourSafariCombo)} per person including all hotel pickups. Groups of up to 6 can also book a private Dubai city tour at ${aed(PRICES.dubaiCityTour)} per car.`,
       },
     ],
     related: ['city-tour-safari-combo', 'dubai-city-tour', 'dhow-cruise-marina'],

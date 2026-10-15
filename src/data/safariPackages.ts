@@ -21,6 +21,8 @@ export interface SafariPackage {
   isPopular?: boolean;
   /** Photo path. City tours without a real photo yet render an illustrated card instead. */
   image?: string;
+  /** Full promotional poster, shown uncropped on the detail page. */
+  poster?: string;
   includes: string[];
   excludes?: string[];
   itinerary?: { time: string; title: string; desc: string }[];
@@ -58,9 +60,9 @@ export const PRICES = {
   // VIP & private
   vipTraditional: 999, // for 2 adults
   privateCamp: 2299, // per group up to 8
-  // City tours & cruises (per person, shared)
-  dubaiCityTour: 119,
-  abuDhabiCityTour: 149,
+  // City tours & cruises
+  dubaiCityTour: 550, // per private car, up to 6
+  abuDhabiCityTour: 850, // per private car, up to 6
   dhowCruise: 139,
   cityTourSafariCombo: 189,
 } as const;
@@ -372,73 +374,65 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     slug: 'dubai-city-tour',
     category: 'city',
     tier: '11',
-    title: 'Dubai City Tour (Half Day)',
-    tagline: 'Old Dubai souks, an abra ride across the Creek, Burj Al Arab, Palm Jumeirah & Burj Khalifa photo stops.',
+    title: 'Dubai City Tour (Private Car)',
+    tagline: 'Private car with driver for up to 6: Burj Khalifa, Dubai Marina, Burj Al Arab, Palm Jumeirah, Atlantis, Museum of the Future, Dubai Frame and the old souks.',
     price: PRICES.dubaiCityTour,
-    originalPrice: 155,
-    priceUnit: 'person',
+    originalPrice: PRICES.dubaiCityTour,
+    priceUnit: 'vehicle',
     duration: '4–5 Hours',
     location: 'Old & New Dubai',
-    pickupInfo: 'Free Hotel Pickup (08:30 AM or 02:00 PM)',
+    pickupInfo: 'Hotel Pickup & Drop-off (Dubai / Sharjah / Ajman)',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
-    badge: 'NEW',
+    badge: 'PRIVATE CAR',
+    image: '/images/dubai-city-tour-poster.webp',
+    poster: '/images/dubai-city-tour-poster.webp',
     detailPath: '/tours/dubai-city-tour',
     includes: [
-      'Air-conditioned vehicle with licensed English-speaking guide',
-      'Al Fahidi historical district & Dubai Museum area walk',
-      'Traditional abra boat ride across Dubai Creek',
-      'Gold Souk & Spice Souk visit',
-      'Jumeirah Mosque & Burj Al Arab photo stops',
-      'Drive through Palm Jumeirah & Atlantis photo stop',
-      'Burj Khalifa & Dubai Mall drop-off option',
+      'Private car with professional driver (up to 6 people)',
+      'Hotel pickup & drop-off in Dubai, Sharjah or Ajman',
+      'Burj Khalifa, Dubai Marina & Burj Al Arab photo stops',
+      'The Palm Jumeirah & Atlantis The Palm photo stops',
+      'Museum of the Future & Dubai Frame photo stops',
+      'Al Fahidi Historical District',
+      'Gold Souk & Spice Souk shopping',
+      'Water on board · flexible itinerary',
     ],
-    excludes: ['Attraction entry tickets (Burj Khalifa, Dubai Frame)', 'Lunch'],
-    itinerary: [
-      { time: 'Start', title: 'Hotel pickup', desc: 'Pickup from your Dubai hotel in an air-conditioned vehicle.' },
-      { time: '+30 min', title: 'Al Fahidi & Dubai Creek', desc: 'Walk the old wind-tower lanes, then cross the Creek on a traditional abra.' },
-      { time: '+1.5 h', title: 'Gold & Spice Souks', desc: 'Time to browse and shop in Deira’s historic markets.' },
-      { time: '+2.5 h', title: 'Jumeirah & Burj Al Arab', desc: 'Photo stops at Jumeirah Mosque and the sail-shaped Burj Al Arab.' },
-      { time: '+3.5 h', title: 'Palm Jumeirah & Atlantis', desc: 'Drive the Palm trunk to Atlantis, then back to your hotel or Dubai Mall.' },
-    ],
-    whatsAppText: wa('Dubai City Tour', PRICES.dubaiCityTour, 'person'),
+    excludes: ['Attraction entry tickets (e.g. Burj Khalifa, Dubai Frame, Museum of the Future)', 'Meals'],
+    whatsAppText: wa('Private Dubai City Tour', PRICES.dubaiCityTour, 'vehicle'),
   },
   {
     id: 'abu-dhabi-city-tour',
     slug: 'abu-dhabi-city-tour',
     category: 'city',
     tier: '12',
-    title: 'Abu Dhabi City Tour from Dubai',
-    tagline: 'Sheikh Zayed Grand Mosque, Emirates Palace, Corniche, Heritage Village & Ferrari World photo stop.',
+    title: 'Abu Dhabi City Tour (Private Car)',
+    tagline: 'Private car with driver for up to 6: Sheikh Zayed Grand Mosque, Qasr Al Watan, Emirates Palace, Etihad Towers, Corniche, Heritage Village and Louvre Abu Dhabi.',
     price: PRICES.abuDhabiCityTour,
-    originalPrice: 189,
-    priceUnit: 'person',
-    duration: '8–9 Hours',
+    originalPrice: PRICES.abuDhabiCityTour,
+    priceUnit: 'vehicle',
+    duration: 'Full Day',
     location: 'Abu Dhabi',
-    pickupInfo: 'Free Dubai Hotel Pickup (08:00 AM)',
+    pickupInfo: 'Hotel Pickup & Drop-off (Dubai / Sharjah / Ajman)',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
-    badge: 'NEW',
+    badge: 'PRIVATE CAR',
+    image: '/images/abu-dhabi-city-tour-poster.webp',
+    poster: '/images/abu-dhabi-city-tour-poster.webp',
     detailPath: '/tours/abu-dhabi-city-tour',
     includes: [
-      'Round-trip transfer from Dubai in air-conditioned vehicle',
-      'Licensed English-speaking guide',
-      'Sheikh Zayed Grand Mosque visit (approx. 1 hour, free entry)',
+      'Private car with professional driver (up to 6 people)',
+      'Pickup & drop-off in Dubai, Sharjah or Ajman',
+      'Sheikh Zayed Grand Mosque',
+      'Qasr Al Watan visit',
       'Emirates Palace & Etihad Towers photo stops',
-      'Abu Dhabi Corniche & Heritage Village',
-      'Qasr Al Watan (outside) & Dates Market',
-      'Yas Island drive with Ferrari World photo stop',
+      'Abu Dhabi Corniche drive',
+      'Heritage Village (culture & history) & Dates Market',
+      'Louvre Abu Dhabi photo stop',
+      'Water on board · flexible itinerary',
     ],
-    excludes: ['Qasr Al Watan / Louvre / Ferrari World entry tickets', 'Lunch'],
-    itinerary: [
-      { time: '08:00', title: 'Pickup in Dubai', desc: 'Collected from your hotel; 90-minute drive along Sheikh Zayed Road.' },
-      { time: '10:00', title: 'Sheikh Zayed Grand Mosque', desc: 'Guided visit of one of the world’s largest mosques. Modest dress required.' },
-      { time: '11:30', title: 'Presidential Palace & Etihad Towers', desc: 'Photo stops at Abu Dhabi’s landmark buildings.' },
-      { time: '12:30', title: 'Emirates Palace & Corniche', desc: 'Stroll the waterfront and the palace frontage.' },
-      { time: '14:00', title: 'Heritage Village & Dates Market', desc: 'Traditional crafts and a taste of local dates.' },
-      { time: '15:30', title: 'Yas Island', desc: 'Ferrari World photo stop, then return to Dubai by ~17:30.' },
-    ],
-    whatsAppText: wa('Abu Dhabi City Tour', PRICES.abuDhabiCityTour, 'person'),
+    excludes: ['Attraction entry tickets (e.g. Qasr Al Watan, Louvre Abu Dhabi) unless stated', 'Meals'],
+    whatsAppText: wa('Private Abu Dhabi City Tour', PRICES.abuDhabiCityTour, 'vehicle'),
   },
   {
     id: 'dhow-cruise-marina',
@@ -476,7 +470,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     title: 'Dubai City Tour + Evening Safari Combo',
     tagline: 'Morning city sightseeing, a rest at your hotel, then the full Evening Standard desert safari.',
     price: PRICES.cityTourSafariCombo,
-    originalPrice: PRICES.dubaiCityTour + PRICES.eveningStandard,
+    originalPrice: 239,
     priceUnit: 'person',
     duration: 'Full Day',
     location: 'Dubai + Lehbab Dunes',
