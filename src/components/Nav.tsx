@@ -169,9 +169,6 @@ export default function Nav() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1 relative" ref={megaRef}>
-            <Link to="/" className={`px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${linkCls}`}>
-              Home
-            </Link>
 
             {/* Mega Menu Trigger */}
             <button
@@ -187,15 +184,17 @@ export default function Nav() {
 
             {[
               { to: '/city-tours', label: 'City Tours' },
+              { to: '/attraction-tickets', label: 'Tickets' },
+              { to: '/transport', label: 'Transfers' },
               { to: '/guides', label: 'Guides' },
-              { to: '/about', label: 'About Us' },
+              { to: '/about', label: 'About', xlOnly: true },
               { to: '/contact', label: 'Contact' },
             ].map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 aria-current={isActive(l.to) ? 'page' : undefined}
-                className={`px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
+                className={`${'xlOnly' in l ? 'hidden xl:inline-flex' : ''} px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
                   isActive(l.to) ? 'text-[#EA580C]' : linkCls
                 }`}
               >
@@ -259,7 +258,7 @@ export default function Nav() {
               className="hidden sm:inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 hover:scale-105 active:scale-95"
             >
               <MessageCircle size={16} />
-              <span>WhatsApp Booking</span>
+              <span className="hidden xl:inline">WhatsApp Booking</span><span className="xl:hidden">Book Now</span>
             </a>
 
             {/* Mobile Direct Call Shortcut button */}
@@ -366,6 +365,22 @@ export default function Nav() {
                   className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>About Our Fleet & Drivers</span>
+                  <ArrowRight size={14} className="text-slate-400" />
+                </button>
+
+                <button
+                  onClick={() => handleNavClick('/attraction-tickets')}
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                >
+                  <span>Attraction Tickets</span>
+                  <ArrowRight size={14} className="text-slate-400" />
+                </button>
+
+                <button
+                  onClick={() => handleNavClick('/transport')}
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                >
+                  <span>Airport & Private Transfers</span>
                   <ArrowRight size={14} className="text-slate-400" />
                 </button>
 
