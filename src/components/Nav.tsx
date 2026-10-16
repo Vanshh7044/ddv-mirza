@@ -369,6 +369,14 @@ export default function Nav() {
                 </button>
 
                 <button
+                  onClick={() => handleNavClick('/book')}
+                  className="text-left text-sm font-bold text-[#EA580C] py-2.5 px-3 rounded-xl bg-[#EA580C]/5 hover:bg-[#EA580C]/10 transition-all flex items-center justify-between"
+                >
+                  <span>Book Online (form)</span>
+                  <ArrowRight size={14} />
+                </button>
+
+                <button
                   onClick={() => handleNavClick('/attraction-tickets')}
                   className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >

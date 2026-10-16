@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import { Check, Star, Clock, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
@@ -6,6 +6,7 @@ import { EVENING_TIERS, getWhatsAppLink, aed, UNIT_LABEL } from '../data/safariP
 import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/schemaData';
 import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
+import AddOnsSection from '../components/sections/AddOnsSection';
 
 export default function PackageDetailPage() {
   const { tier } = useParams<{ tier: string }>();
@@ -196,6 +197,13 @@ export default function PackageDetailPage() {
                   <span>Reserve via WhatsApp</span>
                 </a>
 
+                <Link
+                  to={`/book?package=${selectedPkg.id}`}
+                  className="mt-2.5 w-full h-11 rounded-xl border-2 border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white font-bold text-sm inline-flex items-center justify-center transition-colors"
+                >
+                  Book with online form
+                </Link>
+
                 <div className="text-center mt-3.5">
                   <span className="text-[11px] text-[#64748B] font-semibold">
                     No card required • Reply in under 3 minutes
@@ -207,6 +215,7 @@ export default function PackageDetailPage() {
           </div>
         </div>
       </section>
+      <AddOnsSection packageId={selectedPkg.id} />
     </>
   );
 }

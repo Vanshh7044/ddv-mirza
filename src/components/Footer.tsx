@@ -110,6 +110,7 @@ export default function Footer() {
               <Link to="/desert-safari" className="hover:text-[#EA580C] transition-colors py-0.5">All Safari Packages</Link>
               <Link to="/about" className="hover:text-[#EA580C] transition-colors py-0.5">About Our Fleet & Team</Link>
               <Link to="/guides" className="hover:text-[#EA580C] transition-colors py-0.5">Travel Guides & Tips</Link>
+              <Link to="/book" className="hover:text-[#EA580C] transition-colors py-0.5">Book Online</Link>
               <Link to="/attraction-tickets" className="hover:text-[#EA580C] transition-colors py-0.5">Attraction Tickets</Link>
               <Link to="/transport" className="hover:text-[#EA580C] transition-colors py-0.5">Airport & Private Transfers</Link>
               <Link to="/#itinerary" className="hover:text-[#EA580C] transition-colors py-0.5">6-Hour Safari Itinerary</Link>

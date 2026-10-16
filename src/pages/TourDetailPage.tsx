@@ -160,6 +160,12 @@ export default function TourDetailPage() {
               >
                 <MessageCircle size={18} /> Reserve via WhatsApp
               </a>
+              <Link
+                to={`/book?package=${tour.id}`}
+                className="mt-2.5 w-full h-11 rounded-xl border-2 border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white font-bold text-sm inline-flex items-center justify-center transition-colors"
+              >
+                Book with online form
+              </Link>
               <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#64748B] font-semibold mt-3.5">
                 <ShieldCheck size={13} className="text-emerald-600" /> No card required · Reply in minutes
               </p>

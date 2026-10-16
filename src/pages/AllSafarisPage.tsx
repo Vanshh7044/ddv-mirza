@@ -1,6 +1,7 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import PackageGrid from '../components/sections/PackageGrid';
+import AddOnsSection from '../components/sections/AddOnsSection';
 import VIPSection from '../components/sections/VIPSection';
 import WhyDirect from '../components/sections/WhyDirect';
 import FinalCTA from '../components/sections/FinalCTA';
@@ -31,6 +32,7 @@ export default function AllSafarisPage() {
         priceNote="per person"
       />
       <PackageGrid initialTab="all" />
+      <AddOnsSection />
       <VIPSection />
       <WhyDirect />
       <FinalCTA />

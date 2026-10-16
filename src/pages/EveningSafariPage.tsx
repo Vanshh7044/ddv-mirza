@@ -1,6 +1,7 @@
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import PackageGrid from '../components/sections/PackageGrid';
+import AddOnsSection from '../components/sections/AddOnsSection';
 import VisualItinerary from '../components/sections/VisualItinerary';
 import WhyDirect from '../components/sections/WhyDirect';
 import ReviewsSection from '../components/sections/ReviewsSection';
@@ -33,6 +34,7 @@ export default function EveningSafariPage() {
         priceNote="per person"
       />
       <PackageGrid />
+      <AddOnsSection />
       <VisualItinerary />
       <WhyDirect />
       <ReviewsSection />
