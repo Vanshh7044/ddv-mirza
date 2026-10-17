@@ -243,7 +243,7 @@ export default function Hero() {
               Quick WhatsApp Reservation
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] font-medium">
-              Zero advance payment • Confirmation in &lt;3 minutes • 4.9★ Rated ·{' '}
+              Zero advance payment • Fast WhatsApp confirmation • 4.9★ Rated ·{' '}
               <Link to="/book" className="text-[#EA580C] font-bold hover:underline">Full booking form →</Link>
             </p>
           </div>

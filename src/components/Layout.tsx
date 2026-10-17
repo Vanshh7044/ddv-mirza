@@ -5,7 +5,7 @@ import Footer from './Footer';
 import MobileBar from './MobileBar';
 import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { trackPageView } from '../utils/analytics';
+import { trackPageView, getPageTitle } from '../utils/analytics';
 import gsap from 'gsap';
 
 // Runs before paint in the browser; harmless no-op during SSR.
@@ -73,7 +73,9 @@ export default function Layout() {
 
   // Track SPA page views for GA4 + Meta Pixel
   useEffect(() => {
-    trackPageView(location.pathname, document.title);
+    // Helmet writes <title> to the DOM asynchronously, so read the title the page's
+    // <SEO> component registered during this commit instead of document.title.
+    trackPageView(location.pathname, getPageTitle() || document.title);
   }, [location.pathname]);
 
   return (

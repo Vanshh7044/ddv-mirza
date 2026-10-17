@@ -35,9 +35,16 @@ const fbq = (...args: unknown[]) => {
   }
 };
 
+// ─── Current page title (set by <SEO> before page_view fires) ───────────────
+let pageTitle = '';
+export const setPageTitle = (title: string) => {
+  pageTitle = title;
+};
+export const getPageTitle = () => pageTitle;
+
 // ─── Page View (SPA route changes) ─────────────────────────────────────────
 export function trackPageView(path: string, title: string) {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : `https://dubaidunetours.com${path}`;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : `https://www.dubaidunetours.com${path}`;
 
   // GA4 — send page_view for SPA navigation
   gtag('event', 'page_view', {

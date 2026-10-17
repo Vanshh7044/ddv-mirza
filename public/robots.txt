@@ -16,4 +16,4 @@ User-agent: Google-Extended
 Allow: /
 
 # Sitemaps
-Sitemap: https://dubaidunetours.com/sitemap.xml
+Sitemap: https://www.dubaidunetours.com/sitemap.xml

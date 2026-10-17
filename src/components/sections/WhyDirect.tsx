@@ -20,7 +20,7 @@ export default function WhyDirect() {
     {
       icon: Award,
       title: 'WhatsApp Direct in 4 Languages',
-      desc: 'Direct WhatsApp line to our Dubai operations dispatch in English, Arabic, Russian, and French. Response guaranteed in under 3 minutes.',
+      desc: 'Direct WhatsApp line to our Dubai operations dispatch in English, Arabic, Russian, and French. Fast replies from a real person, not a call centre.',
     },
   ];
 

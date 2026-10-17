@@ -33,7 +33,7 @@ export default function CityToursPage() {
         label="City Tours · Cruises · Combos"
         title="Dubai & Abu Dhabi"
         titleEm="City Tours"
-        subtitle="Guided sightseeing with the same direct-operator promise as our safaris: free hotel pickup, licensed guides, no deposit — pay on the day."
+        subtitle="Private cars with professional drivers for up to 6 people, plus Marina dinner cruises. Pickup from Dubai, Sharjah or Ajman, no deposit — pay on the day."
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Ask About City Tours', href: getWhatsAppLink('Hi! I would like information about your Dubai / Abu Dhabi city tours.') }}
         price={aed(PRICES.dubaiCityTour)}

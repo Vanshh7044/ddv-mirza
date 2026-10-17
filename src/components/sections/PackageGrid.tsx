@@ -232,7 +232,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
             </div>
             <div>
               <div className="text-xs sm:text-sm font-bold text-[#0F172A]">Need help choosing a safari or group booking?</div>
-              <div className="text-[11px] sm:text-xs text-[#64748B]">WhatsApp our Dubai operations team directly. Reply in &lt;3 mins.</div>
+              <div className="text-[11px] sm:text-xs text-[#64748B]">WhatsApp our Dubai operations team directly for a fast reply.</div>
             </div>
           </div>
           <a

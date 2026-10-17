@@ -206,7 +206,7 @@ export default function PackageDetailPage() {
 
                 <div className="text-center mt-3.5">
                   <span className="text-[11px] text-[#64748B] font-semibold">
-                    No card required • Reply in under 3 minutes
+                    No card required • Fast WhatsApp reply
                   </span>
                 </div>
               </div>

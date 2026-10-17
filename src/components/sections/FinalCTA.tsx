@@ -18,7 +18,7 @@ export default function FinalCTA() {
               <span className="text-[#EA580C]">Pay on Arrival.</span>
             </h2>
             <p className="text-sm sm:text-lg text-slate-300 font-medium mb-6 sm:mb-8 max-w-lg leading-relaxed">
-              Message us on WhatsApp with your date and preferred package. We confirm your pickup time and driver details in under 3 minutes.
+              Message us on WhatsApp with your date and preferred package. We confirm your pickup time and driver details quickly, right in the chat.
             </p>
 
             {/* Quick Actions */}

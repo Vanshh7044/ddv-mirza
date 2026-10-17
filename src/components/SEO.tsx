@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { BASE_URL } from '../data/schemaData';
+import { setPageTitle } from '../utils/analytics';
 
 interface SEOProps {
   title: string;
@@ -31,6 +32,9 @@ export default function SEO({
     : `${BASE_URL}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
 
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+
+  // Register the title for analytics: Helmet only writes <title> to the DOM later, asynchronously.
+  setPageTitle(title);
 
   return (
     <Helmet>

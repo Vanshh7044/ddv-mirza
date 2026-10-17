@@ -1,6 +1,6 @@
 import { SafariPackage, WHATSAPP_NUMBER, PRICES } from './safariPackages';
 
-export const BASE_URL = 'https://dubaidunetours.com';
+export const BASE_URL = 'https://www.dubaidunetours.com';
 
 export const travelAgencySchema = {
   '@context': 'https://schema.org',

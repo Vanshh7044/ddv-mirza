@@ -48,7 +48,7 @@ const SEO_KEYWORD_GROUPS = [
       { label: 'Deira & Bur Dubai Hotel Pickup', to: '/contact' },
       { label: 'JBR & Palm Jumeirah Transfers', to: '/contact' },
       { label: 'Pay on Arrival (Zero Deposit)', to: '/terms' },
-      { label: 'Instant WhatsApp Booking (<3 mins)', to: '/contact' },
+      { label: 'Instant WhatsApp Booking', to: '/contact' },
       { label: 'Free 24-Hour Cancellation', to: '/cancellation-policy' },
     ],
   },

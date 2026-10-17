@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <>
       <SEO
-        title="Contact Dubai Dune Tours | Instant WhatsApp Booking (<3 Mins)"
+        title="Contact Dubai Dune Tours | Instant WhatsApp Booking"
         description="Direct booking and support dispatch for Dubai Dune Tours. WhatsApp: +971 55 601 5834. Inquire about availability, hotel pickup, corporate groups, and private camps."
         canonical="/contact"
         ogImage="/images/dune-bashing.webp"
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 <div className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#EA580C] mb-1">Fastest Response</div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">WhatsApp Booking</h3>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed mb-5">
-                  Direct line to our dispatch team in English, Arabic, Russian, and French. Typical reply time is under 3 minutes.
+                  Direct line to our dispatch team in English, Arabic, Russian, and French. We reply as fast as we can, usually within minutes during the day.
                 </p>
               </div>
 
