@@ -76,18 +76,18 @@ export default function PackageDetailPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/bbq-buffet.webp" 
-                    alt="Desert BBQ Buffet" 
+                    src="/images/real/camp-dinner.webp" 
+                    alt="Dinner at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 
                   />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Live BBQ</span>
+                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Dinner at camp</span>
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/falcon-portrait.webp" 
-                    alt="Falcon Experience" 
+                    src="/images/real/falcon-sunset.webp" 
+                    alt="Falcon photo session" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 
@@ -96,8 +96,8 @@ export default function PackageDetailPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/tanoura-dance.webp" 
-                    alt="Live Arabian Shows" 
+                    src="/images/real/show-dancer.webp" 
+                    alt="Live show at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 

@@ -136,15 +136,14 @@ export default function Hero() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <video
             ref={videoRef}
-            poster="/images/dune-bashing.webp"
+            poster="/images/real/hero-poster.webp"
             playsInline
             autoPlay
             muted={isMuted}
             loop
             className="hero-bg-media absolute inset-0 w-full h-full object-cover will-change-transform filter saturate-[1.15] brightness-[0.85]"
           >
-            <source src="/videos/dunes.mp4" type="video/mp4" />
-            <source src="/videos/dunes-golden.mp4" type="video/mp4" />
+            <source src="/videos/hero-real.mp4" type="video/mp4" />
           </video>
 
           {/* Gradients for contrast & readability */}

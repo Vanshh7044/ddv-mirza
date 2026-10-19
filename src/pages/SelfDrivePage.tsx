@@ -10,7 +10,7 @@ const SD_PACKAGES = [
     price: PRICES.selfDrive,
     originalPrice: 49,
     desc: 'Lead-the-convoy format through Lehbab. Drive your own 4×4 with guide lead and camp BBQ included.',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     includes: ['Lead convoy guide vehicle', 'Satellite radio navigation', 'Camp entry & entertainment', 'BBQ dinner buffet', 'Camel ride & sandboarding'],
   },
   {
@@ -18,7 +18,7 @@ const SD_PACKAGES = [
     price: PRICES.selfDrivePremium,
     originalPrice: 79,
     desc: 'Convoy format with reserved VIP camp seating and upgraded BBQ buffet dinner.',
-    image: '/images/quad-buggy.webp',
+    image: '/images/real/quad-bike.webp',
     includes: ['Lead convoy guide vehicle', 'VIP reserved table seating', 'Upgraded BBQ live grill', 'Camp entry & fire show', 'Camel ride & sandboarding'],
   },
   {
@@ -26,7 +26,7 @@ const SD_PACKAGES = [
     price: PRICES.selfDriveVip,
     originalPrice: 99,
     desc: 'The complete self-drive package with VIP majlis access and falconry photo opportunity.',
-    image: '/images/vip-majlis.webp',
+    image: '/images/real/falcon-dunes.webp',
     includes: ['Lead convoy guide vehicle', 'VIP Majlis camp access', 'Falcon photo opportunity', 'Premium BBQ & shisha lounge', 'All shows and entertainment'],
   },
 ];
@@ -40,7 +40,7 @@ export default function SelfDrivePage() {
         title={`Self-Drive Desert Safari Dubai (From ${aed(PRICES.selfDrive)}) | Bring Your Own 4x4`}
         description="Drive your own 4WD / SUV in the high red dunes of Lehbab behind our expert guide convoy. Includes desert camp entry, shows & BBQ dinner buffet. Pay on arrival."
         canonical="/self-drive"
-        ogImage="/images/dune-bashing.webp"
+        ogImage="/images/real/land-cruiser-sunset.webp"
         schema={getBreadcrumbSchema(breadcrumbs, '/self-drive')}
       />
       <PageHero

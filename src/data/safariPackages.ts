@@ -97,7 +97,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
     rating: 4.9,
     reviewsCount: 401,
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     detailPath: '/evening-safari/standard',
     includes: [
       '4×4 Land Cruiser red dune bashing (35 mins)',
@@ -126,7 +126,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 401,
     badge: 'POPULAR',
-    image: '/images/bbq-buffet.webp',
+    image: '/images/real/land-cruiser-peace.webp',
     detailPath: '/evening-safari/premium',
     includes: [
       'All Standard Inclusions + smaller group per 4x4 (max 6)',
@@ -155,7 +155,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 5.0,
     reviewsCount: 401,
     badge: 'VIP LUXURY',
-    image: '/images/vip-majlis.webp',
+    image: '/images/real/falcon-dunes.webp',
     detailPath: '/evening-safari/vip',
     includes: [
       'Private 4×4 Land Cruiser for your party only',
@@ -185,7 +185,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
     rating: 4.9,
     reviewsCount: 401,
-    image: '/images/quad-buggy.webp',
+    image: '/images/real/quad-bike.webp',
     detailPath: '/evening-safari/standard-quad',
     includes: [
       'Everything in the Evening Standard Safari',
@@ -214,7 +214,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     reviewsCount: 401,
     badge: 'MOST BOOKED',
     isPopular: true,
-    image: '/images/quad-buggy.webp',
+    image: '/images/real/quad-bike.webp',
     detailPath: '/evening-safari/premium-quad',
     includes: [
       'Everything in the Evening Premium Safari',
@@ -244,7 +244,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 180,
     badge: 'EARLY BIRD',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/camel-ride.webp',
     detailPath: '/morning-safari',
     includes: [
       'Private Land Cruiser & professional licensed driver',
@@ -271,7 +271,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     pickupInfo: 'Pickup 08:00 AM · Return 12:00 PM',
     rating: 4.8,
     reviewsCount: 220,
-    image: '/images/sandboarding.webp',
+    image: '/images/real/dune-jump.webp',
     detailPath: '/morning-safari',
     includes: [
       'Private 4×4 Land Cruiser for up to 6 guests',
@@ -300,7 +300,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 165,
     badge: 'BEST BUDGET',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     detailPath: '/self-drive',
     includes: [
       'Lead convoy guide with satellite radio connection',
@@ -327,7 +327,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 5.0,
     reviewsCount: 120,
     badge: 'POPULAR VIP',
-    image: '/images/falcon-portrait.webp',
+    image: '/images/real/falcon-sunset.webp',
     detailPath: '/vip-traditional-arabic',
     includes: [
       'Private Land Cruiser for your party only',
@@ -355,7 +355,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 5.0,
     reviewsCount: 95,
     badge: 'EXCLUSIVE',
-    image: '/images/private-camp.webp',
+    image: '/images/real/sunset-couple.webp',
     detailPath: '/private-desert-setup',
     includes: [
       '100% Private camp setup on isolated red dune (No other guests)',
@@ -478,7 +478,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'BEST VALUE',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/golden-hour-sand.webp',
     detailPath: '/tours/dubai-city-tour-desert-safari-combo',
     includes: [
       'Half-day Dubai City Tour with guide & abra ride',

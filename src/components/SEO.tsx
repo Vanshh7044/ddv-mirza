@@ -17,7 +17,7 @@ export default function SEO({
   title,
   description,
   canonical = '/',
-  ogImage = '/images/dune-bashing.webp',
+  ogImage = '/images/real/land-cruiser-sunset.webp',
   ogType = 'website',
   schema,
   keywords,

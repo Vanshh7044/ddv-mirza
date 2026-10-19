@@ -38,7 +38,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 5,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     answer: `A shared evening desert safari in Dubai costs roughly AED 99–150 per person in 2026, including hotel pickup, dune bashing, camel ride, BBQ dinner and live shows. Adding a 30-minute quad bike ride brings it to about AED 199–260, VIP evening safaris cost around AED 379 per person, and a private short tour in your own car is about AED 499 per vehicle. Booking directly with an operator is usually cheaper than booking through a resale platform.`,
     sections: [
       {
@@ -111,7 +111,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/camel-ride.webp',
     answer: 'The best time for a desert safari in Dubai is from October to April, when daytime temperatures are pleasant and desert evenings are cool. The evening safari, which starts mid-afternoon and runs through sunset into dinner, is the most popular choice all year. In the hot summer months (June–September), a sunrise or evening safari avoids the worst of the heat.',
     sections: [
       {
@@ -166,7 +166,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 3,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/sandboarding.webp',
+    image: '/images/real/dune-jump.webp',
     answer: 'Wear light, comfortable and breathable clothing that covers your shoulders, with sandals or trainers you don’t mind getting sandy, plus sunglasses. From November to March, bring a light jacket or sweater because desert evenings get cool. Leave valuables and anything delicate at the hotel.',
     sections: [
       {
@@ -216,7 +216,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/fire-show.webp',
+    image: '/images/real/show-drums.webp',
     answer: 'Book an evening desert safari if you want the full experience: dune bashing, sunset, camel ride, BBQ dinner and live shows. Choose a morning safari for a shorter, adrenaline-focused trip without dinner, or a sunrise safari for quiet dunes, cooler air and the best photography light.',
     sections: [
       {
@@ -258,7 +258,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/camel-ride.webp',
     answer: 'Yes — a desert safari is one of the most family-friendly things to do in Dubai. Children love the camel ride, sandboarding and fire show. For babies, toddlers or anyone prone to motion sickness, ask for a gentle drive: the driver can skip the intense dune bashing and take a scenic route straight to camp.',
     sections: [
       {
@@ -307,7 +307,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 3,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     answer: 'Dune bashing is safe for most healthy adults and older children when it is done by a licensed operator with trained drivers and well-maintained 4×4s. It feels like a rollercoaster on sand. People who are pregnant, have back or neck problems, heart conditions or strong motion sickness should ask for a gentle scenic drive instead.',
     sections: [
       {
@@ -352,7 +352,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/vip-majlis.webp',
+    image: '/images/real/falcon-dunes.webp',
     answer: 'Visitors to the Sheikh Zayed Grand Mosque must wear loose, long clothing that covers the arms and legs to the ankles. Women must also cover their hair with a headscarf. Clothing must not be tight or see-through. Entry is free; check the official mosque website for current visiting hours and booking requirements before you go.',
     sections: [
       {
@@ -400,7 +400,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/desert-camp-night.webp',
+    image: '/images/real/sunset-dunes.webp',
     answer: 'With one day in Dubai, spend the morning in old Dubai (Al Fahidi, an abra ride across the Creek, the Gold and Spice Souks), see Jumeirah, Burj Al Arab and Palm Jumeirah around midday, rest at your hotel, then take an evening desert safari with sunset dune bashing, BBQ dinner and live shows.',
     sections: [
       {

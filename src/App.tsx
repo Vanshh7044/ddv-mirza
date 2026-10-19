@@ -19,7 +19,7 @@ export default function App() {
         title={`Dubai Desert Safari | Direct Operator · Pay on Arrival · ${aed(FROM_PRICE)}`}
         description="Book direct with Dubai's licensed desert safari operator since 2010. Red dune bashing in Lehbab, live BBQ dinner, camel rides, quad biking & VIP Majlis. Zero advance deposit, free hotel pickup."
         canonical="/"
-        ogImage="/images/dune-bashing.webp"
+        ogImage="/images/real/land-cruiser-sunset.webp"
         schema={[
           travelAgencySchema, 
           getFaqSchema(FAQS),

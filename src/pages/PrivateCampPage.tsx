@@ -14,7 +14,7 @@ export default function PrivateCampPage() {
     '@id': `${BASE_URL}/private-desert-setup`,
     name: '100% Private Desert Camp Setup Dubai',
     description: 'Exclusive private desert sanctuary on an isolated red dune with personal chef, fairy light canopy, telescope for stargazing, and bespoke five-star dining.',
-    image: `${BASE_URL}/images/private-camp.webp`,
+    image: `${BASE_URL}/images/real/sunset-couple.webp`,
     offers: {
       '@type': 'Offer',
       price: String(PRICES.privateCamp),
@@ -40,7 +40,7 @@ export default function PrivateCampPage() {
         title={`Private Desert Camp Setup Dubai (${aed(PRICES.privateCamp)}) | Luxury Glamping & Chef`}
         description="Exclusive secluded desert camp on an isolated red dune in Dubai. Dedicated private chef, romantic fairy light canopy, stargazing telescope & bespoke dining. Zero other guests."
         canonical="/private-desert-setup"
-        ogImage="/images/private-camp.webp"
+        ogImage="/images/real/sunset-couple.webp"
         ogType="product"
         schema={[getBreadcrumbSchema(breadcrumbs, '/private-desert-setup'), privateCampSchema]}
       />
@@ -65,7 +65,7 @@ export default function PrivateCampPage() {
             <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
                 <img
-                  src="/images/private-camp.webp"
+                  src="/images/real/sunset-couple.webp"
                   alt="Private Desert Camp Setup"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -80,27 +80,27 @@ export default function PrivateCampPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/desert-camp-night.webp" 
-                    alt="Camp by Night" 
+                    src="/images/real/sunset-dunes.webp" 
+                    alt="Sunset on the dunes" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 
                   />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Starlit Setup</span>
+                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Sunset views</span>
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/bbq-buffet.webp" 
-                    alt="Private Chef Feast" 
+                    src="/images/real/heart-sunset.webp" 
+                    alt="Sunset moments" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 
                   />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Private Chef</span>
+                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Sunset moments</span>
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/camel-sunset.webp" 
+                    src="/images/real/camel-ride.webp" 
                     alt="Sunset Camel Ride" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 

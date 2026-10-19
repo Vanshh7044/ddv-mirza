@@ -32,7 +32,7 @@ export const TRANSFER_SERVICES: TransferService[] = [
 ];
 
 export const VEHICLES: Vehicle[] = [
-  { id: 'land-cruiser', name: 'Toyota Land Cruiser 4×4', passengers: 6, luggage: '3–4 large bags', bestFor: 'VIP, families, desert & city tours', image: '/images/dune-bashing.webp' },
+  { id: 'land-cruiser', name: 'Toyota Land Cruiser 4×4', passengers: 6, luggage: '3–4 large bags', bestFor: 'VIP, families, desert & city tours', image: '/images/real/land-cruiser-peace.webp' },
   { id: 'premium-suv', name: 'Premium SUV', passengers: 4, luggage: '3 large bags', bestFor: 'Couples, business travel, airport runs' },
   { id: 'seven-seater', name: '7-Seater Vehicle', passengers: 6, luggage: '4–5 large bags', bestFor: 'Families and small groups' },
   { id: 'hiroof', name: '14-Seater HiRoof Van', passengers: 13, luggage: '10+ large bags', bestFor: 'Groups, events, corporate trips' },

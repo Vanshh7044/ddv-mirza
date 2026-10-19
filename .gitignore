@@ -29,3 +29,9 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Ad creative build intermediates
+ad-creatives/build/tmp
+real-media/tmp
+# Raw guest photos stay local (privacy + size); the site uses the processed copies in public/images/real
+real-media/photos

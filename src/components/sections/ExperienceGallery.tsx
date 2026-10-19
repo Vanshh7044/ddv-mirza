@@ -1,53 +1,54 @@
 import { Camera, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, FROM_PRICE, aed } from '../../data/safariPackages';
 
+// Real guest photos and show footage only (no AI imagery).
 const GALLERY_ITEMS = [
   {
-    title: 'High Red Dune Bashing',
+    title: 'Land Cruiser Dune Bashing',
     tag: 'Adrenaline 4×4',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     span: 'col-span-1 md:col-span-2',
   },
   {
-    title: 'Sunset Camel Caravan',
+    title: 'Camel Ride at Sunset',
     tag: 'Bedouin Heritage',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/camel-ride.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Extreme Can-Am Dune Buggy',
+    title: 'Quad Biking on the Dunes',
     tag: 'Off-Road Thrills',
-    image: '/images/dune-buggy.webp',
+    image: '/images/real/quad-bike.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Live Arabian Tanoura & Fire Show',
-    tag: 'Night Shows',
-    image: '/images/tanoura-dance.webp',
+    title: 'Golden Hour on the Dunes',
+    tag: 'Photo Stop',
+    image: '/images/real/golden-hour-sand.webp',
     span: 'col-span-1 md:col-span-2',
   },
   {
-    title: 'Royal Falcon Flight Session',
+    title: 'Falcon Photo Session',
     tag: 'Wildlife & Culture',
-    image: '/images/falcon-portrait.webp',
+    image: '/images/real/falcon-sunset.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Live 5-Star BBQ Buffet Spread',
-    tag: 'Gourmet Dining',
-    image: '/images/bbq-buffet.webp',
+    title: 'Live Shows at Camp',
+    tag: 'Night Shows',
+    image: '/images/real/show-dancer.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Bedouin Henna & Shisha Lounge',
-    tag: 'Arabian Hospitality',
-    image: '/images/henna-shisha.webp',
+    title: 'Dinner at Camp',
+    tag: 'Dining',
+    image: '/images/real/camp-dinner.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Illuminated Desert Camp by Night',
-    tag: 'Camp Atmosphere',
-    image: '/images/desert-camp-night.webp',
+    title: 'Fun on the Dunes',
+    tag: 'Memories',
+    image: '/images/real/dune-jump.webp',
     span: 'col-span-1 md:col-span-2',
   },
 ];

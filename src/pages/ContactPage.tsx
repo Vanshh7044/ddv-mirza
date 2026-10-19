@@ -13,7 +13,7 @@ export default function ContactPage() {
         title="Contact Dubai Dune Tours | Instant WhatsApp Booking"
         description="Direct booking and support dispatch for Dubai Dune Tours. WhatsApp: +971 55 601 5834. Inquire about availability, hotel pickup, corporate groups, and private camps."
         canonical="/contact"
-        ogImage="/images/dune-bashing.webp"
+        ogImage="/images/real/land-cruiser-sunset.webp"
         schema={[getBreadcrumbSchema(breadcrumbs, '/contact'), travelAgencySchema]}
       />
       <PageHero

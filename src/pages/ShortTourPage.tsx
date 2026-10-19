@@ -11,7 +11,7 @@ const TOURS = [
     desc: 'Chase the dawn light before the desert awakens. Total solitude on red dunes with hot Arabic breakfast.',
     price: PRICES.sunrise,
     unit: '/ private vehicle (Up to 6 guests)',
-    image: '/images/camel-sunset.webp',
+    image: '/images/real/camel-ride.webp',
     includes: ['Private 4×4 Land Cruiser', 'Sunrise dune bashing', 'Sandboarding', 'Hot Arabic coffee & breakfast', 'Free hotel pickup'],
   },
   {
@@ -20,7 +20,7 @@ const TOURS = [
     desc: 'Private action-packed morning adventure in Lehbab red dunes before the afternoon heat. Back for lunch.',
     price: PRICES.morning,
     unit: '/ private vehicle (Up to 6 guests)',
-    image: '/images/sandboarding.webp',
+    image: '/images/real/dune-jump.webp',
     includes: ['Private 4×4 Land Cruiser', 'Red dune bashing & sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
   },
   {
@@ -29,7 +29,7 @@ const TOURS = [
     desc: 'Condensed private evening tour — dune bashing, sunset photo stop, and camel ride without the camp show.',
     price: PRICES.eveningExpress,
     unit: '/ private vehicle (Up to 6 guests)',
-    image: '/images/dune-bashing.webp',
+    image: '/images/real/land-cruiser-sunset.webp',
     includes: ['Private 4×4 Land Cruiser', 'Sunset dune bashing', 'Sandboarding', 'Scenic photography stops', 'Free hotel pickup'],
   },
 ];
@@ -43,7 +43,7 @@ export default function ShortTourPage() {
         title={`Private Morning & Sunrise Desert Safari Dubai (From ${aed(PRICES.morning)} per Car) | Dune Bashing`}
         description="Book a morning dune bashing or private sunrise desert safari in Dubai. Beat the heat, enjoy sandboarding & camel riding with free hotel pickup. Pay on arrival."
         canonical="/morning-safari"
-        ogImage="/images/sandboarding.webp"
+        ogImage="/images/real/dune-jump.webp"
         schema={getBreadcrumbSchema(breadcrumbs, '/morning-safari')}
       />
       <PageHero

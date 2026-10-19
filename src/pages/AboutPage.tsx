@@ -14,7 +14,7 @@ export default function AboutPage() {
         title="About Dubai Dune Tours | Licensed Direct Operator Since 2010"
         description="Learn why thousands of Dubai travelers choose Dubai Dune Tours. In-house fleet of Toyota Land Cruisers, certified drivers, and zero reseller markups."
         canonical="/about"
-        ogImage="/images/dune-bashing.webp"
+        ogImage="/images/real/land-cruiser-sunset.webp"
         schema={getBreadcrumbSchema(breadcrumbs, '/about')}
       />
       <PageHero
@@ -74,7 +74,7 @@ export default function AboutPage() {
             {/* Visual Photo */}
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
               <img
-                src="/images/dune-bashing.webp"
+                src="/images/real/land-cruiser-sunset.webp"
                 alt="Dubai Desert Safari Land Cruiser"
                 className="w-full h-full object-cover"
                 loading="lazy"
