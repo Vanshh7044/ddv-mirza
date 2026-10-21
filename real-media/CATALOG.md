@@ -26,6 +26,42 @@ All photos 1125×2000 (vertical, phone quality — good enough for web + ads).
 | photo-20 | Back view on dune at sunset (variant of 16) | Gallery / mood | No face |
 | photo-21 | Couple at sunset, cars behind | Couples / private | Identifiable — needs consent |
 
+## Batch 2 — received 2026-10-21 (photo-22 … photo-70, mixed sizes)
+
+Mostly professional photos of the desert camp at night (shows, buffet, majlis) plus buggies and camels.
+**Source check needed:** many look like the camp operator's own marketing shots ("Arabian Heritage" signage visible in 35, 46, 51, 52, 66, 70) — confirm we have permission to use them.
+
+| File | Shot | Used as | Notes |
+|---|---|---|---|
+| photo-24 | Camp overview at dusk, seating + stage | camp-overview | |
+| photo-27 / 25 | LED tanoura (same shot twice) | tanoura-led | |
+| photo-28 | Woman drummer in costume | drum-dancer | performer |
+| photo-31 / 39 | Fire breather, wide (same shot twice) | fire-show-wide | |
+| photo-32 / 67 | Majlis alcove with lit arch (same shot twice) | majlis | no people |
+| photo-33 / 45 | Belly dancer with veil (near-duplicates) | belly-dance | |
+| photo-37 | Live grill station, chef | buffet-station | |
+| photo-38 | Camp from above at night | camp-night | no people — hero/gallery |
+| photo-40 | Couple in kandura + shemagh at sunset | sunset-kandura | guests — consent |
+| photo-47 | Buffet counter | buffet | one guest at edge |
+| photo-49 | Man with Can-Am buggy at sunset | buggy-sunset | |
+| photo-51 / 52 | Folk dance troupe | folk-dance | camp signage in frame |
+| photo-54 | Woman standing on buggy, dunes | buggy-dunes | guest — consent |
+| photo-55 | Tanoura with lights, blue palms | tanoura | |
+| photo-56 | Fire breather close-ish | fire-show | ads + site |
+| photo-57 | Two Polaris buggies on dunes | dune-buggy | no faces — buggy add-on |
+| photo-60 | Dining terrace at night | camp-dining | |
+| photo-63 | Fire performer close-up | fire-performer | |
+| photo-64 / 68 | Daytime lounge, palms | camp-lounge | |
+| photo-30 | Two women on camel (portrait) | camel-ride-2 | guests — consent |
+| photo-23 | Camel handler + family, child on camel | — | child — avoid |
+| photo-22, 26, 34, 44, 61, 62 | Guests at camp, coffee hut, portraits | — | spare |
+
+**Do not use**
+- photo-41 — Photoshop composite (camels/quad/4×4 pasted together); looks fake, breaks the NO-AI spirit.
+- photo-53 — web screenshot (white bars) of a different camp.
+- photo-58 — another company's branding on the gate ("Dadabhai Travel").
+- photo-69 — low-res (739×415) camel image that looks web-sourced; likely not ours.
+
 ## Website & ad build scripts
 - `node real-media/build-site-images.cjs` → `public/images/real/*.webp` (focus-cropped 16:9) + `og-sunset.jpg`
 - `bash real-media/build-hero-video.sh` → `public/videos/hero-real.mp4` (real-photo montage)

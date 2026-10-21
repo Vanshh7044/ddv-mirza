@@ -24,19 +24,19 @@ const ITINERARY_STEPS = [
     time: '06:15 PM',
     title: 'Bedouin Camp Welcome, Falconry & Henna',
     desc: 'Arrive at the illuminated desert camp for Arabic Gahwa coffee, hunting falcon photos, and henna art.',
-    image: '/images/real/falcon-sunset.webp',
+    image: '/images/real/camp-night.webp',
   },
   {
     time: '07:15 PM',
     title: 'Live 5-Star BBQ Buffet Feast',
     desc: 'Feast on live outdoor BBQ grill with smoking lamb kebabs, chicken tikka, mezze, and vegetarian delicacies.',
-    image: '/images/real/camp-dinner.webp',
+    image: '/images/real/buffet-station.webp',
   },
   {
     time: '08:15 PM',
     title: 'Tanoura Show & Fire Stunt Performance',
     desc: 'Spectacular spinning Tanoura dancer and daring fire eater performances under the starry desert sky.',
-    image: '/images/real/show-dancer.webp',
+    image: '/images/real/fire-show.webp',
   },
 ];
 

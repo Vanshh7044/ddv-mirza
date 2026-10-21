@@ -33,6 +33,27 @@ const PHOTO_SLOTS = {
   'golden-hour-sand': ['photo-09', 0.42],
   'heart-sunset': ['photo-01', 0.3],
   'abaya-sunset': ['photo-10', 0.22],
+  // batch 2026-10-21: camp, shows, food, buggies
+  'camp-night': ['photo-38', 0.75],
+  'camp-overview': ['photo-24', 0.6],
+  'majlis': ['photo-32', 0.7],
+  'camp-dining': ['photo-60', 0.5],
+  'camp-lounge': ['photo-64', 0.6],
+  'buffet': ['photo-47', 0.5],
+  'buffet-station': ['photo-37', 0.5],
+  'fire-show': ['photo-56', 0.35],
+  'fire-show-wide': ['photo-31', 0.5],
+  'fire-performer': ['photo-63', 0.35],
+  'tanoura': ['photo-55', 0.45],
+  'tanoura-led': ['photo-27', 0.6],
+  'folk-dance': ['photo-51', 0.55],
+  'belly-dance': ['photo-33', 0.5],
+  'drum-dancer': ['photo-28', 0.4],
+  'dune-buggy': ['photo-57', 0.6],
+  'buggy-sunset': ['photo-49', 0.55],
+  'buggy-dunes': ['photo-54', 0.62],
+  'camel-ride-2': ['photo-30', 0.3],
+  'sunset-kandura': ['photo-40', 0.38],
 };
 
 // Stills from the real show/dinner videos: [clip, second, focusY]

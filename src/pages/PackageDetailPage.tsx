@@ -76,8 +76,8 @@ export default function PackageDetailPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/camp-dinner.webp" 
-                    alt="Dinner at camp" 
+                    src="/images/real/buffet.webp" 
+                    alt="Dinner buffet at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 
@@ -96,8 +96,8 @@ export default function PackageDetailPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/show-dancer.webp" 
-                    alt="Live show at camp" 
+                    src="/images/real/fire-show.webp" 
+                    alt="Fire show at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async" 

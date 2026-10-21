@@ -8,7 +8,7 @@ OUT=public/videos
 TMP=real-media/tmp/hero
 mkdir -p "$OUT" "$TMP"
 W=1280; H=720; FPS=30; D=4; XF=0.8
-SHOTS=(golden-hour-sand land-cruiser-sunset camel-ride quad-bike dune-jump sunset-couple)
+SHOTS=(golden-hour-sand land-cruiser-sunset camel-ride quad-bike dune-buggy camp-night fire-show tanoura)
 
 i=0
 for s in "${SHOTS[@]}"; do

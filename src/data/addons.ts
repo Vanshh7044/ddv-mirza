@@ -30,6 +30,7 @@ export const DESERT_ADDONS: AddOn[] = [
     id: 'buggy',
     name: 'Dune Buggy Riding',
     icon: CarFront,
+    image: '/images/real/dune-buggy.webp',
     desc: 'Drive a powerful 2- or 4-seater dune buggy over the red dunes, following a lead guide.',
   },
   {

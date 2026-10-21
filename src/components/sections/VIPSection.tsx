@@ -8,7 +8,7 @@ export default function VIPSection() {
       subtitle: 'Hands-on falcon training, private Majlis tent, and 5-course gourmet dinner.',
       price: aed(PRICES.vipTraditional),
       unit: '/ 2 adults (Private)',
-      image: '/images/real/falcon-dunes.webp',
+      image: '/images/real/majlis.webp',
       badge: 'POPULAR VIP',
       link: '/vip-traditional-arabic',
       whatsAppText: `Hi! I want to book the VIP Traditional Arabic Safari (${aed(PRICES.vipTraditional)} for 2 adults). Please confirm date.`,

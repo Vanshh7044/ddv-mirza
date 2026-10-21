@@ -216,7 +216,7 @@ export const GUIDES: Guide[] = [
     readMinutes: 4,
     published: '2026-10-05',
     updated: '2026-10-05',
-    image: '/images/real/show-drums.webp',
+    image: '/images/real/tanoura.webp',
     answer: 'Book an evening desert safari if you want the full experience: dune bashing, sunset, camel ride, BBQ dinner and live shows. Choose a morning safari for a shorter, adrenaline-focused trip without dinner, or a sunrise safari for quiet dunes, cooler air and the best photography light.',
     sections: [
       {

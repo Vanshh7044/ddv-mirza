@@ -22,9 +22,9 @@ const GALLERY_ITEMS = [
     span: 'col-span-1',
   },
   {
-    title: 'Golden Hour on the Dunes',
-    tag: 'Photo Stop',
-    image: '/images/real/golden-hour-sand.webp',
+    title: 'The Desert Camp at Night',
+    tag: 'Camp',
+    image: '/images/real/camp-night.webp',
     span: 'col-span-1 md:col-span-2',
   },
   {
@@ -34,22 +34,28 @@ const GALLERY_ITEMS = [
     span: 'col-span-1',
   },
   {
-    title: 'Live Shows at Camp',
+    title: 'Tanoura Show',
     tag: 'Night Shows',
-    image: '/images/real/show-dancer.webp',
+    image: '/images/real/tanoura.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Dinner at Camp',
+    title: 'Dinner Buffet at Camp',
     tag: 'Dining',
-    image: '/images/real/camp-dinner.webp',
+    image: '/images/real/buffet.webp',
     span: 'col-span-1',
   },
   {
-    title: 'Fun on the Dunes',
-    tag: 'Memories',
-    image: '/images/real/dune-jump.webp',
+    title: 'Fire Show',
+    tag: 'Night Shows',
+    image: '/images/real/fire-show.webp',
     span: 'col-span-1 md:col-span-2',
+  },
+  {
+    title: 'Dune Buggies',
+    tag: 'Add-on',
+    image: '/images/real/dune-buggy.webp',
+    span: 'col-span-1',
   },
 ];
 

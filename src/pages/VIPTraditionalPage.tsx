@@ -14,7 +14,7 @@ export default function VIPTraditionalPage() {
     '@id': `${BASE_URL}/vip-traditional-arabic`,
     name: 'VIP Traditional Arabic Desert Safari Dubai',
     description: 'Exclusive private Land Cruiser, hands-on master falconry session, private air-conditioned Majlis tent, and 5-course table service Arabic feast under the stars.',
-    image: `${BASE_URL}/images/real/falcon-dunes.webp`,
+    image: `${BASE_URL}/images/real/majlis.webp`,
     offers: {
       '@type': 'Offer',
       price: String(PRICES.vipTraditional),
@@ -40,7 +40,7 @@ export default function VIPTraditionalPage() {
         title={`VIP Traditional Arabic Desert Safari Dubai (${aed(PRICES.vipTraditional)}/2 Guests) | Private Majlis`}
         description="Luxury VIP desert safari in Dubai: 100% private 4x4, personal falcon trainer session, dedicated AC VIP Majlis tent & 5-course gourmet table service dinner."
         canonical="/vip-traditional-arabic"
-        ogImage="/images/real/falcon-dunes.webp"
+        ogImage="/images/real/majlis.webp"
         ogType="product"
         schema={[getBreadcrumbSchema(breadcrumbs, '/vip-traditional-arabic'), vipSchema]}
       />
@@ -65,8 +65,8 @@ export default function VIPTraditionalPage() {
             <div className="lg:col-span-2 space-y-6 sm:space-y-8">
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
                 <img
-                  src="/images/real/falcon-dunes.webp"
-                  alt="Falcon experience on the dunes"
+                  src="/images/real/majlis.webp"
+                  alt="Majlis seating at the desert camp"
                   className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"
@@ -100,13 +100,13 @@ export default function VIPTraditionalPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/show-dancer.webp" 
-                    alt="Live shows at camp" 
+                    src="/images/real/tanoura.webp" 
+                    alt="Tanoura show at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
                     decoding="async"
                   />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Night Shows</span>
+                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Tanoura show</span>
                 </div>
               </div>
 
