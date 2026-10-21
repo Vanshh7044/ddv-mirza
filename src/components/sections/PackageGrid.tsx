@@ -1,41 +1,40 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Check, MessageCircle, ArrowRight, ShieldCheck, Clock, MapPin, Sparkles } from 'lucide-react';
+import { Star, Check, MessageCircle, ArrowRight, ShieldCheck, Clock, MapPin, Sparkles, Sunset, Bike, Sunrise, Building2, LayoutGrid } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { SAFARI_PACKAGES, getWhatsAppLink, SafariPackage, PRICES, aed, UNIT_LABEL } from '../../data/safariPackages';
 import { trackKeywordClick, trackWhatsAppClick } from '../../utils/analytics';
 import PackageImage from '../PackageImage';
 
 const TRENDING_KEYWORDS = [
-  { label: '🔥 Red Dune Bashing (Lehbab)', to: '/evening-safari/standard' },
-  { label: '🏍️ Safari + Quad Combo', to: '/evening-safari/premium-quad' },
-  { label: '👑 VIP AC Majlis', to: '/vip-traditional-arabic' },
-  { label: '🌅 Sunrise Desert Tour', to: '/morning-safari' },
-  { label: `🚙 Self-Drive Convoy (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
-  { label: '🕌 Abu Dhabi City Tour', to: '/tours/abu-dhabi-city-tour' },
-  { label: '⛵ Marina Dhow Cruise', to: '/tours/dhow-cruise-dubai-marina' },
+  { label: 'Red Dune Bashing (Lehbab)', to: '/evening-safari/standard' },
+  { label: 'Safari + Quad Combo', to: '/evening-safari/premium-quad' },
+  { label: 'VIP AC Majlis', to: '/vip-traditional-arabic' },
+  { label: 'Sunrise Desert Tour', to: '/morning-safari' },
+  { label: `Self-Drive Convoy (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
+  { label: 'Abu Dhabi City Tour', to: '/tours/abu-dhabi-city-tour' },
+  { label: 'Marina Dhow Cruise', to: '/tours/dhow-cruise-dubai-marina' },
 ];
 
 type Tab = 'evening' | 'combo' | 'short' | 'city' | 'all';
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'evening', label: '⭐ Evening Safaris (Popular)' },
-  { id: 'combo', label: '🏍️ Safari + Quad' },
-  { id: 'short', label: '🌅 Private Short Tours' },
-  { id: 'city', label: '🏙️ City Tours & Cruises' },
-  { id: 'all', label: 'All Packages' },
+const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
+  { id: 'evening', label: 'Evening Safaris', icon: Sunset },
+  { id: 'combo', label: 'Safari + Quad', icon: Bike },
+  { id: 'short', label: 'Short Tours', icon: Sunrise },
+  { id: 'city', label: 'City Tours', icon: Building2 },
+  { id: 'all', label: 'All', icon: LayoutGrid },
 ];
+
+const inTab = (p: SafariPackage, tab: Tab) => {
+  if (tab === 'all') return true;
+  if (tab === 'short') return p.category === 'short' || p.category === 'selfdrive';
+  return p.category === tab;
+};
 
 export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: Tab }) {
   const [activeTab, setActiveTab] = useState<Tab>(initialTab);
 
-  const filteredPackages = activeTab === 'all' 
-    ? SAFARI_PACKAGES 
-    : SAFARI_PACKAGES.filter((p) => {
-        if (activeTab === 'evening') return p.category === 'evening';
-        if (activeTab === 'short') return p.category === 'short' || p.category === 'selfdrive';
-        if (activeTab === 'combo') return p.category === 'combo';
-        if (activeTab === 'city') return p.category === 'city';
-        return true;
-      });
+  const filteredPackages = SAFARI_PACKAGES.filter((p) => inTab(p, activeTab));
 
   return (
     <section id="packages" className="py-10 sm:py-16 md:py-20 bg-[#F8F6F0] border-t border-sand/70">
@@ -53,39 +52,46 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
             Every evening safari includes 4×4 dune bashing, camel rides, sandboarding, live shows and a full BBQ dinner. City tours and cruises include free hotel pickup too.
           </p>
 
-          {/* Filter Tabs - Horizontal scrollable on mobile */}
-          <div className="w-full max-w-full flex items-center justify-start sm:justify-center gap-1.5 mt-5 sm:mt-7 p-1.5 bg-white rounded-2xl border border-sand/80 shadow-sm overflow-x-auto scrollbar-none touch-pan-x">
-            {TABS.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setActiveTab(t.id)}
-                aria-pressed={activeTab === t.id}
-                className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer whitespace-nowrap ${
-                  activeTab === t.id
-                    ? 'bg-[#0F172A] text-white shadow-md'
-                    : 'text-[#475569] hover:text-[#0F172A] hover:bg-slate-50'
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
+          {/* Filter tabs: centred pill switcher; scrolls from the first tab on narrow screens */}
+          <div className="-mx-3.5 sm:mx-0 mt-5 sm:mt-7 px-3.5 sm:px-0 overflow-x-auto scrollbar-none touch-pan-x [mask-image:linear-gradient(to_right,black_88%,transparent)] sm:[mask-image:none]">
+            <div role="tablist" aria-label="Package categories" className="mx-auto w-max flex items-center gap-1 p-1 bg-white rounded-full border border-sand/80 shadow-sm">
+              {TABS.map(({ id, label, icon: Icon }) => {
+                const active = activeTab === id;
+                return (
+                  <button
+                    key={id}
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setActiveTab(id)}
+                    className={`inline-flex items-center gap-1.5 h-9 sm:h-10 px-3.5 sm:px-4 rounded-full font-bold text-xs sm:text-sm whitespace-nowrap transition-colors cursor-pointer ${
+                      active ? 'bg-[#0F172A] text-white shadow-sm' : 'text-[#475569] hover:text-[#0F172A] hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon size={15} className={active ? 'text-[#FB923C]' : 'text-[#94A3B8]'} />
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Trending Searches Keyword Chips */}
-          <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2 mt-4 text-[11px] sm:text-xs">
-            <span className="text-[#64748B] font-semibold text-[10px] sm:text-xs uppercase tracking-wider mr-0.5">
-              Popular Searches:
-            </span>
-            {TRENDING_KEYWORDS.map((chip, idx) => (
-              <Link
-                key={idx}
-                to={chip.to}
-                onClick={() => trackKeywordClick(chip.label, chip.to)}
-                className="inline-flex items-center bg-white hover:bg-orange-50 hover:text-[#EA580C] hover:border-[#EA580C]/40 border border-sand/90 text-[#334155] px-2.5 sm:px-3 py-1 rounded-full font-medium transition-all shadow-2xs text-[10.5px] sm:text-xs"
-              >
-                {chip.label}
-              </Link>
-            ))}
+          {/* Popular searches: one swipeable row on mobile, wraps centred on larger screens */}
+          <div className="-mx-3.5 sm:mx-0 mt-3.5 sm:mt-4 px-3.5 sm:px-0 overflow-x-auto scrollbar-none touch-pan-x [mask-image:linear-gradient(to_right,black_88%,transparent)] sm:[mask-image:none]">
+            <div className="flex items-center gap-1.5 w-max sm:w-auto sm:flex-wrap sm:justify-center">
+              <span className="text-[#94A3B8] font-bold text-[10px] sm:text-[11px] uppercase tracking-wider mr-1 shrink-0">
+                Popular
+              </span>
+              {TRENDING_KEYWORDS.map((chip) => (
+                <Link
+                  key={chip.to}
+                  to={chip.to}
+                  onClick={() => trackKeywordClick(chip.label, chip.to)}
+                  className="shrink-0 inline-flex items-center h-7 px-3 rounded-full border border-sand/90 bg-white/70 text-[#475569] text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-colors hover:border-[#EA580C]/40 hover:text-[#EA580C] hover:bg-orange-50"
+                >
+                  {chip.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
