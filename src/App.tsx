@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import TrustStrip from './components/sections/TrustStrip';
 import PackageGrid from './components/sections/PackageGrid';
 import VisualItinerary from './components/sections/VisualItinerary';
-import VIPSection from './components/sections/VIPSection';
+import PrivateToursSection from './components/sections/PrivateToursSection';
 import ExperienceGallery from './components/sections/ExperienceGallery';
 import WhyDirect from './components/sections/WhyDirect';
 import ReviewsSection from './components/sections/ReviewsSection';
@@ -30,7 +30,7 @@ export default function App() {
       <TrustStrip />
       <PackageGrid />
       <VisualItinerary />
-      <VIPSection />
+      <PrivateToursSection />
       <ExperienceGallery />
       <WhyDirect />
       <ReviewsSection />
