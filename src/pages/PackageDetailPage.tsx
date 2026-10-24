@@ -160,9 +160,11 @@ export default function PackageDetailPage() {
                 </div>
 
                 <div className="mb-5">
-                  <div className="text-xs text-[#94A3B8] line-through font-bold">
-                    {aed(selectedPkg.originalPrice)}
-                  </div>
+                  {selectedPkg.originalPrice > selectedPkg.price && (
+                    <div className="text-xs text-[#94A3B8] line-through font-bold">
+                      {aed(selectedPkg.originalPrice)}
+                    </div>
+                  )}
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
                       {aed(selectedPkg.price)}
