@@ -7,6 +7,7 @@ import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/sch
 import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
 import AddOnsSection from '../components/sections/AddOnsSection';
+import TimingsPickup from '../components/sections/TimingsPickup';
 
 export default function PackageDetailPage() {
   const { tier } = useParams<{ tier: string }>();
@@ -42,7 +43,7 @@ export default function PackageDetailPage() {
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Instant WhatsApp Booking', href: getWhatsAppLink(selectedPkg.whatsAppText) }}
         price={aed(selectedPkg.price)}
-        priceNote={`${UNIT_LABEL[selectedPkg.priceUnit].slice(2)} (No deposit)`}
+        priceNote={selectedPkg.priceUnit === 'vehicle' ? 'per car (up to 6) · no deposit' : 'per person · no deposit'}
       />
 
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
@@ -123,6 +124,8 @@ export default function PackageDetailPage() {
                 </div>
               </div>
 
+              <TimingsPickup itinerary={selectedPkg.itinerary} pickupInfo={selectedPkg.pickupInfo} />
+
               {/* Guarantee Box */}
               <div className="bg-emerald-50 border border-emerald-200 rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5 text-center sm:text-left">
@@ -171,8 +174,14 @@ export default function PackageDetailPage() {
                     </span>
                     <span className="text-xs sm:text-sm font-semibold text-[#64748B]">{UNIT_LABEL[selectedPkg.priceUnit]}</span>
                   </div>
-                  <div className="text-xs text-emerald-600 font-bold mt-1">
-                    ✓ Free Hotel Pickup & Drop-off Included
+                  {selectedPkg.priceNote && (
+                    <p className="text-xs text-[#0F172A] font-semibold mt-1.5 leading-snug">{selectedPkg.priceNote}</p>
+                  )}
+                  <div className="text-xs text-emerald-600 font-bold mt-1.5">
+                    ✓ Free hotel pickup & drop-off (see areas below)
+                  </div>
+                  <div className="text-xs text-[#475569] font-semibold mt-1 flex items-center gap-1">
+                    <Clock size={12} className="text-[#EA580C]" /> {selectedPkg.pickupInfo}
                   </div>
                 </div>
 

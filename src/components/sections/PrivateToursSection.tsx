@@ -7,7 +7,7 @@ import { trackWhatsAppClick } from '../../utils/analytics';
 const TOURS = [
   {
     title: 'Sunrise Desert Safari',
-    time: '05:00 AM – 09:30 AM',
+    time: '4:30 AM – 8:30 AM',
     desc: 'Empty red dunes at dawn, sunrise dune bashing, sandboarding and Arabic coffee.',
     price: PRICES.sunrise,
     image: '/images/real/golden-hour-sand.webp',
@@ -16,7 +16,7 @@ const TOURS = [
   },
   {
     title: 'Morning Desert Safari',
-    time: '08:00 AM – 12:30 PM',
+    time: '8:00 AM – 12:00 PM',
     desc: 'Red dune bashing, sandboarding and a camel photo stop, back before the afternoon heat.',
     price: PRICES.morning,
     image: '/images/real/dune-jump.webp',
@@ -25,7 +25,7 @@ const TOURS = [
   },
   {
     title: 'Sunset Desert Safari',
-    time: '03:30 PM – 07:30 PM',
+    time: '3:30 PM – 7:30 PM',
     desc: 'Sunset dune bashing, sandboarding and photo stops in your own car, without the camp.',
     price: PRICES.eveningExpress,
     image: '/images/real/land-cruiser-sunset.webp',

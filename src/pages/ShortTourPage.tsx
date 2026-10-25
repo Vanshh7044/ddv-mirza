@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import TimingsPickup from '../components/sections/TimingsPickup';
 import PageHero from '../components/PageHero';
 import { Check, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
@@ -7,28 +8,28 @@ import { getBreadcrumbSchema } from '../data/schemaData';
 const TOURS = [
   {
     type: 'Sunrise Desert Safari',
-    time: '05:00 AM – 09:30 AM',
-    desc: 'Chase the dawn light before the desert awakens. Total solitude on red dunes with hot Arabic breakfast.',
+    time: '4:30 AM – 8:30 AM (later in winter)',
+    desc: 'Reach the dunes before first light: sunrise photos, Arabic coffee & dates, camel ride, dune bashing and sandboarding.',
     price: PRICES.sunrise,
-    unit: '/ private vehicle (Up to 6 guests)',
+    unit: 'per car · up to 6 guests (not per person)',
     image: '/images/real/camel-ride.webp',
-    includes: ['Private 4×4 Land Cruiser', 'Sunrise dune bashing', 'Sandboarding', 'Hot Arabic coffee & breakfast', 'Free hotel pickup'],
+    includes: ['Private 4×4 Land Cruiser', 'Sunrise dune bashing', 'Sandboarding', 'Arabic coffee, dates & camel ride', 'Free hotel pickup'],
   },
   {
     type: 'Morning Safari',
-    time: '08:00 AM – 12:30 PM',
+    time: '8:00 AM – 12:00 PM',
     desc: 'Private action-packed morning adventure in Lehbab red dunes before the afternoon heat. Back for lunch.',
     price: PRICES.morning,
-    unit: '/ private vehicle (Up to 6 guests)',
+    unit: 'per car · up to 6 guests (not per person)',
     image: '/images/real/dune-jump.webp',
     includes: ['Private 4×4 Land Cruiser', 'Red dune bashing & sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
   },
   {
     type: 'Evening Short Safari',
-    time: '03:30 PM – 07:30 PM',
+    time: '3:30 PM – 7:30 PM',
     desc: 'Condensed private evening tour — dune bashing, sunset photo stop, and camel ride without the camp show.',
     price: PRICES.eveningExpress,
-    unit: '/ private vehicle (Up to 6 guests)',
+    unit: 'per car · up to 6 guests (not per person)',
     image: '/images/real/land-cruiser-sunset.webp',
     includes: ['Private 4×4 Land Cruiser', 'Sunset dune bashing', 'Sandboarding', 'Scenic photography stops', 'Free hotel pickup'],
   },
@@ -112,6 +113,9 @@ export default function ShortTourPage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-8 sm:mt-10">
+            <TimingsPickup />
           </div>
         </div>
       </section>

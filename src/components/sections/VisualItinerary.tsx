@@ -3,39 +3,39 @@ import { getWhatsAppLink, FROM_PRICE, aed } from '../../data/safariPackages';
 
 const ITINERARY_STEPS = [
   {
-    time: '03:00 PM',
+    time: '3:00–3:30 PM',
     title: 'Free Hotel Pickup',
     desc: 'Clean, air-conditioned 4×4 Land Cruiser picks you up directly from any Dubai hotel or residence.',
     image: '/images/real/land-cruiser-sunset.webp',
   },
   {
-    time: '04:15 PM',
+    time: '4:30 PM',
     title: 'High Red Dune Bashing & Sandboarding',
-    desc: '35–45 minutes of thrilling off-road dune bashing in Lehbab red dunes followed by sandboarding.',
+    desc: '30–40 minutes of thrilling off-road dune bashing in Lehbab red dunes followed by sandboarding.',
     image: '/images/real/dune-jump.webp',
   },
   {
-    time: '05:30 PM',
+    time: '5:30 PM',
     title: 'Sunset Camel Ride & Golden Hour Photos',
     desc: 'Capture breathtaking golden-hour sunset photos on the high dunes and enjoy an authentic camel ride.',
     image: '/images/real/camel-ride.webp',
   },
   {
-    time: '06:15 PM',
+    time: '6:30 PM',
     title: 'Bedouin Camp Welcome, Falconry & Henna',
     desc: 'Arrive at the illuminated desert camp for Arabic Gahwa coffee, hunting falcon photos, and henna art.',
     image: '/images/real/camp-night.webp',
   },
   {
-    time: '07:15 PM',
+    time: '7:30 PM',
     title: 'Live 5-Star BBQ Buffet Feast',
     desc: 'Feast on live outdoor BBQ grill with smoking lamb kebabs, chicken tikka, mezze, and vegetarian delicacies.',
     image: '/images/real/buffet-station.webp',
   },
   {
-    time: '08:15 PM',
+    time: '8:15 PM',
     title: 'Tanoura Show & Fire Stunt Performance',
-    desc: 'Spectacular spinning Tanoura dancer and daring fire eater performances under the starry desert sky.',
+    desc: 'Spectacular spinning Tanoura dancer and daring fire eater performances under the starry desert sky. Back at your hotel around 9:30 PM.',
     image: '/images/real/fire-show.webp',
   },
 ];

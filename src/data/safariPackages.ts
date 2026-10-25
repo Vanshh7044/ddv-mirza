@@ -26,6 +26,8 @@ export interface SafariPackage {
   includes: string[];
   excludes?: string[];
   itinerary?: { time: string; title: string; desc: string }[];
+  /** One clear line on what the price covers (per person vs per car, shared vs private). */
+  priceNote?: string;
   whatsAppText: string;
   detailPath: string;
 }
@@ -46,6 +48,7 @@ export const PRICES = {
   eveningStandard: 99,
   eveningPremium: 139,
   eveningVip: 299,
+  eveningVipPrivate: 1299, // private Land Cruiser for the group, up to 6
   // Safari + 30-min quad combos (per person)
   standardQuad: 199,
   premiumQuad: 229,
@@ -77,6 +80,23 @@ export const UNIT_LABEL: Record<PriceUnit, string> = {
   '2 adults': '/ 2 adults',
 };
 
+/** Free pickup & drop-off zones (no extra charge). Anywhere else is quoted on WhatsApp. */
+export const FREE_PICKUP_AREAS = [
+  'Dubai Marina', 'JBR', 'Downtown', 'Business Bay', 'Bur Dubai', 'Deira', 'Jumeirah',
+  'Palm Jumeirah', 'Al Barsha', 'DIFC', 'DIP / Jebel Ali', 'Sharjah (selected areas)',
+];
+export const PICKUP_OTHER_AREAS = 'Ajman, Abu Dhabi and other areas: ask us on WhatsApp before booking.';
+export const TIMING_NOTE = 'Desert times follow sunset, so they move about 30 minutes earlier in winter. Your driver confirms the exact pickup time on WhatsApp the day before.';
+
+const EVENING_ITINERARY = [
+  { time: '3:00–3:30 PM', title: 'Hotel pickup', desc: 'Land Cruiser pickup from your hotel or home (time depends on your area).' },
+  { time: '4:30 PM', title: 'Dune bashing', desc: '30–40 minutes of red dune bashing in Lehbab.' },
+  { time: '5:30 PM', title: 'Sunset & sandboarding', desc: 'Sunset photos on a high dune, sandboarding and camel ride.' },
+  { time: '6:30 PM', title: 'Desert camp', desc: 'Arabic coffee & dates, henna, falcon photos and camp activities.' },
+  { time: '7:30 PM', title: 'BBQ dinner & live shows', desc: 'BBQ buffet dinner with tanoura, belly dance and fire shows.' },
+  { time: '9:30 PM', title: 'Back at your hotel', desc: 'Drop-off at your hotel or home.' },
+];
+
 const wa = (title: string, price: number, unit: PriceUnit, extra = 'Please confirm availability for my date.') =>
   `Hi! I want to book the ${title} (${aed(price)}${UNIT_LABEL[unit].replace(' ', '')}). ${extra}`;
 
@@ -94,7 +114,9 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'Price per person, shared Land Cruiser. Kids under 3 free.',
     rating: 4.9,
     reviewsCount: 401,
     image: '/images/real/land-cruiser-sunset.webp',
@@ -122,7 +144,9 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'Price per person, shared Land Cruiser. Kids under 3 free.',
     rating: 4.9,
     reviewsCount: 401,
     badge: 'POPULAR',
@@ -145,28 +169,41 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     category: 'evening',
     tier: '03',
     title: 'Evening VIP Safari',
-    tagline: 'Exclusive private Land Cruiser, private Majlis tent, and falconry session.',
+    tagline: 'VIP seating, falcon & Arabic dress photos, extended dune bashing and every show twice.',
     price: PRICES.eveningVip,
     originalPrice: 379,
     priceUnit: 'person',
     duration: '7 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Private Chauffeur Pickup & Drop-off (Any Time)',
+    pickupInfo: 'Pickup 2:30–3:30 PM · Back ~9:45 PM',
+    priceNote: `AED 299 per person in a shared Land Cruiser. Want the car to yourselves? Private 4×4 for up to 6: ${aed(PRICES.eveningVipPrivate)} per car.`,
+    itinerary: [
+      { time: '2:30–3:30 PM', title: 'Hotel pickup', desc: 'Land Cruiser pickup (time depends on your area).' },
+      { time: '3:45 PM', title: 'Extended dune bashing', desc: 'Longer dune bashing session in the Lehbab red dunes.' },
+      { time: '4:30 PM', title: 'Sandboarding & sunset', desc: 'Unlimited sandboarding runs and sunset photos on a high dune.' },
+      { time: '5:30 PM', title: 'VIP welcome at camp', desc: 'VIP seating, Arabic coffee, dates and welcome snacks.' },
+      { time: '5:45 PM', title: 'Camel, falcon & henna', desc: 'Long camel ride, falcon and Arabic dress photos, henna for ladies.' },
+      { time: '6:30 PM', title: 'Dinner with live grill', desc: 'BBQ dinner with a live grill station.' },
+      { time: '7:30 PM', title: 'Live shows (twice each)', desc: 'Tanoura, belly dance and fire show, each performed twice.' },
+      { time: '9:00 PM', title: 'Drive back', desc: 'Back at your hotel around 9:45 PM.' },
+    ],
     rating: 5.0,
     reviewsCount: 401,
     badge: 'VIP LUXURY',
     image: '/images/real/falcon-dunes.webp',
     detailPath: '/evening-safari/vip',
     includes: [
-      'Private 4×4 Land Cruiser for your party only',
-      'Hands-on falconry training session with master falconer',
-      'Dedicated air-conditioned VIP Majlis tent with personal butler',
-      '5-Course gourmet table-service dinner with fresh grill',
-      'Extended high-adrenaline dune bashing with photo stops',
-      'Premium shisha service at your private majlis',
-      'Private transfers & customized pickup schedule',
+      'Hotel pickup & drop-off in a Land Cruiser (shared)',
+      'Extended dune bashing & unlimited sandboarding',
+      'Sunset photo stop on a high dune',
+      'VIP chair seating at the camp',
+      'Falcon photo & Arabic dress for photos',
+      'Long camel ride & henna for ladies',
+      'Welcome snacks & unlimited soft drinks',
+      'BBQ dinner with live grill',
+      'Tanoura, belly dance & fire shows (each twice)',
     ],
-    whatsAppText: wa('Evening VIP Safari with Private 4x4 & VIP Majlis', PRICES.eveningVip, 'person', 'Please share details for booking.'),
+    whatsAppText: wa('Evening VIP Safari', PRICES.eveningVip, 'person'),
   },
 
   // ─── SAFARI + QUAD COMBOS ─────────────────────────────────────────────────
@@ -182,7 +219,9 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'Price per person, shared Land Cruiser. Kids under 3 free.',
     rating: 4.9,
     reviewsCount: 401,
     image: '/images/real/quad-bike.webp',
@@ -209,7 +248,9 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Free Hotel Pickup & Drop-off (3:00 PM)',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'Price per person, shared Land Cruiser. Kids under 3 free.',
     rating: 4.9,
     reviewsCount: 401,
     badge: 'MOST BOOKED',
@@ -234,13 +275,22 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     category: 'short',
     tier: '06',
     title: 'Sunrise Desert Safari',
-    tagline: 'Chase the dawn golden light in a private 4×4 with gourmet desert breakfast.',
+    tagline: 'Private 4×4 at dawn: sunrise on empty red dunes, Arabic coffee, camel ride and dune bashing.',
     price: PRICES.sunrise,
     originalPrice: PRICES.sunrise,
     priceUnit: 'vehicle',
     duration: '4–5 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Private Pickup at 04:30 AM',
+    pickupInfo: 'Pickup ~4:30 AM (later in winter) · Back ~8:30 AM',
+    priceNote: 'One price for the whole car (up to 6 guests), not per person. Kids under 3 free.',
+    itinerary: [
+      { time: '4:30 AM', title: 'Hotel pickup', desc: 'Private 4×4 pickup, timed so you reach the dunes before first light.' },
+      { time: '5:15 AM', title: 'Sunrise on the dunes', desc: '20–30 minute sunrise photo session.' },
+      { time: '5:45 AM', title: 'Coffee, dates & camel ride', desc: 'Arabic coffee and dates, then a short camel ride.' },
+      { time: '6:15 AM', title: 'Dune bashing', desc: '45–60 minutes of dune bashing.' },
+      { time: '7:15 AM', title: 'Sandboarding & free time', desc: 'Sandboarding, photos and optional quad or buggy (extra).' },
+      { time: '8:30 AM', title: 'Back at your hotel', desc: 'Drop-off at your hotel or home.' },
+    ],
     rating: 4.9,
     reviewsCount: 180,
     badge: 'EARLY BIRD',
@@ -250,9 +300,9 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Private Land Cruiser & professional licensed driver',
       'Stunning sunrise view over untouched red dunes',
       'Sunrise dune bashing & sandboarding',
-      'Arabic breakfast picnic with hot tea & coffee',
+      'Arabic coffee, dates & a short camel ride',
       'Scenic photography stops with zero crowds',
-      'Back to hotel by 09:30 AM before Dubai heat',
+      'Back at your hotel around 8:30 AM, before the heat',
     ],
     whatsAppText: wa('Sunrise Desert Safari', PRICES.sunrise, 'vehicle'),
   },
@@ -268,7 +318,16 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceUnit: 'vehicle',
     duration: '4–5 Hours',
     location: 'Lehbab Red Dunes',
-    pickupInfo: 'Pickup 08:00 AM · Return 12:00 PM',
+    pickupInfo: 'Pickup 8:00 AM · Back ~12:00 PM',
+    priceNote: 'One price for the whole car (up to 6 guests), not per person. Kids under 3 free.',
+    itinerary: [
+      { time: '8:00 AM', title: 'Hotel pickup', desc: 'Private 4×4 pickup from your hotel or home.' },
+      { time: '9:00 AM', title: 'Dune bashing', desc: '45–60 minutes in the Lehbab red dunes.' },
+      { time: '10:00 AM', title: 'Sandboarding', desc: 'Sandboarding on the high dunes.' },
+      { time: '10:30 AM', title: 'Photo stop & camel ride', desc: 'Arabic coffee, dates, photos and a short camel ride.' },
+      { time: '11:10 AM', title: 'Free time', desc: 'Optional quad, buggy or falcon photo (extra).' },
+      { time: '12:00 PM', title: 'Back at your hotel', desc: 'Drop-off at your hotel or home.' },
+    ],
     rating: 4.8,
     reviewsCount: 220,
     image: '/images/real/dune-jump.webp',

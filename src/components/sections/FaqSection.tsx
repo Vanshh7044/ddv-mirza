@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, Minus, MessageCircle, HelpCircle } from 'lucide-react';
-import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
+import { getWhatsAppLink, PRICES, aed, FREE_PICKUP_AREAS, PICKUP_OTHER_AREAS } from '../../data/safariPackages';
 
 export const FAQS = [
   {
@@ -8,12 +8,16 @@ export const FAQS = [
     a: 'No advance payment is required! You can reserve your booking via WhatsApp with zero deposit and pay the driver in cash (AED, USD, EUR, GBP) or by credit/debit card on the day of the safari.',
   },
   {
-    q: 'What is included in the free hotel pickup?',
-    a: 'We provide free door-to-door pickup and drop-off from any hotel, residence, Airbnb, or location across Dubai, Sharjah, and Ajman in our air-conditioned 4×4 Land Cruisers.',
+    q: 'Is hotel pickup free? Which areas do you cover?',
+    a: `Yes. Pickup and drop-off are free, with no extra charge, from any hotel, apartment or address in ${FREE_PICKUP_AREAS.join(', ')}. ${PICKUP_OTHER_AREAS}`,
   },
   {
     q: 'What is the difference between Standard, Premium, and VIP?',
-    a: `Standard (${aed(PRICES.eveningStandard)}) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (${aed(PRICES.eveningPremium)}) adds a smaller group size, extended dune bashing, priority majlis seating and a live-grill BBQ. Add a 30-minute quad ride with our Safari + Quad combos (from ${aed(PRICES.standardQuad)}). VIP (${aed(PRICES.eveningVip)}) gives you a 100% private 4x4, private majlis tent, waiter table service, and falconry session.`,
+    a: `Standard (${aed(PRICES.eveningStandard)}) includes all core safari activities, dune bashing, BBQ buffet, and live shows. Premium (${aed(PRICES.eveningPremium)}) adds a smaller group size, extended dune bashing, priority majlis seating and a live-grill BBQ. Add a 30-minute quad ride with our Safari + Quad combos (from ${aed(PRICES.standardQuad)}). Evening VIP is ${aed(PRICES.eveningVip)} per person in a shared Land Cruiser, with VIP seating, falcon and Arabic dress photos, extended dune bashing and every show twice. Want the car to yourselves? A private 4×4 for up to 6 is ${aed(PRICES.eveningVipPrivate)} per car.`,
+  },
+  {
+    q: 'What time is pickup and drop-off?',
+    a: 'Evening safaris: pickup 3:00–3:30 PM, back at your hotel around 9:30 PM (Evening VIP: 2:30–3:30 PM, back around 9:45 PM). Sunrise safari: pickup around 4:30 AM, back around 8:30 AM. Morning safari: 8:00 AM to 12:00 PM. Evening short safari: 3:30 PM to 7:30 PM. Times move about 30 minutes earlier in winter, and your driver confirms the exact time on WhatsApp the day before.',
   },
   {
     q: 'What is your cancellation policy?',

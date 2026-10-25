@@ -183,7 +183,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {/* Free Pickup Guarantee */}
                   <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50/90 px-2.5 py-1.5 rounded-lg mb-3 sm:mb-4">
                     <ShieldCheck size={13} className="shrink-0 text-emerald-600" />
-                    <span>{pkg.category === 'selfdrive' ? 'Meet at Lehbab Base' : 'Free Hotel Pickup'} · Pay on Arrival (No Deposit)</span>
+                    <span>{pkg.category === 'selfdrive' ? 'Meet at Lehbab Base' : pkg.pickupInfo} · Pay on Arrival</span>
                   </div>
 
                   {/* Pricing & CTA */}
@@ -200,6 +200,12 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                         </span>
                         <span className="text-[10px] sm:text-[11px] font-semibold text-[#64748B]">{UNIT_LABEL[pkg.priceUnit]}</span>
                       </div>
+                      {pkg.priceUnit === 'vehicle' && (
+                        <div className="text-[10px] sm:text-[11px] font-bold text-[#EA580C]">whole car · up to 6</div>
+                      )}
+                      {pkg.id === 'evening-vip' && (
+                        <div className="text-[10px] sm:text-[11px] font-bold text-[#EA580C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
+                      )}
                     </div>
 
                     {/* 1-Click WhatsApp Booking CTA */}
