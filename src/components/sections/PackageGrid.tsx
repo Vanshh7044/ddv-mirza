@@ -27,6 +27,8 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 
 const inTab = (p: SafariPackage, tab: Tab) => {
   if (tab === 'all') return true;
+  // Evening tab: Standard, Premium and Premium + Quad (VIP lives under All)
+  if (tab === 'evening') return ['evening-standard', 'evening-premium', 'premium-quad'].includes(p.id);
   if (tab === 'short') return p.category === 'short' || p.category === 'selfdrive';
   return p.category === tab;
 };

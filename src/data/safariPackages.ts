@@ -51,7 +51,7 @@ export const PRICES = {
   eveningVipPrivate: 1299, // private Land Cruiser for the group, up to 6
   // Safari + 30-min quad combos (per person)
   standardQuad: 199,
-  premiumQuad: 229,
+  premiumQuad: 280,
   // Private short tours (per vehicle, up to 6)
   sunrise: 549,
   morning: 549,
@@ -244,7 +244,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     title: 'Premium Safari + 30-min Quad',
     tagline: 'Our most-booked tier: Evening Premium safari with priority seating plus a 30-minute quad ride.',
     price: PRICES.premiumQuad,
-    originalPrice: 289,
+    originalPrice: PRICES.premiumQuad,
     priceUnit: 'person',
     duration: '6–7 Hours',
     location: 'Lehbab Red Dunes',
