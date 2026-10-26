@@ -6,7 +6,7 @@ import { trackWhatsAppClick } from '../../utils/analytics';
 // Private-car tours (priced per vehicle, up to 6): desert short tours + city tours.
 const TOURS = [
   {
-    title: 'Sunrise Desert Safari',
+    title: 'Private Sunrise Safari',
     time: '4:30 AM – 8:30 AM',
     desc: 'Empty red dunes at dawn, sunrise dune bashing, sandboarding and Arabic coffee.',
     price: PRICES.sunrise,
@@ -15,7 +15,7 @@ const TOURS = [
     span: 'lg:col-span-2',
   },
   {
-    title: 'Morning Desert Safari',
+    title: 'Private Morning Safari',
     time: '8:00 AM – 12:00 PM',
     desc: 'Red dune bashing, sandboarding and a camel photo stop, back before the afternoon heat.',
     price: PRICES.morning,
@@ -24,7 +24,7 @@ const TOURS = [
     span: 'lg:col-span-2',
   },
   {
-    title: 'Sunset Desert Safari',
+    title: 'Private Sunset Safari',
     time: '3:30 PM – 7:30 PM',
     desc: 'Sunset dune bashing, sandboarding and photo stops in your own car, without the camp.',
     price: PRICES.eveningExpress,
@@ -33,7 +33,7 @@ const TOURS = [
     span: 'lg:col-span-2',
   },
   {
-    title: 'Dubai City Tour',
+    title: 'Private Dubai City Tour',
     time: '4–5 hours',
     desc: 'Burj Khalifa, Dubai Marina, Palm Jumeirah & Atlantis, Dubai Frame, Al Fahidi and the old souks.',
     price: PRICES.dubaiCityTour,
@@ -42,7 +42,7 @@ const TOURS = [
     span: 'lg:col-span-3',
   },
   {
-    title: 'Abu Dhabi City Tour',
+    title: 'Private Abu Dhabi City Tour',
     time: 'Full day',
     desc: 'Sheikh Zayed Grand Mosque, Qasr Al Watan, Emirates Palace, Corniche and Louvre Abu Dhabi.',
     price: PRICES.abuDhabiCityTour,
@@ -63,10 +63,10 @@ export default function PrivateToursSection() {
             <Car size={13} /> Your own car · up to 6 guests
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-2.5">
-            Private Short Tours & City Tours
+            Private Tours
           </h2>
           <p className="text-xs sm:text-base text-slate-300 font-medium">
-            One price per car, not per person. Private driver, free hotel pickup and pay on the day.
+            One price for the whole car, up to 6 guests. Free hotel pickup, pay on the day.
           </p>
         </div>
 
@@ -99,10 +99,10 @@ export default function PrivateToursSection() {
                 <div className="pt-3.5 mt-4 border-t border-slate-800 flex items-center justify-between gap-3">
                   <div>
                     <div className="text-xl sm:text-2xl font-black text-white">{aed(t.price)}</div>
-                    <div className="text-[11px] text-slate-400 font-medium">per car · up to 6</div>
+                    <div className="text-[11px] text-slate-400 font-medium">private car · up to 6</div>
                   </div>
                   <a
-                    href={getWhatsAppLink(`Hi! I'd like to book the private ${t.title} (${aed(t.price)} per car). Please confirm my date.`)}
+                    href={getWhatsAppLink(`Hi! I'd like to book the ${t.title} (${aed(t.price)} per car). Please confirm my date.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('private_tours', t.title, t.price)}
