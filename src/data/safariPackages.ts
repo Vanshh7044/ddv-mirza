@@ -519,9 +519,10 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Book 1 hour or more',
       'Dubai Marina, JBR, Ain Dubai & Palm views',
       'Captain & crew',
+      'Soft drinks & water',
       'Sun deck for photos',
     ],
-    excludes: ['Hotel transfers (available on request)', 'Food & drinks unless arranged'],
+    excludes: ['Hotel transfers'],
     whatsAppText: wa('Private Yacht Cruise, Dubai Marina', PRICES.marinaYacht, 'hour', 'How many guests can come, and is my date available? I would like ___ hours.'),
   },
   {
