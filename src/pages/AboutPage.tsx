@@ -57,7 +57,7 @@ export default function AboutPage() {
 
               <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2.5 sm:gap-4">
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-sand text-center sm:text-left">
-                  <div className="text-lg sm:text-2xl font-black text-[#0F172A]">25,000+</div>
+                  <div className="text-lg sm:text-2xl font-black text-[#0F172A]">17,000+</div>
                   <div className="text-[10px] sm:text-xs font-bold text-[#64748B]">Happy Guests</div>
                 </div>
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-sand text-center sm:text-left">

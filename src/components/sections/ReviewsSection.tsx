@@ -50,7 +50,7 @@ export default function ReviewsSection() {
               <span className="text-xs sm:text-sm font-bold text-[#0F172A] ml-1.5">4.9 / 5.0 Average</span>
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
-              Loved by 25,000+ Travelers
+              Loved by 17,000+ Travelers
             </h2>
           </div>
           <div className="inline-flex items-center gap-2 bg-[#F8F6F0] px-3.5 py-2 rounded-xl border border-sand self-start md:self-auto">
