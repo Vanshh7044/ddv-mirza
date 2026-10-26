@@ -142,10 +142,13 @@ export default function TourDetailPage() {
                   <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">{aed(tour.price)}</span>
                   <span className="text-sm font-semibold text-[#64748B]">{UNIT_LABEL[tour.priceUnit]}</span>
                 </div>
+                {tour.priceNote && (
+                  <p className="text-xs text-[#0F172A] font-semibold mt-1.5 leading-snug">{tour.priceNote}</p>
+                )}
                 <div className="text-xs text-emerald-600 font-bold mt-1">✓ {tour.pickupInfo}</div>
               </div>
               <ul className="space-y-2.5 mb-5 pt-3.5 border-t border-slate-100 text-xs text-[#475569] font-medium">
-                {['Pay cash or card on the day', 'Free cancellation up to 24h prior', tour.priceUnit === 'vehicle' ? 'Price is for the whole car (up to 6)' : 'Private vehicle option on request'].map((t) => (
+                {['Pay cash or card on the day', 'Free cancellation up to 24h prior', tour.priceUnit === 'vehicle' ? 'Price is for the whole car (up to 6)' : tour.priceUnit === 'hour' ? 'Private yacht, priced per hour' : 'Private vehicle option on request'].map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <Check size={14} className="text-emerald-600 shrink-0" /> {t}
                   </li>

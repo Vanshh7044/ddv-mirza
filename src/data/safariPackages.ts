@@ -1,5 +1,5 @@
 export type PackageCategory = 'evening' | 'combo' | 'short' | 'selfdrive' | 'vip' | 'city';
-export type PriceUnit = 'person' | 'vehicle' | 'group' | '2 adults';
+export type PriceUnit = 'person' | 'vehicle' | 'group' | '2 adults' | 'hour';
 
 export interface SafariPackage {
   id: string;
@@ -67,6 +67,7 @@ export const PRICES = {
   dubaiCityTour: 550, // per private car, up to 6
   abuDhabiCityTour: 850, // per private car, up to 6
   dhowCruise: 139,
+  marinaYacht: 650, // private yacht, per hour (guest capacity being confirmed)
   cityTourSafariCombo: 189,
 } as const;
 
@@ -78,6 +79,7 @@ export const UNIT_LABEL: Record<PriceUnit, string> = {
   vehicle: '/ vehicle',
   group: '/ group',
   '2 adults': '/ 2 adults',
+  hour: '/ hour',
 };
 
 /** Free pickup & drop-off zones (no extra charge). Anywhere else is quoted on WhatsApp. */
@@ -492,6 +494,35 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     ],
     excludes: ['Attraction entry tickets (e.g. Qasr Al Watan, Louvre Abu Dhabi) unless stated', 'Meals'],
     whatsAppText: wa('Private Abu Dhabi City Tour', PRICES.abuDhabiCityTour, 'vehicle'),
+  },
+  {
+    id: 'marina-yacht',
+    slug: 'private-yacht-dubai-marina',
+    category: 'city',
+    tier: '15',
+    title: 'Private Yacht Cruise, Dubai Marina',
+    tagline: 'Your own private yacht, booked by the hour: Dubai Marina skyline, JBR, Ain Dubai and the Palm from the water.',
+    price: PRICES.marinaYacht,
+    originalPrice: PRICES.marinaYacht,
+    priceUnit: 'hour',
+    duration: 'By the hour',
+    location: 'Dubai Marina',
+    pickupInfo: 'Board at Dubai Marina · times on WhatsApp',
+    priceNote: 'Price per hour for the whole private yacht, not per person. Tell us how many hours you want; ask us on WhatsApp for the guest capacity.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE YACHT',
+    image: '/images/real/marina-yacht.webp',
+    detailPath: '/tours/private-yacht-dubai-marina',
+    includes: [
+      'Private yacht for your group only',
+      'Book 1 hour or more',
+      'Dubai Marina, JBR, Ain Dubai & Palm views',
+      'Captain & crew',
+      'Sun deck for photos',
+    ],
+    excludes: ['Hotel transfers (available on request)', 'Food & drinks unless arranged'],
+    whatsAppText: wa('Private Yacht Cruise, Dubai Marina', PRICES.marinaYacht, 'hour', 'How many guests can come, and is my date available? I would like ___ hours.'),
   },
   {
     id: 'dhow-cruise-marina',
