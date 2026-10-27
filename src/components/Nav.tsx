@@ -293,6 +293,7 @@ export default function Nav() {
         >
           <div 
             ref={drawerRef}
+            data-lenis-prevent
             className="bg-white border border-slate-200 rounded-3xl shadow-2xl p-4 sm:p-5 max-h-[90vh] overflow-y-auto flex flex-col justify-between w-full max-w-lg mx-auto"
             style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
           >

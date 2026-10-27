@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 import MobileBar from './MobileBar';
-import { useScrollReset } from '../hooks/useSmoothScroll';
+import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { trackPageView, getPageTitle } from '../utils/analytics';
 
@@ -29,6 +29,8 @@ export default function Layout() {
   }, []);
 
   // Reset scroll position + re-init ScrollTrigger on every route change
+  // Lenis on desktop only (lazy-loaded after page load)
+  useSmoothScroll();
   useScrollReset();
   // Global reveal animations
   useScrollReveal();

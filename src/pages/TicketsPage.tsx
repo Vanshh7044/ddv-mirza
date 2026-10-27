@@ -10,6 +10,7 @@ import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 import { trackWhatsAppClick } from '../utils/analytics';
 
 import { srcSet, CARD_SIZES } from '../utils/img';
+import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const TILE: Record<AttractionCategory, [string, string]> = {
   Landmarks: ['#0F172A', '#C2410C'],
   'Theme Parks': ['#7C2D12', '#F59E0B'],
@@ -240,7 +241,7 @@ export default function TicketsPage() {
       {picked.length > 0 && (
         <button
           type="button"
-          onClick={() => document.getElementById('ticket-enquiry')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => { const el = document.getElementById('ticket-enquiry'); if (el) smoothScrollTo(el); }}
           className="lg:hidden fixed left-4 right-4 z-40 h-12 rounded-xl bg-[#0F172A] text-white font-black text-sm shadow-2xl flex items-center justify-center gap-2 cursor-pointer"
           style={{ bottom: 'calc(84px + env(safe-area-inset-bottom, 0px))' }}
         >

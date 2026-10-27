@@ -8,6 +8,7 @@ import { DESERT_ADDONS } from '../data/addons';
 import { getBreadcrumbSchema } from '../data/schemaData';
 import { trackBookingFormSubmit, trackEmailClick } from '../utils/analytics';
 
+import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const BOOKING_EMAIL = 'info@dubaidunetours.com';
 
 const GROUPS: { label: string; cats: SafariPackage['category'][] }[] = [
@@ -139,7 +140,7 @@ export default function BookPage() {
     trackBookingFormSubmit(tourTitle, f.date, f.name);
     window.open(getWhatsAppLink(message), '_blank', 'noopener');
     setDone({ ref, message });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0);
   };
 
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'Book Online' }];

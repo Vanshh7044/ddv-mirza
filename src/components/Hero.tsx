@@ -16,6 +16,7 @@ import {
 import { trackBookingFormSubmit } from '../utils/analytics';
 import { SAFARI_PACKAGES, PRICES, FROM_PRICE, aed, UNIT_LABEL, getWhatsAppLink } from '../data/safariPackages';
 
+import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const optionLabel = (p: (typeof SAFARI_PACKAGES)[number]) =>
   `${p.title} (${aed(p.price)}${UNIT_LABEL[p.priceUnit].replace(' ', '')})`;
 
@@ -74,7 +75,7 @@ export default function Hero() {
   const handleScrollDown = () => {
     const packagesElem = document.getElementById('packages');
     if (packagesElem) {
-      packagesElem.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollTo(packagesElem);
     }
   };
 

@@ -8,6 +8,7 @@ import { getWhatsAppLink } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 import { trackWhatsAppClick } from '../utils/analytics';
 
+import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const field = 'w-full h-11 px-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] focus:bg-white outline-none text-sm text-[#0F172A]';
 const label = 'block text-[11px] font-bold uppercase text-[#0F172A] mb-1';
 
@@ -100,7 +101,7 @@ export default function TransportPage() {
                     type="button"
                     onClick={() => {
                       setForm((f) => ({ ...f, service: s.name }));
-                      document.getElementById('transfer-quote')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      { const el = document.getElementById('transfer-quote'); if (el) smoothScrollTo(el, -120); }
                     }}
                     className={`text-left bg-white rounded-2xl border p-4 flex gap-3.5 transition-all cursor-pointer hover:shadow-md ${form.service === s.name ? 'border-[#C2410C] ring-2 ring-[#C2410C]/10' : 'border-sand'}`}
                   >
@@ -133,7 +134,7 @@ export default function TransportPage() {
                         type="button"
                         onClick={() => {
                           setForm((f) => ({ ...f, vehicle: v.name, passengers: Math.min(f.passengers, v.passengers) }));
-                          document.getElementById('transfer-quote')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          { const el = document.getElementById('transfer-quote'); if (el) smoothScrollTo(el, -120); }
                         }}
                         className="mt-4 w-full h-10 rounded-xl bg-[#0F172A] hover:bg-black text-white text-xs font-bold cursor-pointer"
                       >
