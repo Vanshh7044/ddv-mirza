@@ -1,6 +1,7 @@
 import { Clock, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, FROM_PRICE, aed } from '../../data/safariPackages';
 
+import { srcSet, CARD_SIZES } from '../../utils/img';
 const ITINERARY_STEPS = [
   {
     time: '3:00–3:30 PM',
@@ -48,7 +49,7 @@ export default function VisualItinerary() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>
-            <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-1.5">
+            <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#C2410C] mb-1.5">
               Evening Tour Timeline
             </div>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
@@ -71,6 +72,8 @@ export default function VisualItinerary() {
               <div className="relative aspect-[16/9] overflow-hidden bg-slate-200">
                 <img
                   src={step.image}
+                    srcSet={srcSet(step.image)}
+                    sizes={CARD_SIZES}
                   alt={step.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
@@ -79,7 +82,7 @@ export default function VisualItinerary() {
                 <div className="absolute top-2.5 left-2.5 bg-[#0F172A]/90 backdrop-blur-md text-white px-2 py-0.5 rounded-md text-[11px] font-mono font-bold">
                   Step 0{idx + 1}
                 </div>
-                <div className="absolute bottom-2.5 left-2.5 bg-[#EA580C] text-white px-2 py-0.5 rounded-md text-[11px] font-bold flex items-center gap-1 shadow">
+                <div className="absolute bottom-2.5 left-2.5 bg-[#C2410C] text-white px-2 py-0.5 rounded-md text-[11px] font-bold flex items-center gap-1 shadow">
                   <Clock size={11} /> {step.time}
                 </div>
               </div>
@@ -101,7 +104,7 @@ export default function VisualItinerary() {
             href={getWhatsAppLink('Hi! I want to book the Evening Safari. Please confirm available slots.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-[#EA580C]/20 transition-all h-[48px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-[#C2410C]/20 transition-all h-[48px]"
           >
             <MessageCircle size={17} />
             <span>Book This Itinerary on WhatsApp ({aed(FROM_PRICE)})</span>

@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">
-          <p className="text-xs text-[#64748B]">
+          <p className="text-xs text-[#56657A]">
             <strong>Last updated:</strong> September 2025
           </p>
 
@@ -77,8 +77,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-base sm:text-lg font-extrabold text-[#0F172A] mb-1.5">6. Contact Us</h2>
             <p>
               Dubai Dune Tours Operations &nbsp;|&nbsp; Lehbab, Dubai, UAE<br />
-              WhatsApp: <a href="https://wa.me/971556015834" className="text-[#EA580C] font-bold">+971 55 601 5834</a><br />
-              Email: <a href="mailto:info@dubaidunetours.com" className="text-[#EA580C] font-bold">info@dubaidunetours.com</a>
+              WhatsApp: <a href="https://wa.me/971556015834" className="text-[#C2410C] font-bold">+971 55 601 5834</a><br />
+              Email: <a href="mailto:info@dubaidunetours.com" className="text-[#C2410C] font-bold">info@dubaidunetours.com</a>
             </p>
           </div>
         </div>

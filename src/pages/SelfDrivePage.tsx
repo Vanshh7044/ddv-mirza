@@ -4,6 +4,7 @@ import { Check, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 const SD_PACKAGES = [
   {
     title: 'Self-Drive Standard',
@@ -66,6 +67,8 @@ export default function SelfDrivePage() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
                     src={pkg.image}
+                    srcSet={srcSet(pkg.image)}
+                    sizes={CARD_SIZES}
                     alt={pkg.title}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -77,7 +80,7 @@ export default function SelfDrivePage() {
                 </div>
 
                 <div className="p-4 sm:p-6 flex flex-col flex-1">
-                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-1.5">{pkg.title}</h3>
+                  <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-1.5">{pkg.title}</h2>
                   <p className="text-xs sm:text-sm text-[#475569] font-medium mb-3 sm:mb-4 leading-relaxed">
                     {pkg.desc}
                   </p>
@@ -85,7 +88,7 @@ export default function SelfDrivePage() {
                   <div className="space-y-1.5 sm:space-y-2 py-2.5 sm:py-3 border-y border-slate-100 mb-4 sm:mb-6 flex-1">
                     {pkg.includes.map((inc, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs font-semibold text-[#1E293B]">
-                        <Check size={12} className="text-emerald-600 shrink-0" />
+                        <Check size={12} className="text-emerald-700 shrink-0" />
                         <span>{inc}</span>
                       </div>
                     ))}
@@ -93,15 +96,15 @@ export default function SelfDrivePage() {
 
                   <div className="flex items-center justify-between gap-2.5 pt-2">
                     <div>
-                      <div className="text-[11px] text-[#94A3B8] line-through font-bold">{aed(pkg.originalPrice)}</div>
-                      <div className="text-xl sm:text-2xl font-black text-[#0F172A]">{aed(pkg.price)} <span className="text-[10px] font-medium text-[#64748B]">/ person</span></div>
+                      <div className="text-[11px] text-[#56657A] line-through font-bold">{aed(pkg.originalPrice)}</div>
+                      <div className="text-xl sm:text-2xl font-black text-[#0F172A]">{aed(pkg.price)} <span className="text-[10px] font-medium text-[#56657A]">/ person</span></div>
                     </div>
 
                     <a
                       href={getWhatsAppLink(`Hi! I want to book the ${pkg.title} (${aed(pkg.price)}/person). Please send meeting point location.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-md transition-all h-[44px]"
+                      className="inline-flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-md transition-all h-[44px]"
                     >
                       <MessageCircle size={15} /> Book Now
                     </a>

@@ -26,19 +26,19 @@ export default function CancellationPolicyPage() {
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">
-          <p className="text-xs text-[#64748B]">
+          <p className="text-xs text-[#56657A]">
             <strong>Last updated:</strong> September 2025
           </p>
 
           <div className="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 sm:p-5 flex items-center gap-3 text-[#0F172A]">
-            <div className="w-10 h-10 rounded-full bg-amber-100 text-[#EA580C] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-full bg-amber-100 text-[#C2410C] flex items-center justify-center shrink-0">
               <CheckCircle2 size={22} />
             </div>
             <div>
               <p className="font-extrabold text-sm sm:text-base text-[#0F172A] m-0">
                 100% Free Cancellation up to 24 Hours Before Pickup
               </p>
-              <p className="text-xs text-[#64748B] m-0 mt-0.5">
+              <p className="text-xs text-[#56657A] m-0 mt-0.5">
                 Since we require zero advance deposit, you can modify or cancel your booking with zero penalties.
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function CancellationPolicyPage() {
                 <tbody className="divide-y divide-slate-100">
                   <tr>
                     <td className="p-3 font-medium">More than 24 hours before</td>
-                    <td className="p-3 font-bold text-emerald-600">Free / 0% Penalty</td>
+                    <td className="p-3 font-bold text-emerald-700">Free / 0% Penalty</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-medium">12–24 hours before</td>
@@ -92,7 +92,7 @@ export default function CancellationPolicyPage() {
               href={getWhatsAppLink('Hi! I need to reschedule/cancel my safari booking.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition-all"
+              className="inline-flex items-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition-all"
             >
               <MessageCircle size={15} /> Message Dispatch on WhatsApp
             </a>

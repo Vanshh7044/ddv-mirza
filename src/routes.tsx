@@ -2,8 +2,6 @@ import type { ComponentType } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import Layout from './components/Layout';
 import App from './App';
-import { SAFARI_PACKAGES, EVENING_TIERS } from './data/safariPackages';
-import { GUIDES } from './data/guides';
 
 /**
  * Single route table shared by the browser router (lazy pages), the SSR entry
@@ -46,14 +44,4 @@ export const buildRoutes = (resolve: PageResolver): RouteObject[] => [
       }),
     ],
   },
-];
-
-/** Concrete URLs to prerender to static HTML. '/404' renders the catch-all page into 404.html. */
-export const getPrerenderPaths = () => [
-  '/',
-  ...PAGE_ROUTES.filter((r) => !r.path.includes(':') && r.path !== '*').map((r) => `/${r.path}`),
-  ...EVENING_TIERS.map((p) => `/evening-safari/${p.slug}`),
-  ...SAFARI_PACKAGES.filter((p) => p.detailPath.startsWith('/tours/')).map((p) => p.detailPath),
-  ...GUIDES.map((g) => `/guides/${g.slug}`),
-  '/404',
 ];

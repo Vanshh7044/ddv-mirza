@@ -14,22 +14,22 @@ export default function TimingsPickup({
       {itinerary && itinerary.length > 0 && (
         <div>
           <h3 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-1 flex items-center gap-2">
-            <Clock size={20} className="text-[#EA580C]" /> Timings
+            <Clock size={20} className="text-[#C2410C]" /> Timings
           </h3>
           {pickupInfo && <p className="text-xs sm:text-sm font-bold text-[#475569] mb-4">{pickupInfo}</p>}
-          <ol className="relative border-l-2 border-[#EA580C]/25 ml-2 space-y-3.5">
+          <ol className="relative border-l-2 border-[#C2410C]/25 ml-2 space-y-3.5">
             {itinerary.map((step) => (
               <li key={step.time + step.title} className="pl-5 relative">
-                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#EA580C] ring-4 ring-white" />
+                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#C2410C] ring-4 ring-white" />
                 <div className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="text-xs sm:text-sm font-black text-[#EA580C] tabular-nums">{step.time}</span>
+                  <span className="text-xs sm:text-sm font-black text-[#C2410C] tabular-nums">{step.time}</span>
                   <span className="text-sm sm:text-base font-extrabold text-[#0F172A]">{step.title}</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-snug">{step.desc}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-4 text-[11px] sm:text-xs text-[#64748B] font-medium flex items-start gap-1.5">
+          <p className="mt-4 text-[11px] sm:text-xs text-[#56657A] font-medium flex items-start gap-1.5">
             <Info size={13} className="shrink-0 mt-0.5" /> {TIMING_NOTE}
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function TimingsPickup({
 
       <div className={itinerary && itinerary.length > 0 ? 'pt-5 border-t border-slate-100' : ''}>
         <h3 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-1 flex items-center gap-2">
-          <MapPin size={20} className="text-[#EA580C]" /> Pickup & drop-off
+          <MapPin size={20} className="text-[#C2410C]" /> Pickup & drop-off
         </h3>
         <p className="text-xs sm:text-sm text-[#475569] font-medium mb-3">
           <strong className="text-emerald-700">Free, no extra charge</strong> from any hotel, apartment or address in:

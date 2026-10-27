@@ -9,8 +9,9 @@ import { getWhatsAppLink } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 import { trackWhatsAppClick } from '../utils/analytics';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 const TILE: Record<AttractionCategory, [string, string]> = {
-  Landmarks: ['#0F172A', '#EA580C'],
+  Landmarks: ['#0F172A', '#C2410C'],
   'Theme Parks': ['#7C2D12', '#F59E0B'],
   'Water & Marine': ['#0C4A6E', '#06B6D4'],
   'Gardens & Seasonal': ['#14532D', '#84CC16'],
@@ -22,7 +23,9 @@ const quoteText = (names: string[], date: string, adults: number, kids: number) 
 
 function AttractionTile({ a }: { a: Attraction }) {
   if (a.image) {
-    return <img src={a.image} alt={a.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />;
+    return <img src={a.image}
+                    srcSet={srcSet(a.image)}
+                    sizes={CARD_SIZES} alt={a.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />;
   }
   const [from, to] = TILE[a.category];
   return (
@@ -117,7 +120,7 @@ export default function TicketsPage() {
                   <article
                     key={a.id}
                     id={a.id}
-                    className={`bg-white rounded-2xl border overflow-hidden flex flex-col transition-all ${on ? 'border-[#EA580C] ring-2 ring-[#EA580C]/15 shadow-lg' : 'border-sand shadow-sm hover:shadow-md'}`}
+                    className={`bg-white rounded-2xl border overflow-hidden flex flex-col transition-all ${on ? 'border-[#C2410C] ring-2 ring-[#C2410C]/15 shadow-lg' : 'border-sand shadow-sm hover:shadow-md'}`}
                   >
                     <div className="relative aspect-[16/8]">
                       <AttractionTile a={a} />
@@ -127,7 +130,7 @@ export default function TicketsPage() {
                       )}
                     </div>
                     <div className="p-4 flex flex-col flex-1">
-                      <div className="text-[10px] font-black uppercase tracking-wider text-[#EA580C]">{a.category}</div>
+                      <div className="text-[10px] font-black uppercase tracking-wider text-[#C2410C]">{a.category}</div>
                       <h2 className="text-base font-extrabold text-[#0F172A] leading-snug mt-0.5">{a.name}</h2>
                       <p className="text-[13px] text-[#475569] font-medium mt-1.5 flex-1">{a.desc}</p>
                       <div className="flex items-center gap-2 mt-3.5">
@@ -150,7 +153,7 @@ export default function TicketsPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => trackWhatsAppClick('ticket_card', a.name)}
-                          className="inline-flex items-center justify-center gap-1.5 h-10 px-3 rounded-xl bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs font-bold"
+                          className="inline-flex items-center justify-center gap-1.5 h-10 px-3 rounded-xl bg-[#C2410C] hover:bg-[#9A3412] text-white text-xs font-bold"
                           aria-label={`Get a price for ${a.name} on WhatsApp`}
                         >
                           <MessageCircle size={14} /> Price
@@ -160,16 +163,16 @@ export default function TicketsPage() {
                   </article>
                 );
               })}
-              {shown.length === 0 && <p className="text-sm text-[#64748B]">No attractions match these filters.</p>}
+              {shown.length === 0 && <p className="text-sm text-[#56657A]">No attractions match these filters.</p>}
             </div>
 
             {/* Enquiry builder */}
             <aside className="lg:col-span-1">
-              <div id="ticket-enquiry" className="lg:sticky lg:top-28 scroll-mt-24 bg-white rounded-2xl border-2 border-[#EA580C] shadow-xl p-5">
+              <div id="ticket-enquiry" className="lg:sticky lg:top-28 scroll-mt-24 bg-white rounded-2xl border-2 border-[#C2410C] shadow-xl p-5">
                 <div className="flex items-center gap-2 text-[#0F172A] font-black text-lg mb-1">
-                  <Ticket size={20} className="text-[#EA580C]" /> Your ticket enquiry
+                  <Ticket size={20} className="text-[#C2410C]" /> Your ticket enquiry
                 </div>
-                <p className="text-xs text-[#64748B] font-medium mb-4">Ticket prices change by date and season — we confirm the best rate on WhatsApp before you pay.</p>
+                <p className="text-xs text-[#56657A] font-medium mb-4">Ticket prices change by date and season — we confirm the best rate on WhatsApp before you pay.</p>
 
                 {pickedNames.length ? (
                   <ul className="space-y-1.5 mb-4">
@@ -183,7 +186,7 @@ export default function TicketsPage() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-[#94A3B8] font-medium mb-4 border border-dashed border-slate-200 rounded-lg p-3 text-center">
+                  <p className="text-sm text-[#56657A] font-medium mb-4 border border-dashed border-slate-200 rounded-lg p-3 text-center">
                     Tap “Add to enquiry” on any attraction.
                   </p>
                 )}
@@ -191,7 +194,7 @@ export default function TicketsPage() {
                 <label className="block text-[11px] font-bold uppercase text-[#0F172A] mb-1" htmlFor="t-date">Visit date</label>
                 <div className="relative mb-3">
                   <CalendarDays size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-                  <input id="t-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full h-11 pl-9 pr-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#EA580C] outline-none text-sm" />
+                  <input id="t-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full h-11 pl-9 pr-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] outline-none text-sm" />
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   {([['Adults', adults, setAdults, 1], ['Children', kids, setKids, 0]] as const).map(([label, val, set, min]) => (
@@ -204,14 +207,14 @@ export default function TicketsPage() {
                         max={50}
                         value={val}
                         onChange={(e) => set(Math.max(min, Number(e.target.value) || 0))}
-                        className="w-full h-11 px-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#EA580C] outline-none text-sm"
+                        className="w-full h-11 px-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] outline-none text-sm"
                       />
                     </div>
                   ))}
                 </div>
 
                 <a
-                  href={pickedNames.length ? getWhatsAppLink(quoteText(pickedNames, date, adults, kids)) : undefined}
+                  href={getWhatsAppLink(pickedNames.length ? quoteText(pickedNames, date, adults, kids) : 'Hi! I would like a quote for attraction tickets in Dubai.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-disabled={!pickedNames.length}
@@ -220,13 +223,13 @@ export default function TicketsPage() {
                     else trackWhatsAppClick('ticket_enquiry', `${pickedNames.length} tickets`);
                   }}
                   className={`w-full h-12 flex items-center justify-center gap-2 rounded-xl font-black text-sm transition-all ${
-                    pickedNames.length ? 'bg-[#EA580C] hover:bg-[#C2410C] text-white shadow-lg shadow-[#EA580C]/25' : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                    pickedNames.length ? 'bg-[#C2410C] hover:bg-[#9A3412] text-white shadow-lg shadow-[#C2410C]/25' : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                   }`}
                 >
                   <MessageCircle size={17} /> Get prices on WhatsApp{pickedNames.length ? ` (${pickedNames.length})` : ''}
                 </a>
-                <p className="text-[11px] text-[#64748B] font-medium mt-3 text-center">
-                  Need a ride? Add a <Link to="/transport" className="text-[#EA580C] font-bold hover:underline">private transfer</Link> to any attraction.
+                <p className="text-[11px] text-[#56657A] font-medium mt-3 text-center">
+                  Need a ride? Add a <Link to="/transport" className="text-[#C2410C] font-bold hover:underline">private transfer</Link> to any attraction.
                 </p>
               </div>
             </aside>
@@ -241,7 +244,7 @@ export default function TicketsPage() {
           className="lg:hidden fixed left-4 right-4 z-40 h-12 rounded-xl bg-[#0F172A] text-white font-black text-sm shadow-2xl flex items-center justify-center gap-2 cursor-pointer"
           style={{ bottom: 'calc(84px + env(safe-area-inset-bottom, 0px))' }}
         >
-          <Ticket size={17} className="text-[#EA580C]" /> Review enquiry ({picked.length})
+          <Ticket size={17} className="text-[#C2410C]" /> Review enquiry ({picked.length})
         </button>
       )}
       <FinalCTA />

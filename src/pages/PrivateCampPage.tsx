@@ -4,6 +4,7 @@ import { Check, Sparkles, MessageCircle, Star } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function PrivateCampPage() {
   const whatsAppText = `Hi! I am inquiring about booking the 100% Private Desert Camp Setup (${aed(PRICES.privateCamp)}). Please share available dates.`;
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'Private Camp' }];
@@ -66,12 +67,14 @@ export default function PrivateCampPage() {
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
                 <img
                   src="/images/real/sunset-couple.webp"
+                    srcSet={srcSet("/images/real/sunset-couple.webp")}
+                    sizes={CARD_SIZES}
                   alt="Private Desert Camp Setup"
                   className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"
                 />
-                <div className="absolute top-3 left-3 bg-[#EA580C] text-white font-extrabold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg shadow-lg flex items-center gap-1">
+                <div className="absolute top-3 left-3 bg-[#C2410C] text-white font-extrabold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg shadow-lg flex items-center gap-1">
                   <Sparkles size={13} /> 100% EXCLUSIVE SECLUSION
                 </div>
               </div>
@@ -80,7 +83,9 @@ export default function PrivateCampPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/sunset-dunes.webp" 
+                    src="/images/real/sunset-dunes.webp"
+                    srcSet={srcSet("/images/real/sunset-dunes.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Sunset on the dunes" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -90,7 +95,9 @@ export default function PrivateCampPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/heart-sunset.webp" 
+                    src="/images/real/heart-sunset.webp"
+                    srcSet={srcSet("/images/real/heart-sunset.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Sunset moments" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -100,7 +107,9 @@ export default function PrivateCampPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/camel-ride.webp" 
+                    src="/images/real/camel-ride.webp"
+                    srcSet={srcSet("/images/real/camel-ride.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Sunset Camel Ride" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -112,9 +121,9 @@ export default function PrivateCampPage() {
 
               {/* Inclusions Detail */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-sand shadow-sm">
-                <h3 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
                   What's Included in Your Private Sanctuary
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {[
                     'Entire private desert campsite on an isolated high dune',
@@ -127,7 +136,7 @@ export default function PrivateCampPage() {
                     'Zero other tourists or groups — absolute peace and seclusion',
                   ].map((inc, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs sm:text-base font-semibold text-[#1E293B]">
-                      <div className="w-5 h-5 rounded-full bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-[#C2410C]/10 text-[#9A3412] flex items-center justify-center shrink-0 mt-0.5">
                         <Check size={12} strokeWidth={3} />
                       </div>
                       <span className="leading-snug">{inc}</span>
@@ -139,12 +148,12 @@ export default function PrivateCampPage() {
 
             {/* Right Column: Sticky Booking Widget */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#EA580C] shadow-xl sticky top-28">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#C2410C] shadow-xl sticky top-28">
                 <div className="flex items-center justify-between mb-3.5">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-[#EA580C] bg-[#EA580C]/10 px-2.5 py-1 rounded-full">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#9A3412] bg-[#C2410C]/10 px-2.5 py-1 rounded-full">
                     100% Private Setup
                   </span>
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
+                  <div className="flex items-center gap-1 text-amber-700 text-xs font-bold">
                     <Star size={13} className="fill-amber-500" />
                     <span>5.0 (95+ reviews)</span>
                   </div>
@@ -155,9 +164,9 @@ export default function PrivateCampPage() {
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
                       {aed(PRICES.privateCamp)}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#64748B]">/ group (up to 8)</span>
+                    <span className="text-xs sm:text-sm font-semibold text-[#56657A]">/ group (up to 8)</span>
                   </div>
-                  <div className="text-xs text-emerald-600 font-bold mt-1">
+                  <div className="text-xs text-emerald-700 font-bold mt-1">
                     ✓ Private Chef + Isolated Dune Camp Included
                   </div>
                 </div>
@@ -166,14 +175,14 @@ export default function PrivateCampPage() {
                   href={getWhatsAppLink(whatsAppText)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#EA580C]/30 transition-all h-[48px]"
+                  className="w-full flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#C2410C]/30 transition-all h-[48px]"
                 >
                   <MessageCircle size={18} />
                   <span>Reserve on WhatsApp</span>
                 </a>
 
                 <div className="text-center mt-3.5">
-                  <span className="text-[11px] text-[#64748B] font-semibold">
+                  <span className="text-[11px] text-[#56657A] font-semibold">
                     Custom arrangements available • Direct operator
                   </span>
                 </div>

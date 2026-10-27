@@ -38,7 +38,7 @@ export default function FaqSection() {
         
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-1.5">
+          <div className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#C2410C] mb-1.5">
             <HelpCircle size={13} /> Clear & Honest Answers
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
@@ -55,7 +55,7 @@ export default function FaqSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all ${
                   isOpen
-                    ? 'bg-white border-[#EA580C]/40 shadow-md'
+                    ? 'bg-white border-[#C2410C]/40 shadow-md'
                     : 'bg-white/80 border-sand hover:bg-white'
                 }`}
               >
@@ -68,7 +68,7 @@ export default function FaqSection() {
                     {faq.q}
                   </span>
                   <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                    isOpen ? 'bg-[#EA580C] text-white' : 'bg-slate-100 text-[#64748B]'
+                    isOpen ? 'bg-[#C2410C] text-white' : 'bg-slate-100 text-[#56657A]'
                   }`}>
                     {isOpen ? <Minus size={15} /> : <Plus size={15} />}
                   </div>
@@ -93,7 +93,7 @@ export default function FaqSection() {
             href={getWhatsAppLink('Hi! I have a question about booking a desert safari.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#EA580C] hover:text-[#C2410C] bg-[#EA580C]/10 px-4 py-2.5 rounded-xl transition-colors h-[42px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#9A3412] hover:text-[#7C2D12] bg-[#C2410C]/10 px-4 py-2.5 rounded-xl transition-colors h-[42px]"
           >
             <MessageCircle size={15} /> Ask on WhatsApp →
           </a>

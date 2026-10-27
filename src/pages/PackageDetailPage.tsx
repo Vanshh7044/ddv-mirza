@@ -9,6 +9,7 @@ import NotFoundPage from './NotFoundPage';
 import AddOnsSection from '../components/sections/AddOnsSection';
 import TimingsPickup from '../components/sections/TimingsPickup';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function PackageDetailPage() {
   const { tier } = useParams<{ tier: string }>();
 
@@ -57,6 +58,8 @@ export default function PackageDetailPage() {
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
                 <img
                   src={selectedPkg.image}
+                    srcSet={srcSet(selectedPkg.image)}
+                    sizes={CARD_SIZES}
                   alt={selectedPkg.title}
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -65,10 +68,10 @@ export default function PackageDetailPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-white text-[11px] sm:text-sm font-bold">
                   <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl">
-                    <Clock size={14} className="text-[#EA580C]" /> {selectedPkg.duration}
+                    <Clock size={14} className="text-[#C2410C]" /> {selectedPkg.duration}
                   </span>
                   <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl">
-                    <MapPin size={14} className="text-[#EA580C]" /> Lehbab High Red Dunes
+                    <MapPin size={14} className="text-[#C2410C]" /> Lehbab High Red Dunes
                   </span>
                 </div>
               </div>
@@ -77,7 +80,9 @@ export default function PackageDetailPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/buffet.webp" 
+                    src="/images/real/buffet.webp"
+                    srcSet={srcSet("/images/real/buffet.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Dinner buffet at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -87,7 +92,9 @@ export default function PackageDetailPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/falcon-sunset.webp" 
+                    src="/images/real/falcon-sunset.webp"
+                    srcSet={srcSet("/images/real/falcon-sunset.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Falcon photo session" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -97,7 +104,9 @@ export default function PackageDetailPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/fire-show.webp" 
+                    src="/images/real/fire-show.webp"
+                    srcSet={srcSet("/images/real/fire-show.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Fire show at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -109,9 +118,9 @@ export default function PackageDetailPage() {
 
               {/* What is Included */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-sand shadow-sm">
-                <h3 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
                   What's Included in {selectedPkg.title}
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {selectedPkg.includes.map((inc, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs sm:text-base font-semibold text-[#1E293B]">
@@ -151,12 +160,12 @@ export default function PackageDetailPage() {
 
             {/* Right Column: Sticky Booking Widget */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#EA580C] shadow-xl sticky top-28">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#C2410C] shadow-xl sticky top-28">
                 <div className="flex items-center justify-between mb-3.5">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-[#EA580C] bg-[#EA580C]/10 px-2.5 py-1 rounded-full">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#9A3412] bg-[#C2410C]/10 px-2.5 py-1 rounded-full">
                     Direct Rate
                   </span>
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
+                  <div className="flex items-center gap-1 text-amber-700 text-xs font-bold">
                     <Star size={13} className="fill-amber-500" />
                     <span>{selectedPkg.rating} ({selectedPkg.reviewsCount}+ reviews)</span>
                   </div>
@@ -164,7 +173,7 @@ export default function PackageDetailPage() {
 
                 <div className="mb-5">
                   {selectedPkg.originalPrice > selectedPkg.price && (
-                    <div className="text-xs text-[#94A3B8] line-through font-bold">
+                    <div className="text-xs text-[#56657A] line-through font-bold">
                       {aed(selectedPkg.originalPrice)}
                     </div>
                   )}
@@ -172,28 +181,28 @@ export default function PackageDetailPage() {
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
                       {aed(selectedPkg.price)}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#64748B]">{UNIT_LABEL[selectedPkg.priceUnit]}</span>
+                    <span className="text-xs sm:text-sm font-semibold text-[#56657A]">{UNIT_LABEL[selectedPkg.priceUnit]}</span>
                   </div>
                   {selectedPkg.priceNote && (
                     <p className="text-xs text-[#0F172A] font-semibold mt-1.5 leading-snug">{selectedPkg.priceNote}</p>
                   )}
-                  <div className="text-xs text-emerald-600 font-bold mt-1.5">
+                  <div className="text-xs text-emerald-700 font-bold mt-1.5">
                     ✓ Free hotel pickup & drop-off (see areas below)
                   </div>
                   <div className="text-xs text-[#475569] font-semibold mt-1 flex items-center gap-1">
-                    <Clock size={12} className="text-[#EA580C]" /> {selectedPkg.pickupInfo}
+                    <Clock size={12} className="text-[#C2410C]" /> {selectedPkg.pickupInfo}
                   </div>
                 </div>
 
                 <div className="space-y-2.5 mb-5 pt-3.5 border-t border-slate-100 text-xs text-[#475569] font-medium">
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="text-emerald-600 shrink-0" /> Pay cash or card to driver on arrival
+                    <Check size={14} className="text-emerald-700 shrink-0" /> Pay cash or card to driver on arrival
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="text-emerald-600 shrink-0" /> Free cancellation up to 24h prior
+                    <Check size={14} className="text-emerald-700 shrink-0" /> Free cancellation up to 24h prior
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="text-emerald-600 shrink-0" /> Instant confirmation on WhatsApp
+                    <Check size={14} className="text-emerald-700 shrink-0" /> Instant confirmation on WhatsApp
                   </div>
                 </div>
 
@@ -202,7 +211,7 @@ export default function PackageDetailPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick('detail_widget', selectedPkg.title, selectedPkg.price)}
-                  className="w-full flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#EA580C]/30 transition-all h-[48px]"
+                  className="w-full flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#C2410C]/30 transition-all h-[48px]"
                 >
                   <MessageCircle size={18} />
                   <span>Reserve via WhatsApp</span>
@@ -216,7 +225,7 @@ export default function PackageDetailPage() {
                 </Link>
 
                 <div className="text-center mt-3.5">
-                  <span className="text-[11px] text-[#64748B] font-semibold">
+                  <span className="text-[11px] text-[#56657A] font-semibold">
                     No card required • Fast WhatsApp reply
                   </span>
                 </div>

@@ -135,8 +135,8 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       {/* Top utility bar — desktop only */}
       <div className={`hidden lg:flex items-center justify-end gap-6 px-10 py-1.5 text-xs font-bold transition-all duration-300 ${onDark ? 'text-white/80' : 'text-slate-700'} ${scrolled ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100'}`}>
-        <a href="tel:+971556015834" onClick={() => trackPhoneClick('nav_utility')} className="flex items-center gap-1.5 hover:text-[#EA580C] transition-colors pointer-events-auto">
-          <Phone size={13} className="text-[#EA580C]" /> +971 55 601 5834
+        <a href="tel:+971556015834" onClick={() => trackPhoneClick('nav_utility')} className="flex items-center gap-1.5 hover:text-[#C2410C] transition-colors pointer-events-auto">
+          <Phone size={13} className="text-[#C2410C]" /> +971 55 601 5834
         </a>
         <span className={onDark ? 'text-white/30' : 'text-slate-300'}>·</span>
         <span className={`uppercase tracking-wider ${onDark ? 'text-white/60' : 'text-slate-600'}`}>DET Licensed Operator · Since 2010</span>
@@ -154,14 +154,14 @@ export default function Nav() {
         >
           {/* Brand */}
           <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 sm:gap-3 group shrink min-w-0">
-            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 transition-all ${scrolled ? 'bg-[#EA580C] text-white shadow-md' : 'bg-white/95 text-[#EA580C] border border-white/60 shadow-md backdrop-blur-md'}`}>
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 transition-all ${scrolled ? 'bg-[#C2410C] text-white shadow-md' : 'bg-white/95 text-[#C2410C] border border-white/60 shadow-md backdrop-blur-md'}`}>
               <Compass className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform duration-300" />
             </div>
             <div className="min-w-0">
               <div className={`text-xs min-[360px]:text-sm sm:text-lg md:text-xl font-black tracking-tight leading-tight truncate max-w-[140px] min-[360px]:max-w-[185px] sm:max-w-none transition-colors ${onDark ? 'text-white' : 'text-[#0F172A]'}`}>
                 Dubai Dune Tours
               </div>
-              <div className="text-[9px] sm:text-[10px] font-extrabold tracking-wider text-[#EA580C] uppercase leading-none truncate">
+              <div className={`text-[9px] sm:text-[10px] font-extrabold tracking-wider uppercase leading-none truncate ${onDark ? 'text-[#FB923C]' : 'text-[#C2410C]'}`}>
                 Direct Operator · 4.9★
               </div>
             </div>
@@ -174,12 +174,12 @@ export default function Nav() {
             <button
               onClick={() => setMegaMenuOpen(!megaMenuOpen)}
               className={`flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
-                megaMenuOpen ? 'text-[#EA580C] bg-[#EA580C]/10' : linkCls
+                megaMenuOpen ? 'text-[#9A3412] bg-[#C2410C]/10' : linkCls
               }`}
               aria-expanded={megaMenuOpen}
             >
               Desert Safaris
-              <ChevronDown size={15} className={`transition-transform duration-200 ${megaMenuOpen ? 'rotate-180 text-[#EA580C]' : ''}`} />
+              <ChevronDown size={15} className={`transition-transform duration-200 ${megaMenuOpen ? 'rotate-180 text-[#C2410C]' : ''}`} />
             </button>
 
             {[
@@ -195,7 +195,7 @@ export default function Nav() {
                 to={l.to}
                 aria-current={isActive(l.to) ? 'page' : undefined}
                 className={`${'xlOnly' in l ? 'hidden xl:inline-flex' : ''} px-3 xl:px-4 py-2 text-sm font-bold rounded-xl transition-colors ${
-                  isActive(l.to) ? 'text-[#EA580C]' : linkCls
+                  isActive(l.to) ? 'text-[#C2410C]' : linkCls
                 }`}
               >
                 {l.label}
@@ -208,7 +208,7 @@ export default function Nav() {
                 <div className="grid grid-cols-4 gap-6">
                   {desertSafariMenu.map((group) => (
                     <div key={group.heading}>
-                      <div className="text-xs font-black text-[#EA580C] uppercase tracking-wider mb-3 pb-2 border-b border-slate-100">
+                      <div className="text-xs font-black text-[#C2410C] uppercase tracking-wider mb-3 pb-2 border-b border-slate-100">
                         {group.heading}
                       </div>
                       <div className="flex flex-col gap-1.5">
@@ -219,10 +219,10 @@ export default function Nav() {
                             onClick={() => handleNavClick(item.href)}
                             className="text-left group rounded-xl p-2 hover:bg-[#F8F6F0] transition-colors cursor-pointer w-full"
                           >
-                            <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#EA580C] transition-colors">
+                            <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#C2410C] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-xs text-[#64748B] mt-0.5 leading-snug font-medium">
+                            <div className="text-xs text-[#56657A] mt-0.5 leading-snug font-medium">
                               {item.sub}
                             </div>
                           </button>
@@ -232,13 +232,13 @@ export default function Nav() {
                   ))}
                 </div>
                 <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <p className="text-xs text-[#64748B] font-semibold">
+                  <p className="text-xs text-[#56657A] font-semibold">
                     Pay on the day · Zero deposit · Free 24h cancellation
                   </p>
                   <button
                     type="button"
                     onClick={() => handleNavClick('/desert-safari')}
-                    className="text-xs font-bold text-[#EA580C] hover:text-[#C2410C] flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-[#C2410C] hover:text-[#9A3412] flex items-center gap-1 cursor-pointer"
                   >
                     View All Packages <ArrowRight size={13} />
                   </button>
@@ -255,7 +255,7 @@ export default function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('nav_desktop', undefined, undefined)}
-              className="hidden sm:inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 hover:scale-105 active:scale-95"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all shadow-md shadow-[#C2410C]/20 hover:scale-105 active:scale-95"
             >
               <MessageCircle size={16} />
               <span className="hidden xl:inline">WhatsApp Booking</span><span className="xl:hidden">Book Now</span>
@@ -267,7 +267,7 @@ export default function Nav() {
               className="sm:hidden w-10 h-10 rounded-xl bg-slate-100/90 text-[#0F172A] border border-slate-200/80 flex items-center justify-center active:scale-95 transition-transform"
               aria-label="Call Dubai Dune Tours"
             >
-              <Phone size={17} className="text-[#EA580C]" />
+              <Phone size={17} className="text-[#C2410C]" />
             </a>
 
             {/* Mobile Menu Hamburger Button */}
@@ -300,12 +300,12 @@ export default function Nav() {
               {/* Drawer Top Bar */}
               <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#EA580C] text-white flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-lg bg-[#C2410C] text-white flex items-center justify-center">
                     <Compass size={15} />
                   </div>
                   <div>
                     <span className="text-xs font-black text-[#0F172A]">Dubai Dune Tours</span>
-                    <div className="text-[9px] font-bold text-emerald-600">Pay On Arrival · No Deposit</div>
+                    <div className="text-[9px] font-bold text-emerald-700">Pay On Arrival · No Deposit</div>
                   </div>
                 </div>
                 <button
@@ -321,7 +321,7 @@ export default function Nav() {
               <nav className="flex flex-col gap-1">
                 <button
                   onClick={() => handleNavClick('/')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>Home Page</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -335,7 +335,7 @@ export default function Nav() {
                     aria-expanded={mobileSafariAccordion}
                   >
                     <span className="flex items-center gap-2">
-                      <Compass size={16} className="text-[#EA580C]" />
+                      <Compass size={16} className="text-[#C2410C]" />
                       <span>Safari Packages & Tiers</span>
                     </span>
                     <ChevronDown size={16} className={`text-slate-500 transition-transform duration-200 ${mobileSafariAccordion ? 'rotate-180' : ''}`} />
@@ -350,10 +350,10 @@ export default function Nav() {
                           className="text-left p-2 rounded-xl hover:bg-slate-100 transition-colors flex items-center justify-between group"
                         >
                           <div>
-                            <div className="text-xs font-bold text-[#1E293B] group-hover:text-[#EA580C] transition-colors">{sub.label}</div>
-                            <div className="text-[10px] text-[#64748B] font-medium">{sub.sub}</div>
+                            <div className="text-xs font-bold text-[#1E293B] group-hover:text-[#C2410C] transition-colors">{sub.label}</div>
+                            <div className="text-[10px] text-[#56657A] font-medium">{sub.sub}</div>
                           </div>
-                          <ArrowRight size={12} className="text-slate-400 group-hover:text-[#EA580C] shrink-0" />
+                          <ArrowRight size={12} className="text-slate-400 group-hover:text-[#C2410C] shrink-0" />
                         </button>
                       ))}
                     </div>
@@ -362,7 +362,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/about')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>About Our Fleet & Drivers</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -370,7 +370,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/book')}
-                  className="text-left text-sm font-bold text-[#EA580C] py-2.5 px-3 rounded-xl bg-[#EA580C]/5 hover:bg-[#EA580C]/10 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#C2410C] py-2.5 px-3 rounded-xl bg-[#C2410C]/5 hover:bg-[#C2410C]/10 transition-all flex items-center justify-between"
                 >
                   <span>Book Online (form)</span>
                   <ArrowRight size={14} />
@@ -378,7 +378,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/attraction-tickets')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>Attraction Tickets</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -386,7 +386,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/transport')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>Airport & Private Transfers</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -394,7 +394,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/guides')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>Travel Guides & Tips</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -402,7 +402,7 @@ export default function Nav() {
 
                 <button
                   onClick={() => handleNavClick('/contact')}
-                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#EA580C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
+                  className="text-left text-sm font-bold text-[#0F172A] hover:text-[#C2410C] py-2.5 px-3 rounded-xl hover:bg-slate-50 transition-all flex items-center justify-between"
                 >
                   <span>Contact & Dispatch Location</span>
                   <ArrowRight size={14} className="text-slate-400" />
@@ -417,7 +417,7 @@ export default function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { trackWhatsAppClick('nav_drawer', undefined, undefined); setMobileMenuOpen(false); }}
-                className="w-full bg-[#EA580C] hover:bg-[#C2410C] text-white text-center py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25 active:scale-98"
+                className="w-full bg-[#C2410C] hover:bg-[#9A3412] text-white text-center py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#C2410C]/25 active:scale-98"
               >
                 <MessageCircle size={17} /> Instant WhatsApp Booking
               </a>
@@ -426,7 +426,7 @@ export default function Nav() {
                 onClick={() => { trackPhoneClick('nav_drawer'); setMobileMenuOpen(false); }}
                 className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-[#0F172A] text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
               >
-                <Phone size={14} className="text-[#EA580C]" /> Call Direct: +971 55 601 5834
+                <Phone size={14} className="text-[#C2410C]" /> Call Direct: +971 55 601 5834
               </a>
               <div className="flex items-center justify-center gap-1 text-[10px] font-bold text-slate-400 text-center pt-1">
                 <ShieldCheck size={12} className="text-emerald-500" />

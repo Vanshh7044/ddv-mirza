@@ -3,6 +3,7 @@ import { Car, Clock, MessageCircle, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
 import { trackWhatsAppClick } from '../../utils/analytics';
 
+import { srcSet, CARD_SIZES } from '../../utils/img';
 // Private-car tours (priced per vehicle, up to 6): desert short tours + city tours.
 const TOURS = [
   {
@@ -69,7 +70,7 @@ export default function PrivateToursSection() {
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 bg-[#EA580C]/20 text-[#FB923C] px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5 border border-[#EA580C]/30">
+          <div className="inline-flex items-center gap-1.5 bg-[#C2410C]/20 text-[#FB923C] px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-2.5 border border-[#C2410C]/30">
             <Car size={13} /> Your own car · up to 6 guests
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-2.5">
@@ -84,11 +85,13 @@ export default function PrivateToursSection() {
           {TOURS.map((t) => (
             <div
               key={t.title}
-              className={`bg-slate-900/90 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl flex flex-col group hover:border-[#EA580C]/60 transition-colors duration-300 ${t.span}`}
+              className={`bg-slate-900/90 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl flex flex-col group hover:border-[#C2410C]/60 transition-colors duration-300 ${t.span}`}
             >
               <Link to={t.link} className="relative aspect-[16/9] overflow-hidden block">
                 <img
                   src={t.image}
+                    srcSet={srcSet(t.image)}
+                    sizes={CARD_SIZES}
                   alt={t.title}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
@@ -116,7 +119,7 @@ export default function PrivateToursSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('private_tours', t.title, t.price)}
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-bold text-xs sm:text-sm px-4 h-11 rounded-xl transition-all shadow-lg shadow-[#EA580C]/25 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-bold text-xs sm:text-sm px-4 h-11 rounded-xl transition-all shadow-lg shadow-[#C2410C]/25 whitespace-nowrap"
                   >
                     <MessageCircle size={15} /> Book Now
                   </a>

@@ -5,6 +5,7 @@ import { Check, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 const TOURS = [
   {
     type: 'Sunrise Desert Safari',
@@ -70,6 +71,8 @@ export default function ShortTourPage() {
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
                     src={tour.image}
+                    srcSet={srcSet(tour.image)}
+                    sizes={CARD_SIZES}
                     alt={tour.type}
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -81,7 +84,7 @@ export default function ShortTourPage() {
                 </div>
 
                 <div className="p-4 sm:p-6 flex flex-col flex-1">
-                  <h3 className="text-lg sm:text-xl font-black text-[#0F172A] mb-1.5">{tour.type}</h3>
+                  <h2 className="text-lg sm:text-xl font-black text-[#0F172A] mb-1.5">{tour.type}</h2>
                   <p className="text-xs sm:text-sm text-[#475569] font-medium mb-3 sm:mb-4 leading-relaxed">
                     {tour.desc}
                   </p>
@@ -89,7 +92,7 @@ export default function ShortTourPage() {
                   <div className="space-y-1.5 sm:space-y-2 py-2.5 sm:py-3 border-y border-slate-100 mb-4 sm:mb-6 flex-1">
                     {tour.includes.map((inc, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs font-semibold text-[#1E293B]">
-                        <Check size={12} className="text-emerald-600 shrink-0" />
+                        <Check size={12} className="text-emerald-700 shrink-0" />
                         <span>{inc}</span>
                       </div>
                     ))}
@@ -98,14 +101,14 @@ export default function ShortTourPage() {
                   <div className="flex items-center justify-between gap-2.5 pt-2">
                     <div>
                       <div className="text-xl sm:text-2xl font-black text-[#0F172A]">{aed(tour.price)}</div>
-                      <div className="text-[10px] sm:text-[11px] font-semibold text-[#64748B]">{tour.unit}</div>
+                      <div className="text-[10px] sm:text-[11px] font-semibold text-[#56657A]">{tour.unit}</div>
                     </div>
 
                     <a
                       href={getWhatsAppLink(`Hi! I want to book the ${tour.type} (${aed(tour.price)}). Please confirm available dates.`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-md transition-all h-[44px]"
+                      className="inline-flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-md transition-all h-[44px]"
                     >
                       <MessageCircle size={15} /> Book Now
                     </a>

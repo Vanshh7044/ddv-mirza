@@ -26,7 +26,7 @@ const EXTRA_OPTIONS = [
 const DESERT_CATS: SafariPackage['category'][] = ['evening', 'combo', 'short', 'selfdrive', 'vip'];
 
 const field =
-  'w-full h-12 px-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#EA580C] focus:bg-white outline-none text-[#0F172A] font-medium';
+  'w-full h-12 px-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] focus:bg-white outline-none text-[#0F172A] font-medium';
 const lbl = 'block text-xs font-bold uppercase tracking-wide text-[#0F172A] mb-1.5';
 
 const initial = {
@@ -169,7 +169,7 @@ export default function BookPage() {
             {done ? (
               <div className="bg-white rounded-2xl border-2 border-emerald-500 p-6 sm:p-8 shadow-xl">
                 <div className="flex items-center gap-3 mb-3">
-                  <CheckCircle2 size={32} className="text-emerald-600 shrink-0" />
+                  <CheckCircle2 size={32} className="text-emerald-700 shrink-0" />
                   <div>
                     <h2 className="text-xl sm:text-2xl font-black">Booking request ready</h2>
                     <p className="text-sm text-[#475569] font-medium">
@@ -198,7 +198,7 @@ export default function BookPage() {
                     <Mail size={16} /> Send by email instead
                   </a>
                 </div>
-                <button type="button" onClick={() => setDone(null)} className="mt-4 text-xs font-bold text-[#64748B] hover:text-[#EA580C] cursor-pointer">
+                <button type="button" onClick={() => setDone(null)} className="mt-4 text-xs font-bold text-[#56657A] hover:text-[#C2410C] cursor-pointer">
                   ← Edit booking details
                 </button>
               </div>
@@ -247,7 +247,7 @@ export default function BookPage() {
                           <label
                             key={t}
                             className={`h-12 rounded-xl border flex items-center justify-center gap-2 text-sm font-bold transition-all ${
-                              f.transport === t ? 'border-[#EA580C] bg-[#EA580C]/5 text-[#0F172A]' : 'border-slate-200 text-[#475569]'
+                              f.transport === t ? 'border-[#C2410C] bg-[#C2410C]/5 text-[#0F172A]' : 'border-slate-200 text-[#475569]'
                             } ${disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'}`}
                           >
                             <input
@@ -257,21 +257,21 @@ export default function BookPage() {
                               checked={f.transport === t}
                               disabled={disabled}
                               onChange={() => setF((p) => ({ ...p, transport: t }))}
-                              className="accent-[#EA580C]"
+                              className="accent-[#C2410C]"
                             />
                             {t === 'Sharing' ? 'Sharing' : 'Private vehicle'}
                           </label>
                         );
                       })}
                     </div>
-                    <p className="text-[11px] text-[#64748B] font-medium mt-1.5">
+                    <p className="text-[11px] text-[#56657A] font-medium mt-1.5">
                       {privateOnly ? 'This tour is private — the price covers your own vehicle.' : 'Private vehicles available on most tours at extra cost.'}
                     </p>
                   </div>
 
                   {isDesert && (
                     <div>
-                      <span className={lbl}>Optional add-ons <span className="normal-case font-semibold text-[#64748B]">(additional cost)</span></span>
+                      <span className={lbl}>Optional add-ons <span className="normal-case font-semibold text-[#56657A]">(additional cost)</span></span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {DESERT_ADDONS.map((a) => {
                           const included = a.includedIn?.includes(f.tour);
@@ -279,7 +279,7 @@ export default function BookPage() {
                             <label
                               key={a.id}
                               className={`flex items-center gap-3 rounded-xl border px-3.5 py-3 text-sm font-semibold transition-all ${
-                                included ? 'border-emerald-200 bg-emerald-50 text-emerald-800 cursor-default' : f.addons.includes(a.id) ? 'border-[#EA580C] bg-[#EA580C]/5 cursor-pointer' : 'border-slate-200 cursor-pointer hover:bg-slate-50'
+                                included ? 'border-emerald-200 bg-emerald-50 text-emerald-800 cursor-default' : f.addons.includes(a.id) ? 'border-[#C2410C] bg-[#C2410C]/5 cursor-pointer' : 'border-slate-200 cursor-pointer hover:bg-slate-50'
                               }`}
                             >
                               <input
@@ -287,9 +287,9 @@ export default function BookPage() {
                                 checked={included || f.addons.includes(a.id)}
                                 disabled={included}
                                 onChange={() => toggleAddon(a.id)}
-                                className="accent-[#EA580C] w-4 h-4"
+                                className="accent-[#C2410C] w-4 h-4"
                               />
-                              <a.icon size={17} className={included ? 'text-emerald-600' : 'text-[#EA580C]'} />
+                              <a.icon size={17} className={included ? 'text-emerald-700' : 'text-[#C2410C]'} />
                               <span className="flex-1">{a.name}</span>
                               {included && <span className="text-[10px] font-black uppercase">Included</span>}
                             </label>
@@ -329,7 +329,7 @@ export default function BookPage() {
                       <input id="b-email" type="email" required autoComplete="email" value={f.email} onChange={on('email')} className={field} />
                     </div>
                     <div>
-                      <label className={lbl} htmlFor="b-nat">Nationality <span className="normal-case font-semibold text-[#64748B]">(optional)</span></label>
+                      <label className={lbl} htmlFor="b-nat">Nationality <span className="normal-case font-semibold text-[#56657A]">(optional)</span></label>
                       <input id="b-nat" autoComplete="country-name" value={f.nationality} onChange={on('nationality')} className={field} />
                     </div>
                   </div>
@@ -360,17 +360,17 @@ export default function BookPage() {
                       value={f.requests}
                       onChange={on('requests')}
                       placeholder="Child seats, dietary needs, celebrations, which attraction tickets…"
-                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#EA580C] focus:bg-white outline-none text-[#0F172A] font-medium"
+                      className="w-full px-3.5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] focus:bg-white outline-none text-[#0F172A] font-medium"
                     />
                   </div>
                 </fieldset>
 
-                <button type="submit" className="w-full h-14 rounded-xl bg-[#EA580C] hover:bg-[#C2410C] text-white font-black text-base shadow-xl shadow-[#EA580C]/25 inline-flex items-center justify-center gap-2 cursor-pointer">
+                <button type="submit" className="w-full h-14 rounded-xl bg-[#C2410C] hover:bg-[#9A3412] text-white font-black text-base shadow-xl shadow-[#C2410C]/25 inline-flex items-center justify-center gap-2 cursor-pointer">
                   <MessageCircle size={19} /> Send booking request
                 </button>
-                <p className="text-xs text-[#64748B] font-medium text-center -mt-4">
+                <p className="text-xs text-[#56657A] font-medium text-center -mt-4">
                   Opens WhatsApp with your details. No payment now. See our{' '}
-                  <Link to="/cancellation-policy" className="text-[#EA580C] font-bold hover:underline">cancellation policy</Link>.
+                  <Link to="/cancellation-policy" className="text-[#C2410C] font-bold hover:underline">cancellation policy</Link>.
                 </p>
               </form>
             )}
@@ -379,8 +379,8 @@ export default function BookPage() {
           {/* Summary */}
           <aside className="lg:col-span-1">
             <div className="lg:sticky lg:top-28 space-y-4">
-              <div className="bg-white rounded-2xl border-2 border-[#EA580C] shadow-xl p-5">
-                <div className="text-[11px] font-black uppercase tracking-widest text-[#EA580C] mb-2">Your booking</div>
+              <div className="bg-white rounded-2xl border-2 border-[#C2410C] shadow-xl p-5">
+                <div className="text-[11px] font-black uppercase tracking-widest text-[#C2410C] mb-2">Your booking</div>
                 <div className="font-extrabold text-[#0F172A] leading-snug">{tourTitle}</div>
                 <div className="text-sm text-[#475569] font-medium mt-1">
                   {f.date || 'Date not set'} · {f.adults} adult{f.adults > 1 ? 's' : ''}
@@ -394,9 +394,9 @@ export default function BookPage() {
                 <div className="border-t border-slate-100 mt-4 pt-4">
                   {est ? (
                     <>
-                      <div className="text-xs font-bold text-[#64748B] uppercase">Estimated from</div>
+                      <div className="text-xs font-bold text-[#56657A] uppercase">Estimated from</div>
                       <div className="text-3xl font-black text-[#0F172A]">{aed(est.total)}</div>
-                      <div className="text-xs text-[#64748B] font-medium">{est.note}{f.addons.length ? ' · add-ons extra' : ''}</div>
+                      <div className="text-xs text-[#56657A] font-medium">{est.note}{f.addons.length ? ' · add-ons extra' : ''}</div>
                     </>
                   ) : (
                     <div className="text-sm font-semibold text-[#475569]">Price quoted on WhatsApp</div>
@@ -404,10 +404,10 @@ export default function BookPage() {
                 </div>
               </div>
               <ul className="bg-white rounded-2xl border border-sand p-5 space-y-3 text-sm font-semibold text-[#334155]">
-                <li className="flex gap-2.5"><ShieldCheck size={18} className="text-emerald-600 shrink-0" /> No deposit — pay on the day</li>
-                <li className="flex gap-2.5"><CreditCard size={18} className="text-emerald-600 shrink-0" /> Cash or card accepted</li>
-                <li className="flex gap-2.5"><Clock size={18} className="text-emerald-600 shrink-0" /> Free cancellation up to 24h before</li>
-                <li className="flex gap-2.5"><Info size={18} className="text-emerald-600 shrink-0" /> Attraction entry tickets extra unless included</li>
+                <li className="flex gap-2.5"><ShieldCheck size={18} className="text-emerald-700 shrink-0" /> No deposit — pay on the day</li>
+                <li className="flex gap-2.5"><CreditCard size={18} className="text-emerald-700 shrink-0" /> Cash or card accepted</li>
+                <li className="flex gap-2.5"><Clock size={18} className="text-emerald-700 shrink-0" /> Free cancellation up to 24h before</li>
+                <li className="flex gap-2.5"><Info size={18} className="text-emerald-700 shrink-0" /> Attraction entry tickets extra unless included</li>
               </ul>
             </div>
           </aside>

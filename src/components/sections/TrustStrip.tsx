@@ -16,7 +16,7 @@ export default function TrustStrip() {
           {[...items, ...items].map((item, i) => (
             <span key={i} className="flex items-center gap-8">
               <span>{item}</span>
-              <span className="text-[#EA580C]">◆</span>
+              <span className="text-[#C2410C]">◆</span>
             </span>
           ))}
         </div>

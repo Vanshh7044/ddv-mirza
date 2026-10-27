@@ -33,13 +33,13 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
             
             {/* WhatsApp Card (Primary) */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#EA580C] shadow-xl flex flex-col justify-between">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#C2410C] shadow-xl flex flex-col justify-between">
               <div>
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center mb-3.5">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#C2410C]/10 text-[#9A3412] flex items-center justify-center mb-3.5">
                   <MessageCircle size={24} />
                 </div>
-                <div className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#EA580C] mb-1">Fastest Response</div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">WhatsApp Booking</h3>
+                <div className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#C2410C] mb-1">Fastest Response</div>
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">WhatsApp Booking</h2>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed mb-5">
                   Direct line to our dispatch team in English, Arabic, Russian, and French. We reply as fast as we can, usually within minutes during the day.
                 </p>
@@ -49,7 +49,7 @@ export default function ContactPage() {
                 href={getWhatsAppLink('Hi! I want to book a desert safari with Dubai Dune Tours.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-sm py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25 transition-all h-[48px]"
+                className="w-full bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-bold text-xs sm:text-sm py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#C2410C]/25 transition-all h-[48px]"
               >
                 <MessageCircle size={16} /> Open WhatsApp Chat
               </a>
@@ -61,8 +61,8 @@ export default function ContactPage() {
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-100 text-[#0F172A] flex items-center justify-center mb-3.5">
                   <Phone size={22} />
                 </div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#64748B] mb-1">Direct Voice Line</div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">+971 55 601 5834</h3>
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#56657A] mb-1">Direct Voice Line</div>
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">+971 55 601 5834</h2>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed mb-5">
                   Available daily 07:00 AM – 11:30 PM (GST) for immediate phone reservations and custom group quotes.
                 </p>
@@ -82,8 +82,8 @@ export default function ContactPage() {
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-100 text-[#0F172A] flex items-center justify-center mb-3.5">
                   <Mail size={22} />
                 </div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#64748B] mb-1">Email Inquiry</div>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">info@dubaidunetours.com</h3>
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#56657A] mb-1">Email Inquiry</div>
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-2">info@dubaidunetours.com</h2>
                 <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed mb-5">
                   For corporate events, invoices, travel agency partnerships, and large group bookings.
                 </p>

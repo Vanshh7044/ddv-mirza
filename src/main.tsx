@@ -15,9 +15,13 @@ const app = (
   </React.StrictMode>
 );
 
+// Prefetch the other pages' code once the page has fully loaded and gone idle,
+// so it never competes with the first render on slow mobile connections.
 const warmRemainingPages = () => {
   const idle = (window as any).requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 1500));
-  idle(preloadAllPages);
+  const go = () => setTimeout(() => idle(preloadAllPages), 3000);
+  if (document.readyState === 'complete') go();
+  else window.addEventListener('load', go, { once: true });
 };
 
 // Prerendered page: load its chunk first so hydration matches the static HTML exactly.

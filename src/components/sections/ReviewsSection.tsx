@@ -43,7 +43,7 @@ export default function ReviewsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div>
-            <div className="flex items-center gap-1 text-amber-500 mb-1.5">
+            <div className="flex items-center gap-1 text-amber-700 mb-1.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={16} className="fill-amber-500 text-amber-500" />
               ))}
@@ -55,7 +55,7 @@ export default function ReviewsSection() {
           </div>
           <div className="inline-flex items-center gap-2 bg-[#F8F6F0] px-3.5 py-2 rounded-xl border border-sand self-start md:self-auto">
             <span className="text-xs sm:text-sm font-bold text-[#0F172A]">401+ Verified Google Reviews</span>
-            <CheckCircle2 size={15} className="text-emerald-600" />
+            <CheckCircle2 size={15} className="text-emerald-700" />
           </div>
         </div>
 
@@ -73,7 +73,7 @@ export default function ReviewsSection() {
                       <Star key={i} size={12} className="fill-amber-500 text-amber-500" />
                     ))}
                   </div>
-                  <span className="text-[10px] sm:text-xs font-bold text-[#EA580C] bg-[#EA580C]/10 px-2 py-0.5 rounded">
+                  <span className="text-[10px] sm:text-xs font-bold text-[#9A3412] bg-[#C2410C]/10 px-2 py-0.5 rounded">
                     Verified
                   </span>
                 </div>
@@ -88,7 +88,7 @@ export default function ReviewsSection() {
                 </div>
                 <div>
                   <div className="text-xs sm:text-sm font-bold text-[#0F172A]">{rev.author}</div>
-                  <div className="text-[10px] sm:text-[11px] text-[#64748B] font-medium">{rev.location}</div>
+                  <div className="text-[10px] sm:text-[11px] text-[#56657A] font-medium">{rev.location}</div>
                 </div>
               </div>
             </div>

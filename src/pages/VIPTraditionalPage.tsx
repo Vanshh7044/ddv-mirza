@@ -4,6 +4,7 @@ import { Check, Star, MessageCircle, Crown } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function VIPTraditionalPage() {
   const whatsAppText = `Hi! I want to book the VIP Traditional Arabic Safari (${aed(PRICES.vipTraditional)} for 2 adults). Please confirm availability.`;
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'VIP Traditional' }];
@@ -66,6 +67,8 @@ export default function VIPTraditionalPage() {
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
                 <img
                   src="/images/real/majlis.webp"
+                    srcSet={srcSet("/images/real/majlis.webp")}
+                    sizes={CARD_SIZES}
                   alt="Majlis seating at the desert camp"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -80,7 +83,9 @@ export default function VIPTraditionalPage() {
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/falcon-sunset.webp" 
+                    src="/images/real/falcon-sunset.webp"
+                    srcSet={srcSet("/images/real/falcon-sunset.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Hunting Falcon" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -90,7 +95,9 @@ export default function VIPTraditionalPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/abaya-sunset.webp" 
+                    src="/images/real/abaya-sunset.webp"
+                    srcSet={srcSet("/images/real/abaya-sunset.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Arabic dress photos at sunset" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -100,7 +107,9 @@ export default function VIPTraditionalPage() {
                 </div>
                 <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
                   <img 
-                    src="/images/real/tanoura.webp" 
+                    src="/images/real/tanoura.webp"
+                    srcSet={srcSet("/images/real/tanoura.webp")}
+                    sizes={CARD_SIZES} 
                     alt="Tanoura show at camp" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                     loading="lazy" 
@@ -112,9 +121,9 @@ export default function VIPTraditionalPage() {
 
               {/* Inclusions Detail */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-sand shadow-sm">
-                <h3 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-2xl font-extrabold text-[#0F172A] mb-3 sm:mb-4">
                   Exclusive VIP Inclusions
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {[
                     '100% Private Toyota Land Cruiser pickup & drop-off',
@@ -144,7 +153,7 @@ export default function VIPTraditionalPage() {
                   <span className="text-[11px] font-black uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">
                     VIP Heritage Suite
                   </span>
-                  <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
+                  <div className="flex items-center gap-1 text-amber-700 text-xs font-bold">
                     <Star size={13} className="fill-amber-500" />
                     <span>5.0 (120+ reviews)</span>
                   </div>
@@ -155,9 +164,9 @@ export default function VIPTraditionalPage() {
                     <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">
                       {aed(PRICES.vipTraditional)}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#64748B]">/ 2 adults</span>
+                    <span className="text-xs sm:text-sm font-semibold text-[#56657A]">/ 2 adults</span>
                   </div>
-                  <div className="text-xs text-emerald-600 font-bold mt-1">
+                  <div className="text-xs text-emerald-700 font-bold mt-1">
                     ✓ Private Land Cruiser + Majlis Tent Included
                   </div>
                 </div>
@@ -173,7 +182,7 @@ export default function VIPTraditionalPage() {
                 </a>
 
                 <div className="text-center mt-3.5">
-                  <span className="text-[11px] text-[#64748B] font-semibold">
+                  <span className="text-[11px] text-[#56657A] font-semibold">
                     Pay on arrival • Direct operator rate
                   </span>
                 </div>

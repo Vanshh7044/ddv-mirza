@@ -8,7 +8,7 @@ import { getWhatsAppLink } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 import { trackWhatsAppClick } from '../utils/analytics';
 
-const field = 'w-full h-11 px-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#EA580C] focus:bg-white outline-none text-sm text-[#0F172A]';
+const field = 'w-full h-11 px-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[#C2410C] focus:bg-white outline-none text-sm text-[#0F172A]';
 const label = 'block text-[11px] font-bold uppercase text-[#0F172A] mb-1';
 
 export default function TransportPage() {
@@ -81,9 +81,9 @@ export default function TransportPage() {
       {/* Trust strip */}
       <div className="bg-white border-b border-sand">
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm font-semibold text-[#334155]">
-          <div className="flex items-center gap-2"><PlaneLanding size={18} className="text-[#EA580C]" /> Flight tracking on airport pickups</div>
-          <div className="flex items-center gap-2"><ShieldCheck size={18} className="text-[#EA580C]" /> Fixed price agreed before the ride</div>
-          <div className="flex items-center gap-2"><Clock size={18} className="text-[#EA580C]" /> Available 24/7 on WhatsApp</div>
+          <div className="flex items-center gap-2"><PlaneLanding size={18} className="text-[#C2410C]" /> Flight tracking on airport pickups</div>
+          <div className="flex items-center gap-2"><ShieldCheck size={18} className="text-[#C2410C]" /> Fixed price agreed before the ride</div>
+          <div className="flex items-center gap-2"><Clock size={18} className="text-[#C2410C]" /> Available 24/7 on WhatsApp</div>
         </div>
       </div>
 
@@ -102,9 +102,9 @@ export default function TransportPage() {
                       setForm((f) => ({ ...f, service: s.name }));
                       document.getElementById('transfer-quote')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }}
-                    className={`text-left bg-white rounded-2xl border p-4 flex gap-3.5 transition-all cursor-pointer hover:shadow-md ${form.service === s.name ? 'border-[#EA580C] ring-2 ring-[#EA580C]/10' : 'border-sand'}`}
+                    className={`text-left bg-white rounded-2xl border p-4 flex gap-3.5 transition-all cursor-pointer hover:shadow-md ${form.service === s.name ? 'border-[#C2410C] ring-2 ring-[#C2410C]/10' : 'border-sand'}`}
                   >
-                    <span className="w-11 h-11 shrink-0 rounded-xl bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center">
+                    <span className="w-11 h-11 shrink-0 rounded-xl bg-[#C2410C]/10 text-[#9A3412] flex items-center justify-center">
                       <s.icon size={21} />
                     </span>
                     <span>
@@ -121,14 +121,14 @@ export default function TransportPage() {
               <h2 className="text-2xl sm:text-3xl font-black mb-5">Choose your vehicle</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {VEHICLES.map((v) => (
-                  <div key={v.id} className={`bg-white rounded-2xl border overflow-hidden ${form.vehicle === v.name ? 'border-[#EA580C] ring-2 ring-[#EA580C]/10' : 'border-sand'}`}>
+                  <div key={v.id} className={`bg-white rounded-2xl border overflow-hidden ${form.vehicle === v.name ? 'border-[#C2410C] ring-2 ring-[#C2410C]/10' : 'border-sand'}`}>
                     <div className="p-5">
                       <h3 className="text-lg font-extrabold text-[#0F172A]">{v.name}</h3>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm font-semibold text-[#334155]">
-                        <span className="flex items-center gap-1.5"><Users size={15} className="text-[#EA580C]" /> Up to {v.passengers} passengers</span>
-                        <span className="flex items-center gap-1.5"><Luggage size={15} className="text-[#EA580C]" /> {v.luggage}</span>
+                        <span className="flex items-center gap-1.5"><Users size={15} className="text-[#C2410C]" /> Up to {v.passengers} passengers</span>
+                        <span className="flex items-center gap-1.5"><Luggage size={15} className="text-[#C2410C]" /> {v.luggage}</span>
                       </div>
-                      <p className="text-[13px] text-[#64748B] font-medium mt-2">Best for: {v.bestFor}</p>
+                      <p className="text-[13px] text-[#56657A] font-medium mt-2">Best for: {v.bestFor}</p>
                       <button
                         type="button"
                         onClick={() => {
@@ -143,7 +143,7 @@ export default function TransportPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-[#64748B] font-medium mt-3">Child seats available on request. Exact model depends on availability.</p>
+              <p className="text-xs text-[#56657A] font-medium mt-3">Child seats available on request. Exact model depends on availability.</p>
             </div>
           </div>
 
@@ -152,10 +152,10 @@ export default function TransportPage() {
             <form
               id="transfer-quote"
               onSubmit={submit}
-              className="lg:sticky lg:top-28 bg-white rounded-2xl border-2 border-[#EA580C] shadow-xl p-5 space-y-3"
+              className="lg:sticky lg:top-28 bg-white rounded-2xl border-2 border-[#C2410C] shadow-xl p-5 space-y-3"
             >
               <div className="font-black text-lg text-[#0F172A]">Get a transfer quote</div>
-              <p className="text-xs text-[#64748B] font-medium -mt-1">We reply on WhatsApp with a fixed price — no payment needed to ask.</p>
+              <p className="text-xs text-[#56657A] font-medium -mt-1">We reply on WhatsApp with a fixed price — no payment needed to ask.</p>
               <div>
                 <label className={label} htmlFor="tr-service">Service</label>
                 <select id="tr-service" value={form.service} onChange={set('service')} className={field}>
@@ -200,7 +200,7 @@ export default function TransportPage() {
                 <label className={label} htmlFor="tr-name">Your name</label>
                 <input id="tr-name" value={form.name} onChange={set('name')} placeholder="Optional" className={field} />
               </div>
-              <button type="submit" className="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-[#EA580C] hover:bg-[#C2410C] text-white font-black text-sm shadow-lg shadow-[#EA580C]/25 cursor-pointer">
+              <button type="submit" className="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-[#C2410C] hover:bg-[#9A3412] text-white font-black text-sm shadow-lg shadow-[#C2410C]/25 cursor-pointer">
                 <MessageCircle size={17} /> Send quote request
               </button>
               {sent && (

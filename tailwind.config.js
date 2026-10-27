@@ -12,8 +12,8 @@ export default {
         gold: '#D97706',
         'gold-deep': '#B45309',
         safari: {
-          orange: '#EA580C',
-          'orange-hover': '#C2410C',
+          orange: '#C2410C',
+          'orange-hover': '#9A3412',
           olive: '#3F4D38',
           'olive-dark': '#2B3526',
           muted: '#64748B',
@@ -23,10 +23,10 @@ export default {
         }
       },
       fontFamily: {
-        display: ['"DM Sans"', '"Inter"', 'system-ui', 'sans-serif'],
-        sans: ['"DM Sans"', '"Inter"', 'system-ui', 'sans-serif'],
-        body: ['"Inter"', '"DM Sans"', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        display: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
     }
   },

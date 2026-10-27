@@ -1,6 +1,7 @@
 import { Check, MessageCircle, Crown, Sparkles } from 'lucide-react';
 import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
 
+import { srcSet, CARD_SIZES } from '../../utils/img';
 export default function VIPSection() {
   const vipExperiences = [
     {
@@ -69,6 +70,8 @@ export default function VIPSection() {
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={exp.image}
+                    srcSet={srcSet(exp.image)}
+                    sizes={CARD_SIZES}
                   alt={exp.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"

@@ -33,36 +33,35 @@
 
     <!-- Site verification: add <meta name="google-site-verification"> / msvalidate.01 here once you have the codes (or verify via DNS). -->
 
-    <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFXN7RJ1ED"></script>
+    <!-- Critical assets: self-hosted font + hero image (the mobile LCP) -->
+    <link rel="preload" href="/fonts/dm-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" as="image" href="/images/real/hero-poster.webp" imagesrcset="/images/real/hero-poster-640.webp 640w, /images/real/hero-poster.webp 1280w" imagesizes="100vw" fetchpriority="high" />
+
+    <!-- Analytics: GA4 + Meta Pixel. The command queues exist immediately so no event is lost;
+         the libraries themselves load on first interaction or 6s after load, so they never block rendering. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', 'G-RFXN7RJ1ED', { send_page_view: false }); // page views are sent by the app (utils/analytics.ts) so SPA navigations are counted once each
-      // Google Ads Conversion Linker (swap AW-XXXXXXXXXX with your Google Ads ID)
-      // gtag('config', 'AW-XXXXXXXXXX');
-    </script>
-
-    <!-- Meta Pixel (Facebook/Instagram) -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
       fbq('init', '1079497564555113');
-      // Initial page view handled by SPA router, not here
+      (function () {
+        var loaded = false;
+        function loadTags() {
+          if (loaded) return;
+          loaded = true;
+          ['https://www.googletagmanager.com/gtag/js?id=G-RFXN7RJ1ED', 'https://connect.facebook.net/en_US/fbevents.js'].forEach(function (src) {
+            var s = document.createElement('script'); s.async = true; s.src = src; document.head.appendChild(s);
+          });
+        }
+        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) { addEventListener(e, loadTags, { once: true, passive: true }); });
+        addEventListener('load', function () { setTimeout(loadTags, 6000); });
+      })();
     </script>
-
-    <!-- Performance: Google Fonts Preconnect & Async Delivery -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400;1,9..40,600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <!-- Meta Pixel noscript fallback -->

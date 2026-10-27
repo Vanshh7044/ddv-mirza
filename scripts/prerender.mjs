@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import Beasties from 'beasties';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_PATH = path.resolve(__dirname, '../dist');
@@ -27,6 +28,8 @@ async function generateSSG() {
   const templateHtml = fs.readFileSync(path.join(DIST_PATH, 'index.html'), 'utf-8');
   const { render, getPrerenderPaths } = await import(pathToFileURL(SSR_PATH).href);
   const routes = getPrerenderPaths();
+  // Inline each page's above-the-fold CSS and load the full stylesheet without blocking first paint.
+  const beasties = new Beasties({ path: DIST_PATH, preload: 'swap', pruneSource: false, logLevel: 'warn' });
 
   let failed = 0;
   for (const [i, route] of routes.entries()) {
@@ -53,6 +56,7 @@ async function generateSSG() {
           ? path.join(DIST_PATH, 'index.html')
           : path.join(DIST_PATH, `${route === '/404' ? '404' : route.slice(1)}.html`);
       fs.mkdirSync(path.dirname(targetFile), { recursive: true });
+      pageHtml = await beasties.process(pageHtml);
       fs.writeFileSync(targetFile, pageHtml, 'utf-8');
       console.log(`✅ [${i + 1}/${routes.length}] ${route}`);
     } catch (err) {

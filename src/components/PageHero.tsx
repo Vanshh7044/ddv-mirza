@@ -45,8 +45,8 @@ export default function PageHero({
                     <Link
                       to={crumb.to}
                       onClick={() => trackBreadcrumbClick(crumb.label, crumb.to || '/')}
-                      className={`inline-flex items-center gap-1 hover:text-[#EA580C] transition-colors py-0.5 ${
-                        dark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-[#EA580C]'
+                      className={`inline-flex items-center gap-1 hover:text-[#C2410C] transition-colors py-0.5 ${
+                        dark ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-[#C2410C]'
                       }`}
                     >
                       {i === 0 && <Home size={11} className="shrink-0 -mt-0.5 opacity-80" />}
@@ -55,7 +55,7 @@ export default function PageHero({
                   ) : (
                     <span 
                       aria-current="page"
-                      className="text-[#EA580C] font-bold py-0.5"
+                      className={`font-bold py-0.5 ${dark ? 'text-[#FB923C]' : 'text-[#C2410C]'}`}
                     >
                       {crumb.label}
                     </span>
@@ -68,7 +68,7 @@ export default function PageHero({
 
         {/* Section Label */}
         {label && (
-          <div className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-widest text-[#EA580C] mb-2.5">
+          <div className={`inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-widest mb-2.5 ${dark ? 'text-[#FB923C]' : 'text-[#C2410C]'}`}>
             <span>◆</span>
             <span>{label}</span>
           </div>
@@ -78,7 +78,7 @@ export default function PageHero({
         <h1 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-3 sm:mb-4 max-w-4xl ${dark ? 'text-white' : 'text-[#0F172A]'}`}>
           {title}
           {titleEm && (
-            <span className="text-[#EA580C]"> {titleEm}</span>
+            <span className={dark ? 'text-[#FB923C]' : 'text-[#C2410C]'}> {titleEm}</span>
           )}
         </h1>
 
@@ -105,7 +105,7 @@ export default function PageHero({
               href={primaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#EA580C]/25 h-[48px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-[#C2410C]/25 h-[48px]"
             >
               <MessageCircle size={17} />
               <span>{primaryCta.label}</span>

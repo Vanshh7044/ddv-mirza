@@ -10,12 +10,12 @@ export default function FinalCTA() {
           
           {/* Left Column */}
           <div>
-            <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-2.5">
-              <span className="w-6 sm:w-8 h-0.5 bg-[#EA580C]" /> Ready for the Dunes?
+            <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#FB923C] mb-2.5">
+              <span className="w-6 sm:w-8 h-0.5 bg-[#C2410C]" /> Ready for the Dunes?
             </div>
             <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-3 sm:mb-4">
               Book Direct.<br />
-              <span className="text-[#EA580C]">Pay on Arrival.</span>
+              <span className="text-[#C2410C]">Pay on Arrival.</span>
             </h2>
             <p className="text-sm sm:text-lg text-slate-300 font-medium mb-6 sm:mb-8 max-w-lg leading-relaxed">
               Message us on WhatsApp with your date and preferred package. We confirm your pickup time and driver details quickly, right in the chat.
@@ -27,7 +27,7 @@ export default function FinalCTA() {
                 href={getWhatsAppLink('Hi! I would like to book a Dubai desert safari for [Date]. Please share availability.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EA580C] hover:bg-[#C2410C] active:scale-98 text-white font-bold text-xs sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#EA580C]/25 transition-all h-[48px] sm:h-auto"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-bold text-xs sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#C2410C]/25 transition-all h-[48px] sm:h-auto"
                 onClick={() => trackWhatsAppClick('final_cta', undefined, undefined)}
               >
                 <MessageCircle size={18} />
@@ -52,7 +52,7 @@ export default function FinalCTA() {
 
             <div className="space-y-3.5 sm:space-y-4 text-xs sm:text-sm text-slate-300 font-medium">
               <div className="flex items-start gap-3">
-                <Clock className="text-[#EA580C] shrink-0 mt-0.5" size={17} />
+                <Clock className="text-[#C2410C] shrink-0 mt-0.5" size={17} />
                 <div>
                   <div className="text-white font-bold">Operating Hours</div>
                   <div>07:00 AM – 11:30 PM (Gulf Standard Time Daily)</div>
@@ -60,7 +60,7 @@ export default function FinalCTA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="text-[#EA580C] shrink-0 mt-0.5" size={17} />
+                <MapPin className="text-[#C2410C] shrink-0 mt-0.5" size={17} />
                 <div>
                   <div className="text-white font-bold">Desert Base & Camp</div>
                   <div>Lehbab Red Dunes, Dubai, United Arab Emirates</div>
@@ -68,7 +68,7 @@ export default function FinalCTA() {
               </div>
 
               <div className="flex items-start gap-3">
-                <ShieldCheck className="text-[#EA580C] shrink-0 mt-0.5" size={17} />
+                <ShieldCheck className="text-[#C2410C] shrink-0 mt-0.5" size={17} />
                 <div>
                   <div className="text-white font-bold">Tourism License</div>
                   <div>Dubai Economy & Tourism (DET) Approved Operator Since 2010</div>

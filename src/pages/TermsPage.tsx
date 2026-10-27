@@ -24,7 +24,7 @@ export default function TermsPage() {
       />
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-[#334155] leading-relaxed text-xs sm:text-sm bg-white p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-sand shadow-sm space-y-6">
-          <p className="text-xs text-[#64748B]">
+          <p className="text-xs text-[#56657A]">
             <strong>Last updated:</strong> September 2025
           </p>
 

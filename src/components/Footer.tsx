@@ -63,12 +63,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2.5 mb-3.5 group">
-              <div className="w-9 h-9 rounded-xl bg-[#EA580C] text-white flex items-center justify-center shadow-md">
+              <div className="w-9 h-9 rounded-xl bg-[#C2410C] text-white flex items-center justify-center shadow-md">
                 <Compass className="w-5 h-5" />
               </div>
               <div>
                 <div className="font-extrabold text-white text-base sm:text-lg">Dubai Dune Tours</div>
-                <div className="text-[10px] font-bold text-[#EA580C] uppercase tracking-wider">DET Licensed · Since 2010</div>
+                <div className="text-[10px] font-bold text-[#FB923C] uppercase tracking-wider">DET Licensed · Since 2010</div>
               </div>
             </Link>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium mt-2">
@@ -86,17 +86,17 @@ export default function Footer() {
               Safari Packages
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/evening-safari/standard" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
-              <Link to="/evening-safari/premium" className="hover:text-[#EA580C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
-              <Link to="/evening-safari/premium-quad" className="hover:text-[#EA580C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
-              <Link to="/evening-safari/vip" className="hover:text-[#EA580C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
-              <Link to="/morning-safari" className="hover:text-[#EA580C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
-              <Link to="/self-drive" className="hover:text-[#EA580C] transition-colors py-0.5">Self-Drive Convoy ({aed(PRICES.selfDrive)})</Link>
-              <Link to="/vip-traditional-arabic" className="hover:text-[#EA580C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
-              <Link to="/tours/dubai-city-tour" className="hover:text-[#EA580C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
-              <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#EA580C] transition-colors py-0.5">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
-              <Link to="/tours/dhow-cruise-dubai-marina" className="hover:text-[#EA580C] transition-colors py-0.5">Marina Dhow Cruise ({aed(PRICES.dhowCruise)})</Link>
-              <Link to="/private-desert-setup" className="hover:text-[#EA580C] transition-colors py-0.5">Private Desert Camp Setup</Link>
+              <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
+              <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
+              <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
+              <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
+              <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
+              <Link to="/self-drive" className="hover:text-[#C2410C] transition-colors py-0.5">Self-Drive Convoy ({aed(PRICES.selfDrive)})</Link>
+              <Link to="/vip-traditional-arabic" className="hover:text-[#C2410C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
+              <Link to="/tours/dubai-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
+              <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
+              <Link to="/tours/dhow-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors py-0.5">Marina Dhow Cruise ({aed(PRICES.dhowCruise)})</Link>
+              <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Private Desert Camp Setup</Link>
             </div>
           </div>
 
@@ -106,16 +106,16 @@ export default function Footer() {
               Quick Navigation
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/" className="hover:text-[#EA580C] transition-colors py-0.5">Home Page</Link>
-              <Link to="/desert-safari" className="hover:text-[#EA580C] transition-colors py-0.5">All Safari Packages</Link>
-              <Link to="/about" className="hover:text-[#EA580C] transition-colors py-0.5">About Our Fleet & Team</Link>
-              <Link to="/guides" className="hover:text-[#EA580C] transition-colors py-0.5">Travel Guides & Tips</Link>
-              <Link to="/book" className="hover:text-[#EA580C] transition-colors py-0.5">Book Online</Link>
-              <Link to="/attraction-tickets" className="hover:text-[#EA580C] transition-colors py-0.5">Attraction Tickets</Link>
-              <Link to="/transport" className="hover:text-[#EA580C] transition-colors py-0.5">Airport & Private Transfers</Link>
-              <Link to="/#itinerary" className="hover:text-[#EA580C] transition-colors py-0.5">6-Hour Safari Itinerary</Link>
-              <Link to="/#faq" className="hover:text-[#EA580C] transition-colors py-0.5">Frequently Asked Questions</Link>
-              <Link to="/contact" className="hover:text-[#EA580C] transition-colors py-0.5">Contact & Location</Link>
+              <Link to="/" className="hover:text-[#C2410C] transition-colors py-0.5">Home Page</Link>
+              <Link to="/desert-safari" className="hover:text-[#C2410C] transition-colors py-0.5">All Safari Packages</Link>
+              <Link to="/about" className="hover:text-[#C2410C] transition-colors py-0.5">About Our Fleet & Team</Link>
+              <Link to="/guides" className="hover:text-[#C2410C] transition-colors py-0.5">Travel Guides & Tips</Link>
+              <Link to="/book" className="hover:text-[#C2410C] transition-colors py-0.5">Book Online</Link>
+              <Link to="/attraction-tickets" className="hover:text-[#C2410C] transition-colors py-0.5">Attraction Tickets</Link>
+              <Link to="/transport" className="hover:text-[#C2410C] transition-colors py-0.5">Airport & Private Transfers</Link>
+              <Link to="/#itinerary" className="hover:text-[#C2410C] transition-colors py-0.5">6-Hour Safari Itinerary</Link>
+              <Link to="/#faq" className="hover:text-[#C2410C] transition-colors py-0.5">Frequently Asked Questions</Link>
+              <Link to="/contact" className="hover:text-[#C2410C] transition-colors py-0.5">Contact & Location</Link>
             </div>
           </div>
 
@@ -125,14 +125,14 @@ export default function Footer() {
               Direct Contact
             </div>
             <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-medium">
-              <a href="tel:+971556015834" onClick={() => trackPhoneClick('footer')} className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
-                <Phone size={15} className="text-[#EA580C] shrink-0" /> +971 55 601 5834
+              <a href="tel:+971556015834" onClick={() => trackPhoneClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors py-0.5">
+                <Phone size={15} className="text-[#C2410C] shrink-0" /> +971 55 601 5834
               </a>
-              <a href="mailto:info@dubaidunetours.com" onClick={() => trackEmailClick('footer')} className="flex items-center gap-2 hover:text-[#EA580C] transition-colors py-0.5">
-                <Mail size={15} className="text-[#EA580C] shrink-0" /> info@dubaidunetours.com
+              <a href="mailto:info@dubaidunetours.com" onClick={() => trackEmailClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors py-0.5">
+                <Mail size={15} className="text-[#C2410C] shrink-0" /> info@dubaidunetours.com
               </a>
               <div className="flex items-center gap-2 text-slate-400 py-0.5">
-                <MapPin size={15} className="text-[#EA580C] shrink-0" /> Lehbab Rd, Dubai, UAE
+                <MapPin size={15} className="text-[#C2410C] shrink-0" /> Lehbab Rd, Dubai, UAE
               </div>
             </div>
 
@@ -140,7 +140,7 @@ export default function Footer() {
               href={getWhatsAppLink('Hi! I would like to book a desert safari with Dubai Dune Tours.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white font-bold text-xs px-4 py-3 rounded-xl transition-all shadow-md shadow-[#EA580C]/20 active:scale-98"
+              className="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-xs px-4 py-3 rounded-xl transition-all shadow-md shadow-[#C2410C]/20 active:scale-98"
               onClick={() => trackWhatsAppClick('footer', undefined, undefined)}
             >
               <MessageCircle size={15} /> Instant WhatsApp Chat
@@ -152,12 +152,12 @@ export default function Footer() {
         <div className="pt-8 pb-10 border-t border-slate-800/80">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-6">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-lg bg-[#EA580C]/15 text-[#EA580C] flex items-center justify-center">
+              <div className="w-6 h-6 rounded-lg bg-[#C2410C]/15 text-[#C2410C] flex items-center justify-center">
                 <Tag size={12} />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-wider">
+              <h2 className="text-xs font-black text-white uppercase tracking-wider">
                 Popular Dubai Desert Safari Searches & Destinations
-              </h3>
+              </h2>
             </div>
             <span className="text-[11px] text-slate-400 font-medium">
               Direct operator booking across Dubai, Sharjah & Lehbab
@@ -168,7 +168,7 @@ export default function Footer() {
             {SEO_KEYWORD_GROUPS.map((group, gIdx) => (
               <div key={gIdx}>
                 <div className="text-[11px] font-extrabold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#EA580C]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C2410C]" />
                   <span>{group.category}</span>
                 </div>
                 <ul className="space-y-2 text-[11px] sm:text-xs">
@@ -177,7 +177,7 @@ export default function Footer() {
                       <Link
                         to={kw.to}
                         onClick={() => trackKeywordClick(kw.label, kw.to)}
-                        className="text-slate-400 hover:text-[#EA580C] transition-colors py-0.5 inline-block"
+                        className="text-slate-400 hover:text-[#C2410C] transition-colors py-0.5 inline-block"
                       >
                         {kw.label}
                       </Link>
@@ -194,7 +194,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3.5 text-xs font-medium text-slate-500 text-center sm:text-left">
+        <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3.5 text-xs font-medium text-slate-400 text-center sm:text-left">
           <div>© {new Date().getFullYear()} Dubai Dune Tours. Licensed by Dubai Department of Economy and Tourism (DET).</div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/privacy-policy" className="hover:text-white transition-colors py-1">Privacy Policy</Link>

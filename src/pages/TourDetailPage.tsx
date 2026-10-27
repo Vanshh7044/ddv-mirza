@@ -9,6 +9,7 @@ import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/sch
 import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function TourDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const tour = CITY_TOURS.find((t) => t.slug === slug);
@@ -51,6 +52,8 @@ export default function TourDetailPage() {
             {tour.poster ? (
               <img
                 src={tour.poster}
+                    srcSet={srcSet(tour.poster)}
+                    sizes={CARD_SIZES}
                 alt={`${tour.title} — tour poster with included stops`}
                 className="w-full h-auto rounded-2xl sm:rounded-3xl shadow-xl"
                 loading="eager"
@@ -61,10 +64,10 @@ export default function TourDetailPage() {
               <PackageImage pkg={tour} eager />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] sm:text-sm font-bold">
                 <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
-                  <Clock size={14} className="text-[#EA580C]" /> {tour.duration}
+                  <Clock size={14} className="text-[#C2410C]" /> {tour.duration}
                 </span>
                 <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
-                  <MapPin size={14} className="text-[#EA580C]" /> {tour.location}
+                  <MapPin size={14} className="text-[#C2410C]" /> {tour.location}
                 </span>
               </div>
             </div>
@@ -85,7 +88,7 @@ export default function TourDetailPage() {
               {tour.excludes && (
                 <ul className="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-x-5 gap-y-2">
                   {tour.excludes.map((ex) => (
-                    <li key={ex} className="flex items-center gap-1.5 text-xs font-semibold text-[#64748B]">
+                    <li key={ex} className="flex items-center gap-1.5 text-xs font-semibold text-[#56657A]">
                       <X size={13} className="text-slate-400" /> Not included: {ex}
                     </li>
                   ))}
@@ -96,11 +99,11 @@ export default function TourDetailPage() {
             {tour.itinerary && (
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-sand shadow-sm">
                 <h2 className="text-lg sm:text-2xl font-extrabold mb-5">Itinerary</h2>
-                <ol className="relative border-l-2 border-[#EA580C]/25 ml-2 space-y-5">
+                <ol className="relative border-l-2 border-[#C2410C]/25 ml-2 space-y-5">
                   {tour.itinerary.map((step) => (
                     <li key={step.title} className="pl-5 relative">
-                      <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#EA580C]" />
-                      <div className="text-[11px] font-black uppercase tracking-wider text-[#EA580C]">{step.time}</div>
+                      <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#C2410C]" />
+                      <div className="text-[11px] font-black uppercase tracking-wider text-[#C2410C]">{step.time}</div>
                       <div className="font-extrabold text-[#0F172A]">{step.title}</div>
                       <p className="text-sm text-[#475569] font-medium">{step.desc}</p>
                     </li>
@@ -116,10 +119,10 @@ export default function TourDetailPage() {
                   <Link
                     key={o.id}
                     to={o.detailPath}
-                    className="group bg-white border border-sand rounded-2xl p-4 hover:border-[#EA580C]/50 hover:shadow-md transition-all"
+                    className="group bg-white border border-sand rounded-2xl p-4 hover:border-[#C2410C]/50 hover:shadow-md transition-all"
                   >
-                    <div className="text-sm font-extrabold text-[#0F172A] group-hover:text-[#EA580C] leading-snug">{o.title}</div>
-                    <div className="text-xs text-[#64748B] font-semibold mt-1 flex items-center justify-between">
+                    <div className="text-sm font-extrabold text-[#0F172A] group-hover:text-[#C2410C] leading-snug">{o.title}</div>
+                    <div className="text-xs text-[#56657A] font-semibold mt-1 flex items-center justify-between">
                       {aed(o.price)} {UNIT_LABEL[o.priceUnit]} <ArrowRight size={13} />
                     </div>
                   </Link>
@@ -130,27 +133,27 @@ export default function TourDetailPage() {
 
           {/* Booking widget */}
           <aside className="lg:col-span-1">
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#EA580C] shadow-xl lg:sticky lg:top-28">
-              <span className="text-[11px] font-black uppercase tracking-wider text-[#EA580C] bg-[#EA580C]/10 px-2.5 py-1 rounded-full">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border-2 border-[#C2410C] shadow-xl lg:sticky lg:top-28">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#9A3412] bg-[#C2410C]/10 px-2.5 py-1 rounded-full">
                 Direct Rate
               </span>
               <div className="mt-4 mb-5">
                 {tour.originalPrice > tour.price && (
-                  <div className="text-xs text-[#94A3B8] line-through font-bold">{aed(tour.originalPrice)}</div>
+                  <div className="text-xs text-[#56657A] line-through font-bold">{aed(tour.originalPrice)}</div>
                 )}
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-3xl sm:text-4xl font-black text-[#0F172A]">{aed(tour.price)}</span>
-                  <span className="text-sm font-semibold text-[#64748B]">{UNIT_LABEL[tour.priceUnit]}</span>
+                  <span className="text-sm font-semibold text-[#56657A]">{UNIT_LABEL[tour.priceUnit]}</span>
                 </div>
                 {tour.priceNote && (
                   <p className="text-xs text-[#0F172A] font-semibold mt-1.5 leading-snug">{tour.priceNote}</p>
                 )}
-                <div className="text-xs text-emerald-600 font-bold mt-1">✓ {tour.pickupInfo}</div>
+                <div className="text-xs text-emerald-700 font-bold mt-1">✓ {tour.pickupInfo}</div>
               </div>
               <ul className="space-y-2.5 mb-5 pt-3.5 border-t border-slate-100 text-xs text-[#475569] font-medium">
                 {['Pay cash or card on the day', 'Free cancellation up to 24h prior', tour.priceUnit === 'vehicle' ? 'Price is for the whole car (up to 6)' : tour.priceUnit === 'hour' ? 'Private yacht, priced per hour' : 'Private vehicle option on request'].map((t) => (
                   <li key={t} className="flex items-center gap-2">
-                    <Check size={14} className="text-emerald-600 shrink-0" /> {t}
+                    <Check size={14} className="text-emerald-700 shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
@@ -159,7 +162,7 @@ export default function TourDetailPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={book}
-                className="w-full flex items-center justify-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white font-black text-sm rounded-xl shadow-xl shadow-[#EA580C]/30 transition-all h-[48px]"
+                className="w-full flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] text-white font-black text-sm rounded-xl shadow-xl shadow-[#C2410C]/30 transition-all h-[48px]"
               >
                 <MessageCircle size={18} /> Reserve via WhatsApp
               </a>
@@ -169,8 +172,8 @@ export default function TourDetailPage() {
               >
                 Book with online form
               </Link>
-              <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#64748B] font-semibold mt-3.5">
-                <ShieldCheck size={13} className="text-emerald-600" /> No card required · Reply in minutes
+              <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#56657A] font-semibold mt-3.5">
+                <ShieldCheck size={13} className="text-emerald-700" /> No card required · Reply in minutes
               </p>
             </div>
           </aside>

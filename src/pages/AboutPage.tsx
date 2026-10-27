@@ -5,6 +5,7 @@ import WhyDirect from '../components/sections/WhyDirect';
 import FinalCTA from '../components/sections/FinalCTA';
 import { getBreadcrumbSchema } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function AboutPage() {
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'About Us' }];
 
@@ -36,7 +37,7 @@ export default function AboutPage() {
             
             {/* Story Text */}
             <div>
-              <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#EA580C] mb-1.5">
+              <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#C2410C] mb-1.5">
                 Our Mission & Story
               </div>
               <h2 className="text-2xl sm:text-4xl font-black text-[#0F172A] tracking-tight mb-4 sm:mb-6">
@@ -58,15 +59,15 @@ export default function AboutPage() {
               <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2.5 sm:gap-4">
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-sand text-center sm:text-left">
                   <div className="text-lg sm:text-2xl font-black text-[#0F172A]">17,000+</div>
-                  <div className="text-[10px] sm:text-xs font-bold text-[#64748B]">Happy Guests</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-[#56657A]">Happy Guests</div>
                 </div>
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-sand text-center sm:text-left">
                   <div className="text-lg sm:text-2xl font-black text-[#0F172A]">4.9 ★</div>
-                  <div className="text-[10px] sm:text-xs font-bold text-[#64748B]">Google Reviews</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-[#56657A]">Google Reviews</div>
                 </div>
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F6F0] border border-sand text-center sm:text-left">
                   <div className="text-lg sm:text-2xl font-black text-[#0F172A]">14+ Yrs</div>
-                  <div className="text-[10px] sm:text-xs font-bold text-[#64748B]">DET Licensed</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-[#56657A]">DET Licensed</div>
                 </div>
               </div>
             </div>
@@ -75,6 +76,8 @@ export default function AboutPage() {
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
               <img
                 src="/images/real/land-cruiser-sunset.webp"
+                    srcSet={srcSet("/images/real/land-cruiser-sunset.webp")}
+                    sizes={CARD_SIZES}
                 alt="Dubai Desert Safari Land Cruiser"
                 className="w-full h-full object-cover"
                 loading="lazy"

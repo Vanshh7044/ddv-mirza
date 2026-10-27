@@ -47,7 +47,7 @@ export default function MobileBar() {
             className="w-10 h-10 min-[360px]:w-11 min-[360px]:h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
             aria-label="Call Dubai Dune Tours dispatch directly"
           >
-            <Phone size={16} className="text-[#EA580C]" />
+            <Phone size={16} className="text-[#C2410C]" />
           </a>
 
           {/* Primary High-Contrast WhatsApp CTA */}
@@ -56,8 +56,8 @@ export default function MobileBar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick('mobile_bar', currentPkg?.title, currentPkg?.price || FROM_PRICE)}
-            className="h-10 min-[360px]:h-11 bg-[#EA580C] hover:bg-[#C2410C] active:scale-95 text-white font-black text-xs px-3 sm:px-4 rounded-xl shadow-lg shadow-[#EA580C]/30 flex items-center justify-center gap-1.5 transition-all whitespace-nowrap"
-            aria-label="Book safari instantly via WhatsApp"
+            className="h-10 min-[360px]:h-11 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-black text-xs px-3 sm:px-4 rounded-xl shadow-lg shadow-[#C2410C]/30 flex items-center justify-center gap-1.5 transition-all whitespace-nowrap"
+            aria-label="Book now on WhatsApp"
           >
             <MessageCircle size={15} className="shrink-0" />
             <span className="tracking-wide">BOOK NOW</span>

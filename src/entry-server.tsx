@@ -2,7 +2,8 @@ import React, { type ComponentType } from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter, useRoutes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { buildRoutes, getPrerenderPaths } from './routes';
+import { buildRoutes } from './routes';
+import { getPrerenderPaths } from './prerenderPaths';
 
 const modules = import.meta.glob<{ default: ComponentType }>('./pages/*.tsx', { eager: true });
 const routes = buildRoutes((name) => modules[`./pages/${name}.tsx`].default);

@@ -13,12 +13,8 @@ import {
   MessageCircle,
   Sparkles
 } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { trackBookingFormSubmit } from '../utils/analytics';
 import { SAFARI_PACKAGES, PRICES, FROM_PRICE, aed, UNIT_LABEL, getWhatsAppLink } from '../data/safariPackages';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const optionLabel = (p: (typeof SAFARI_PACKAGES)[number]) =>
   `${p.title} (${aed(p.price)}${UNIT_LABEL[p.priceUnit].replace(' ', '')})`;
@@ -39,53 +35,29 @@ export default function Hero() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  // The poster image is the first paint (and LCP). The background video is only
+  // fetched on larger screens, after the page has loaded, and never on Save-Data.
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   const containerRef = useRef<HTMLElement>(null);
   const heroCardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const introTl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
-
-      introTl
-        .fromTo(
-          '.hero-bg-media',
-          { opacity: 0.7, scale: 1.05 },
-          { opacity: 1, scale: 1.0, duration: 1.1, ease: 'power2.out' }
-        )
-        .fromTo(
-          '.hero-text-line',
-          { y: 25, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' },
-          '-=0.7'
-        )
-        .fromTo(
-          '.hero-ui-reveal',
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' },
-          '-=0.4'
-        );
-
-      if (videoRef.current) {
-        gsap.fromTo(
-          '.hero-bg-media',
-          { scale: 1.0, transformOrigin: 'center 45%' },
-          {
-            scale: 1.3,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: 'top top',
-              end: 'bottom top',
-              scrub: 1.0,
-            },
-          }
-        );
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
+    const saveData = (navigator as any).connection?.saveData;
+    if (saveData || !window.matchMedia('(min-width: 768px)').matches) return;
+    let idleId: number | undefined;
+    const start = () => {
+      const idle = (window as any).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1200));
+      idleId = idle(() => setShowVideo(true));
+    };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+    return () => {
+      window.removeEventListener('load', start);
+      if (idleId !== undefined) ((window as any).cancelIdleCallback ?? clearTimeout)(idleId);
+    };
   }, []);
 
   const togglePlayPause = () => {
@@ -132,19 +104,32 @@ export default function Hero() {
         ref={heroCardRef}
         className="relative rounded-2xl sm:rounded-[36px] md:rounded-[44px] overflow-hidden min-h-[75vh] sm:min-h-[82vh] flex flex-col justify-between p-4 sm:p-8 md:p-14 text-white shadow-2xl bg-[#0F172A] border border-white/10"
       >
-        {/* Background Video */}
+        {/* Background: poster image first (fast LCP), video fades in on desktop once the page has loaded */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <video
-            ref={videoRef}
-            poster="/images/real/hero-poster.webp"
-            playsInline
-            autoPlay
-            muted={isMuted}
-            loop
-            className="hero-bg-media absolute inset-0 w-full h-full object-cover will-change-transform filter saturate-[1.15] brightness-[0.85]"
-          >
-            <source src="/videos/hero-real.mp4" type="video/mp4" />
-          </video>
+          <img
+            src="/images/real/hero-poster.webp"
+            srcSet="/images/real/hero-poster-640.webp 640w, /images/real/hero-poster.webp 1280w"
+            sizes="100vw"
+            alt=""
+            width={1280}
+            height={720}
+            {...{ fetchpriority: 'high' }}
+            className="absolute inset-0 w-full h-full object-cover saturate-[1.15] brightness-[0.85]"
+          />
+          {showVideo && (
+            <video
+              ref={videoRef}
+              playsInline
+              autoPlay
+              muted={isMuted}
+              loop
+              preload="auto"
+              onPlaying={() => setVideoReady(true)}
+              className={`absolute inset-0 w-full h-full object-cover saturate-[1.15] brightness-[0.85] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <source src="/videos/hero-real.mp4" type="video/mp4" />
+            </video>
+          )}
 
           {/* Gradients for contrast & readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/50" />
@@ -166,6 +151,7 @@ export default function Hero() {
           </div>
 
           {/* Video Playback Toggle Controls */}
+          {showVideo && (
           <div className="flex items-center gap-1 bg-black/60 backdrop-blur-md p-1 rounded-full border border-white/20">
             <button
               onClick={togglePlayPause}
@@ -184,20 +170,21 @@ export default function Hero() {
               {isMuted ? <VolumeX size={11} /> : <Volume2 size={11} />}
             </button>
           </div>
+          )}
         </div>
 
         {/* Main Hero Headline */}
         <div className="relative z-20 max-w-4xl pt-6 sm:pt-14 pb-4">
-          <div className="inline-flex items-center gap-1.5 bg-[#EA580C] text-white px-3 py-1 rounded-lg text-[10px] sm:text-xs font-black tracking-wider uppercase mb-3 shadow-md">
+          <div className="inline-flex items-center gap-1.5 bg-[#C2410C] text-white px-3 py-1 rounded-lg text-[10px] sm:text-xs font-black tracking-wider uppercase mb-3 shadow-md">
             <Sparkles size={12} /> Book Operator Direct · Pay on Arrival
           </div>
 
-          <h1 className="hero-text-line text-[28px] min-[360px]:text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-black leading-[1.08] tracking-tight text-white drop-shadow-lg">
+          <h1 className="text-[28px] min-[360px]:text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-black leading-[1.08] tracking-tight text-white drop-shadow-lg">
             Dubai's #1 Rated<br />
-            <span className="text-[#EA580C]">Desert Safari.</span>
+            <span className="text-[#F97316]">Desert Safari.</span>
           </h1>
 
-          <p className="hero-text-line text-base sm:text-xl md:text-2xl text-slate-100 font-semibold mt-3 sm:mt-4 leading-snug drop-shadow max-w-2xl">
+          <p className="text-base sm:text-xl md:text-2xl text-slate-100 font-semibold mt-3 sm:mt-4 leading-snug drop-shadow max-w-2xl">
             Red dune bashing, sunset camels, 5★ BBQ dinner & fire shows.
           </p>
 
@@ -223,7 +210,7 @@ export default function Hero() {
           <span className="text-[11px] sm:text-xs font-bold text-slate-300">Direct packages from {aed(FROM_PRICE)} / person</span>
           <button
             onClick={handleScrollDown}
-            className="flex items-center gap-1 text-[11px] sm:text-xs font-bold text-white hover:text-[#EA580C] transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full backdrop-blur-md active:scale-95"
+            className="flex items-center gap-1 text-[11px] sm:text-xs font-bold text-white hover:text-[#FB923C] transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full backdrop-blur-md active:scale-95"
           >
             <span>View Packages</span>
             <ArrowRight size={12} />
@@ -234,16 +221,16 @@ export default function Hero() {
       {/* Quick Booking Reservation Form Bar */}
       <div
         id="adventure-form"
-        className="hero-ui-reveal bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-2xl border border-sand max-w-[1720px] mx-auto -mt-4 sm:-mt-8 relative z-30"
+        className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-2xl border border-sand max-w-[1720px] mx-auto -mt-4 sm:-mt-8 relative z-30"
       >
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
           <div>
             <h2 className="text-lg sm:text-2xl font-extrabold text-[#0F172A]">
               Quick WhatsApp Reservation
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] font-medium">
+            <p className="text-xs sm:text-sm text-[#56657A] font-medium">
               Zero advance payment • Fast WhatsApp confirmation • 4.9★ Rated ·{' '}
-              <Link to="/book" className="text-[#EA580C] font-bold hover:underline">Full booking form →</Link>
+              <Link to="/book" className="text-[#C2410C] font-bold hover:underline">Full booking form →</Link>
             </p>
           </div>
 
@@ -295,7 +282,7 @@ export default function Hero() {
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="e.g. John Smith"
                 required
-                className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#EA580C] rounded-xl px-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all h-[46px]"
+                className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#C2410C] rounded-xl px-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all h-[46px]"
               />
             </div>
 
@@ -310,7 +297,7 @@ export default function Hero() {
                   value={adventure}
                   onChange={(e) => setAdventure(e.target.value)}
                   required
-                  className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#EA580C] rounded-xl px-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all appearance-none cursor-pointer pr-9 h-[46px]"
+                  className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#C2410C] rounded-xl px-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all appearance-none cursor-pointer pr-9 h-[46px]"
                 >
                   {adventureOptions.map((opt) => (
                     <option key={opt} value={opt}>
@@ -334,7 +321,7 @@ export default function Hero() {
                   type="date"
                   value={arrivalDate}
                   onChange={(e) => setArrivalDate(e.target.value)}
-                  className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#EA580C] rounded-xl pl-10 pr-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all cursor-pointer h-[46px]"
+                  className="w-full bg-slate-50 hover:bg-slate-100 focus:bg-white border border-slate-200 focus:border-[#C2410C] rounded-xl pl-10 pr-3.5 py-3 text-sm text-[#0F172A] font-medium outline-none transition-all cursor-pointer h-[46px]"
                 />
               </div>
             </div>
@@ -343,7 +330,7 @@ export default function Hero() {
             <div>
               <button
                 type="submit"
-                className="w-full bg-[#EA580C] hover:bg-[#C2410C] active:scale-[0.98] text-white font-extrabold text-sm px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#EA580C]/25 transition-all cursor-pointer h-[46px]"
+                className="w-full bg-[#C2410C] hover:bg-[#9A3412] active:scale-[0.98] text-white font-extrabold text-sm px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#C2410C]/25 transition-all cursor-pointer h-[46px]"
               >
                 <MessageCircle size={17} />
                 <span>Reserve on WhatsApp</span>

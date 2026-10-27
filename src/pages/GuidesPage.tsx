@@ -7,6 +7,7 @@ import { GUIDES } from '../data/guides';
 import { getWhatsAppLink } from '../data/safariPackages';
 import { getBreadcrumbSchema, BASE_URL } from '../data/schemaData';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 export default function GuidesPage() {
   const breadcrumbs = [{ label: 'Home', to: '/' }, { label: 'Guides' }];
 
@@ -56,6 +57,8 @@ export default function GuidesPage() {
                       <div className="aspect-[16/9] overflow-hidden bg-slate-100">
                         <img
                           src={g.image}
+                    srcSet={srcSet(g.image)}
+                    sizes={CARD_SIZES}
                           alt=""
                           loading="lazy"
                           decoding="async"
@@ -63,18 +66,18 @@ export default function GuidesPage() {
                         />
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#EA580C] mb-2">
+                        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#C2410C] mb-2">
                           {g.category}
                           <span className="text-slate-300">·</span>
-                          <span className="flex items-center gap-1 text-[#64748B]">
+                          <span className="flex items-center gap-1 text-[#56657A]">
                             <Clock size={11} /> {g.readMinutes} min read
                           </span>
                         </div>
-                        <h3 className="text-lg font-extrabold leading-snug text-[#0F172A] group-hover:text-[#EA580C] transition-colors">
+                        <h3 className="text-lg font-extrabold leading-snug text-[#0F172A] group-hover:text-[#C2410C] transition-colors">
                           {g.title}
                         </h3>
                         <p className="text-sm text-[#475569] font-medium mt-2 line-clamp-3 flex-1">{g.description}</p>
-                        <span className="mt-4 text-xs font-bold text-[#EA580C] inline-flex items-center gap-1">
+                        <span className="mt-4 text-xs font-bold text-[#C2410C] inline-flex items-center gap-1">
                           Read guide <ArrowRight size={13} />
                         </span>
                       </div>

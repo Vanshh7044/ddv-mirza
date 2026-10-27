@@ -44,8 +44,8 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 bg-[#EA580C]/10 text-[#EA580C] px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-2.5">
-            <Sparkles size={13} className="text-[#EA580C]" /> Direct Operator Rates · No Hidden Fees
+          <div className="inline-flex items-center gap-1.5 bg-[#C2410C]/10 text-[#9A3412] px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-2.5">
+            <Sparkles size={13} className="text-[#C2410C]" /> Direct Operator Rates · No Hidden Fees
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-3">
             Choose Your Experience
@@ -80,7 +80,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
           {/* Popular searches: one swipeable row on mobile, wraps centred on larger screens */}
           <div className="-mx-3.5 sm:mx-0 mt-3.5 sm:mt-4 px-3.5 sm:px-0 overflow-x-auto scrollbar-none touch-pan-x [mask-image:linear-gradient(to_right,black_88%,transparent)] sm:[mask-image:none]">
             <div className="flex items-center gap-1.5 w-max sm:w-auto sm:flex-wrap sm:justify-center">
-              <span className="text-[#94A3B8] font-bold text-[10px] sm:text-[11px] uppercase tracking-wider mr-1 shrink-0">
+              <span className="text-[#56657A] font-bold text-[10px] sm:text-[11px] uppercase tracking-wider mr-1 shrink-0">
                 Popular
               </span>
               {TRENDING_KEYWORDS.map((chip) => (
@@ -88,7 +88,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   key={chip.to}
                   to={chip.to}
                   onClick={() => trackKeywordClick(chip.label, chip.to)}
-                  className="shrink-0 inline-flex items-center h-7 px-3 rounded-full border border-sand/90 bg-white/70 text-[#475569] text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-colors hover:border-[#EA580C]/40 hover:text-[#EA580C] hover:bg-orange-50"
+                  className="shrink-0 inline-flex items-center h-7 px-3 rounded-full border border-sand/90 bg-white/70 text-[#475569] text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-colors hover:border-[#C2410C]/40 hover:text-[#C2410C] hover:bg-orange-50"
                 >
                   {chip.label}
                 </Link>
@@ -107,7 +107,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                 key={pkg.id}
                 className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
                   isHighlighted
-                    ? 'bg-white border-2 border-[#EA580C] shadow-xl shadow-[#EA580C]/10 ring-2 sm:ring-4 ring-[#EA580C]/5 sm:hover:-translate-y-1.5'
+                    ? 'bg-white border-2 border-[#C2410C] shadow-xl shadow-[#C2410C]/10 ring-2 sm:ring-4 ring-[#C2410C]/5 sm:hover:-translate-y-1.5'
                     : 'bg-white border border-sand/90 shadow-md hover:shadow-xl sm:hover:-translate-y-1.5'
                 }`}
               >
@@ -122,7 +122,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                       Tier {pkg.tier}
                     </span>
                     {pkg.badge && (
-                      <span className="bg-[#EA580C] text-white font-extrabold text-[10px] sm:text-[11px] tracking-wider px-2.5 py-0.5 sm:py-1 rounded-md shadow-lg">
+                      <span className="bg-[#C2410C] text-white font-extrabold text-[10px] sm:text-[11px] tracking-wider px-2.5 py-0.5 sm:py-1 rounded-md shadow-lg">
                         {pkg.badge}
                       </span>
                     )}
@@ -131,10 +131,10 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {/* Bottom Image Overlay Text */}
                   <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-semibold">
                     <span className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded">
-                      <Clock size={11} className="text-[#EA580C]" /> {pkg.duration}
+                      <Clock size={11} className="text-[#C2410C]" /> {pkg.duration}
                     </span>
                     <span className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded">
-                      <MapPin size={11} className="text-[#EA580C]" /> {pkg.location}
+                      <MapPin size={11} className="text-[#C2410C]" /> {pkg.location}
                     </span>
                   </div>
                 </div>
@@ -144,19 +144,19 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {/* Title & Reviews */}
                   <div className="mb-3">
                     {pkg.reviewsCount > 0 ? (
-                    <div className="flex items-center gap-1 text-amber-500 mb-1">
+                    <div className="flex items-center gap-1 text-amber-700 mb-1">
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} size={12} className="fill-amber-500 text-amber-500" />
                         ))}
                       </div>
                       <span className="text-xs font-bold text-[#0F172A] ml-1">{pkg.rating}</span>
-                      <span className="text-[11px] text-[#64748B]">({pkg.reviewsCount}+ reviews)</span>
+                      <span className="text-[11px] text-[#56657A]">({pkg.reviewsCount}+ reviews)</span>
                     </div>
                     ) : (
-                      <div className="text-[11px] font-bold text-[#EA580C] uppercase tracking-wider mb-1">New for 2026</div>
+                      <div className="text-[11px] font-bold text-[#C2410C] uppercase tracking-wider mb-1">New for 2026</div>
                     )}
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] group-hover:text-[#EA580C] transition-colors leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] group-hover:text-[#C2410C] transition-colors leading-snug">
                       {pkg.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#475569] font-medium mt-1 line-clamp-2">
@@ -166,7 +166,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
 
                   {/* Inclusions List */}
                   <div className="space-y-1.5 sm:space-y-2 py-2.5 sm:py-3 my-2 border-y border-slate-100 flex-1">
-                    <div className="text-[10px] sm:text-[11px] font-bold text-[#64748B] uppercase tracking-wider">What's Included:</div>
+                    <div className="text-[10px] sm:text-[11px] font-bold text-[#56657A] uppercase tracking-wider">What's Included:</div>
                     {pkg.includes.slice(0, 5).map((inc, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs sm:text-[13px] text-[#1E293B] font-medium">
                         <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
@@ -176,7 +176,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                       </div>
                     ))}
                     {pkg.includes.length > 5 && (
-                      <div className="text-xs font-bold text-[#EA580C] pl-6 pt-0.5">
+                      <div className="text-xs font-bold text-[#C2410C] pl-6 pt-0.5">
                         + {pkg.includes.length - 5} more inclusions
                       </div>
                     )}
@@ -184,7 +184,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
 
                   {/* Free Pickup Guarantee */}
                   <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50/90 px-2.5 py-1.5 rounded-lg mb-3 sm:mb-4">
-                    <ShieldCheck size={13} className="shrink-0 text-emerald-600" />
+                    <ShieldCheck size={13} className="shrink-0 text-emerald-700" />
                     <span>{pkg.category === 'selfdrive' ? 'Meet at Lehbab Base' : pkg.pickupInfo} · Pay on Arrival</span>
                   </div>
 
@@ -192,7 +192,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   <div className="pt-1 flex items-center justify-between gap-2">
                     <div className="shrink-0 min-w-0">
                       {pkg.originalPrice > pkg.price && (
-                        <div className="text-[10px] sm:text-[11px] text-[#94A3B8] line-through font-bold">
+                        <div className="text-[10px] sm:text-[11px] text-[#56657A] line-through font-bold">
                           {aed(pkg.originalPrice)}
                         </div>
                       )}
@@ -200,13 +200,13 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                         <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight">
                           {aed(pkg.price)}
                         </span>
-                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#64748B]">{UNIT_LABEL[pkg.priceUnit]}</span>
+                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#56657A]">{UNIT_LABEL[pkg.priceUnit]}</span>
                       </div>
                       {pkg.priceUnit === 'vehicle' && (
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#EA580C]">whole car · up to 6</div>
+                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">whole car · up to 6</div>
                       )}
                       {pkg.id === 'evening-vip' && (
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#EA580C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
+                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
                       )}
                     </div>
 
@@ -216,7 +216,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackWhatsAppClick('package_card', pkg.title, pkg.price)}
-                      className="flex-1 min-w-[100px] max-w-[155px] sm:max-w-[170px] h-11 sm:h-12 flex items-center justify-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] text-white font-bold text-xs sm:text-sm px-2.5 sm:px-3 rounded-xl shadow-lg shadow-[#EA580C]/25 transition-all active:scale-95 whitespace-nowrap"
+                      className="flex-1 min-w-[100px] max-w-[155px] sm:max-w-[170px] h-11 sm:h-12 flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-xs sm:text-sm px-2.5 sm:px-3 rounded-xl shadow-lg shadow-[#C2410C]/25 transition-all active:scale-95 whitespace-nowrap"
                     >
                       <MessageCircle size={15} className="shrink-0" />
                       <span>Book Now</span>
@@ -227,7 +227,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   <div className="text-center mt-2.5 pt-2 border-t border-slate-100">
                     <Link
                       to={pkg.detailPath}
-                      className="text-xs font-semibold text-[#64748B] hover:text-[#EA580C] transition-colors inline-flex items-center gap-1 py-1"
+                      className="text-xs font-semibold text-[#56657A] hover:text-[#C2410C] transition-colors inline-flex items-center gap-1 py-1"
                     >
                       View full details & itinerary <ArrowRight size={11} />
                     </Link>
@@ -241,12 +241,12 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
         {/* Quick Help & Trust note */}
         <div className="mt-8 sm:mt-10 p-4 sm:p-5 bg-white rounded-2xl border border-sand/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3.5">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <div className="w-10 h-10 rounded-xl bg-[#EA580C]/10 text-[#EA580C] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#C2410C]/10 text-[#9A3412] flex items-center justify-center shrink-0">
               <MessageCircle size={20} />
             </div>
             <div>
               <div className="text-xs sm:text-sm font-bold text-[#0F172A]">Need help choosing a safari or group booking?</div>
-              <div className="text-[11px] sm:text-xs text-[#64748B]">WhatsApp our Dubai operations team directly for a fast reply.</div>
+              <div className="text-[11px] sm:text-xs text-[#56657A]">WhatsApp our Dubai operations team directly for a fast reply.</div>
             </div>
           </div>
           <a

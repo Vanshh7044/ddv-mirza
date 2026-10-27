@@ -1,6 +1,7 @@
 import { Landmark, Ship, Building2, MapPin } from 'lucide-react';
 import type { SafariPackage } from '../data/safariPackages';
 
+import { srcSet, CARD_SIZES } from '../utils/img';
 /**
  * Package photo, or — for tours that don't have a real photo yet — an
  * illustrated gradient panel so the card still looks finished.
@@ -25,6 +26,8 @@ export default function PackageImage({
     return (
       <img
         src={pkg.image}
+                    srcSet={srcSet(pkg.image)}
+                    sizes={CARD_SIZES}
         alt={pkg.title}
         className={`w-full h-full object-cover ${pkg.image === pkg.poster ? "object-top" : "object-center"} ${className}`}
         loading={eager ? 'eager' : 'lazy'}
@@ -33,7 +36,7 @@ export default function PackageImage({
     );
   }
 
-  const art = ART[pkg.id] ?? { from: '#0F172A', to: '#EA580C', Icon: MapPin };
+  const art = ART[pkg.id] ?? { from: '#0F172A', to: '#C2410C', Icon: MapPin };
   return (
     <div
       role="img"

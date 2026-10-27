@@ -52,7 +52,7 @@ export default function GuideDetailPage() {
       <article className="py-8 sm:py-14 bg-[#F8F6F0]">
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 min-w-0">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-[#64748B] mb-5">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-[#56657A] mb-5">
               <span>By the Dubai Dune Tours team</span>
               <span className="text-slate-300">·</span>
               <span className="flex items-center gap-1"><Clock size={12} /> {guide.readMinutes} min read</span>
@@ -61,8 +61,8 @@ export default function GuideDetailPage() {
             </div>
 
             {/* Direct answer first — the passage search engines and AI assistants quote */}
-            <section aria-label="Quick answer" className="bg-white border-l-4 border-[#EA580C] rounded-2xl p-5 sm:p-6 shadow-sm mb-8">
-              <div className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-[#EA580C] mb-2">
+            <section aria-label="Quick answer" className="bg-white border-l-4 border-[#C2410C] rounded-2xl p-5 sm:p-6 shadow-sm mb-8">
+              <div className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-[#C2410C] mb-2">
                 <Sparkles size={13} /> Quick answer
               </div>
               <p className="text-base sm:text-lg font-semibold text-[#0F172A] leading-relaxed">{guide.answer}</p>
@@ -74,11 +74,11 @@ export default function GuideDetailPage() {
                 <ol className="list-decimal pl-5 space-y-1 text-[#475569] font-medium">
                   {guide.sections.map((s) => (
                     <li key={s.heading}>
-                      <a href={`#${anchor(s.heading)}`} className="hover:text-[#EA580C]">{s.heading}</a>
+                      <a href={`#${anchor(s.heading)}`} className="hover:text-[#C2410C]">{s.heading}</a>
                     </li>
                   ))}
                   {guide.faqs.length > 0 && (
-                    <li><a href="#faq" className="hover:text-[#EA580C]">FAQs</a></li>
+                    <li><a href="#faq" className="hover:text-[#C2410C]">FAQs</a></li>
                   )}
                 </ol>
               </nav>
@@ -95,7 +95,7 @@ export default function GuideDetailPage() {
                     <ul className="space-y-2">
                       {s.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2.5 text-[15px] text-[#334155] leading-relaxed">
-                          <Check size={16} className="text-emerald-600 shrink-0 mt-1" strokeWidth={3} />
+                          <Check size={16} className="text-emerald-700 shrink-0 mt-1" strokeWidth={3} />
                           <span>{b}</span>
                         </li>
                       ))}
@@ -138,7 +138,7 @@ export default function GuideDetailPage() {
                       <details key={f.q} className="group bg-white border border-sand rounded-2xl p-4 open:shadow-md">
                         <summary className="cursor-pointer font-bold text-[#0F172A] list-none flex justify-between gap-3">
                           {f.q}
-                          <span className="text-[#EA580C] group-open:rotate-45 transition-transform">+</span>
+                          <span className="text-[#C2410C] group-open:rotate-45 transition-transform">+</span>
                         </summary>
                         <p className="mt-2 text-[15px] text-[#334155] leading-relaxed">{f.a}</p>
                       </details>
@@ -152,27 +152,27 @@ export default function GuideDetailPage() {
           {/* Sidebar: recommended tours */}
           <aside className="lg:col-span-1">
             <div className="lg:sticky lg:top-28 space-y-4">
-              <div className="text-xs font-black uppercase tracking-widest text-[#EA580C]">Recommended tours</div>
+              <div className="text-xs font-black uppercase tracking-widest text-[#C2410C]">Recommended tours</div>
               {related.map((p) => (
                 <div key={p.id} className="bg-white rounded-2xl border border-sand overflow-hidden shadow-sm">
                   <Link to={p.detailPath} className="block aspect-[16/8] overflow-hidden">
                     <PackageImage pkg={p} />
                   </Link>
                   <div className="p-4">
-                    <Link to={p.detailPath} className="font-extrabold text-[#0F172A] hover:text-[#EA580C] leading-snug block">
+                    <Link to={p.detailPath} className="font-extrabold text-[#0F172A] hover:text-[#C2410C] leading-snug block">
                       {p.title}
                     </Link>
                     <div className="flex items-center justify-between mt-3 gap-2">
                       <div>
                         <span className="text-xl font-black">{aed(p.price)}</span>
-                        <span className="text-xs text-[#64748B] font-semibold"> {UNIT_LABEL[p.priceUnit]}</span>
+                        <span className="text-xs text-[#56657A] font-semibold"> {UNIT_LABEL[p.priceUnit]}</span>
                       </div>
                       <a
                         href={getWhatsAppLink(p.whatsAppText)}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackWhatsAppClick('guide_sidebar', p.title, p.price)}
-                        className="inline-flex items-center gap-1.5 bg-[#EA580C] hover:bg-[#C2410C] text-white text-xs font-bold px-3 py-2 rounded-lg"
+                        className="inline-flex items-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] text-white text-xs font-bold px-3 py-2 rounded-lg"
                       >
                         <MessageCircle size={14} /> Book
                       </a>
@@ -192,11 +192,11 @@ export default function GuideDetailPage() {
               <Link
                 key={g.slug}
                 to={`/guides/${g.slug}`}
-                className="group bg-white border border-sand rounded-2xl p-5 hover:border-[#EA580C]/50 hover:shadow-md transition-all"
+                className="group bg-white border border-sand rounded-2xl p-5 hover:border-[#C2410C]/50 hover:shadow-md transition-all"
               >
-                <div className="text-[11px] font-bold uppercase tracking-wider text-[#EA580C] mb-1">{g.category}</div>
-                <div className="font-extrabold text-[#0F172A] group-hover:text-[#EA580C] leading-snug">{g.title}</div>
-                <span className="mt-3 text-xs font-bold text-[#64748B] inline-flex items-center gap-1">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#C2410C] mb-1">{g.category}</div>
+                <div className="font-extrabold text-[#0F172A] group-hover:text-[#C2410C] leading-snug">{g.title}</div>
+                <span className="mt-3 text-xs font-bold text-[#56657A] inline-flex items-center gap-1">
                   Read <ArrowRight size={12} />
                 </span>
               </Link>

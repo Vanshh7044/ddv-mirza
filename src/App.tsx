@@ -29,13 +29,13 @@ export default function App() {
       <Hero />
       <TrustStrip />
       <PackageGrid />
-      <VisualItinerary />
-      <PrivateToursSection />
-      <ExperienceGallery />
-      <WhyDirect />
-      <ReviewsSection />
-      <FaqSection />
-      <FinalCTA />
+      <div className="cv-auto"><VisualItinerary /></div>
+      <div className="cv-auto"><PrivateToursSection /></div>
+      <div className="cv-auto"><ExperienceGallery /></div>
+      <div className="cv-auto"><WhyDirect /></div>
+      <div className="cv-auto"><ReviewsSection /></div>
+      <div className="cv-auto"><FaqSection /></div>
+      <div className="cv-auto"><FinalCTA /></div>
     </>
   );
 }
