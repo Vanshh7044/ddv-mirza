@@ -88,8 +88,18 @@
   }
   .tear-line::before { left: -7px; }
   .tear-line::after { right: -7px; }
-  .reveal { @apply opacity-0 translate-y-6 transition-all duration-700 ease-out; }
-  .reveal.in { @apply opacity-100 translate-y-0; }
+  /* Scroll reveal (hooks/useScrollReveal.ts): text rises into place as it enters the viewport */
+  .sr {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--sr-delay, 0ms);
+  }
+  .sr-heading { transform: translate3d(0, 0.5em, 0); filter: blur(6px); }
+  .sr.sr-in { opacity: 1; transform: none; filter: none; }
   /* Dropdown / drawer entrance */
   .nav-pop { animation: navPop 0.18s cubic-bezier(0.16, 1, 0.3, 1); }
   .nav-fade { animation: navFade 0.2s ease-out; }
@@ -106,7 +116,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .nav-pop, .nav-fade, .marquee-track { animation: none; }
-  .reveal { transition: none; }
+  .sr { opacity: 1; transform: none; filter: none; transition: none; }
 }
 
 @layer utilities {
