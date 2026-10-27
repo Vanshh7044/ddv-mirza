@@ -441,6 +441,416 @@ export const GUIDES: Guide[] = [
     ],
     related: ['city-tour-safari-combo', 'dubai-city-tour', 'dhow-cruise-marina'],
   },
+  {
+    slug: 'desert-safari-season-dubai',
+    title: 'Desert Safari Season in Dubai: Month-by-Month Guide (2026–27)',
+    description: 'When is desert safari season in Dubai? Month-by-month weather, crowds and which tour to book, plus whether desert safaris run in summer.',
+    category: 'Planning',
+    readMinutes: 4,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/sunset-dunes.webp',
+    answer: 'Desert safaris in Dubai run all year, but the main season is October to April, with the peak from November to March when days are warm and desert evenings are cool. In summer (June to September) safaris still operate, but the afternoon heat makes sunrise and evening tours the best choice. December, especially Christmas and New Year, is the busiest time, so book a few days ahead.',
+    sections: [
+      {
+        heading: 'Month-by-month: weather and crowds',
+        table: {
+          head: ['Month', 'Typical daytime high', 'Crowds', 'Best tour'],
+          rows: [
+            ['January', 'about 24°C', 'Busy', 'Evening safari (bring a jacket for camp)'],
+            ['February', 'about 25°C', 'Busy', 'Evening or sunrise'],
+            ['March', 'about 28°C', 'Busy', 'Any tour'],
+            ['April', 'about 33°C', 'Moderate', 'Evening or sunrise'],
+            ['May', 'about 37°C', 'Quieter', 'Evening or sunrise'],
+            ['June – September', '39–41°C', 'Quiet', 'Sunrise or evening only'],
+            ['October', 'about 35°C', 'Picking up', 'Evening safari'],
+            ['November', 'about 30°C', 'Busy', 'Any tour'],
+            ['December', 'about 26°C', 'Busiest', 'Evening safari (book ahead)'],
+          ],
+        },
+      },
+      {
+        heading: 'Peak season (November to March)',
+        paragraphs: [
+          'This is the best weather of the year: pleasant afternoons for dune bashing and sandboarding, golden sunsets, and cool evenings at the camp. It is also when most tourists visit Dubai, so camps are lively and weekend evenings fill up.',
+          'From mid-December to early January demand is at its highest. Reserve 4–7 days ahead for weekends and holiday dates.',
+        ],
+      },
+      {
+        heading: 'Do desert safaris run in summer?',
+        paragraphs: [
+          'Yes. Safaris operate through June to September, and prices are often at their lowest. The evening safari spends most of its time near and after sunset, and the vehicles are air-conditioned, so it is very manageable. A sunrise safari is the coolest option of all.',
+          'Avoid midday desert activities in summer and drink plenty of water. Our drivers carry chilled water on every tour.',
+        ],
+      },
+      {
+        heading: 'Weather that can change your plans',
+        bullets: [
+          'Sandstorms and rare rain happen a few times a year. If conditions are unsafe, we reschedule for free or cancel at no cost.',
+          'Desert evenings from December to February can feel cold (around 12–16°C at the camp), so bring a light jacket.',
+          'Sunset is around 5:35–5:50 PM in winter and around 7:10 PM in mid-summer, so pickup times move with the season.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'When is desert safari season in Dubai?',
+        a: 'The main season is October to April, peaking from November to March. Safaris still run in summer, when sunrise and evening tours are the best choice.',
+      },
+      {
+        q: 'Is December a good time for a desert safari?',
+        a: 'Yes. December has some of the best weather of the year, but it is also the busiest month, especially around Christmas and New Year. Book a few days ahead.',
+      },
+      {
+        q: 'Are desert safaris cheaper in summer?',
+        a: `Often, yes. Demand drops from June to September. Our shared evening safari is ${aed(PRICES.eveningStandard)} per person with free hotel pickup, and there are no hidden fees in any season.`,
+      },
+    ],
+    related: ['evening-standard', 'sunrise-safari', 'evening-premium'],
+  },
+  {
+    slug: 'how-long-is-desert-safari-dubai',
+    title: 'How Long Is a Desert Safari in Dubai? Timings for Every Tour',
+    description: 'How long a Dubai desert safari takes: evening safari 6–7 hours, sunrise and morning tours 4 hours. Pickup and drop-off times for every tour.',
+    category: 'Desert Safari',
+    readMinutes: 3,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/land-cruiser-sunset.webp',
+    answer: 'An evening desert safari in Dubai takes about 6–7 hours door to door: hotel pickup around 3:00–3:30 PM and drop-off around 9:30 PM. Private sunrise, morning and evening short tours take about 4 hours. The dunes themselves are about 45 minutes from central Dubai, and that drive is included in the total time.',
+    sections: [
+      {
+        heading: 'Duration of each tour',
+        table: {
+          head: ['Tour', 'Pickup', 'Back at hotel', 'Total time'],
+          rows: [
+            ['Evening safari (Standard / Premium)', '3:00–3:30 PM', 'about 9:30 PM', '6–7 hours'],
+            ['Evening VIP safari', '2:30–3:30 PM', 'about 9:45 PM', 'about 7 hours'],
+            ['Private sunrise safari', 'about 4:30 AM', 'about 8:30 AM', 'about 4 hours'],
+            ['Private morning safari', '8:00 AM', 'about 12:00 PM', 'about 4 hours'],
+            ['Private evening short safari', '3:30 PM', 'about 7:30 PM', 'about 4 hours'],
+          ],
+        },
+      },
+      {
+        heading: 'How the evening safari time is split',
+        bullets: [
+          'About 45 minutes driving from your hotel to the Lehbab red dunes',
+          '30–40 minutes of dune bashing',
+          'Sunset photos, sandboarding and a camel ride',
+          'About 3 hours at the desert camp: coffee and dates, henna, BBQ dinner and live shows',
+          'About 45 minutes back to your hotel',
+        ],
+      },
+      {
+        heading: 'Short on time?',
+        paragraphs: [
+          'If your evening is already booked, a private morning or sunrise tour gives you the dunes, dune bashing and sandboarding in about 4 hours, without the camp dinner. Times move about 30 minutes earlier in winter, and your driver confirms the exact pickup time on WhatsApp the day before.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How many hours is a desert safari in Dubai?',
+        a: 'An evening safari with dinner is about 6–7 hours including hotel transfers. Sunrise and morning tours are about 4 hours.',
+      },
+      {
+        q: 'What time does a desert safari finish?',
+        a: 'Evening safaris drop you back at your hotel at around 9:30 PM. Sunrise tours finish around 8:30 AM and morning tours around 12:00 PM.',
+      },
+      {
+        q: 'How long is the dune bashing part?',
+        a: 'About 30–40 minutes on a standard evening safari, and longer on the Evening VIP and private morning tours.',
+      },
+    ],
+    related: ['evening-standard', 'morning-safari', 'sunrise-safari'],
+  },
+  {
+    slug: 'what-is-included-desert-safari-dubai',
+    title: "What's Included in a Dubai Desert Safari? (And What Costs Extra)",
+    description: 'Everything included in a Dubai evening desert safari: hotel pickup, dune bashing, camel ride, sandboarding, BBQ dinner and shows, plus what costs extra.',
+    category: 'Desert Safari',
+    readMinutes: 4,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/buffet.webp',
+    answer: `A standard Dubai evening desert safari includes hotel pickup and drop-off in a 4×4 Land Cruiser, dune bashing in the red dunes, a sunset photo stop, sandboarding, a short camel ride, a BBQ buffet dinner, soft drinks, and live tanoura, belly dance and fire shows at a desert camp. Ours starts from ${aed(PRICES.eveningStandard)} per person. Quad biking, dune buggies and private vehicles usually cost extra.`,
+    sections: [
+      {
+        heading: 'Included in every evening safari',
+        bullets: [
+          'Hotel pickup and drop-off in a shared 4×4 Land Cruiser',
+          '30–40 minutes of dune bashing in the Lehbab red dunes',
+          'Sunset photo stop on a high dune',
+          'Sandboarding and a short camel ride',
+          'Arabic coffee, dates and henna at the camp',
+          'BBQ buffet dinner (vegetarian and non-vegetarian)',
+          'Unlimited soft drinks, tea and water',
+          'Live tanoura, belly dance and fire shows',
+        ],
+      },
+      {
+        heading: 'What each upgrade adds',
+        table: {
+          head: ['Package', 'Price', 'What it adds'],
+          rows: [
+            ['Evening Standard', `${aed(PRICES.eveningStandard)} / person`, 'Everything above'],
+            ['Evening Premium', `${aed(PRICES.eveningPremium)} / person`, 'Smaller groups, extended dune bashing, priority seating, live-grill BBQ'],
+            ['Premium + 30-min Quad', `${aed(PRICES.premiumQuad)} / person`, 'Evening Premium plus a 30-minute guided quad ride'],
+            ['Evening VIP', `${aed(PRICES.eveningVip)} / person`, 'VIP seating, falcon & Arabic dress photos, longer dune bashing, every show twice'],
+          ],
+        },
+      },
+      {
+        heading: 'What usually costs extra',
+        bullets: [
+          'Quad bike or dune buggy rides (unless you book a Safari + Quad combo)',
+          'A private Land Cruiser for your group',
+          'Alcoholic drinks, where available at the camp',
+          'Souvenir photos taken by camp photographers',
+          'Hotel pickup outside the main Dubai and Sharjah areas (ask us first)',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is dinner included in a desert safari?',
+        a: 'Yes. Evening safaris include a BBQ buffet dinner with vegetarian and non-vegetarian dishes, plus unlimited soft drinks, tea and water.',
+      },
+      {
+        q: 'Is hotel pickup included?',
+        a: 'Yes. Pickup and drop-off are free from hotels and homes across the main Dubai areas and selected areas of Sharjah. For other areas, ask us on WhatsApp.',
+      },
+      {
+        q: 'Is quad biking included in a desert safari?',
+        a: `Not in the standard safari. You can add it, or book a Safari + 30-min Quad combo from ${aed(PRICES.standardQuad)} per person.`,
+      },
+    ],
+    related: ['evening-standard', 'evening-premium', 'premium-quad'],
+  },
+  {
+    slug: 'quad-biking-dubai-desert',
+    title: 'Quad Biking in the Dubai Desert: Price, Age Limit & Safety',
+    description: 'Quad biking in Dubai’s red dunes: what it costs, minimum age, whether you need a licence, what to wear and how to combine it with an evening safari.',
+    category: 'Desert Safari',
+    readMinutes: 4,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/quad-bike.webp',
+    answer: `Quad biking in the Dubai desert is a guided ride on a marked track in the red dunes, usually for 30 minutes. The easiest way to do it is a Safari + 30-min Quad combo, which includes the full evening safari with dinner, from ${aed(PRICES.standardQuad)} per person. You do not need a driving licence; solo riders are usually 16 or older, and helmets and goggles are provided.`,
+    sections: [
+      {
+        heading: 'Quad biking prices',
+        table: {
+          head: ['Option', 'Price', 'Includes'],
+          rows: [
+            ['Standard Safari + 30-min Quad', `${aed(PRICES.standardQuad)} / person`, 'Evening safari, dinner, shows and a 30-minute quad ride'],
+            ['Premium Safari + 30-min Quad', `${aed(PRICES.premiumQuad)} / person`, 'Evening Premium safari plus a 30-minute quad ride'],
+            ['Quad as an add-on', 'Quoted on WhatsApp', 'Add a ride to any desert safari'],
+          ],
+        },
+      },
+      {
+        heading: 'Age, licence and safety',
+        bullets: [
+          'No driving licence is needed for a guided desert quad ride',
+          'Solo riders are usually 16+; younger children may ride with an adult on some bikes, so ask us first',
+          'A helmet, goggles and a safety briefing are included',
+          'Rides follow a guide on a marked track, so you set a comfortable pace',
+          'Not recommended during pregnancy or with back or neck problems',
+        ],
+      },
+      {
+        heading: 'What to wear',
+        bullets: [
+          'Closed shoes (trainers), not sandals',
+          'Light long trousers to protect your legs from sand',
+          'Sunglasses and a scarf or buff for dust',
+        ],
+      },
+      {
+        heading: 'Quad bike or dune buggy?',
+        paragraphs: [
+          'A quad bike is a single-rider bike you steer with handlebars; it feels more hands-on. A dune buggy is a small 2- or 4-seat car with a steering wheel and seat belts, so it suits couples and anyone who prefers a car-like feel. Both are available as add-ons.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How much is quad biking in Dubai?',
+        a: `A Safari + 30-minute quad combo starts from ${aed(PRICES.standardQuad)} per person and includes the full evening safari with BBQ dinner and shows. A quad ride on its own is quoted on WhatsApp.`,
+      },
+      {
+        q: 'Do I need a licence for quad biking in Dubai?',
+        a: 'No. Guided desert quad rides do not need a driving licence.',
+      },
+      {
+        q: 'Is quad biking in the desert safe?',
+        a: 'Yes, when you follow the guide on the marked track and wear the helmet provided. Beginners get a briefing and can ride at their own pace.',
+      },
+    ],
+    related: ['standard-quad', 'premium-quad', 'evening-standard'],
+  },
+  {
+    slug: 'where-is-desert-safari-dubai',
+    title: 'Where Is the Desert Safari in Dubai? Lehbab Red Dunes, Distance & Pickup',
+    description: 'Where Dubai desert safaris take place, how far the Lehbab red dunes are from the city, and which hotel areas get free pickup.',
+    category: 'Planning',
+    readMinutes: 3,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/camp-night.webp',
+    answer: 'Most Dubai desert safaris take place in the desert south-east of the city. Ours go to the Lehbab red dunes, about 45 minutes’ drive from central Dubai, where the sand is a deep orange-red and the dunes are high enough for proper dune bashing. You do not need to get there yourself: hotel pickup and drop-off are included from the main Dubai areas and selected parts of Sharjah.',
+    sections: [
+      {
+        heading: 'Travel time from popular areas',
+        table: {
+          head: ['Pickup area', 'Approximate drive to the dunes'],
+          rows: [
+            ['Downtown / Business Bay', 'about 45 minutes'],
+            ['Deira / Bur Dubai', 'about 45–50 minutes'],
+            ['Dubai Marina / JBR', 'about 45–55 minutes'],
+            ['Al Barsha', 'about 45 minutes'],
+            ['Sharjah (selected areas)', 'about 50–60 minutes'],
+          ],
+        },
+      },
+      {
+        heading: 'Free pickup areas',
+        paragraphs: [
+          'Pickup and drop-off are free, with no extra charge, from any hotel, apartment or address in Dubai Marina, JBR, Downtown, Business Bay, Bur Dubai, Deira, Jumeirah, Palm Jumeirah, Al Barsha, DIFC, DIP / Jebel Ali and selected areas of Sharjah. Staying in Ajman, Abu Dhabi or somewhere else? Message us on WhatsApp before booking.',
+        ],
+      },
+      {
+        heading: 'Why Lehbab',
+        bullets: [
+          'Tall red dunes that are ideal for dune bashing and sandboarding',
+          'Wide open views for sunset photos',
+          'Close enough to the city for an easy evening trip',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How far is the desert from Dubai?',
+        a: 'The Lehbab red dunes are about 45 minutes’ drive from central Dubai. The drive is included in your safari with hotel pickup.',
+      },
+      {
+        q: 'Can I drive myself to the desert safari?',
+        a: `Yes, with our self-drive convoy from ${aed(PRICES.selfDrive)} per person, where you meet us at the Lehbab desert base. Otherwise hotel pickup is included.`,
+      },
+      {
+        q: 'Do you pick up from Sharjah?',
+        a: 'Yes, from selected areas of Sharjah at no extra charge. Send us your location on WhatsApp to confirm.',
+      },
+    ],
+    related: ['evening-standard', 'self-drive-standard', 'evening-premium'],
+  },
+  {
+    slug: 'desert-safari-dubai-ramadan',
+    title: 'Desert Safari in Dubai During Ramadan (2027): What Changes?',
+    description: 'Can you do a desert safari during Ramadan in Dubai? What changes at the camp, dinner timing, shows, and tips for booking in Ramadan 2027.',
+    category: 'Planning',
+    readMinutes: 3,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/camp-dining.webp',
+    answer: 'Yes, desert safaris run during Ramadan in Dubai. Dune bashing, sandboarding, camel rides and dinner at the camp continue, but dinner is served after sunset, music and entertainment are usually toned down, and belly dance is typically not performed. Ramadan 2027 is expected to begin around 8 February 2027, depending on the moon sighting.',
+    sections: [
+      {
+        heading: 'What usually changes during Ramadan',
+        bullets: [
+          'Dinner is served after sunset (iftar time), and some camps offer an iftar-style buffet',
+          'Belly dance is typically not performed; other entertainment may be reduced or quieter',
+          'Alcohol is usually not served at the camp',
+          'Eating and drinking in public during daylight should be discreet, so have water in the car',
+        ],
+      },
+      {
+        heading: 'What stays the same',
+        bullets: [
+          'Hotel pickup and drop-off',
+          'Dune bashing, sunset photos and sandboarding',
+          'Camel rides, Arabic coffee and the desert camp',
+        ],
+      },
+      {
+        heading: 'Booking tips',
+        paragraphs: [
+          'Message us before booking during Ramadan and we will confirm exactly what is running on your date. The days around Eid at the end of Ramadan are busy, so book ahead if you are visiting then.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is desert safari open during Ramadan?',
+        a: 'Yes. Safaris run throughout Ramadan, with dinner after sunset and a quieter evening programme.',
+      },
+      {
+        q: 'Is belly dance performed during Ramadan?',
+        a: 'Usually not. Tanoura and some other shows may continue, depending on the camp and date.',
+      },
+      {
+        q: 'When is Ramadan 2027?',
+        a: 'Ramadan 2027 is expected to begin around 8 February 2027 and last about 30 days, depending on the moon sighting.',
+      },
+    ],
+    related: ['evening-standard', 'evening-premium', 'morning-safari'],
+  },
+  {
+    slug: 'is-desert-safari-dubai-worth-it',
+    title: 'Is a Desert Safari in Dubai Worth It? Honest Pros, Cons & Who It Suits',
+    description: 'Is a Dubai desert safari worth the money? An honest look at what you get, who will love it, who should skip it, and how to pick the right tour.',
+    category: 'Desert Safari',
+    readMinutes: 4,
+    published: '2026-10-27',
+    updated: '2026-10-27',
+    image: '/images/real/fire-show.webp',
+    answer: `For most first-time visitors, yes. An evening desert safari packs dune bashing, sunset over the red dunes, a camel ride, sandboarding, a BBQ dinner and live shows into one evening, with hotel pickup included, from ${aed(PRICES.eveningStandard)} per person. It is less suited to people with back problems, pregnant travellers or anyone who dislikes crowds; they may prefer a private sunrise tour.`,
+    sections: [
+      {
+        heading: 'Why most people love it',
+        bullets: [
+          'It is the easiest way to see the real Arabian desert from Dubai',
+          'Dune bashing is a genuine thrill, and the sunset views are spectacular',
+          'Dinner and entertainment are included, so it fills a whole evening',
+          'Good value: one price covers transport, activities, food and shows',
+        ],
+      },
+      {
+        heading: 'Who should think twice',
+        bullets: [
+          'Pregnant travellers and anyone with back or neck problems should skip dune bashing (you can ask for a gentler drive)',
+          'People who get car sick: sit in the front and take medication beforehand',
+          'If you dislike busy camps, choose a private sunrise or morning tour instead',
+        ],
+      },
+      {
+        heading: 'How to make sure it is worth it',
+        bullets: [
+          'Book directly with an operator to avoid reseller mark-ups',
+          'Check exactly what is included: dinner, shows, camel ride and sandboarding should all be in the price',
+          'Avoid tours with surprise extras or deposits; with us you pay on the day',
+          'Go in the evening for the full experience, or at sunrise for photos and quiet dunes',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is a desert safari in Dubai a tourist trap?',
+        a: 'Not if you book a reputable operator with clear inclusions. The experience itself, dune bashing, sunset and a desert camp evening, is one of the highlights of a Dubai trip.',
+      },
+      {
+        q: 'Which desert safari is best for first-timers?',
+        a: `The evening safari. It includes everything: dune bashing, sunset, camel ride, sandboarding, BBQ dinner and shows. Ours starts from ${aed(PRICES.eveningStandard)} per person, or ${aed(PRICES.eveningPremium)} for smaller groups and priority seating.`,
+      },
+      {
+        q: 'Is the VIP desert safari worth the extra?',
+        a: `If you want more comfort and photos, yes. The Evening VIP at ${aed(PRICES.eveningVip)} per person adds VIP seating, falcon and Arabic dress photos, longer dune bashing and every show twice.`,
+      },
+    ],
+    related: ['evening-standard', 'evening-premium', 'evening-vip'],
+  },
 ];
 
 export const getGuide = (slug: string) => GUIDES.find((g) => g.slug === slug);
