@@ -64,8 +64,9 @@ export const PRICES = {
   vipTraditional: 999, // for 2 adults
   privateCamp: 2299, // per group up to 8
   // City tours & cruises
-  dubaiCityTour: 550, // per private car, up to 6
-  abuDhabiCityTour: 850, // per private car, up to 6
+  dubaiCityTour: 650, // per private car, up to 6
+  abuDhabiCityTour: 950, // per private car, up to 6
+  grandMosqueTour: 850, // per private car, up to 6
   dhowCruise: 139,
   marinaYacht: 650, // private yacht, per hour (guest capacity being confirmed)
   cityTourSafariCombo: 189,
@@ -494,6 +495,36 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     ],
     excludes: ['Attraction entry tickets (e.g. Qasr Al Watan, Louvre Abu Dhabi) unless stated', 'Meals'],
     whatsAppText: wa('Private Abu Dhabi City Tour', PRICES.abuDhabiCityTour, 'vehicle'),
+  },
+  {
+    id: 'grand-mosque-tour',
+    slug: 'sheikh-zayed-grand-mosque-tour',
+    category: 'city',
+    tier: '16',
+    title: 'Sheikh Zayed Grand Mosque Tour (Private Car)',
+    tagline: 'Private car with driver for up to 6: return trip from Dubai to the Sheikh Zayed Grand Mosque in Abu Dhabi, with time inside and photo stops.',
+    price: PRICES.grandMosqueTour,
+    originalPrice: PRICES.grandMosqueTour,
+    priceUnit: 'vehicle',
+    duration: 'Half Day',
+    location: 'Abu Dhabi',
+    pickupInfo: 'Hotel Pickup & Drop-off (Dubai / Sharjah / Ajman)',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE CAR',
+    image: '/images/sheikh-zayed-mosque-tour-poster.webp',
+    poster: '/images/sheikh-zayed-mosque-tour-poster.webp',
+    detailPath: '/tours/sheikh-zayed-grand-mosque-tour',
+    includes: [
+      'Private car with professional driver (up to 6 people)',
+      'Hotel pickup & drop-off in Dubai, Sharjah or Ajman',
+      'Guided visit of the Sheikh Zayed Grand Mosque',
+      'Photo stops inside and around the mosque',
+      'Flexible timing: morning, afternoon or sunset',
+      'Water on board',
+    ],
+    excludes: ['Meals', 'Modest dress required (long sleeves & trousers; headscarf for women)'],
+    whatsAppText: wa('Private Sheikh Zayed Grand Mosque Tour', PRICES.grandMosqueTour, 'vehicle'),
   },
   {
     id: 'marina-yacht',

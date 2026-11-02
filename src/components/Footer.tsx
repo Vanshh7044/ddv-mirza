@@ -95,6 +95,7 @@ export default function Footer() {
               <Link to="/vip-traditional-arabic" className="hover:text-[#C2410C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
               <Link to="/tours/dubai-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
               <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
+              <Link to="/tours/sheikh-zayed-grand-mosque-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Grand Mosque Tour ({aed(PRICES.grandMosqueTour)})</Link>
               <Link to="/tours/dhow-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors py-0.5">Marina Dhow Cruise ({aed(PRICES.dhowCruise)})</Link>
               <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Private Desert Camp Setup</Link>
             </div>

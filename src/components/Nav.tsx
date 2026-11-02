@@ -37,6 +37,7 @@ const desertSafariMenu = [
     items: [
       { label: `Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, sub: 'Private car · up to 6 people', href: '/tours/dubai-city-tour' },
       { label: `Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)})`, sub: 'Private car · Grand Mosque & more', href: '/tours/abu-dhabi-city-tour' },
+      { label: `Grand Mosque Tour (${aed(PRICES.grandMosqueTour)})`, sub: 'Private car · Sheikh Zayed Mosque', href: '/tours/sheikh-zayed-grand-mosque-tour' },
       { label: `Marina Dhow Cruise (${aed(PRICES.dhowCruise)})`, sub: 'Dinner cruise with transfers', href: '/tours/dhow-cruise-dubai-marina' },
       { label: `City + Safari Combo (${aed(PRICES.cityTourSafariCombo)})`, sub: 'Full day, best value', href: '/tours/dubai-city-tour-desert-safari-combo' },
     ],
