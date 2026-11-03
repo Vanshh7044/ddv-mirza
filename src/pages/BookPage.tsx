@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero';
 import { SAFARI_PACKAGES, getWhatsAppLink, aed, UNIT_LABEL, type SafariPackage } from '../data/safariPackages';
 import { DESERT_ADDONS } from '../data/addons';
 import { getBreadcrumbSchema } from '../data/schemaData';
-import { trackBookingFormSubmit, trackEmailClick } from '../utils/analytics';
+import { trackBookingFormSubmit, trackEmailClick, tagAdRef } from '../utils/analytics';
 
 import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const BOOKING_EMAIL = 'info@dubaidunetours.com';
@@ -138,7 +138,7 @@ export default function BookPage() {
     const ref = makeRef();
     const message = buildMessage(ref);
     trackBookingFormSubmit(tourTitle, f.date, f.name);
-    window.open(getWhatsAppLink(message), '_blank', 'noopener');
+    window.open(tagAdRef(getWhatsAppLink(message)), '_blank', 'noopener');
     setDone({ ref, message });
     smoothScrollTo(0);
   };

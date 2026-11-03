@@ -5,7 +5,7 @@ import Footer from './Footer';
 import MobileBar from './MobileBar';
 import { useSmoothScroll, useScrollReset } from '../hooks/useSmoothScroll';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { trackPageView, getPageTitle } from '../utils/analytics';
+import { trackPageView, getPageTitle, installLeadTracking } from '../utils/analytics';
 
 // Runs before paint in the browser; harmless no-op during SSR.
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
@@ -34,6 +34,9 @@ export default function Layout() {
   useScrollReset();
   // Global reveal animations
   useScrollReveal();
+
+  // Google Ads conversion: every WhatsApp / phone click
+  useEffect(() => installLeadTracking(), []);
 
   // Page transition. The first load is prerendered HTML, so it is shown as-is
   // (animating it in would only delay the first paint). Later navigations get a

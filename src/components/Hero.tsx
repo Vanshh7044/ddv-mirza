@@ -13,7 +13,7 @@ import {
   MessageCircle,
   Sparkles
 } from 'lucide-react';
-import { trackBookingFormSubmit } from '../utils/analytics';
+import { trackBookingFormSubmit, tagAdRef } from '../utils/analytics';
 import { SAFARI_PACKAGES, PRICES, FROM_PRICE, aed, UNIT_LABEL, getWhatsAppLink } from '../data/safariPackages';
 
 import { smoothScrollTo } from '../hooks/useSmoothScroll';
@@ -94,7 +94,7 @@ export default function Hero() {
     const whatsappUrl = getWhatsAppLink(text);
 
     setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
+      window.open(tagAdRef(whatsappUrl), '_blank');
     }, 500);
   };
 

@@ -57,6 +57,69 @@ export function trackPageView(path: string, title: string) {
   fbq('track', 'PageView');
 }
 
+// ─── Lead conversion for Google Ads ─────────────────────────────────────────
+// One clean event per WhatsApp chat / phone call opened from anywhere on the site.
+// Import "whatsapp_lead" from GA4 into Google Ads as the primary conversion.
+export function trackLead(via: 'whatsapp_link' | 'booking_form' | 'phone') {
+  gtag('event', 'whatsapp_lead', {
+    lead_via: via,
+    page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+    value: FROM_PRICE,
+    currency: 'AED',
+  });
+}
+
+// Visitors who arrived from a Google ad get "(Ref: DDT-G)" added to their WhatsApp message,
+// so whoever answers the chat can tell Google leads apart from Meta ones (DDT-AD).
+const AD_KEY = 'ddt_google_ad';
+const fromGoogleAd = () => {
+  try {
+    return sessionStorage.getItem(AD_KEY) === '1';
+  } catch {
+    return false;
+  }
+};
+
+/** Adds the Google ad reference to a wa.me link's message when the visitor came from an ad. */
+export function tagAdRef(url: string) {
+  if (!fromGoogleAd()) return url;
+  try {
+    const u = new URL(url);
+    const text = u.searchParams.get('text') || '';
+    if (text.includes('DDT-G')) return url;
+    u.searchParams.set('text', `${text}\n\n(Ref: DDT-G)`.trim());
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
+/** Catches every WhatsApp / phone link click on the site, tracked or not. Call once. */
+export function installLeadTracking() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    if (q.has('gclid') || q.has('gbraid') || q.has('wbraid') || q.get('utm_source') === 'google') {
+      sessionStorage.setItem(AD_KEY, '1');
+    }
+  } catch {
+    /* storage blocked */
+  }
+
+  const onClick = (e: MouseEvent) => {
+    const a = (e.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (/^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) {
+      a.href = tagAdRef(href);
+      trackLead('whatsapp_link');
+    } else if (href.startsWith('tel:')) {
+      trackLead('phone');
+    }
+  };
+  document.addEventListener('click', onClick, true);
+  return () => document.removeEventListener('click', onClick, true);
+}
+
 // ─── WhatsApp Click (Primary Conversion) ────────────────────────────────────
 export function trackWhatsAppClick(source: string, packageName?: string, price?: number) {
   // GA4 — custom event
@@ -112,6 +175,8 @@ export function trackPhoneClick(source: string) {
 
 // ─── Booking Form Submit (Hero form) ────────────────────────────────────────
 export function trackBookingFormSubmit(packageName: string, date: string, customerName: string) {
+  trackLead('booking_form'); // the form opens WhatsApp
+
   gtag('event', 'booking_form_submit', {
     event_category: 'conversion',
     event_label: packageName,
