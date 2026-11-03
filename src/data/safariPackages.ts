@@ -447,8 +447,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE CAR',
-    image: '/images/dubai-city-tour-poster.webp',
-    poster: '/images/dubai-city-tour-poster.webp',
+    image: '/images/dubai-city-tour-poster-v2.webp',
+    poster: '/images/dubai-city-tour-poster-v2.webp',
     detailPath: '/tours/dubai-city-tour',
     includes: [
       'Private car with professional driver (up to 6 people)',
@@ -479,8 +479,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE CAR',
-    image: '/images/abu-dhabi-city-tour-poster.webp',
-    poster: '/images/abu-dhabi-city-tour-poster.webp',
+    image: '/images/abu-dhabi-city-tour-poster-v2.webp',
+    poster: '/images/abu-dhabi-city-tour-poster-v2.webp',
     detailPath: '/tours/abu-dhabi-city-tour',
     includes: [
       'Private car with professional driver (up to 6 people)',
