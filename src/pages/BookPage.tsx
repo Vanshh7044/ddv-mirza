@@ -90,7 +90,7 @@ export default function BookPage() {
   const pkg = SAFARI_PACKAGES.find((p) => p.id === f.tour);
   const extra = EXTRA_OPTIONS.find((o) => o.id === f.tour);
   const tourTitle = pkg?.title ?? extra?.title ?? '';
-  const privateOnly = pkg?.priceUnit === 'vehicle' || pkg?.category === 'vip';
+  const privateOnly = pkg?.priceUnit === 'vehicle' || pkg?.priceUnit === 'group' || pkg?.category === 'vip';
   const isDesert = pkg ? DESERT_CATS.includes(pkg.category) : false;
   const est = useMemo(() => estimate(pkg, f.adults, f.children), [pkg, f.adults, f.children]);
 

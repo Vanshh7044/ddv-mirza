@@ -14,6 +14,7 @@ const desertSafariMenu = [
       { label: `VIP Experience (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & Majlis Tent', href: '/evening-safari/vip' },
       { label: `Standard + Quad (${aed(PRICES.standardQuad)})`, sub: 'Safari + 30-min quad bike', href: '/evening-safari/standard-quad' },
       { label: `Premium + Quad (${aed(PRICES.premiumQuad)})`, sub: 'Most booked · 30-min quad', href: '/evening-safari/premium-quad' },
+      { label: `Premier Private + Buggy (${aed(PRICES.premierBuggy)})`, sub: 'Private car, Premier Camp & buggy', href: '/evening-safari/premier-private-buggy' },
     ],
   },
   {
@@ -30,6 +31,8 @@ const desertSafariMenu = [
     items: [
       { label: 'VIP Traditional Arabic', sub: `${aed(PRICES.vipTraditional)} / 2 adults · Falcon & Majlis`, href: '/vip-traditional-arabic' },
       { label: 'Private Desert Camp Setup', sub: `From ${aed(PRICES.privateCamp)} · Custom Private Camp`, href: '/private-desert-setup' },
+      { label: 'Private Overnight Camp', sub: `${aed(PRICES.privateOvernight)} · Your own camp for the night`, href: '/evening-safari/private-overnight-camp' },
+      { label: 'Lama Private Setup', sub: `${aed(PRICES.lamaPrivate)} · Pickup included`, href: '/evening-safari/lama-private-setup' },
     ],
   },
   {
@@ -48,10 +51,13 @@ const mobileMenuItems = [
   { label: `⭐ Evening Standard (${aed(PRICES.eveningStandard)})`, sub: 'Dune Bashing, BBQ & Shows', to: '/evening-safari/standard' },
   { label: `🔥 Evening Premium (${aed(PRICES.eveningPremium)})`, sub: 'Priority Seating & Live Grill', to: '/evening-safari/premium' },
   { label: `🏍️ Premium + 30-min Quad (${aed(PRICES.premiumQuad)})`, sub: 'Most booked combo', to: '/evening-safari/premium-quad' },
+  { label: `🏜️ Premier Private + Buggy (${aed(PRICES.premierBuggy)})`, sub: 'Private car, Premier Camp & buggy', to: '/evening-safari/premier-private-buggy' },
   { label: `👑 Evening VIP Majlis (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
   { label: `🌅 Sunrise / Morning Safari (${aed(PRICES.sunrise)})`, sub: 'Private car · up to 6', to: '/morning-safari' },
   { label: `🏎️ Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4', to: '/self-drive' },
   { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
+  { label: `⛺ Private Overnight Camp (${aed(PRICES.privateOvernight)})`, sub: 'Your own camp for the night', to: '/evening-safari/private-overnight-camp' },
+  { label: `✨ Lama Private Setup (${aed(PRICES.lamaPrivate)})`, sub: 'Pickup included', to: '/evening-safari/lama-private-setup' },
   { label: '🏙️ City Tours & Dhow Cruise', sub: `Private cars from ${aed(PRICES.dubaiCityTour)} · up to 6`, to: '/city-tours' },
   { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
 ];

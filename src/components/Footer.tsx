@@ -89,6 +89,7 @@ export default function Footer() {
               <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
               <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
               <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
+              <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Premier Private + Buggy ({aed(PRICES.premierBuggy)})</Link>
               <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
               <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
               <Link to="/self-drive" className="hover:text-[#C2410C] transition-colors py-0.5">Self-Drive Convoy ({aed(PRICES.selfDrive)})</Link>
@@ -98,6 +99,8 @@ export default function Footer() {
               <Link to="/tours/sheikh-zayed-grand-mosque-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Grand Mosque Tour ({aed(PRICES.grandMosqueTour)})</Link>
               <Link to="/tours/dhow-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors py-0.5">Marina Dhow Cruise ({aed(PRICES.dhowCruise)})</Link>
               <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Private Desert Camp Setup</Link>
+              <Link to="/evening-safari/private-overnight-camp" className="hover:text-[#C2410C] transition-colors py-0.5">Private Overnight Camp ({aed(PRICES.privateOvernight)})</Link>
+              <Link to="/evening-safari/lama-private-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Lama Private Setup ({aed(PRICES.lamaPrivate)})</Link>
             </div>
           </div>
 

@@ -3,6 +3,7 @@ import { FROM_PRICE, aed } from './data/safariPackages';
 import Hero from './components/Hero';
 import TrustStrip from './components/sections/TrustStrip';
 import PackageGrid from './components/sections/PackageGrid';
+import SignatureExperiences from './components/sections/SignatureExperiences';
 import VisualItinerary from './components/sections/VisualItinerary';
 import PrivateToursSection from './components/sections/PrivateToursSection';
 import ExperienceGallery from './components/sections/ExperienceGallery';
@@ -29,6 +30,7 @@ export default function App() {
       <Hero />
       <TrustStrip />
       <PackageGrid />
+      <div className="cv-auto"><SignatureExperiences /></div>
       <div className="cv-auto"><VisualItinerary /></div>
       <div className="cv-auto"><PrivateToursSection /></div>
       <div className="cv-auto"><ExperienceGallery /></div>

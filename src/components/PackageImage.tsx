@@ -22,6 +22,23 @@ export default function PackageImage({
   className?: string;
   eager?: boolean;
 }) {
+  if (pkg.image && pkg.imageContain) {
+    return (
+      <div className={`relative w-full h-full overflow-hidden ${className}`}>
+        <img src={pkg.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover scale-110 blur-xl" loading="lazy" decoding="async" />
+        <img
+          src={pkg.image}
+          srcSet={srcSet(pkg.image)}
+          sizes={CARD_SIZES}
+          alt={pkg.title}
+          className="relative w-full h-full object-contain"
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      </div>
+    );
+  }
+
   if (pkg.image) {
     return (
       <img

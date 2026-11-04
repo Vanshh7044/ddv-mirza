@@ -8,8 +8,16 @@ import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
 import AddOnsSection from '../components/sections/AddOnsSection';
 import TimingsPickup from '../components/sections/TimingsPickup';
+import PackageImage from '../components/PackageImage';
 
 import { srcSet, CARD_SIZES } from '../utils/img';
+
+const DEFAULT_PHOTOS = [
+  { src: '/images/real/buffet.webp', label: 'Dinner at camp' },
+  { src: '/images/real/falcon-sunset.webp', label: 'Falconry' },
+  { src: '/images/real/fire-show.webp', label: 'Live Shows' },
+];
+
 export default function PackageDetailPage() {
   const { tier } = useParams<{ tier: string }>();
 
@@ -44,7 +52,13 @@ export default function PackageDetailPage() {
         breadcrumbs={breadcrumbs}
         primaryCta={{ label: 'Instant WhatsApp Booking', href: getWhatsAppLink(selectedPkg.whatsAppText) }}
         price={aed(selectedPkg.price)}
-        priceNote={selectedPkg.priceUnit === 'vehicle' ? 'per car (up to 6) · no deposit' : 'per person · no deposit'}
+        priceNote={
+          selectedPkg.priceUnit === 'vehicle'
+            ? 'per car (up to 6) · no deposit'
+            : selectedPkg.priceUnit === 'group'
+              ? 'one price · no deposit'
+              : 'per person · no deposit'
+        }
       />
 
       <section className="py-8 sm:py-14 bg-[#F8F6F0]">
@@ -56,64 +70,34 @@ export default function PackageDetailPage() {
               
               {/* Feature Image Banner */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/9] shadow-xl">
-                <img
-                  src={selectedPkg.image}
-                    srcSet={srcSet(selectedPkg.image)}
-                    sizes={CARD_SIZES}
-                  alt={selectedPkg.title}
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                />
+                <PackageImage pkg={selectedPkg} eager />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-white text-[11px] sm:text-sm font-bold">
                   <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl">
                     <Clock size={14} className="text-[#C2410C]" /> {selectedPkg.duration}
                   </span>
                   <span className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl">
-                    <MapPin size={14} className="text-[#C2410C]" /> Lehbab High Red Dunes
+                    <MapPin size={14} className="text-[#C2410C]" /> {selectedPkg.location}
                   </span>
                 </div>
               </div>
 
               {/* Photo Highlights Strip */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
-                  <img 
-                    src="/images/real/buffet.webp"
-                    srcSet={srcSet("/images/real/buffet.webp")}
-                    sizes={CARD_SIZES} 
-                    alt="Dinner buffet at camp" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
-                    loading="lazy" 
-                    decoding="async" 
-                  />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Dinner at camp</span>
-                </div>
-                <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
-                  <img 
-                    src="/images/real/falcon-sunset.webp"
-                    srcSet={srcSet("/images/real/falcon-sunset.webp")}
-                    sizes={CARD_SIZES} 
-                    alt="Falcon photo session" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
-                    loading="lazy" 
-                    decoding="async" 
-                  />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Falconry</span>
-                </div>
-                <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
-                  <img 
-                    src="/images/real/fire-show.webp"
-                    srcSet={srcSet("/images/real/fire-show.webp")}
-                    sizes={CARD_SIZES} 
-                    alt="Fire show at camp" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
-                    loading="lazy" 
-                    decoding="async" 
-                  />
-                  <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">Live Shows</span>
-                </div>
+                {(selectedPkg.gallery ?? DEFAULT_PHOTOS).map((photo) => (
+                  <div key={photo.src} className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-sand">
+                    <img
+                      src={photo.src}
+                      srcSet={srcSet(photo.src)}
+                      sizes={CARD_SIZES}
+                      alt={`${photo.label}, ${selectedPkg.title}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className="absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded">{photo.label}</span>
+                  </div>
+                ))}
               </div>
 
               {/* What is Included */}
@@ -165,10 +149,12 @@ export default function PackageDetailPage() {
                   <span className="text-[11px] font-black uppercase tracking-wider text-[#9A3412] bg-[#C2410C]/10 px-2.5 py-1 rounded-full">
                     Direct Rate
                   </span>
-                  <div className="flex items-center gap-1 text-amber-700 text-xs font-bold">
-                    <Star size={13} className="fill-amber-500" />
-                    <span>{selectedPkg.rating} ({selectedPkg.reviewsCount}+ reviews)</span>
-                  </div>
+                  {selectedPkg.reviewsCount > 0 && (
+                    <div className="flex items-center gap-1 text-amber-700 text-xs font-bold">
+                      <Star size={13} className="fill-amber-500" />
+                      <span>{selectedPkg.rating} ({selectedPkg.reviewsCount}+ reviews)</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mb-5">

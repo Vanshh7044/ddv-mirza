@@ -58,6 +58,48 @@ const GALLERY_ITEMS = [
     image: '/images/real/dune-buggy.webp',
     span: 'col-span-1',
   },
+  {
+    title: 'The Camp at Dusk',
+    tag: 'Camp',
+    image: '/images/real/camp-dusk-gazebos.webp',
+    span: 'col-span-1 md:col-span-2',
+  },
+  {
+    title: 'Henna at the Majlis',
+    tag: 'Culture',
+    image: '/images/real/henna-smile.webp',
+    span: 'col-span-1',
+  },
+  {
+    title: 'Arabic Coffee & Dates',
+    tag: 'Welcome',
+    image: '/images/real/arabic-coffee-dates.webp',
+    span: 'col-span-1',
+  },
+  {
+    title: 'Show Stage at Night',
+    tag: 'Night Shows',
+    image: '/images/real/camp-stage-night.webp',
+    span: 'col-span-1 md:col-span-2',
+  },
+  {
+    title: 'Camel Ride with a Handler',
+    tag: 'Bedouin Heritage',
+    image: '/images/real/camel-guests-sunset.webp',
+    span: 'col-span-1',
+  },
+  {
+    title: 'Table Seating at Camp',
+    tag: 'Dining',
+    image: '/images/real/camp-table-row.webp',
+    span: 'col-span-1',
+  },
+  {
+    title: 'Henna Art',
+    tag: 'Culture',
+    image: '/images/real/henna-guest.webp',
+    span: 'col-span-1',
+  },
 ];
 
 export default function ExperienceGallery() {

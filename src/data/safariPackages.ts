@@ -26,6 +26,10 @@ export interface SafariPackage {
   includes: string[];
   excludes?: string[];
   itinerary?: { time: string; title: string; desc: string }[];
+  /** Show the whole main photo over a blurred copy, for tall photos that no crop can fit. */
+  imageContain?: boolean;
+  /** Photos for the detail page strip; packages without their own use the default camp photos. */
+  gallery?: { src: string; label: string }[];
   /** One clear line on what the price covers (per person vs per car, shared vs private). */
   priceNote?: string;
   whatsAppText: string;
@@ -52,6 +56,8 @@ export const PRICES = {
   // Safari + 30-min quad combos (per person)
   standardQuad: 199,
   premiumQuad: 280,
+  lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
+  premierBuggy: 1250, // private car, Premier Camp and one buggy, one price for the group
   // Private short tours (per vehicle, up to 6)
   sunrise: 549,
   morning: 549,
@@ -63,6 +69,7 @@ export const PRICES = {
   // VIP & private
   vipTraditional: 999, // for 2 adults
   privateCamp: 2299, // per group up to 8
+  privateOvernight: 3200, // private overnight camp, one price for the group
   // City tours & cruises
   dubaiCityTour: 650, // per private car, up to 6
   abuDhabiCityTour: 950, // per private car, up to 6
@@ -270,6 +277,50 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     ],
     whatsAppText: wa('Premium Safari + 30-min Quad', PRICES.premiumQuad, 'person'),
   },
+  {
+    id: 'premier-private-buggy',
+    slug: 'premier-private-buggy',
+    category: 'combo',
+    tier: '17',
+    title: 'Premier Private Safari + Buggy',
+    tagline: 'Your own private 4×4, a dune buggy for your group and an evening of premier service at the Premier Camp.',
+    price: PRICES.premierBuggy,
+    originalPrice: PRICES.premierBuggy,
+    priceUnit: 'group',
+    duration: 'Evening Safari',
+    location: 'Premier Desert Camp',
+    pickupInfo: 'Pickup time confirmed on WhatsApp',
+    priceNote: 'One price for your private car, the Premier Camp and one buggy. Not per person.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE',
+    image: '/images/real/premier-buggy.webp',
+    imageContain: true,
+    detailPath: '/evening-safari/premier-private-buggy',
+    gallery: [
+      { src: '/images/real/premier-buggy.webp', label: 'Your buggy' },
+      { src: '/images/real/premier-buffet-gold.webp', label: 'Premier buffet' },
+      { src: '/images/real/premier-camp-stage.webp', label: 'Show stage' },
+      { src: '/images/real/premier-camp-lounge.webp', label: 'The Premier Camp' },
+      { src: '/images/real/premier-camp-crowd.webp', label: 'Dinner under the stars' },
+      { src: '/images/real/premier-camp-arches.webp', label: 'Camp courtyard' },
+      { src: '/images/real/premier-camp-tables.webp', label: 'Camp seating' },
+      { src: '/images/real/premier-land-cruiser-guests.webp', label: 'Your private 4×4' },
+      { src: '/images/real/premier-sunset-guest.webp', label: 'Sunset on the dunes' },
+      { src: '/images/real/premier-heart-guests.webp', label: 'Golden hour' },
+      { src: '/images/real/premier-sand-heart.webp', label: 'Desert photo moments' },
+      { src: '/images/real/premier-quad-guest.webp', label: 'Red dunes' },
+    ],
+    includes: [
+      'Private 4×4 for your group, with your own driver',
+      'One dune buggy for your group on the red dunes',
+      'Entry to the Premier Camp',
+      'Premier service through your evening',
+      'Dune bashing and sunset photo stops',
+      'Buffet dinner and live shows at camp',
+    ],
+    whatsAppText: wa('Premier Private Safari + Buggy', PRICES.premierBuggy, 'group'),
+  },
 
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
   {
@@ -428,6 +479,92 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Ideal for proposals, anniversaries & intimate celebrations',
     ],
     whatsAppText: wa('Private Desert Camp Setup', PRICES.privateCamp, 'group', 'Please provide details.'),
+  },
+  {
+    id: 'private-overnight-camp',
+    slug: 'private-overnight-camp',
+    category: 'vip',
+    tier: '18',
+    title: 'Private Overnight Desert Camp',
+    tagline: 'Your own private camp in the dunes for the night: a Bedouin-style tent, majlis seating, lantern-lit walkways and a sky full of stars.',
+    price: PRICES.privateOvernight,
+    originalPrice: PRICES.privateOvernight,
+    priceUnit: 'group',
+    duration: 'Overnight',
+    location: 'Private Desert Setup',
+    pickupInfo: 'Timings confirmed on WhatsApp',
+    priceNote: 'One price for your private camp setup. Not per person.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'OVERNIGHT',
+    image: '/images/real/overnight-sunset-tent.webp',
+    detailPath: '/evening-safari/private-overnight-camp',
+    gallery: [
+      { src: '/images/real/overnight-tent-interior.webp', label: 'Inside the tent' },
+      { src: '/images/real/overnight-night-lights.webp', label: 'Lit up at night' },
+      { src: '/images/real/overnight-bedouin-tent.webp', label: 'Bedouin tent' },
+      { src: '/images/real/overnight-torch-walkway.webp', label: 'Torch-lit walkway' },
+      { src: '/images/real/overnight-bell-tent.webp', label: 'Bell tent setup' },
+      { src: '/images/real/overnight-fire-pit.webp', label: 'Fire pit' },
+      { src: '/images/real/overnight-red-carpet.webp', label: 'Red carpet arrival' },
+      { src: '/images/real/overnight-sunset-wide.webp', label: 'Desert sunset' },
+      { src: '/images/real/overnight-floral-arch.webp', label: 'Celebration setups' },
+      { src: '/images/real/overnight-bedouin-majlis.webp', label: 'Majlis seating' },
+      { src: '/images/real/overnight-bell-tent-dusk.webp', label: 'Dusk at camp' },
+      { src: '/images/real/overnight-lounge-canopy.webp', label: 'Lounge canopy' },
+      { src: '/images/real/overnight-carpet-approach.webp', label: 'Arabic carpets' },
+      { src: '/images/real/overnight-bell-tent-carpet.webp', label: 'Your own camp' },
+      { src: '/images/real/overnight-sunset-tent.webp', label: 'Sunset at camp' },
+    ],
+    includes: [
+      'Private camp setup just for your group',
+      'Overnight stay in the desert',
+      'Private tent with majlis seating and Arabic carpets',
+      'Fairy lights, lanterns and a torch-lit walkway',
+      'Fire pit and floor cushions under the stars',
+      'Sunset and sunrise over the dunes',
+    ],
+    whatsAppText: wa('Private Overnight Desert Camp', PRICES.privateOvernight, 'group'),
+  },
+  {
+    id: 'lama-private-setup',
+    slug: 'lama-private-setup',
+    category: 'vip',
+    tier: '19',
+    title: 'Lama Premium Private Setup',
+    tagline: 'A private setup at our premium Lama camp, with Arabic hospitality, henna and an evening made just for your group. Pickup included.',
+    price: PRICES.lamaPrivate,
+    originalPrice: PRICES.lamaPrivate,
+    priceUnit: 'group',
+    duration: 'Evening',
+    location: 'Lama Premium Camp',
+    pickupInfo: 'Pickup included · time confirmed on WhatsApp',
+    priceNote: 'One price for your private setup, pickup included. Not per person.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE SETUP',
+    image: '/images/real/camp-dusk-gazebos.webp',
+    detailPath: '/evening-safari/lama-private-setup',
+    gallery: [
+      { src: '/images/real/camp-table-private.webp', label: 'Your private table' },
+      { src: '/images/real/camp-table-row.webp', label: 'Private seating' },
+      { src: '/images/real/camp-stage-night.webp', label: 'Show stage' },
+      { src: '/images/real/arabic-coffee-dates.webp', label: 'Arabic coffee & dates' },
+      { src: '/images/real/henna-smile.webp', label: 'Henna at the majlis' },
+      { src: '/images/real/camel-guests-sunset.webp', label: 'Camel ride' },
+      { src: '/images/real/henna-guest.webp', label: 'Henna art' },
+      { src: '/images/real/henna-phone.webp', label: 'Henna designs' },
+      { src: '/images/real/camp-dusk-gazebos.webp', label: 'The camp at dusk' },
+    ],
+    includes: [
+      'Private setup at the Lama premium camp',
+      'Pickup and drop-off included',
+      'Private table and seating for your group',
+      'Arabic coffee and dates on arrival',
+      'Henna art at the majlis',
+      'Camel ride at sunset',
+    ],
+    whatsAppText: wa('Lama Premium Private Setup', PRICES.lamaPrivate, 'group'),
   },
 
   // ─── CITY TOURS & CRUISES ─────────────────────────────────────────────────
@@ -616,7 +753,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
 
 export const getPackage = (id: string) => SAFARI_PACKAGES.find((p) => p.id === id)!;
 
-export const EVENING_TIERS = SAFARI_PACKAGES.filter((p) => p.category === 'evening' || p.category === 'combo');
+export const EVENING_TIERS = SAFARI_PACKAGES.filter((p) => p.detailPath.startsWith('/evening-safari/'));
 export const CITY_TOURS = SAFARI_PACKAGES.filter((p) => p.category === 'city');
 
 /** Lowest per-person desert-safari price with hotel transfer — used in "from AED X" copy. */
