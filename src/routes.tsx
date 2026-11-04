@@ -18,6 +18,7 @@ export const PAGE_ROUTES: { path: string; page: string }[] = [
   { path: 'city-tours', page: 'CityToursPage' },
   { path: 'tours/:slug', page: 'TourDetailPage' },
   { path: 'book', page: 'BookPage' },
+  { path: 'go/:slug', page: 'AdLandingPage' },
   { path: 'attraction-tickets', page: 'TicketsPage' },
   { path: 'transport', page: 'TransportPage' },
   { path: 'guides', page: 'GuidesPage' },

@@ -8,6 +8,8 @@ export default function MobileBar() {
 
   // Determine current page package context if any
   const currentPath = location.pathname;
+  // Ad landing pages have their own sticky booking button
+  if (currentPath.startsWith('/go/')) return null;
   // Some pages host several packages (e.g. morning + sunrise) — show the entry price
   const currentPkg = SAFARI_PACKAGES
     .filter(p => p.detailPath === currentPath)

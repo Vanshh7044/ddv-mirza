@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
-import { Check, X, Clock, MapPin, MessageCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Check, X, Clock, MapPin, ShieldCheck, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import PackageImage from '../components/PackageImage';
 import FinalCTA from '../components/sections/FinalCTA';
+import QuickBook from '../components/QuickBook';
 import { CITY_TOURS, getWhatsAppLink, aed, UNIT_LABEL } from '../data/safariPackages';
 import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/schemaData';
-import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
 
 import { srcSet, CARD_SIZES } from '../utils/img';
@@ -21,7 +21,6 @@ export default function TourDetailPage() {
     { label: 'City Tours', to: '/city-tours' },
     { label: tour.title },
   ];
-  const book = () => trackWhatsAppClick('tour_detail', tour.title, tour.price);
 
   return (
     <>
@@ -157,15 +156,7 @@ export default function TourDetailPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={getWhatsAppLink(tour.whatsAppText)}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={book}
-                className="w-full flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] text-white font-black text-sm rounded-xl shadow-xl shadow-[#C2410C]/30 transition-all h-[48px]"
-              >
-                <MessageCircle size={18} /> Reserve via WhatsApp
-              </a>
+              <QuickBook packages={[tour]} source="tour_detail" />
               <Link
                 to={`/book?package=${tour.id}`}
                 className="mt-2.5 w-full h-11 rounded-xl border-2 border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white font-bold text-sm inline-flex items-center justify-center transition-colors"

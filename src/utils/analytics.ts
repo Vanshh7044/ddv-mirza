@@ -69,6 +69,17 @@ export function trackLead(via: 'whatsapp_link' | 'booking_form' | 'phone') {
   });
 }
 
+/** One-tap booking sent with date and guests filled in: the strongest lead signal, valued at the booking total. */
+export function trackQuickBook(source: string, packageName: string, total: number) {
+  gtag('event', 'quick_book', {
+    source_component: source,
+    event_label: packageName,
+    value: total,
+    currency: 'AED',
+  });
+  fbq('track', 'Lead', { content_name: packageName, value: total, currency: 'AED', source });
+}
+
 // Visitors who arrived from a Google ad get "(Ref: DDT-G)" added to their WhatsApp message,
 // so whoever answers the chat can tell Google leads apart from Meta ones (DDT-AD).
 const AD_KEY = 'ddt_google_ad';

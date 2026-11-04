@@ -1,13 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
-import { Check, Star, Clock, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
+import { Check, Star, Clock, MapPin, ShieldCheck } from 'lucide-react';
 import { EVENING_TIERS, getWhatsAppLink, aed, UNIT_LABEL } from '../data/safariPackages';
 import { getBreadcrumbSchema, getTouristTripSchema, BASE_URL } from '../data/schemaData';
-import { trackWhatsAppClick } from '../utils/analytics';
 import NotFoundPage from './NotFoundPage';
 import AddOnsSection from '../components/sections/AddOnsSection';
 import TimingsPickup from '../components/sections/TimingsPickup';
+import QuickBook from '../components/QuickBook';
 import PackageImage from '../components/PackageImage';
 
 import { srcSet, CARD_SIZES } from '../utils/img';
@@ -192,16 +192,7 @@ export default function PackageDetailPage() {
                   </div>
                 </div>
 
-                <a
-                  href={getWhatsAppLink(selectedPkg.whatsAppText)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('detail_widget', selectedPkg.title, selectedPkg.price)}
-                  className="w-full flex items-center justify-center gap-2 bg-[#C2410C] hover:bg-[#9A3412] active:scale-98 text-white font-black text-sm py-3.5 sm:py-4 rounded-xl shadow-xl shadow-[#C2410C]/30 transition-all h-[48px]"
-                >
-                  <MessageCircle size={18} />
-                  <span>Reserve via WhatsApp</span>
-                </a>
+                <QuickBook packages={[selectedPkg]} source="detail_widget" />
 
                 <Link
                   to={`/book?package=${selectedPkg.id}`}
