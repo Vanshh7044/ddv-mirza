@@ -54,7 +54,7 @@ export const PRICES = {
   eveningVip: 299,
   eveningVipPrivate: 1299, // private Land Cruiser for the group, up to 6
   // Safari + 30-min quad combos (per person)
-  standardQuad: 199,
+  standardQuad: 239,
   premiumQuad: 280,
   lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
   premierBuggy: 1250, // private car, Premier Camp and one buggy, one price for the group
