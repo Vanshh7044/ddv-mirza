@@ -5,7 +5,7 @@ import { trackWhatsAppClick } from '../../utils/analytics';
 import PackageImage from '../PackageImage';
 
 // The top private packages, featured right after the main package grid.
-const FEATURED_IDS = ['lama-private-setup', 'premier-private-buggy', 'private-overnight-camp'];
+const FEATURED_IDS = ['lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
 const FEATURED = FEATURED_IDS.flatMap((id) => SAFARI_PACKAGES.filter((p) => p.id === id));
 
 export default function SignatureExperiences() {
@@ -24,7 +24,7 @@ export default function SignatureExperiences() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {FEATURED.map((pkg) => (
             <div
               key={pkg.id}
@@ -47,7 +47,7 @@ export default function SignatureExperiences() {
 
                 <div className="pt-3.5 mt-4 border-t border-slate-800 flex items-center justify-between gap-3">
                   <div>
-                    <div className="text-xl sm:text-2xl font-black text-white">{aed(pkg.price)}</div>
+                    <div className="text-xl lg:text-lg xl:text-xl font-black text-white whitespace-nowrap">{aed(pkg.price)}</div>
                     <div className="text-[11px] text-slate-400 font-medium">one price · private</div>
                   </div>
                   <a
@@ -55,7 +55,7 @@ export default function SignatureExperiences() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('signature', pkg.title, pkg.price)}
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-bold text-xs sm:text-sm px-4 h-11 rounded-xl transition-all shadow-lg shadow-[#C2410C]/25 whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] active:scale-95 text-white font-bold text-xs sm:text-sm px-3.5 h-11 rounded-xl transition-all shadow-lg shadow-[#C2410C]/25 whitespace-nowrap"
                   >
                     <MessageCircle size={15} /> Book Now
                   </a>

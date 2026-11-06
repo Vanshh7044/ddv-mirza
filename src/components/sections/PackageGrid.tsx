@@ -26,7 +26,7 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 ];
 
 // Step-by-step ladder, cheapest first. Everything else follows, and cruises always come last.
-const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'private-overnight-camp'];
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
 const rank = (p: SafariPackage) => {
   if (CRUISES.includes(p.id)) return 100;

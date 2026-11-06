@@ -25,7 +25,7 @@ export default function EveningSafariPage() {
       <PageHero
         dark={true}
         label="Dubai Evening Desert Safari · Direct Operator"
-        title="Dubai's Premier Evening"
+        title="Dubai's Premium Evening"
         titleEm="Desert Safari"
         subtitle={`Choose from Standard (${aed(PRICES.eveningStandard)}), Premium (${aed(PRICES.eveningPremium)}) or VIP (${aed(PRICES.eveningVip)}) — or add a 30-minute quad ride from ${aed(PRICES.standardQuad)}. Free hotel pickup and pay on arrival included in all packages.`}
         breadcrumbs={breadcrumbs}
