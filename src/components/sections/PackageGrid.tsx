@@ -25,10 +25,19 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'All', icon: LayoutGrid },
 ];
 
+// Step-by-step ladder, cheapest first. Everything else follows, and cruises always come last.
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'private-overnight-camp'];
+const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
+const rank = (p: SafariPackage) => {
+  if (CRUISES.includes(p.id)) return 100;
+  const step = LADDER.indexOf(p.id);
+  return step === -1 ? 50 : step;
+};
+
 const inTab = (p: SafariPackage, tab: Tab) => {
   if (tab === 'all') return true;
-  // Evening tab: Standard, Premium and Premium + Quad (VIP lives under All)
-  if (tab === 'evening') return ['evening-standard', 'evening-premium', 'premium-quad'].includes(p.id);
+  // Evening tab: the ladder (VIP lives under All)
+  if (tab === 'evening') return LADDER.includes(p.id);
   if (tab === 'short') return p.category === 'short' || p.category === 'selfdrive';
   return p.category === tab;
 };
@@ -36,7 +45,7 @@ const inTab = (p: SafariPackage, tab: Tab) => {
 export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: Tab }) {
   const [activeTab, setActiveTab] = useState<Tab>(initialTab);
 
-  const filteredPackages = SAFARI_PACKAGES.filter((p) => inTab(p, activeTab));
+  const filteredPackages = SAFARI_PACKAGES.filter((p) => inTab(p, activeTab)).sort((a, b) => rank(a) - rank(b));
 
   return (
     <section id="packages" className="py-10 sm:py-16 md:py-20 bg-[#F8F6F0] border-t border-sand/70">
@@ -99,7 +108,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
 
         {/* Package Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
-          {filteredPackages.map((pkg: SafariPackage) => {
+          {filteredPackages.map((pkg: SafariPackage, step: number) => {
             const isHighlighted = pkg.isPopular || pkg.badge === 'VIP LUXURY';
             
             return (
@@ -119,7 +128,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {/* Floating Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                     <span className="bg-black/60 backdrop-blur-md text-white font-mono text-[10px] sm:text-[11px] font-bold px-2 py-0.5 sm:py-1 rounded-md border border-white/20">
-                      Tier {pkg.tier}
+                      Tier {String(step + 1).padStart(2, '0')}
                     </span>
                     {pkg.badge && (
                       <span className="bg-[#C2410C] text-white font-extrabold text-[10px] sm:text-[11px] tracking-wider px-2.5 py-0.5 sm:py-1 rounded-md shadow-lg">

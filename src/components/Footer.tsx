@@ -89,6 +89,7 @@ export default function Footer() {
               <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
               <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
               <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
+              <Link to="/evening-safari/premium-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Premium Private Car ({aed(PRICES.eveningPremiumPrivate)})</Link>
               <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Premier Private + Buggy ({aed(PRICES.premierBuggy)})</Link>
               <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
               <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>

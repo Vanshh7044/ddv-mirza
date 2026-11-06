@@ -53,6 +53,7 @@ export const PRICES = {
   eveningPremium: 139,
   eveningVip: 299,
   eveningVipPrivate: 1299, // private Land Cruiser for the group, up to 6
+  eveningPremiumPrivate: 850, // Evening Premium in a private car, per car
   // Safari + 30-min quad combos (per person)
   standardQuad: 239,
   premiumQuad: 280,
@@ -234,7 +235,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     priceNote: 'Price per person, shared Land Cruiser. Kids under 3 free.',
     rating: 4.9,
     reviewsCount: 401,
-    image: '/images/real/quad-bike.webp',
+    image: '/images/real/premier-quad-guest.webp',
+    imageContain: true,
     detailPath: '/evening-safari/standard-quad',
     includes: [
       'Everything in the Evening Standard Safari',
@@ -276,6 +278,37 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Free hotel pickup & drop-off',
     ],
     whatsAppText: wa('Premium Safari + 30-min Quad', PRICES.premiumQuad, 'person'),
+  },
+  {
+    id: 'premium-private-car',
+    slug: 'premium-private-car',
+    category: 'evening',
+    tier: '20',
+    title: 'Evening Premium Private Car',
+    tagline: 'The Evening Premium safari in your own private Land Cruiser, with one price for the whole car.',
+    price: PRICES.eveningPremiumPrivate,
+    originalPrice: PRICES.eveningPremiumPrivate,
+    priceUnit: 'vehicle',
+    duration: '6–7 Hours',
+    location: 'Lehbab Red Dunes',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'Price per car, not per person.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE CAR',
+    image: '/images/real/premier-land-cruiser-guests.webp',
+    imageContain: true,
+    detailPath: '/evening-safari/premium-private-car',
+    includes: [
+      'Private Land Cruiser with your own driver',
+      'Extended dune bashing with extra photo stops',
+      'Priority majlis seating with table service',
+      'Premium BBQ buffet with live grill stations',
+      'Camel ride & sandboarding',
+      'Live Tanoura, fire & belly dance shows',
+    ],
+    whatsAppText: wa('Evening Premium Private Car', PRICES.eveningPremiumPrivate, 'vehicle'),
   },
   {
     id: 'premier-private-buggy',

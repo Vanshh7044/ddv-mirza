@@ -19,7 +19,7 @@ const GALLERY_ITEMS = [
   {
     title: 'Quad Biking on the Dunes',
     tag: 'Off-Road Thrills',
-    image: '/images/real/quad-bike.webp',
+    image: '/images/real/premier-quad-guest.webp',
     span: 'col-span-1',
   },
   {
