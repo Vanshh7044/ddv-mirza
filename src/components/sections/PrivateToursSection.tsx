@@ -13,7 +13,7 @@ const TOURS = [
     price: PRICES.sunrise,
     image: '/images/real/golden-hour-sand.webp',
     link: '/morning-safari',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-4',
   },
   {
     title: 'Private Morning Safari',
@@ -22,7 +22,7 @@ const TOURS = [
     price: PRICES.morning,
     image: '/images/real/dune-jump.webp',
     link: '/morning-safari',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-4',
   },
   {
     title: 'Private Sunset Safari',
@@ -31,7 +31,7 @@ const TOURS = [
     price: PRICES.eveningExpress,
     image: '/images/real/land-cruiser-sunset.webp',
     link: '/morning-safari',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-4',
   },
   {
     title: 'Private Dubai City Tour',
@@ -40,7 +40,16 @@ const TOURS = [
     price: PRICES.dubaiCityTour,
     image: '/images/dubai-city-tour-poster-v2.webp',
     link: '/tours/dubai-city-tour',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-3',
+  },
+  {
+    title: 'Private Grand Mosque Tour',
+    time: 'Half day',
+    desc: 'Private car from your hotel to the Sheikh Zayed Grand Mosque in Abu Dhabi and back.',
+    price: PRICES.grandMosqueTour,
+    image: '/images/sheikh-zayed-mosque-tour-poster.webp',
+    link: '/tours/sheikh-zayed-grand-mosque-tour',
+    span: 'lg:col-span-3',
   },
   {
     title: 'Private Abu Dhabi City Tour',
@@ -49,7 +58,7 @@ const TOURS = [
     price: PRICES.abuDhabiCityTour,
     image: '/images/abu-dhabi-city-tour-poster-v2.webp',
     link: '/tours/abu-dhabi-city-tour',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-3',
   },
   {
     title: 'Private Yacht, Dubai Marina',
@@ -58,7 +67,7 @@ const TOURS = [
     price: PRICES.marinaYacht,
     image: '/images/real/marina-yacht.webp',
     link: '/tours/private-yacht-dubai-marina',
-    span: 'lg:col-span-2',
+    span: 'lg:col-span-3',
     unitNote: 'per hour · whole yacht',
   },
 ];
@@ -81,7 +90,7 @@ export default function PrivateToursSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
           {TOURS.map((t) => (
             <div
               key={t.title}

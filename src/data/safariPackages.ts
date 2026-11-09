@@ -373,7 +373,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'VIP',
-    image: '/images/real/canam-buggy-gold.webp',
+    image: '/images/real/canam-buggy-guest.webp',
+    imageContain: true,
     detailPath: '/evening-safari/premium-vip-safari',
     gallery: [
       { src: '/images/real/canam-buggy-guest.webp', label: 'Can-Am buggy ride' },
