@@ -214,6 +214,9 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                       {pkg.priceUnit === 'vehicle' && (
                         <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">whole car · up to 6</div>
                       )}
+                      {pkg.id === 'short-desert-safari' && (
+                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">sharing · private {aed(PRICES.morning)}</div>
+                      )}
                       {pkg.id === 'evening-vip' && (
                         <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
                       )}

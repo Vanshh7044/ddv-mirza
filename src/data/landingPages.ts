@@ -54,9 +54,9 @@ export const LANDING_PAGES: LandingPage[] = [
     slug: 'short-safari',
     title: 'Short Desert Safari Dubai, AED 99',
     headline: 'Short Desert Safari, AED 99',
-    subhead: 'Dune bashing, sandboarding and a long camel ride in 3–4 hours, morning or evening. No camp, no dinner.',
+    subhead: 'Dune bashing, sandboarding and a short camel ride in 3–4 hours, morning or evening. No camp, no dinner. Private car option too.',
     bullets: ['Hotel pickup & drop-off', 'Morning or evening, your choice', 'Pay on the day, no deposit'],
-    packageIds: ['short-desert-safari'],
+    packageIds: ['short-desert-safari', 'morning-safari', 'sunrise-safari'],
   },
   {
     slug: 'family-safari',
