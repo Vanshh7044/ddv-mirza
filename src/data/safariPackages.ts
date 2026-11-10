@@ -60,6 +60,7 @@ export const PRICES = {
   lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1250, // private car, Premium Camp and one buggy, one price for the group
+  shortShared: 99, // short safari, sharing basis, no camp or dinner
   // Private short tours (per vehicle, up to 6)
   sunrise: 549,
   morning: 549,
@@ -396,6 +397,42 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
   },
 
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
+  {
+    id: 'short-desert-safari',
+    slug: 'short-desert-safari',
+    category: 'short',
+    tier: '22',
+    title: 'Short Desert Safari',
+    tagline: 'Dune bashing, sandboarding and a short camel ride in about 3–4 hours, morning or evening. No camp, no dinner.',
+    price: PRICES.shortShared,
+    originalPrice: PRICES.shortShared,
+    priceUnit: 'person',
+    duration: '3–4 Hours',
+    location: 'Red Dunes',
+    pickupInfo: 'Morning or evening · time on WhatsApp',
+    priceNote: 'Price per person, sharing basis. No camp or dinner.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'SHORT TOUR',
+    image: '/images/real/land-cruiser-sunset-front.webp',
+    imageContain: true,
+    detailPath: '/evening-safari/short-desert-safari',
+    gallery: [
+      { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
+      { src: '/images/real/golden-hour-sand.webp', label: 'Desert photo stop' },
+      { src: '/images/real/camel-ride.webp', label: 'Short camel ride' },
+    ],
+    includes: [
+      'Hotel pickup and drop-off',
+      '4×4 Land Cruiser dune bashing',
+      'Sandboarding',
+      'Short camel ride',
+      'Desert photo stop',
+      'Water and soft drinks',
+      'About 3–4 hours, morning or evening',
+    ],
+    whatsAppText: wa('Short Desert Safari', PRICES.shortShared, 'person', 'Morning or evening? Please confirm availability for my date.'),
+  },
   {
     id: 'sunrise-safari',
     slug: 'sunrise',

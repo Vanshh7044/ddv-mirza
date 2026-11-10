@@ -51,6 +51,14 @@ export const LANDING_PAGES: LandingPage[] = [
     packageIds: ['sunrise-safari', 'morning-safari', 'premium-private-car'],
   },
   {
+    slug: 'short-safari',
+    title: 'Short Desert Safari Dubai, AED 99',
+    headline: 'Short Desert Safari, AED 99',
+    subhead: 'Dune bashing, sandboarding and a camel ride in 3–4 hours, morning or evening. No camp, no dinner.',
+    bullets: ['Hotel pickup & drop-off', 'Morning or evening, your choice', 'Pay on the day, no deposit'],
+    packageIds: ['short-desert-safari'],
+  },
+  {
     slug: 'family-safari',
     title: 'Family Desert Safari Dubai',
     headline: 'Family Desert Safari in Dubai',
