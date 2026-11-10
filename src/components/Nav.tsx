@@ -23,6 +23,7 @@ const desertSafariMenu = [
     heading: 'Private Short Tours & Self-Drive',
     items: [
       { label: `Short Desert Safari (${aed(PRICES.shortShared)})`, sub: 'Shared · 3–4 hours · morning or evening', href: '/evening-safari/short-desert-safari' },
+      { label: `Private Short Safari (${aed(PRICES.morning)})`, sub: 'Your own car · 3–4 hours', href: '/evening-safari/private-short-safari' },
       { label: `Sunrise Safari (${aed(PRICES.sunrise)})`, sub: 'Private car at dawn · up to 6', href: '/morning-safari' },
       { label: `Morning Safari (${aed(PRICES.morning)})`, sub: 'Private car · dune bashing', href: '/morning-safari' },
       { label: `Evening Short Safari (${aed(PRICES.eveningExpress)})`, sub: 'Private car · sunset, no camp', href: '/morning-safari' },
@@ -59,6 +60,7 @@ const mobileMenuItems = [
   { label: `🏁 Premium VIP Safari (${aed(PRICES.canAmBuggy)})`, sub: 'Can-Am buggy, horse riding & VIP seating', to: '/evening-safari/premium-vip-safari' },
   { label: `👑 Evening VIP Majlis (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
   { label: `⏱️ Short Desert Safari (${aed(PRICES.shortShared)})`, sub: 'Shared · 3–4 hours', to: '/evening-safari/short-desert-safari' },
+  { label: `🚙 Private Short Safari (${aed(PRICES.morning)})`, sub: 'Your own car · 3–4 hours', to: '/evening-safari/private-short-safari' },
   { label: `🌅 Sunrise / Morning Safari (${aed(PRICES.sunrise)})`, sub: 'Private car · up to 6', to: '/morning-safari' },
   { label: `🏎️ Self-Drive Convoy (${aed(PRICES.selfDrive)})`, sub: 'Drive your own 4×4', to: '/self-drive' },
   { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },

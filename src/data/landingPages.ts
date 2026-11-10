@@ -48,7 +48,7 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: 'Private Desert Safari, AED 549 per Car',
     subhead: 'Your own Land Cruiser and driver, morning or evening. One price for the whole car, not per person.',
     bullets: ['No strangers in your car', 'Free hotel pickup & drop-off', 'Pay on the day, no deposit'],
-    packageIds: ['sunrise-safari', 'morning-safari', 'premium-private-car'],
+    packageIds: ['private-short-safari', 'sunrise-safari', 'morning-safari', 'premium-private-car'],
   },
   {
     slug: 'short-safari',
@@ -56,7 +56,7 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: 'Short Desert Safari, AED 99',
     subhead: 'Dune bashing, sandboarding and a short camel ride in 3–4 hours, morning or evening. No camp, no dinner. Private car option too.',
     bullets: ['Hotel pickup & drop-off', 'Morning or evening, your choice', 'Pay on the day, no deposit'],
-    packageIds: ['short-desert-safari', 'morning-safari', 'sunrise-safari'],
+    packageIds: ['short-desert-safari', 'private-short-safari'],
   },
   {
     slug: 'family-safari',

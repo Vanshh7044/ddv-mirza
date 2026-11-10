@@ -23,6 +23,7 @@ const optionLabel = (p: (typeof SAFARI_PACKAGES)[number]) =>
 const adventureOptions = SAFARI_PACKAGES.map(optionLabel);
 const quickPicks = [
   { label: `⏱️ Short Safari (${aed(PRICES.shortShared)})`, id: 'short-desert-safari' },
+  { label: `🚙 Private Short Safari (${aed(PRICES.morning)})`, id: 'private-short-safari' },
   { label: `🔥 Evening Standard (${aed(PRICES.eveningStandard)})`, id: 'evening-standard' },
   { label: `⭐ Evening Premium (${aed(PRICES.eveningPremium)})`, id: 'evening-premium' },
   { label: `🏍️ Premium + Quad (${aed(PRICES.premiumQuad)})`, id: 'premium-quad' },
