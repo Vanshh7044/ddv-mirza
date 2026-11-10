@@ -25,11 +25,9 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'All', icon: LayoutGrid },
 ];
 
-// Step-by-step ladder, cheapest first. Everything else follows, and cruises always come last.
-const LADDER = ['private-short-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
+// Step-by-step ladder, Private Short Safari first. The AED 99 safaris sit at the end, still bookable but not prominent. Cruises always come last.
+const LADDER = ['private-short-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp', 'evening-standard', 'short-desert-safari'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
-// Taken off the homepage for now; their pages still work for ads that link to them
-const HIDDEN = ['evening-standard', 'short-desert-safari'];
 const rank = (p: SafariPackage) => {
   if (CRUISES.includes(p.id)) return 100;
   const step = LADDER.indexOf(p.id);
@@ -37,7 +35,6 @@ const rank = (p: SafariPackage) => {
 };
 
 const inTab = (p: SafariPackage, tab: Tab) => {
-  if (HIDDEN.includes(p.id)) return false;
   if (tab === 'all') return true;
   // Evening tab: the ladder (VIP lives under All)
   if (tab === 'evening') return LADDER.includes(p.id);
