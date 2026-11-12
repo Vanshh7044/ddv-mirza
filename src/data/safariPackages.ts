@@ -60,7 +60,7 @@ export const PRICES = {
   // Safari + 30-min quad combos (per person)
   standardQuad: 239,
   premiumQuad: 280,
-  standardPrivateBuggy: 1050, // private Land Cruiser + 30-min buggy + standard camp, per car
+  standardPrivateBuggy: 1250, // private Land Cruiser + 30-min buggy + standard camp, per car
   lamaPrivate: 1350, // private gazebo setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1350, // private car, Premium Camp and one buggy, one price for the group
@@ -330,7 +330,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     location: 'Red Dunes',
     pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
     itinerary: EVENING_ITINERARY,
-    priceNote: 'AED 1,050 per private car, not per person. 30-minute buggy ride, dinner and shows included.',
+    priceNote: `${aed(PRICES.standardPrivateBuggy)} per private car, not per person. 30-minute buggy ride, dinner and shows included.`,
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE + BUGGY',
