@@ -20,7 +20,7 @@ import { smoothScrollTo } from '../hooks/useSmoothScroll';
 const optionLabel = (p: (typeof SAFARI_PACKAGES)[number]) =>
   `${p.title} (${aed(p.price)}${UNIT_LABEL[p.priceUnit].replace(' ', '')})`;
 
-const adventureOptions = SAFARI_PACKAGES.map(optionLabel);
+const adventureOptions = SAFARI_PACKAGES.filter((p) => p.id !== 'marina-yacht').map(optionLabel);
 const quickPicks = [
   { label: `🔥 Evening Standard (${aed(PRICES.eveningStandard)})`, id: 'evening-standard' },
   { label: `🚙 Private Short Safari (${aed(PRICES.morning)})`, id: 'private-short-safari' },

@@ -28,6 +28,8 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 // Step-by-step price ladder, cheapest first. Cruises always come last.
 const LADDER = ['evening-standard', 'short-desert-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
+// Not shown in the package grid for now; its page still works
+const HIDDEN = ['marina-yacht'];
 const rank = (p: SafariPackage) => {
   if (CRUISES.includes(p.id)) return 100;
   const step = LADDER.indexOf(p.id);
@@ -35,6 +37,7 @@ const rank = (p: SafariPackage) => {
 };
 
 const inTab = (p: SafariPackage, tab: Tab) => {
+  if (HIDDEN.includes(p.id)) return false;
   if (tab === 'all') return true;
   // Evening tab: the ladder (VIP lives under All)
   if (tab === 'evening') return LADDER.includes(p.id);

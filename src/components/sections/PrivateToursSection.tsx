@@ -40,7 +40,7 @@ const TOURS = [
     price: PRICES.dubaiCityTour,
     image: '/images/dubai-city-tour-poster-v2.webp',
     link: '/tours/dubai-city-tour',
-    span: 'lg:col-span-3',
+    span: 'lg:col-span-4',
   },
   {
     title: 'Private Grand Mosque Tour',
@@ -49,7 +49,7 @@ const TOURS = [
     price: PRICES.grandMosqueTour,
     image: '/images/sheikh-zayed-mosque-tour-poster.webp',
     link: '/tours/sheikh-zayed-grand-mosque-tour',
-    span: 'lg:col-span-3',
+    span: 'lg:col-span-4',
   },
   {
     title: 'Private Abu Dhabi City Tour',
@@ -58,17 +58,7 @@ const TOURS = [
     price: PRICES.abuDhabiCityTour,
     image: '/images/abu-dhabi-city-tour-poster-v2.webp',
     link: '/tours/abu-dhabi-city-tour',
-    span: 'lg:col-span-3',
-  },
-  {
-    title: 'Private Yacht, Dubai Marina',
-    time: 'By the hour',
-    desc: 'Your own private yacht with captain: Dubai Marina skyline, JBR, Ain Dubai and the Palm from the water.',
-    price: PRICES.marinaYacht,
-    image: '/images/real/marina-yacht.webp',
-    link: '/tours/private-yacht-dubai-marina',
-    span: 'lg:col-span-3',
-    unitNote: 'per hour · whole yacht',
+    span: 'lg:col-span-4',
   },
 ];
 
@@ -86,7 +76,7 @@ export default function PrivateToursSection() {
             Private Tours
           </h2>
           <p className="text-xs sm:text-base text-slate-300 font-medium">
-            One price for the whole car or yacht, not per person. Pay on the day.
+            One price for the whole car, not per person. Pay on the day.
           </p>
         </div>
 
@@ -121,10 +111,10 @@ export default function PrivateToursSection() {
                 <div className="pt-3.5 mt-4 border-t border-slate-800 flex items-center justify-between gap-3">
                   <div>
                     <div className="text-xl sm:text-2xl font-black text-white">{aed(t.price)}</div>
-                    <div className="text-[11px] text-slate-400 font-medium">{'unitNote' in t ? t.unitNote : 'private car · up to 6'}</div>
+                    <div className="text-[11px] text-slate-400 font-medium">private car · up to 6</div>
                   </div>
                   <a
-                    href={getWhatsAppLink(`Hi! I'd like to book the ${t.title} (${aed(t.price)} ${'unitNote' in t ? 'per hour' : 'per car'}). Please confirm my date.`)}
+                    href={getWhatsAppLink(`Hi! I'd like to book the ${t.title} (${aed(t.price)} per car). Please confirm my date.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppClick('private_tours', t.title, t.price)}
