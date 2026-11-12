@@ -11,7 +11,8 @@ import {
   Play, 
   Pause,
   MessageCircle,
-  Sparkles
+  Sparkles,
+  X
 } from 'lucide-react';
 import { trackBookingFormSubmit, tagAdRef } from '../utils/analytics';
 import { SAFARI_PACKAGES, PRICES, FROM_PRICE, aed, UNIT_LABEL, getWhatsAppLink } from '../data/safariPackages';
@@ -38,8 +39,10 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   // The poster image is the first paint (and LCP). The background video is only
-  // fetched on larger screens, after the page has loaded, and never on Save-Data.
+  // fetched after the page has loaded (a light portrait cut on phones), never on Save-Data.
   const [showVideo, setShowVideo] = useState(false);
+  const [videoSrc, setVideoSrc] = useState('/videos/hero-real.mp4');
+  const [showFilm, setShowFilm] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
 
   const containerRef = useRef<HTMLElement>(null);
@@ -48,7 +51,8 @@ export default function Hero() {
 
   useEffect(() => {
     const saveData = (navigator as any).connection?.saveData;
-    if (saveData || !window.matchMedia('(min-width: 768px)').matches) return;
+    if (saveData || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) setVideoSrc('/videos/hero-real-m.mp4');
     let idleId: number | undefined;
     const start = () => {
       const idle = (window as any).requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1200));
@@ -129,7 +133,7 @@ export default function Hero() {
               onPlaying={() => setVideoReady(true)}
               className={`absolute inset-0 w-full h-full object-cover saturate-[1.15] brightness-[0.85] transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
             >
-              <source src="/videos/hero-real.mp4" type="video/mp4" />
+              <source src={videoSrc} type="video/mp4" />
             </video>
           )}
 
@@ -205,6 +209,17 @@ export default function Hero() {
               <span>Free 24h Cancel</span>
             </span>
           </div>
+
+          <button
+            type="button"
+            onClick={() => setShowFilm(true)}
+            className="mt-4 sm:mt-5 inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 text-white font-bold text-xs sm:text-sm pl-1.5 pr-4 py-1.5 rounded-full transition-colors cursor-pointer"
+          >
+            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-[#0F172A] flex items-center justify-center">
+              <Play size={13} className="ml-0.5" fill="currentColor" />
+            </span>
+            Watch the 30-sec film
+          </button>
         </div>
 
         {/* Bottom Sub-bar */}
@@ -341,6 +356,33 @@ export default function Hero() {
           </form>
         )}
       </div>
+      {showFilm && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Desert safari film"
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-3 sm:p-8"
+          onClick={() => setShowFilm(false)}
+          onKeyDown={(e) => e.key === 'Escape' && setShowFilm(false)}
+        >
+          <button
+            type="button"
+            onClick={() => setShowFilm(false)}
+            aria-label="Close film"
+            className="absolute top-3 right-3 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center"
+          >
+            <X size={20} />
+          </button>
+          <video
+            src="/videos/hero-real.mp4"
+            controls
+            autoPlay
+            playsInline
+            className="w-full max-w-5xl max-h-[85vh] rounded-xl shadow-2xl bg-black"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
