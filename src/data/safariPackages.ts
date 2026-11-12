@@ -878,7 +878,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE YACHT',
-    image: '/images/real/marina-yacht.webp',
+    image: '/images/real/yacht-marina-day.webp',
     detailPath: '/tours/private-yacht-dubai-marina',
     includes: [
       'Private yacht for your group only',
@@ -907,7 +907,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'NEW',
-    image: '/images/real/marina-yacht.webp',
+    image: '/images/real/cruise-marina-night.webp',
     detailPath: '/tours/dhow-cruise-dubai-marina',
     includes: [
       'Hotel pickup & drop-off',
