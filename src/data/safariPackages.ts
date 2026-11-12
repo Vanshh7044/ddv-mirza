@@ -72,6 +72,7 @@ export const PRICES = {
   // VIP & private
   vipTraditional: 999, // for 2 adults
   privateCamp: 2299, // per group up to 8
+  privateOvernightSafari: 2200, // private 4x4 overnight safari, per vehicle
   privateOvernight: 3200, // private overnight camp, one price for the group
   // City tours & cruises
   dubaiCityTour: 650, // per private car, up to 6
@@ -677,6 +678,52 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Ideal for proposals, anniversaries & intimate celebrations',
     ],
     whatsAppText: wa('Private Desert Camp Setup', PRICES.privateCamp, 'group', 'Please provide details.'),
+  },
+  {
+    id: 'private-overnight-safari',
+    slug: 'private-overnight-safari',
+    category: 'vip',
+    tier: '25',
+    title: 'Exclusive Private Overnight Desert Safari',
+    tagline: 'A luxury overnight desert adventure in your own private 4×4: sunset, BBQ dinner, a night in the desert and sunrise with breakfast.',
+    price: PRICES.privateOvernightSafari,
+    originalPrice: PRICES.privateOvernightSafari,
+    priceUnit: 'vehicle',
+    duration: 'Overnight',
+    location: 'Desert Camp',
+    pickupInfo: 'Afternoon pickup · back to your hotel next morning',
+    priceNote: 'AED 2,200 per private vehicle, not per person. Dinner, overnight stay and breakfast included.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'OVERNIGHT',
+    image: '/images/real/overnight-bedouin-tent.webp',
+    detailPath: '/evening-safari/private-overnight-safari',
+    gallery: [
+      { src: '/images/real/land-cruiser-sunset.webp', label: 'Your private 4×4' },
+      { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
+      { src: '/images/real/camel-ride.webp', label: 'Camel riding' },
+      { src: '/images/real/buffet.webp', label: 'BBQ buffet dinner' },
+      { src: '/images/real/overnight-night-lights.webp', label: 'Night in the desert' },
+      { src: '/images/real/golden-hour-sand.webp', label: 'Desert sunrise' },
+    ],
+    includes: [
+      'Private 4×4 Land Cruiser',
+      'Private pickup & drop-off',
+      'Exclusive desert safari experience',
+      'Dune bashing',
+      'Sunset photography',
+      'Camel riding',
+      'Sandboarding',
+      'Traditional desert camp experience',
+      'Private overnight stay in desert accommodation',
+      'BBQ buffet dinner',
+      'Live entertainment shows',
+      'Unlimited soft drinks & water',
+      'Breakfast next morning',
+      'Sunrise desert experience',
+      'Return transfer to your hotel in the morning',
+    ],
+    whatsAppText: wa('Exclusive Private Overnight Desert Safari', PRICES.privateOvernightSafari, 'vehicle'),
   },
   {
     id: 'private-overnight-camp',
