@@ -60,7 +60,7 @@ export const PRICES = {
   standardPrivateBuggy: 1050, // private Land Cruiser + 30-min buggy + standard camp, per car
   lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
-  premierBuggy: 1250, // private car, Premium Camp and one buggy, one price for the group
+  premierBuggy: 1350, // private car, Premium Camp and one buggy, one price for the group
   // Private short tours (per vehicle, up to 6)
   privateShort: 549, // Private Short Safari, per car
   sunrise: 650,
@@ -367,7 +367,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     duration: 'Evening Safari',
     location: 'Premium Desert Camp',
     pickupInfo: 'Pickup & drop-off included · time on WhatsApp',
-    priceNote: 'AED 1,250 per private car, not per person. Buggy ride, Premium Camp, dinner and shows included.',
+    priceNote: `${aed(PRICES.premierBuggy)} per private car, not per person. Buggy ride, Premium Camp, dinner and shows included.`,
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE',
