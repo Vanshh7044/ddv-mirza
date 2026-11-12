@@ -57,6 +57,7 @@ export const PRICES = {
   // Safari + 30-min quad combos (per person)
   standardQuad: 239,
   premiumQuad: 280,
+  standardPrivateBuggy: 1050, // private Land Cruiser + 30-min buggy + standard camp, per car
   lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1250, // private car, Premium Camp and one buggy, one price for the group
@@ -310,6 +311,48 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Live Tanoura, fire & belly dance shows',
     ],
     whatsAppText: wa('Evening Premium Private Car', PRICES.eveningPremiumPrivate, 'vehicle'),
+  },
+  {
+    id: 'standard-private-buggy',
+    slug: 'standard-private-buggy',
+    category: 'combo',
+    tier: '24',
+    title: 'Standard Private Safari + 30-min Buggy',
+    tagline: 'A complete desert safari in your own private Land Cruiser, with a 30-minute dune buggy ride, BBQ dinner and live shows.',
+    price: PRICES.standardPrivateBuggy,
+    originalPrice: PRICES.standardPrivateBuggy,
+    priceUnit: 'vehicle',
+    duration: '6–7 Hours',
+    location: 'Red Dunes',
+    pickupInfo: 'Pickup 3:00–3:30 PM · Back ~9:30 PM',
+    itinerary: EVENING_ITINERARY,
+    priceNote: 'AED 1,050 per private car, not per person. 30-minute buggy ride, dinner and shows included.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE + BUGGY',
+    image: '/images/real/buggy-teryx-guest.webp',
+    imageContain: true,
+    detailPath: '/evening-safari/standard-private-buggy',
+    gallery: [
+      { src: '/images/real/buggy-teryx-guest.webp', label: '30-min dune buggy' },
+      { src: '/images/real/land-cruiser-sunset.webp', label: 'Your private Land Cruiser' },
+      { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
+      { src: '/images/real/camel-ride.webp', label: 'Camel riding' },
+      { src: '/images/real/buffet.webp', label: 'BBQ buffet dinner' },
+      { src: '/images/real/fire-show.webp', label: 'Live shows' },
+    ],
+    includes: [
+      'Private 4×4 Land Cruiser with hotel pickup & drop-off',
+      '30-minute dune buggy ride',
+      'Dune bashing',
+      'Camel riding',
+      'Sandboarding',
+      'Sunset photography',
+      'BBQ buffet dinner',
+      'Live entertainment shows',
+      'Unlimited soft drinks & water',
+    ],
+    whatsAppText: wa('Standard Private Safari + 30-min Buggy', PRICES.standardPrivateBuggy, 'vehicle'),
   },
   {
     id: 'premier-private-buggy',
