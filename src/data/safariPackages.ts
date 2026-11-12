@@ -60,7 +60,6 @@ export const PRICES = {
   lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1250, // private car, Premium Camp and one buggy, one price for the group
-  shortShared: 99, // short safari, sharing basis, no camp or dinner
   // Private short tours (per vehicle, up to 6)
   sunrise: 549,
   morning: 549,
@@ -318,14 +317,14 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     category: 'combo',
     tier: '17',
     title: 'Premium Private Safari + Buggy',
-    tagline: 'Your own private 4×4, a dune buggy for your group and an evening of premium service at the Premium Camp.',
+    tagline: 'Private 4×4 + buggy ride + Premium Desert Camp, all included in one package.',
     price: PRICES.premierBuggy,
     originalPrice: PRICES.premierBuggy,
-    priceUnit: 'group',
+    priceUnit: 'vehicle',
     duration: 'Evening Safari',
     location: 'Premium Desert Camp',
     pickupInfo: 'Pickup & drop-off included · time on WhatsApp',
-    priceNote: 'One price for your private car, pickup and drop-off, the Premium Camp and one buggy. Not per person.',
+    priceNote: 'AED 1,250 per private car, not per person. Buggy ride, Premium Camp, dinner and shows included.',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE',
@@ -347,15 +346,19 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       { src: '/images/real/premier-quad-guest.webp', label: 'Red dunes' },
     ],
     includes: [
-      'Private 4×4 for your group, with your own driver',
-      'Pickup and drop-off included',
-      'One dune buggy for your group on the red dunes',
-      'Entry to the Premium Camp',
-      'Premium service through your evening',
-      'Dune bashing and sunset photo stops',
-      'Buffet dinner and live shows at camp',
+      'Private 4×4 vehicle with professional driver',
+      'Private hotel pickup and drop-off',
+      'Dune bashing on red dunes',
+      'Dune buggy ride included',
+      'Premium Desert Camp entry',
+      'Camel ride',
+      'Sandboarding',
+      'Sunset photography',
+      'BBQ buffet dinner',
+      'Live entertainment shows',
+      'Unlimited soft drinks and water',
     ],
-    whatsAppText: wa('Premium Private Safari + Buggy', PRICES.premierBuggy, 'group'),
+    whatsAppText: wa('Premium Private Safari + Buggy', PRICES.premierBuggy, 'vehicle'),
   },
   {
     id: 'can-am-buggy',
@@ -397,42 +400,6 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
   },
 
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
-  {
-    id: 'short-desert-safari',
-    slug: 'short-desert-safari',
-    category: 'short',
-    tier: '22',
-    title: 'Short Desert Safari',
-    tagline: 'Dune bashing, sandboarding and a short camel ride in about 3–4 hours, morning or evening. No camp, no dinner.',
-    price: PRICES.shortShared,
-    originalPrice: PRICES.shortShared,
-    priceUnit: 'person',
-    duration: '3–4 Hours',
-    location: 'Red Dunes',
-    pickupInfo: 'Morning or evening · time on WhatsApp',
-    priceNote: `Price per person, sharing basis. No camp or dinner. Want the car to yourselves? Private Short Safari: ${aed(PRICES.morning)} per car.`,
-    rating: 0,
-    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
-    badge: 'SHORT TOUR',
-    image: '/images/real/land-cruiser-sunset-front.webp',
-    imageContain: true,
-    detailPath: '/evening-safari/short-desert-safari',
-    gallery: [
-      { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
-      { src: '/images/real/golden-hour-sand.webp', label: 'Desert photo stop' },
-      { src: '/images/real/camel-ride.webp', label: 'Short camel ride' },
-    ],
-    includes: [
-      'Hotel pickup and drop-off',
-      '4×4 Land Cruiser dune bashing',
-      'Sandboarding',
-      'Short camel ride',
-      'Desert photo stop',
-      'Water and soft drinks',
-      'About 3–4 hours, morning or evening',
-    ],
-    whatsAppText: wa('Short Desert Safari', PRICES.shortShared, 'person', 'Morning or evening? Please confirm availability for my date.'),
-  },
   {
     id: 'private-short-safari',
     slug: 'private-short-safari',

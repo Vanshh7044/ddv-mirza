@@ -52,11 +52,11 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: 'short-safari',
-    title: 'Short Desert Safari Dubai, AED 99',
-    headline: 'Short Desert Safari, AED 99',
-    subhead: 'Dune bashing, sandboarding and a short camel ride in 3–4 hours, morning or evening. No camp, no dinner. Private car option too.',
-    bullets: ['Hotel pickup & drop-off', 'Morning or evening, your choice', 'Pay on the day, no deposit'],
-    packageIds: ['short-desert-safari', 'private-short-safari'],
+    title: 'Private Short Desert Safari Dubai, AED 549 per Car',
+    headline: 'Private Short Safari, AED 549 per Car',
+    subhead: 'Your own Land Cruiser for dune bashing, sandboarding and a camel ride in 3–4 hours, morning or evening.',
+    bullets: ['Whole car for your group, not per person', 'Hotel pickup & drop-off', 'Pay on the day, no deposit'],
+    packageIds: ['private-short-safari'],
   },
   {
     slug: 'family-safari',

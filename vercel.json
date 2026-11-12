@@ -47,5 +47,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/evening-safari/short-desert-safari",
+      "destination": "/evening-safari/private-short-safari",
+      "permanent": true
+    }
   ]
 }

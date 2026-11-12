@@ -26,7 +26,7 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 ];
 
 // Step-by-step price ladder, cheapest first. Cruises always come last.
-const LADDER = ['evening-standard', 'short-desert-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
 // Not shown in the package grid for now; its page still works
 const HIDDEN = ['marina-yacht'];
@@ -216,9 +216,6 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                       </div>
                       {pkg.priceUnit === 'vehicle' && (
                         <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">whole car · up to 6</div>
-                      )}
-                      {pkg.id === 'short-desert-safari' && (
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">sharing · private {aed(PRICES.morning)}</div>
                       )}
                       {pkg.id === 'evening-vip' && (
                         <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
