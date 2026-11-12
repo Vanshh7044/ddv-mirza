@@ -77,7 +77,7 @@ export const PRICES = {
   dubaiCityTour: 650, // per private car, up to 6
   abuDhabiCityTour: 950, // per private car, up to 6
   grandMosqueTour: 850, // per private car, up to 6
-  dhowCruise: 200, // per person, board at Dubai Marina, no pickup
+  dhowCruise: 200, // per person, hotel pickup & drop-off included
   marinaYacht: 650, // private yacht, per hour (guest capacity being confirmed)
   cityTourSafariCombo: 189,
 } as const;
@@ -897,26 +897,27 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     category: 'city',
     tier: '13',
     title: 'Dubai Marina Dhow Cruise Dinner',
-    tagline: '2-hour cruise past the Marina skyline with international buffet and Tanoura show. Board at Dubai Marina.',
+    tagline: '2-hour cruise past the Marina skyline with international buffet, Tanoura show and hotel pickup & drop-off.',
     price: PRICES.dhowCruise,
     originalPrice: PRICES.dhowCruise,
     priceUnit: 'person',
-    duration: '2 Hours',
+    duration: '2 Hours (+ transfers)',
     location: 'Dubai Marina',
-    pickupInfo: 'Board at Dubai Marina · no pickup or drop-off',
+    pickupInfo: 'Hotel pickup & drop-off included',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'NEW',
     image: '/images/real/marina-yacht.webp',
     detailPath: '/tours/dhow-cruise-dubai-marina',
     includes: [
+      'Hotel pickup & drop-off',
       '2-hour cruise along Dubai Marina & JBR',
       'International buffet dinner (Veg & Non-Veg)',
       'Live Tanoura dance show & music',
       'Welcome drink, soft drinks, tea & water',
       'Open upper deck for skyline photos',
     ],
-    excludes: ['Hotel pickup & drop-off', 'Alcoholic beverages'],
+    excludes: ['Alcoholic beverages'],
     whatsAppText: wa('Dubai Marina Dhow Cruise Dinner', PRICES.dhowCruise, 'person'),
   },
   {
