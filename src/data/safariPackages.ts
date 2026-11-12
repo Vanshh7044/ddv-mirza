@@ -62,9 +62,10 @@ export const PRICES = {
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1250, // private car, Premium Camp and one buggy, one price for the group
   // Private short tours (per vehicle, up to 6)
-  sunrise: 549,
-  morning: 549,
-  eveningExpress: 549,
+  privateShort: 549, // Private Short Safari, per car
+  sunrise: 650,
+  morning: 650,
+  eveningExpress: 650,
   // Self-drive convoy (per person)
   selfDrive: 35,
   selfDrivePremium: 60,
@@ -450,8 +451,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     tier: '23',
     title: 'Private Short Safari',
     tagline: 'The short safari in your own private Land Cruiser: dune bashing, sandboarding and a camel ride, morning or evening.',
-    price: PRICES.morning,
-    originalPrice: PRICES.morning,
+    price: PRICES.privateShort,
+    originalPrice: PRICES.privateShort,
     priceUnit: 'vehicle',
     duration: '3–4 Hours',
     location: 'Red Dunes',
@@ -477,7 +478,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Water and soft drinks',
       'About 3–4 hours, morning or evening',
     ],
-    whatsAppText: wa('Private Short Safari', PRICES.morning, 'vehicle', 'Morning or evening? Please confirm availability for my date.'),
+    whatsAppText: wa('Private Short Safari', PRICES.privateShort, 'vehicle', 'Morning or evening? Please confirm availability for my date.'),
   },
   {
     id: 'sunrise-safari',

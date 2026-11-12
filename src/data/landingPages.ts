@@ -44,8 +44,8 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: 'private-safari',
-    title: 'Private Desert Safari Dubai, AED 549 per Car',
-    headline: 'Private Desert Safari, AED 549 per Car',
+    title: 'Private Desert Safari Dubai from AED 549 per Car',
+    headline: 'Private Desert Safari from AED 549 per Car',
     subhead: 'Your own Land Cruiser and driver, morning or evening. One price for the whole car, not per person.',
     bullets: ['No strangers in your car', 'Free hotel pickup & drop-off', 'Pay on the day, no deposit'],
     packageIds: ['private-short-safari', 'sunrise-safari', 'morning-safari', 'premium-private-car'],
