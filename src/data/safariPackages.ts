@@ -58,7 +58,7 @@ export const PRICES = {
   standardQuad: 239,
   premiumQuad: 280,
   standardPrivateBuggy: 1050, // private Land Cruiser + 30-min buggy + standard camp, per car
-  lamaPrivate: 1250, // private setup at the Lama premium camp, pickup included
+  lamaPrivate: 1350, // private gazebo setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1350, // private car, Premium Camp and one buggy, one price for the group
   // Private short tours (per vehicle, up to 6)
@@ -729,15 +729,15 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     slug: 'lama-private-setup',
     category: 'vip',
     tier: '19',
-    title: 'Lama Premium Private Setup',
-    tagline: 'A private setup at our premium Lama camp, with Arabic hospitality, henna and an evening made just for your group. Pickup included.',
+    title: 'Lama Premium Private Setup + Gazebo',
+    tagline: 'Your own private gazebo at our premium Lama camp, with Arabic hospitality, henna and an evening made just for your group. Pickup included.',
     price: PRICES.lamaPrivate,
     originalPrice: PRICES.lamaPrivate,
     priceUnit: 'group',
     duration: 'Evening',
     location: 'Lama Premium Camp',
     pickupInfo: 'Pickup included · time confirmed on WhatsApp',
-    priceNote: 'One price for your private setup, pickup included. Not per person.',
+    priceNote: 'One price for your private gazebo setup, pickup included. Not per person.',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE SETUP',
@@ -755,14 +755,14 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       { src: '/images/real/camp-dusk-gazebos.webp', label: 'The camp at dusk' },
     ],
     includes: [
-      'Private setup at the Lama premium camp',
+      'Private gazebo setup at the Lama premium camp',
       'Pickup and drop-off included',
       'Private table and seating for your group',
       'Arabic coffee and dates on arrival',
       'Henna art at the majlis',
       'Camel ride at sunset',
     ],
-    whatsAppText: wa('Lama Premium Private Setup', PRICES.lamaPrivate, 'group'),
+    whatsAppText: wa('Lama Premium Private Setup + Gazebo', PRICES.lamaPrivate, 'group'),
   },
 
   // ─── CITY TOURS & CRUISES ─────────────────────────────────────────────────
