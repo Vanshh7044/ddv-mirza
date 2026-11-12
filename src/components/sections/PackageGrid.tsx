@@ -13,7 +13,7 @@ const TRENDING_KEYWORDS = [
   { label: 'Sunrise Desert Tour', to: '/morning-safari' },
   { label: `Self-Drive Safari (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
   { label: 'Abu Dhabi City Tour', to: '/tours/abu-dhabi-city-tour' },
-  { label: 'Marina Dhow Cruise', to: '/tours/dhow-cruise-dubai-marina' },
+  { label: 'Marina Dinner Cruise', to: '/tours/dinner-cruise-dubai-marina' },
 ];
 
 type Tab = 'evening' | 'combo' | 'short' | 'city' | 'all';

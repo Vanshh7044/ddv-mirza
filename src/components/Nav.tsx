@@ -45,7 +45,7 @@ const desertSafariMenu = [
       { label: `Dubai City Tour (${aed(PRICES.dubaiCityTour)})`, sub: 'Private car · up to 6 people', href: '/tours/dubai-city-tour' },
       { label: `Abu Dhabi City Tour (${aed(PRICES.abuDhabiCityTour)})`, sub: 'Private car · Grand Mosque & more', href: '/tours/abu-dhabi-city-tour' },
       { label: `Grand Mosque Tour (${aed(PRICES.grandMosqueTour)})`, sub: 'Private car · Sheikh Zayed Mosque', href: '/tours/sheikh-zayed-grand-mosque-tour' },
-      { label: `Marina Dhow Cruise (${aed(PRICES.dhowCruise)})`, sub: 'Dinner cruise with hotel pickup', href: '/tours/dhow-cruise-dubai-marina' },
+      { label: `Marina Dinner Cruise (${aed(PRICES.dhowCruise)})`, sub: 'Dinner cruise with hotel pickup', href: '/tours/dinner-cruise-dubai-marina' },
       { label: `City + Safari Combo (${aed(PRICES.cityTourSafariCombo)})`, sub: 'Full day, best value', href: '/tours/dubai-city-tour-desert-safari-combo' },
     ],
   },
@@ -66,7 +66,7 @@ const mobileMenuItems = [
   { label: '🎪 Private Desert Camp Setup', sub: 'Exclusive isolated camp', to: '/private-desert-setup' },
   { label: `⛺ Private Overnight Camp (${aed(PRICES.privateOvernight)})`, sub: 'Your own camp for the night', to: '/evening-safari/private-overnight-camp' },
   { label: `✨ Lama Private Gazebo (${aed(PRICES.lamaPrivate)})`, sub: 'Pickup included', to: '/evening-safari/lama-private-setup' },
-  { label: '🏙️ City Tours & Dhow Cruise', sub: `Private cars from ${aed(PRICES.dubaiCityTour)} · up to 6`, to: '/city-tours' },
+  { label: '🏙️ City Tours & Dinner Cruise', sub: `Private cars from ${aed(PRICES.dubaiCityTour)} · up to 6`, to: '/city-tours' },
   { label: '📋 View All Packages', sub: 'Compare complete catalogue', to: '/desert-safari' },
 ];
 

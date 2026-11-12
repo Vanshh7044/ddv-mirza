@@ -24,7 +24,7 @@ export default function CityToursPage() {
   return (
     <>
       <SEO
-        title={`Private Dubai & Abu Dhabi City Tours (From ${aed(PRICES.dubaiCityTour)} per Car) & Dhow Cruise`}
+        title={`Private Dubai & Abu Dhabi City Tours (From ${aed(PRICES.dubaiCityTour)} per Car) & Dinner Cruise`}
         description={`Private Dubai city tour (${aed(PRICES.dubaiCityTour)} per car, up to 6), private Abu Dhabi city tour with Sheikh Zayed Grand Mosque (${aed(PRICES.abuDhabiCityTour)} per car), Marina dhow cruise dinner (${aed(PRICES.dhowCruise)}) and city + safari combos. Free hotel pickup, pay on arrival.`}
         canonical="/city-tours"
         schema={[getBreadcrumbSchema(breadcrumbs, '/city-tours'), listSchema]}

@@ -53,6 +53,11 @@
       "source": "/evening-safari/short-desert-safari",
       "destination": "/evening-safari/private-short-safari",
       "permanent": true
+    },
+    {
+      "source": "/tours/dhow-cruise-dubai-marina",
+      "destination": "/tours/dinner-cruise-dubai-marina",
+      "permanent": true
     }
   ]
 }

@@ -893,10 +893,10 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
   },
   {
     id: 'dhow-cruise-marina',
-    slug: 'dhow-cruise-dubai-marina',
+    slug: 'dinner-cruise-dubai-marina',
     category: 'city',
     tier: '13',
-    title: 'Dubai Marina Dhow Cruise Dinner',
+    title: 'Dubai Marina Dinner Cruise',
     tagline: '2-hour cruise past the Marina skyline with international buffet, Tanoura show and hotel pickup & drop-off.',
     price: PRICES.dhowCruise,
     originalPrice: PRICES.dhowCruise,
@@ -908,7 +908,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'NEW',
     image: '/images/real/cruise-marina-night.webp',
-    detailPath: '/tours/dhow-cruise-dubai-marina',
+    detailPath: '/tours/dinner-cruise-dubai-marina',
     includes: [
       'Hotel pickup & drop-off',
       '2-hour cruise along Dubai Marina & JBR',
@@ -918,7 +918,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Open upper deck for skyline photos',
     ],
     excludes: ['Alcoholic beverages'],
-    whatsAppText: wa('Dubai Marina Dhow Cruise Dinner', PRICES.dhowCruise, 'person'),
+    whatsAppText: wa('Dubai Marina Dinner Cruise', PRICES.dhowCruise, 'person'),
   },
   {
     id: 'city-tour-safari-combo',

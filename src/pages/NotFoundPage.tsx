@@ -6,7 +6,7 @@ import { getWhatsAppLink } from '../data/safariPackages';
 const POPULAR = [
   { label: 'Evening Desert Safari', to: '/evening-desert-safari' },
   { label: 'All Safari Packages', to: '/desert-safari' },
-  { label: 'City Tours & Dhow Cruise', to: '/city-tours' },
+  { label: 'City Tours & Dinner Cruise', to: '/city-tours' },
   { label: 'Contact Us', to: '/contact' },
 ];
 
