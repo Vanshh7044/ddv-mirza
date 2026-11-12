@@ -82,6 +82,20 @@ export default function PackageDetailPage() {
                 </div>
               </div>
 
+              {selectedPkg.video && (
+                <div className="bg-[#0F172A] rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-xl">
+                  <div className="text-white text-sm sm:text-base font-extrabold mb-2.5 px-1">Take a look around the camp</div>
+                  <video
+                    src={selectedPkg.video}
+                    poster={selectedPkg.videoPoster}
+                    controls
+                    playsInline
+                    preload="none"
+                    className="w-full max-h-[70vh] rounded-xl bg-black"
+                  />
+                </div>
+              )}
+
               {/* Photo Highlights Strip */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {(selectedPkg.gallery ?? DEFAULT_PHOTOS).map((photo) => (

@@ -30,6 +30,9 @@ export interface SafariPackage {
   imageContain?: boolean;
   /** Photos for the detail page strip; packages without their own use the default camp photos. */
   gallery?: { src: string; label: string }[];
+  /** Optional walkthrough video shown on the detail page (plays only when tapped). */
+  video?: string;
+  videoPoster?: string;
   /** One clear line on what the price covers (per person vs per car, shared vs private). */
   priceNote?: string;
   whatsAppText: string;
@@ -684,46 +687,47 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     slug: 'private-overnight-safari',
     category: 'vip',
     tier: '25',
-    title: 'Exclusive Private Overnight Desert Safari',
-    tagline: 'A luxury overnight desert adventure in your own private 4×4: sunset, BBQ dinner, a night in the desert and sunrise with breakfast.',
+    title: 'VIP Private Overnight Safari + Buggy',
+    tagline: 'The full package: your own private 4×4, a dune buggy ride, VIP camp seating, BBQ dinner, a night under the stars and sunrise with breakfast.',
     price: PRICES.privateOvernightSafari,
     originalPrice: PRICES.privateOvernightSafari,
     priceUnit: 'vehicle',
     duration: 'Overnight',
-    location: 'Desert Camp',
+    location: 'VIP Desert Camp',
     pickupInfo: 'Afternoon pickup · back to your hotel next morning',
-    priceNote: 'AED 2,200 per private vehicle, not per person. Dinner, overnight stay and breakfast included.',
+    priceNote: 'AED 2,200 per private vehicle, not per person. Buggy ride, VIP camp, dinner, overnight stay and breakfast all included.',
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
-    badge: 'OVERNIGHT',
-    image: '/images/real/overnight-bedouin-tent.webp',
+    badge: 'ALL INCLUSIVE',
+    image: '/images/real/vip-camp-sunset.webp',
+    video: '/videos/vip-overnight-camp.mp4',
+    videoPoster: '/images/real/vip-camp-video-poster.webp',
     detailPath: '/evening-safari/private-overnight-safari',
     gallery: [
+      { src: '/images/real/vip-camp-firepit.webp', label: 'Fire pit lounge' },
+      { src: '/images/real/vip-camp-lights.webp', label: 'The camp at night' },
+      { src: '/images/real/buggy-teryx-guest.webp', label: 'Dune buggy ride' },
       { src: '/images/real/land-cruiser-sunset.webp', label: 'Your private 4×4' },
-      { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
       { src: '/images/real/camel-ride.webp', label: 'Camel riding' },
       { src: '/images/real/buffet.webp', label: 'BBQ buffet dinner' },
-      { src: '/images/real/overnight-night-lights.webp', label: 'Night in the desert' },
-      { src: '/images/real/golden-hour-sand.webp', label: 'Desert sunrise' },
     ],
     includes: [
-      'Private 4×4 Land Cruiser',
-      'Private pickup & drop-off',
-      'Exclusive desert safari experience',
-      'Dune bashing',
+      'Private 4×4 Land Cruiser for your group',
+      'Private hotel pickup & drop-off',
+      'Dune buggy ride',
+      'VIP camp seating with majlis, fire pit & string lights',
+      'Dune bashing on the red dunes',
       'Sunset photography',
       'Camel riding',
       'Sandboarding',
-      'Traditional desert camp experience',
-      'Private overnight stay in desert accommodation',
       'BBQ buffet dinner',
       'Live entertainment shows',
       'Unlimited soft drinks & water',
-      'Breakfast next morning',
-      'Sunrise desert experience',
-      'Return transfer to your hotel in the morning',
+      'Private overnight stay in desert accommodation',
+      'Breakfast & sunrise over the dunes',
+      'Return to your hotel in the morning',
     ],
-    whatsAppText: wa('Exclusive Private Overnight Desert Safari', PRICES.privateOvernightSafari, 'vehicle'),
+    whatsAppText: wa('VIP Private Overnight Safari + Buggy', PRICES.privateOvernightSafari, 'vehicle'),
   },
   {
     id: 'private-overnight-camp',
