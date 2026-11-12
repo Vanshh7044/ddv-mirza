@@ -25,8 +25,8 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'All', icon: LayoutGrid },
 ];
 
-// Step-by-step ladder, Private Short Safari first. The AED 99 safaris sit at the end, still bookable but not prominent. Cruises always come last.
-const LADDER = ['private-short-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp', 'evening-standard', 'short-desert-safari'];
+// Step-by-step price ladder, cheapest first. Cruises always come last.
+const LADDER = ['evening-standard', 'short-desert-safari', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'premium-private-car', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-camp'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
 const rank = (p: SafariPackage) => {
   if (CRUISES.includes(p.id)) return 100;
