@@ -53,7 +53,7 @@ export const PRICES = {
   eveningPremium: 139,
   eveningVip: 299,
   eveningVipPrivate: 1299, // private Land Cruiser for the group, up to 6
-  eveningPremiumPrivate: 850, // Evening Premium in a private car, per car
+  eveningPremiumPrivate: 999, // Evening Premium in a private car, per car
   // Safari + 30-min quad combos (per person)
   standardQuad: 239,
   premiumQuad: 280,
