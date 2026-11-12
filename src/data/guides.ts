@@ -55,7 +55,7 @@ export const GUIDES: Guide[] = [
             ['VIP evening safari', 'AED 349–450 / person', `${aed(PRICES.eveningVip)} / person`],
             ['Private morning safari (4–5 hrs)', 'AED 549–650 / vehicle', `${aed(PRICES.morning)} / vehicle`],
             ['Private sunrise safari', 'AED 600 / vehicle', `${aed(PRICES.sunrise)} / vehicle`],
-            ['Self-drive convoy', 'AED 35+ / person', `${aed(PRICES.selfDrive)} / person`],
+            ['Self-drive to camp', 'AED 60–100 / person', `${aed(PRICES.selfDrive)} / person`],
           ],
         },
       },
@@ -90,7 +90,7 @@ export const GUIDES: Guide[] = [
     faqs: [
       {
         q: 'What is the cheapest desert safari in Dubai?',
-        a: `A self-drive convoy, where you drive your own 4×4 behind a guide, is the cheapest option at around AED 35–40 per person. The cheapest option with hotel pickup is a shared evening safari, from ${aed(PRICES.eveningStandard)} per person.`,
+        a: `Our self-drive safari, where you drive your own car to the desert camp, is the cheapest option at ${aed(PRICES.selfDrive)} per person. The cheapest option with hotel pickup is a shared evening safari, from ${aed(PRICES.eveningStandard)} per person.`,
       },
       {
         q: 'Do children pay full price for a desert safari?',
@@ -737,7 +737,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: 'Can I drive myself to the desert safari?',
-        a: `Yes, with our self-drive convoy from ${aed(PRICES.selfDrive)} per person, where you meet us at the Lehbab desert base. Otherwise hotel pickup is included.`,
+        a: `Yes. With our self-drive safari from ${aed(PRICES.selfDrive)} per person you drive your own car straight to our desert camp (no hotel pickup). Otherwise hotel pickup is included.`,
       },
       {
         q: 'Do you pick up from Sharjah?',

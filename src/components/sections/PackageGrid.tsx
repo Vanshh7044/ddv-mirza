@@ -11,7 +11,7 @@ const TRENDING_KEYWORDS = [
   { label: 'Safari + Quad Combo', to: '/evening-safari/premium-quad' },
   { label: 'VIP AC Majlis', to: '/vip-traditional-arabic' },
   { label: 'Sunrise Desert Tour', to: '/morning-safari' },
-  { label: `Self-Drive Convoy (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
+  { label: `Self-Drive Safari (${aed(PRICES.selfDrive)})`, to: '/self-drive' },
   { label: 'Abu Dhabi City Tour', to: '/tours/abu-dhabi-city-tour' },
   { label: 'Marina Dhow Cruise', to: '/tours/dhow-cruise-dubai-marina' },
 ];
