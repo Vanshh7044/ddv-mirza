@@ -18,7 +18,7 @@ const desertSafariMenu = [
       { label: `Private Premium Pickup Safari (${aed(PRICES.eveningPremiumPrivate)})`, sub: 'Evening Premium in your own car', href: '/evening-safari/premium-private-car' },
       { label: `Exclusive Private + 30-min Buggy (${aed(PRICES.standardPrivateBuggy)})`, sub: 'Private car, buggy, BBQ & shows', href: '/evening-safari/standard-private-buggy' },
       { label: `Luxury Private Safari + Buggy (${aed(PRICES.premierBuggy)})`, sub: 'Private car, Premium Camp & buggy', href: '/evening-safari/premier-private-buggy' },
-      { label: `Premium VIP Safari (${aed(PRICES.canAmBuggy)})`, sub: 'Can-Am buggy, horse riding & VIP seating', href: '/evening-safari/premium-vip-safari' },
+      { label: `Premium VIP + Can-Am Buggy (${aed(PRICES.canAmBuggy)})`, sub: 'Can-Am buggy, horse riding & VIP seating', href: '/evening-safari/premium-vip-safari' },
     ],
   },
   {
@@ -60,7 +60,7 @@ const mobileMenuItems = [
   { label: `🚙 Private Premium Pickup (${aed(PRICES.eveningPremiumPrivate)})`, sub: 'Evening Premium in your own car', to: '/evening-safari/premium-private-car' },
   { label: `🏎️ Standard Private + Buggy (${aed(PRICES.standardPrivateBuggy)})`, sub: 'Private car, buggy, BBQ & shows', to: '/evening-safari/standard-private-buggy' },
   { label: `🏜️ Luxury Private + Buggy (${aed(PRICES.premierBuggy)})`, sub: 'Private car, Premium Camp & buggy', to: '/evening-safari/premier-private-buggy' },
-  { label: `🏁 Premium VIP Safari (${aed(PRICES.canAmBuggy)})`, sub: 'Can-Am buggy, horse riding & VIP seating', to: '/evening-safari/premium-vip-safari' },
+  { label: `🏁 Premium VIP + Can-Am Buggy (${aed(PRICES.canAmBuggy)})`, sub: 'Can-Am buggy, horse riding & VIP seating', to: '/evening-safari/premium-vip-safari' },
   { label: `👑 Evening VIP Majlis (${aed(PRICES.eveningVip)})`, sub: 'Private 4×4 & VIP Lounge', to: '/evening-safari/vip' },
   { label: `🚙 Private Short Safari (${aed(PRICES.privateShort)})`, sub: 'Your own car · 3–4 hours', to: '/evening-safari/private-short-safari' },
   { label: `🌅 Sunrise / Morning Safari (${aed(PRICES.sunrise)})`, sub: 'Private car · up to 6', to: '/morning-safari' },

@@ -337,7 +337,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE CAR',
-    image: '/images/real/premier-land-cruiser-guests.webp',
+    image: '/images/real/friends-dune-top.webp',
     imageContain: true,
     detailPath: '/evening-safari/premium-private-car',
     includes: [
@@ -446,7 +446,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     slug: 'premium-vip-safari',
     category: 'combo',
     tier: '21',
-    title: 'Premium VIP Desert Safari',
+    title: 'Premium VIP Desert Safari + Can-Am Buggy',
     tagline: 'The ultimate luxury desert safari: an exclusive 4×4, a Can-Am buggy ride, horse riding and VIP seating at our premium camp.',
     price: PRICES.canAmBuggy,
     originalPrice: PRICES.canAmBuggy,
@@ -477,7 +477,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Live entertainment shows',
       'VIP seating & premium table service',
     ],
-    whatsAppText: wa('Premium VIP Desert Safari', PRICES.canAmBuggy, 'group'),
+    whatsAppText: wa('Premium VIP Desert Safari + Can-Am Buggy', PRICES.canAmBuggy, 'group'),
   },
 
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
@@ -486,7 +486,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     slug: 'private-evening-safari',
     category: 'short',
     tier: '27',
-    title: 'Private Evening Safari',
+    title: 'Private Evening Short Tour',
     tagline: 'A private sunset tour in your own Land Cruiser: dune bashing, sandboarding and sunset photos, without the camp.',
     price: PRICES.eveningExpress,
     originalPrice: PRICES.eveningExpress,
@@ -507,7 +507,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Scenic sunset photography stops',
       'Free hotel pickup & drop-off',
     ],
-    whatsAppText: wa('Private Evening Safari', PRICES.eveningExpress, 'vehicle'),
+    whatsAppText: wa('Private Evening Short Tour', PRICES.eveningExpress, 'vehicle'),
   },
   {
     id: 'private-short-safari',

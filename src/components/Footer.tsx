@@ -93,7 +93,7 @@ export default function Footer() {
               <Link to="/evening-safari/premium-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Private Premium Pickup Safari ({aed(PRICES.eveningPremiumPrivate)})</Link>
               <Link to="/evening-safari/standard-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Exclusive Private + 30-min Buggy ({aed(PRICES.standardPrivateBuggy)})</Link>
               <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Luxury Private Safari + Buggy ({aed(PRICES.premierBuggy)})</Link>
-              <Link to="/evening-safari/premium-vip-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Premium VIP Safari ({aed(PRICES.canAmBuggy)})</Link>
+              <Link to="/evening-safari/premium-vip-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Premium VIP + Can-Am Buggy ({aed(PRICES.canAmBuggy)})</Link>
               <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
               <Link to="/evening-safari/private-short-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Private Short Safari ({aed(PRICES.privateShort)})</Link>
               <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>

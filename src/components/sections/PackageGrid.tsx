@@ -26,7 +26,7 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 ];
 
 // The operator's package order (13 Nov list): sharing, then private, then self-drive at the very bottom.
-const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'morning-safari', 'sunrise-safari', 'private-evening-safari', 'standard-private-car', 'premium-private-car', 'standard-private-buggy', 'premier-private-buggy', 'lama-private-setup', 'private-overnight-safari', 'self-drive-standard', 'self-drive-premium'];
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'morning-safari', 'sunrise-safari', 'private-evening-safari', 'standard-private-car', 'premium-private-car', 'standard-private-buggy', 'premier-private-buggy', 'lama-private-setup', 'can-am-buggy', 'private-overnight-safari', 'self-drive-standard', 'self-drive-premium'];
 // Section headings shown above the first package of each group in the main tab
 const GROUP_START: Record<string, string> = {
   'evening-standard': 'Sharing desert safaris · price per person',
