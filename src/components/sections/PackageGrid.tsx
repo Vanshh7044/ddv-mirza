@@ -144,7 +144,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                 }`}
               >
                 <PackageImage pkg={pkg} className="group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
 
                 {/* Tag and arrow */}
                 <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
@@ -165,7 +165,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                     <span className="text-[#FB923C] mx-1.5">•</span>
                     {pkg.location}
                   </div>
-                  <h3 className="text-[22px] sm:text-2xl font-extrabold leading-tight mt-1.5">{pkg.title}</h3>
+                  <h3 className="text-[22px] sm:text-2xl font-extrabold leading-tight mt-1.5 text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">{pkg.title}</h3>
                   <div className="border-t border-white/25 mt-3.5 pt-3.5 flex items-baseline gap-1.5">
                     <span className="text-2xl sm:text-3xl font-black tracking-tight">{aed(pkg.price)}</span>
                     <span className="text-xs sm:text-sm font-medium text-white/75">{UNIT_LABEL[pkg.priceUnit]}</span>
