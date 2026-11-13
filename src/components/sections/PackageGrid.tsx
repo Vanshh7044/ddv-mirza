@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, Check, MessageCircle, ArrowRight, ShieldCheck, Clock, MapPin, Sparkles, Sunset, Bike, Sunrise, Building2, LayoutGrid } from 'lucide-react';
+import { MessageCircle, ArrowUpRight, Sparkles, Sunset, Bike, Sunrise, Building2, LayoutGrid } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { SAFARI_PACKAGES, getWhatsAppLink, SafariPackage, PRICES, aed, UNIT_LABEL } from '../../data/safariPackages';
-import { trackKeywordClick, trackWhatsAppClick } from '../../utils/analytics';
+import { trackKeywordClick } from '../../utils/analytics';
 import PackageImage from '../PackageImage';
 
 const TRENDING_KEYWORDS = [
@@ -41,6 +41,15 @@ const rank = (p: SafariPackage) => {
   const step = LADDER.indexOf(p.id);
   return step === -1 ? 50 : step;
 };
+
+// Card labels: a short tag (badge or type) and the kind of tour for the detail line
+const cardKind = (p: SafariPackage) =>
+  p.category === 'selfdrive' ? 'Self-drive' : p.priceUnit === 'person' ? 'Sharing' : 'Private';
+const cardTag = (p: SafariPackage) =>
+  p.id === 'sunrise-safari' ? 'Sunrise'
+    : p.id === 'morning-safari' ? 'Morning'
+    : p.id === 'private-evening-safari' ? 'Evening'
+    : p.badge ?? (p.category === 'city' ? 'City tour' : cardKind(p));
 
 const inTab = (p: SafariPackage, tab: Tab) => {
   if (HIDDEN.includes(p.id)) return false;
@@ -116,8 +125,8 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
         </div>
 
         {/* Package Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
-          {filteredPackages.map((pkg: SafariPackage, step: number) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {filteredPackages.map((pkg: SafariPackage) => {
             const isHighlighted = pkg.isPopular || pkg.badge === 'VIP LUXURY';
             
             return (
@@ -127,136 +136,42 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   {GROUP_START[pkg.id]}
                 </h3>
               )}
-              <div
-                className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
-                  isHighlighted
-                    ? 'bg-white border-2 border-[#C2410C] shadow-xl shadow-[#C2410C]/10 ring-2 sm:ring-4 ring-[#C2410C]/5 sm:hover:-translate-y-1.5'
-                    : 'bg-white border border-sand/90 shadow-md hover:shadow-xl sm:hover:-translate-y-1.5'
+              <Link
+                to={pkg.detailPath}
+                aria-label={`${pkg.title}, ${aed(pkg.price)} ${UNIT_LABEL[pkg.priceUnit]}`}
+                className={`group relative block aspect-[4/5] rounded-3xl overflow-hidden bg-[#0F172A] shadow-md hover:shadow-2xl transition-all duration-300 sm:hover:-translate-y-1 ${
+                  isHighlighted ? 'ring-2 ring-[#C2410C]' : ''
                 }`}
               >
-                {/* Visual Image Header */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                  <PackageImage pkg={pkg} className="group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                  
-                  {/* Floating Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                    <span className="bg-black/60 backdrop-blur-md text-white font-mono text-[10px] sm:text-[11px] font-bold px-2 py-0.5 sm:py-1 rounded-md border border-white/20">
-                      Tier {String(step + 1).padStart(2, '0')}
-                    </span>
-                    {pkg.badge && (
-                      <span className="bg-[#C2410C] text-white font-extrabold text-[10px] sm:text-[11px] tracking-wider px-2.5 py-0.5 sm:py-1 rounded-md shadow-lg">
-                        {pkg.badge}
-                      </span>
-                    )}
-                  </div>
+                <PackageImage pkg={pkg} className="group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/10" />
 
-                  {/* Bottom Image Overlay Text */}
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-semibold">
-                    <span className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded">
-                      <Clock size={11} className="text-[#C2410C]" /> {pkg.duration}
-                    </span>
-                    <span className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded">
-                      <MapPin size={11} className="text-[#C2410C]" /> {pkg.location}
-                    </span>
-                  </div>
+                {/* Tag and arrow */}
+                <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
+                  <span className="bg-white/95 text-[#0F172A] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] px-3.5 py-2 rounded-full shadow-sm">
+                    {cardTag(pkg)}
+                  </span>
+                  <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 text-[#0F172A] flex items-center justify-center shadow-sm group-hover:bg-[#C2410C] group-hover:text-white transition-colors">
+                    <ArrowUpRight size={18} strokeWidth={2.5} />
+                  </span>
                 </div>
 
-                {/* Card Content */}
-                <div className="p-4 sm:p-6 flex flex-col flex-1">
-                  {/* Title & Reviews */}
-                  <div className="mb-3">
-                    {pkg.reviewsCount > 0 ? (
-                    <div className="flex items-center gap-1 text-amber-700 mb-1">
-                      <div className="flex gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={12} className="fill-amber-500 text-amber-500" />
-                        ))}
-                      </div>
-                      <span className="text-xs font-bold text-[#0F172A] ml-1">{pkg.rating}</span>
-                      <span className="text-[11px] text-[#56657A]">({pkg.reviewsCount}+ reviews)</span>
-                    </div>
-                    ) : (
-                      <div className="text-[11px] font-bold text-[#C2410C] uppercase tracking-wider mb-1">New for 2026</div>
-                    )}
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] group-hover:text-[#C2410C] transition-colors leading-snug">
-                      {pkg.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#475569] font-medium mt-1 line-clamp-2">
-                      {pkg.tagline}
-                    </p>
+                {/* Details */}
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-white">
+                  <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 truncate">
+                    {pkg.duration}
+                    <span className="text-[#FB923C] mx-1.5">•</span>
+                    {cardKind(pkg)}
+                    <span className="text-[#FB923C] mx-1.5">•</span>
+                    {pkg.location}
                   </div>
-
-                  {/* Inclusions List */}
-                  <div className="space-y-1.5 sm:space-y-2 py-2.5 sm:py-3 my-2 border-y border-slate-100 flex-1">
-                    <div className="text-[10px] sm:text-[11px] font-bold text-[#56657A] uppercase tracking-wider">What's Included:</div>
-                    {pkg.includes.slice(0, 5).map((inc, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs sm:text-[13px] text-[#1E293B] font-medium">
-                        <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                          <Check size={11} strokeWidth={3} />
-                        </div>
-                        <span className="leading-tight">{inc}</span>
-                      </div>
-                    ))}
-                    {pkg.includes.length > 5 && (
-                      <div className="text-xs font-bold text-[#C2410C] pl-6 pt-0.5">
-                        + {pkg.includes.length - 5} more inclusions
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Free Pickup Guarantee */}
-                  <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50/90 px-2.5 py-1.5 rounded-lg mb-3 sm:mb-4">
-                    <ShieldCheck size={13} className="shrink-0 text-emerald-700" />
-                    <span>{pkg.category === 'selfdrive' ? 'Meet at Lehbab Base' : pkg.pickupInfo} · Pay on Arrival</span>
-                  </div>
-
-                  {/* Pricing & CTA */}
-                  <div className="pt-1 flex items-center justify-between gap-2">
-                    <div className="shrink-0 min-w-0">
-                      {pkg.originalPrice > pkg.price && (
-                        <div className="text-[10px] sm:text-[11px] text-[#56657A] line-through font-bold">
-                          {aed(pkg.originalPrice)}
-                        </div>
-                      )}
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#0F172A] tracking-tight">
-                          {aed(pkg.price)}
-                        </span>
-                        <span className="text-[10px] sm:text-[11px] font-semibold text-[#56657A]">{UNIT_LABEL[pkg.priceUnit]}</span>
-                      </div>
-                      {pkg.priceUnit === 'vehicle' && (
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">whole car · up to 6</div>
-                      )}
-                      {pkg.id === 'evening-vip' && (
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#C2410C]">shared car · private {aed(PRICES.eveningVipPrivate)}</div>
-                      )}
-                    </div>
-
-                    {/* 1-Click WhatsApp Booking CTA */}
-                    <a
-                      href={getWhatsAppLink(pkg.whatsAppText)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackWhatsAppClick('package_card', pkg.title, pkg.price)}
-                      className="flex-1 min-w-[100px] max-w-[155px] sm:max-w-[170px] h-11 sm:h-12 flex items-center justify-center gap-1.5 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-xs sm:text-sm px-2.5 sm:px-3 rounded-xl shadow-lg shadow-[#C2410C]/25 transition-all active:scale-95 whitespace-nowrap"
-                    >
-                      <MessageCircle size={15} className="shrink-0" />
-                      <span>Book Now</span>
-                    </a>
-                  </div>
-
-                  {/* Sub-link to detail */}
-                  <div className="text-center mt-2.5 pt-2 border-t border-slate-100">
-                    <Link
-                      to={pkg.detailPath}
-                      className="text-xs font-semibold text-[#56657A] hover:text-[#C2410C] transition-colors inline-flex items-center gap-1 py-1"
-                    >
-                      View full details & itinerary <ArrowRight size={11} />
-                    </Link>
+                  <h3 className="text-[22px] sm:text-2xl font-extrabold leading-tight mt-1.5">{pkg.title}</h3>
+                  <div className="border-t border-white/25 mt-3.5 pt-3.5 flex items-baseline gap-1.5">
+                    <span className="text-2xl sm:text-3xl font-black tracking-tight">{aed(pkg.price)}</span>
+                    <span className="text-xs sm:text-sm font-medium text-white/75">{UNIT_LABEL[pkg.priceUnit]}</span>
                   </div>
                 </div>
-              </div>
+              </Link>
               </Fragment>
             );
           })}
