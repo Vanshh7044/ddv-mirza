@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Check, MessageCircle, ArrowRight, ShieldCheck, Clock, MapPin, Sparkles, Sunset, Bike, Sunrise, Building2, LayoutGrid } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -25,8 +25,14 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'All', icon: LayoutGrid },
 ];
 
-// The operator's package order (12 Nov list), with the Private Short Safari before self-drive. Cruises always come last.
-const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'standard-private-car', 'premium-private-car', 'standard-private-buggy', 'premier-private-buggy', 'lama-private-setup', 'private-short-safari', 'self-drive-standard', 'self-drive-premium', 'private-overnight-safari'];
+// The operator's package order (13 Nov list): sharing, then private, then self-drive at the very bottom.
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'morning-safari', 'sunrise-safari', 'standard-private-car', 'premium-private-car', 'standard-private-buggy', 'premier-private-buggy', 'lama-private-setup', 'private-overnight-safari', 'self-drive-standard', 'self-drive-premium'];
+// Section headings shown above the first package of each group in the main tab
+const GROUP_START: Record<string, string> = {
+  'evening-standard': 'Sharing desert safaris · price per person',
+  'private-short-safari': 'Private safaris · one price for your whole car',
+  'self-drive-standard': 'Self-drive · drive your own car to our camp',
+};
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
 // Not shown in the package grid for now; its page still works
 const HIDDEN = ['marina-yacht'];
@@ -115,8 +121,13 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
             const isHighlighted = pkg.isPopular || pkg.badge === 'VIP LUXURY';
             
             return (
+              <Fragment key={pkg.id}>
+              {activeTab === 'evening' && GROUP_START[pkg.id] && (
+                <h3 className="col-span-full text-base sm:text-lg font-extrabold text-[#0F172A] border-b border-sand pb-2 mt-2 first:mt-0">
+                  {GROUP_START[pkg.id]}
+                </h3>
+              )}
               <div
-                key={pkg.id}
                 className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
                   isHighlighted
                     ? 'bg-white border-2 border-[#C2410C] shadow-xl shadow-[#C2410C]/10 ring-2 sm:ring-4 ring-[#C2410C]/5 sm:hover:-translate-y-1.5'
@@ -246,6 +257,7 @@ export default function PackageGrid({ initialTab = 'evening' }: { initialTab?: T
                   </div>
                 </div>
               </div>
+              </Fragment>
             );
           })}
         </div>
