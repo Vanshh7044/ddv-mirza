@@ -89,6 +89,7 @@ export default function Footer() {
               <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
               <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
               <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
+              <Link to="/evening-safari/standard-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Standard Private Safari ({aed(PRICES.eveningStandardPrivate)})</Link>
               <Link to="/evening-safari/premium-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Premium Private Car ({aed(PRICES.eveningPremiumPrivate)})</Link>
               <Link to="/evening-safari/standard-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Standard Private + 30-min Buggy ({aed(PRICES.standardPrivateBuggy)})</Link>
               <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Premium Private + Buggy ({aed(PRICES.premierBuggy)})</Link>
@@ -103,7 +104,7 @@ export default function Footer() {
               <Link to="/tours/sheikh-zayed-grand-mosque-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Grand Mosque Tour ({aed(PRICES.grandMosqueTour)})</Link>
               <Link to="/tours/dinner-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors py-0.5">Marina Dinner Cruise ({aed(PRICES.dhowCruise)})</Link>
               <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Private Desert Camp Setup</Link>
-              <Link to="/evening-safari/private-overnight-safari" className="hover:text-[#C2410C] transition-colors py-0.5">VIP Private Overnight + Buggy ({aed(PRICES.privateOvernightSafari)})</Link>
+              <Link to="/evening-safari/private-overnight-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Luxury Private Overnight ({aed(PRICES.privateOvernightSafari)})</Link>
               <Link to="/evening-safari/private-overnight-camp" className="hover:text-[#C2410C] transition-colors py-0.5">Private Overnight Camp ({aed(PRICES.privateOvernight)})</Link>
               <Link to="/evening-safari/lama-private-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Lama Private Setup + Gazebo ({aed(PRICES.lamaPrivate)})</Link>
             </div>

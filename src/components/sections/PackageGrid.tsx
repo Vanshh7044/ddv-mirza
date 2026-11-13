@@ -25,8 +25,8 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'All', icon: LayoutGrid },
 ];
 
-// Step-by-step price ladder, cheapest first. Cruises always come last.
-const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'private-short-safari', 'premium-private-car', 'standard-private-buggy', 'lama-private-setup', 'premier-private-buggy', 'can-am-buggy', 'private-overnight-safari', 'private-overnight-camp', 'self-drive-standard'];
+// The operator's package order (12 Nov list), with the Private Short Safari before self-drive. Cruises always come last.
+const LADDER = ['evening-standard', 'evening-premium', 'standard-quad', 'premium-quad', 'standard-private-car', 'premium-private-car', 'standard-private-buggy', 'premier-private-buggy', 'lama-private-setup', 'private-short-safari', 'self-drive-standard', 'self-drive-premium', 'private-overnight-safari'];
 const CRUISES = ['dhow-cruise-marina', 'marina-yacht'];
 // Not shown in the package grid for now; its page still works
 const HIDDEN = ['marina-yacht'];
