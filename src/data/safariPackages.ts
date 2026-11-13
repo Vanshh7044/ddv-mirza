@@ -60,16 +60,16 @@ export const PRICES = {
   eveningPremiumPrivate: 999, // Evening Premium in a private car, per car
   // Safari + 30-min quad combos (per person)
   standardQuad: 239,
-  premiumQuad: 288,
+  premiumQuad: 280,
   standardPrivateBuggy: 1250, // private Land Cruiser + 30-min buggy + standard camp, per car
   lamaPrivate: 1350, // private gazebo setup at the Lama premium camp, pickup included
   canAmBuggy: 1750, // Premium VIP safari with Can-Am buggy and private pickup
   premierBuggy: 1350, // private car, Premium Camp and one buggy, one price for the group
   // Private short tours (per vehicle, up to 6)
   privateShort: 549, // Private Short Safari, per car
-  sunrise: 650,
-  morning: 650,
-  eveningExpress: 650,
+  sunrise: 549,
+  morning: 549,
+  eveningExpress: 549,
   // Self-drive to our camp (per person, no pickup)
   selfDrive: 79, // Standard self-drive: guests drive to the camp, no pickup
   selfDrivePremium: 99, // Premium self-drive: premium camp seating
@@ -304,7 +304,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE CAR',
-    image: '/images/real/land-cruiser-sunset-front.webp',
+    image: '/images/real/premier-land-cruiser-guests.webp',
     imageContain: true,
     detailPath: '/evening-safari/standard-private-car',
     includes: [
@@ -482,6 +482,34 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
 
   // ─── SHORT & SUNRISE TOURS ────────────────────────────────────────────────
   {
+    id: 'private-evening-safari',
+    slug: 'private-evening-safari',
+    category: 'short',
+    tier: '27',
+    title: 'Private Evening Safari',
+    tagline: 'A private sunset tour in your own Land Cruiser: dune bashing, sandboarding and sunset photos, without the camp.',
+    price: PRICES.eveningExpress,
+    originalPrice: PRICES.eveningExpress,
+    priceUnit: 'vehicle',
+    duration: '4 Hours',
+    location: 'Lehbab Red Dunes',
+    pickupInfo: 'Pickup 3:30 PM · Back ~7:30 PM',
+    priceNote: 'One price for the whole car, not per person. No camp or dinner.',
+    rating: 0,
+    reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
+    badge: 'PRIVATE CAR',
+    image: '/images/real/land-cruiser-sunset.webp',
+    detailPath: '/morning-safari',
+    includes: [
+      'Private 4×4 Land Cruiser for your group',
+      'Sunset dune bashing',
+      'Sandboarding',
+      'Scenic sunset photography stops',
+      'Free hotel pickup & drop-off',
+    ],
+    whatsAppText: wa('Private Evening Safari', PRICES.eveningExpress, 'vehicle'),
+  },
+  {
     id: 'private-short-safari',
     slug: 'private-short-safari',
     category: 'short',
@@ -498,10 +526,11 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 0,
     reviewsCount: 0, // new product — no reviews yet; ratings stay hidden until real ones exist
     badge: 'PRIVATE CAR',
-    image: '/images/real/friends-dunes.webp',
+    image: '/images/real/land-cruiser-sunset-front.webp',
+    imageContain: true,
     detailPath: '/evening-safari/private-short-safari',
     gallery: [
-      { src: '/images/real/land-cruiser-sunset-front.webp', label: 'Your private 4×4' },
+      { src: '/images/real/friends-dunes.webp', label: 'Fun on the dunes' },
       { src: '/images/real/dune-jump.webp', label: 'Dune bashing' },
       { src: '/images/real/camel-ride.webp', label: 'Short camel ride' },
     ],
