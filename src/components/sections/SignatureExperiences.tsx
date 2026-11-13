@@ -19,13 +19,13 @@ const VARIANTS = {
   },
   overnight: {
     id: 'overnight',
-    ids: ['private-overnight-safari', 'private-overnight-camp'],
+    ids: ['private-overnight-safari'],
     Icon: Moon,
     eyebrow: 'Private overnight desert safari',
     title: 'Spend a Night in the Desert',
     subtitle: 'Sunset, dinner, a night under the stars and sunrise with breakfast, in your own private car.',
     bg: 'bg-[#1E293B]',
-    grid: 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto',
+    grid: 'grid-cols-1 max-w-xl mx-auto',
   },
 };
 

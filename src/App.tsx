@@ -32,8 +32,8 @@ export default function App() {
       <PackageGrid />
       <div className="cv-auto"><SignatureExperiences /></div>
       <div className="cv-auto"><SignatureExperiences variant="overnight" /></div>
-      <div className="cv-auto"><VisualItinerary /></div>
       <div className="cv-auto"><PrivateToursSection /></div>
+      <div className="cv-auto"><VisualItinerary /></div>
       <div className="cv-auto"><ExperienceGallery /></div>
       <div className="cv-auto"><WhyDirect /></div>
       <div className="cv-auto"><ReviewsSection /></div>

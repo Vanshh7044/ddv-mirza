@@ -8,7 +8,7 @@ import { getBreadcrumbSchema } from '../data/schemaData';
 import { srcSet, CARD_SIZES } from '../utils/img';
 const TOURS = [
   {
-    type: 'Sunrise Desert Safari',
+    type: 'Private Sunrise Safari',
     time: '4:30 AM – 8:30 AM (later in winter)',
     desc: 'Reach the dunes before first light: sunrise photos, Arabic coffee & dates, camel ride, dune bashing and sandboarding.',
     price: PRICES.sunrise,
@@ -26,7 +26,7 @@ const TOURS = [
     includes: ['Private 4×4 Land Cruiser', 'Red dune bashing & sandboarding', 'Camel ride photo stop', 'Chilled water & soft drinks', 'Free hotel pickup'],
   },
   {
-    type: 'Evening Short Safari',
+    type: 'Private Evening Short Tour',
     time: '3:30 PM – 7:30 PM',
     desc: 'Condensed private evening tour — dune bashing, sunset photo stop, and camel ride without the camp show.',
     price: PRICES.eveningExpress,

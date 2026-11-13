@@ -27,7 +27,7 @@ const desertSafariMenu = [
       { label: `Private Short Safari (${aed(PRICES.privateShort)})`, sub: 'Your own car · 3–4 hours', href: '/evening-safari/private-short-safari' },
       { label: `Sunrise Safari (${aed(PRICES.sunrise)})`, sub: 'Private car at dawn · up to 6', href: '/morning-safari' },
       { label: `Morning Safari (${aed(PRICES.morning)})`, sub: 'Private car · dune bashing', href: '/morning-safari' },
-      { label: `Evening Short Safari (${aed(PRICES.eveningExpress)})`, sub: 'Private car · sunset, no camp', href: '/morning-safari' },
+      { label: `Private Evening Short Tour (${aed(PRICES.eveningExpress)})`, sub: 'Private car · sunset, no camp', href: '/morning-safari' },
       { label: `Self-Drive Safari (from ${aed(PRICES.selfDrive)})`, sub: 'Drive to our camp · no pickup', href: '/self-drive' },
     ],
   },

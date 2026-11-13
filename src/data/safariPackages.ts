@@ -571,7 +571,8 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
     rating: 4.9,
     reviewsCount: 180,
     badge: 'EARLY BIRD',
-    image: '/images/real/camel-ride.webp',
+    image: '/images/real/group-land-cruiser-dunes.webp',
+    imageContain: true,
     detailPath: '/morning-safari',
     includes: [
       'Private Land Cruiser & professional licensed driver',
@@ -581,7 +582,7 @@ export const SAFARI_PACKAGES: SafariPackage[] = [
       'Scenic photography stops with zero crowds',
       'Back at your hotel around 8:30 AM, before the heat',
     ],
-    whatsAppText: wa('Sunrise Desert Safari', PRICES.sunrise, 'vehicle'),
+    whatsAppText: wa('Private Sunrise Safari', PRICES.sunrise, 'vehicle'),
   },
   {
     id: 'morning-safari',

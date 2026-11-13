@@ -10,8 +10,8 @@ const SEO_KEYWORD_GROUPS = [
       { label: 'Evening Desert Safari Dubai', to: '/evening-desert-safari' },
       { label: 'Red Dune Bashing Safari', to: '/evening-safari/standard' },
       { label: `Budget Desert Safari (${aed(PRICES.eveningStandard)})`, to: '/evening-safari/standard' },
-      { label: 'Morning Dune Bash & Sandboard', to: '/morning-safari' },
-      { label: 'Sunrise Desert Safari Dubai', to: '/morning-safari' },
+      { label: 'Private Morning Safari', to: '/morning-safari' },
+      { label: 'Private Sunrise Safari', to: '/morning-safari' },
       { label: `Self-Drive Desert Safari (from ${aed(PRICES.selfDrive)})`, to: '/self-drive' },
       { label: 'Private Desert Camp Setup', to: '/private-desert-setup' },
     ],
@@ -96,7 +96,7 @@ export default function Footer() {
               <Link to="/evening-safari/premium-vip-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Premium VIP + Can-Am Buggy ({aed(PRICES.canAmBuggy)})</Link>
               <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
               <Link to="/evening-safari/private-short-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Private Short Safari ({aed(PRICES.privateShort)})</Link>
-              <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Sunrise Desert Safari ({aed(PRICES.sunrise)})</Link>
+              <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Private Sunrise Safari ({aed(PRICES.sunrise)})</Link>
               <Link to="/self-drive" className="hover:text-[#C2410C] transition-colors py-0.5">Self-Drive Safari (from {aed(PRICES.selfDrive)})</Link>
               <Link to="/vip-traditional-arabic" className="hover:text-[#C2410C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
               <Link to="/tours/dubai-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>

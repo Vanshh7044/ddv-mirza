@@ -4,35 +4,8 @@ import { getWhatsAppLink, PRICES, aed } from '../../data/safariPackages';
 import { trackWhatsAppClick } from '../../utils/analytics';
 
 import { srcSet, CARD_SIZES } from '../../utils/img';
-// Private-car tours (priced per vehicle, up to 6): desert short tours + city tours.
+// Private city tours (priced per vehicle, up to 6). Desert tours live in the main package list.
 const TOURS = [
-  {
-    title: 'Private Sunrise Safari',
-    time: '4:30 AM – 8:30 AM',
-    desc: 'Empty red dunes at dawn, sunrise dune bashing, sandboarding and Arabic coffee.',
-    price: PRICES.sunrise,
-    image: '/images/real/golden-hour-sand.webp',
-    link: '/morning-safari',
-    span: 'lg:col-span-4',
-  },
-  {
-    title: 'Private Morning Safari',
-    time: '8:00 AM – 12:00 PM',
-    desc: 'Red dune bashing, sandboarding and a camel photo stop, back before the afternoon heat.',
-    price: PRICES.morning,
-    image: '/images/real/dune-jump.webp',
-    link: '/morning-safari',
-    span: 'lg:col-span-4',
-  },
-  {
-    title: 'Private Sunset Safari',
-    time: '3:30 PM – 7:30 PM',
-    desc: 'Sunset dune bashing, sandboarding and photo stops in your own car, without the camp.',
-    price: PRICES.eveningExpress,
-    image: '/images/real/land-cruiser-sunset.webp',
-    link: '/morning-safari',
-    span: 'lg:col-span-4',
-  },
   {
     title: 'Private Dubai City Tour',
     time: '4–5 hours',
@@ -73,10 +46,10 @@ export default function PrivateToursSection() {
             <Car size={13} /> Your own car · up to 6 guests
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-2.5">
-            Private Tours
+            Private City Tours
           </h2>
           <p className="text-xs sm:text-base text-slate-300 font-medium">
-            One price for the whole car, not per person. Pay on the day.
+            Dubai and Abu Dhabi in your own car with a driver. One price for the whole car, pay on the day.
           </p>
         </div>
 
