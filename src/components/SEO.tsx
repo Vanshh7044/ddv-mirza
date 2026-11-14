@@ -13,9 +13,27 @@ interface SEOProps {
   noindex?: boolean;
 }
 
+/** Google shows ~60 characters of a title: drop trailing " | …" parts until it fits. */
+const fitTitle = (t: string) => {
+  const parts = t.split(' | ');
+  while (parts.length > 1 && parts.join(' | ').length > 62) parts.pop();
+  let t2 = parts.join(' | ');
+  // Still too long: drop a trailing "(…)", then keep the part before a ": " or up to a "?"
+  if (t2.length > 62) t2 = t2.replace(/\s*\([^)]*\)$/, '');
+  if (t2.length > 62) t2 = t2.split(': ')[0].replace(/\?.*$/, '?');
+  return t2;
+};
+
+/** Google shows ~155 characters of a description: cut at a word boundary. */
+const fitDescription = (d: string) => {
+  if (d.length <= 158) return d;
+  const cut = d.slice(0, 155);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:·&\s]+$/, '') + '…';
+};
+
 export default function SEO({
-  title,
-  description,
+  title: rawTitle,
+  description: rawDescription,
   canonical = '/',
   ogImage = '/images/real/land-cruiser-sunset.webp',
   ogType = 'website',
@@ -23,6 +41,8 @@ export default function SEO({
   keywords,
   noindex = false,
 }: SEOProps) {
+  const title = fitTitle(rawTitle);
+  const description = fitDescription(rawDescription);
   const fullCanonical = canonical.startsWith('http') 
     ? canonical 
     : `${BASE_URL}${canonical.startsWith('/') ? canonical : `/${canonical}`}`;

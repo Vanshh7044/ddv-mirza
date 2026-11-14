@@ -318,8 +318,8 @@ export default function BookPage() {
                         autoComplete="tel"
                         inputMode="tel"
                         pattern={String.raw`[\d\s+\-\(\)]{7,20}`}
-                        title="Phone number with country code, e.g. +44 7700 900123"
-                        placeholder="+44 7700 900123"
+                        title="Phone number with country code, e.g. +971 50 123 4567"
+                        placeholder="+971 50 123 4567"
                         value={f.whatsapp}
                         onChange={on('whatsapp')}
                         className={field}

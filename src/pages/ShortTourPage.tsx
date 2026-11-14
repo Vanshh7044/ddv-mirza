@@ -42,7 +42,7 @@ export default function ShortTourPage() {
   return (
     <>
       <SEO
-        title={`Private Morning & Sunrise Desert Safari Dubai (From ${aed(PRICES.morning)} per Car) | Dune Bashing`}
+        title={`Private Morning & Sunrise Safari Dubai, ${aed(PRICES.morning)} per Car`}
         description="Book a morning dune bashing or private sunrise desert safari in Dubai. Beat the heat, enjoy sandboarding & camel riding with free hotel pickup. Pay on arrival."
         canonical="/morning-safari"
         ogImage="/images/real/dune-jump.webp"

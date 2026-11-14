@@ -26,7 +26,7 @@ export default function TourDetailPage() {
     <>
       <SEO
         title={`${tour.title} (${aed(tour.price)}) | Dubai Dune Tours`}
-        description={`${tour.tagline} ${tour.pickupInfo}. Pay on arrival, no deposit.`}
+        description={`${aed(tour.price)} ${UNIT_LABEL[tour.priceUnit]}. ${tour.tagline} Pay on arrival.`}
         canonical={tour.detailPath}
         ogImage={tour.image}
         ogType="product"

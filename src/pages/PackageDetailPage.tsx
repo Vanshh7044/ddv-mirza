@@ -33,8 +33,8 @@ export default function PackageDetailPage() {
   return (
     <>
       <SEO
-        title={`${selectedPkg.title} Dubai (${aed(selectedPkg.price)}) | Direct Operator Safari`}
-        description={`${selectedPkg.tagline} Inclusions: ${selectedPkg.includes.slice(0, 4).join(', ')}. Free hotel pickup in Dubai, zero deposit & pay on arrival.`}
+        title={`${selectedPkg.title} (${aed(selectedPkg.price)}) | Dubai Dune Tours`}
+        description={`${aed(selectedPkg.price)} ${UNIT_LABEL[selectedPkg.priceUnit]}. ${selectedPkg.tagline} Pay on arrival.`}
         canonical={`/evening-safari/${selectedPkg.slug}`}
         ogImage={selectedPkg.image}
         ogType="product"

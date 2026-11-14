@@ -86,27 +86,27 @@ export default function Footer() {
               Safari Packages
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
-              <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors py-0.5">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
-              <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors py-0.5">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
-              <Link to="/evening-safari/standard-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Standard Private Evening Safari ({aed(PRICES.eveningStandardPrivate)})</Link>
-              <Link to="/evening-safari/premium-private-car" className="hover:text-[#C2410C] transition-colors py-0.5">Private Premium Pickup Safari ({aed(PRICES.eveningPremiumPrivate)})</Link>
-              <Link to="/evening-safari/standard-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Exclusive Private + 30-min Buggy ({aed(PRICES.standardPrivateBuggy)})</Link>
-              <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors py-0.5">Luxury Private Safari + Buggy ({aed(PRICES.premierBuggy)})</Link>
-              <Link to="/evening-safari/premium-vip-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Premium VIP + Can-Am Buggy ({aed(PRICES.canAmBuggy)})</Link>
-              <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors py-0.5">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
-              <Link to="/evening-safari/private-short-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Private Short Safari ({aed(PRICES.privateShort)})</Link>
-              <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Private Sunrise Safari ({aed(PRICES.sunrise)})</Link>
-              <Link to="/self-drive" className="hover:text-[#C2410C] transition-colors py-0.5">Self-Drive Safari (from {aed(PRICES.selfDrive)})</Link>
-              <Link to="/vip-traditional-arabic" className="hover:text-[#C2410C] transition-colors py-0.5">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
-              <Link to="/tours/dubai-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
-              <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
-              <Link to="/tours/sheikh-zayed-grand-mosque-tour" className="hover:text-[#C2410C] transition-colors py-0.5">Grand Mosque Tour ({aed(PRICES.grandMosqueTour)})</Link>
-              <Link to="/tours/dinner-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors py-0.5">Marina Dinner Cruise ({aed(PRICES.dhowCruise)})</Link>
-              <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Private Desert Camp Setup</Link>
-              <Link to="/evening-safari/private-overnight-safari" className="hover:text-[#C2410C] transition-colors py-0.5">Luxury Private Overnight ({aed(PRICES.privateOvernightSafari)})</Link>
-              <Link to="/evening-safari/private-overnight-camp" className="hover:text-[#C2410C] transition-colors py-0.5">Private Overnight Camp ({aed(PRICES.privateOvernight)})</Link>
-              <Link to="/evening-safari/lama-private-setup" className="hover:text-[#C2410C] transition-colors py-0.5">Lama Private Setup + Gazebo ({aed(PRICES.lamaPrivate)})</Link>
+              <Link to="/evening-safari/standard" className="hover:text-[#C2410C] transition-colors inline-block py-1">Evening Standard ({aed(PRICES.eveningStandard)})</Link>
+              <Link to="/evening-safari/premium" className="hover:text-[#C2410C] transition-colors inline-block py-1">Evening Premium ({aed(PRICES.eveningPremium)})</Link>
+              <Link to="/evening-safari/premium-quad" className="hover:text-[#C2410C] transition-colors inline-block py-1">Premium + 30-min Quad ({aed(PRICES.premiumQuad)})</Link>
+              <Link to="/evening-safari/standard-private-car" className="hover:text-[#C2410C] transition-colors inline-block py-1">Standard Private Evening Safari ({aed(PRICES.eveningStandardPrivate)})</Link>
+              <Link to="/evening-safari/premium-private-car" className="hover:text-[#C2410C] transition-colors inline-block py-1">Private Premium Pickup Safari ({aed(PRICES.eveningPremiumPrivate)})</Link>
+              <Link to="/evening-safari/standard-private-buggy" className="hover:text-[#C2410C] transition-colors inline-block py-1">Exclusive Private + 30-min Buggy ({aed(PRICES.standardPrivateBuggy)})</Link>
+              <Link to="/evening-safari/premier-private-buggy" className="hover:text-[#C2410C] transition-colors inline-block py-1">Luxury Private Safari + Buggy ({aed(PRICES.premierBuggy)})</Link>
+              <Link to="/evening-safari/premium-vip-safari" className="hover:text-[#C2410C] transition-colors inline-block py-1">Premium VIP + Can-Am Buggy ({aed(PRICES.canAmBuggy)})</Link>
+              <Link to="/evening-safari/vip" className="hover:text-[#C2410C] transition-colors inline-block py-1">Evening VIP + Majlis ({aed(PRICES.eveningVip)})</Link>
+              <Link to="/evening-safari/private-short-safari" className="hover:text-[#C2410C] transition-colors inline-block py-1">Private Short Safari ({aed(PRICES.privateShort)})</Link>
+              <Link to="/morning-safari" className="hover:text-[#C2410C] transition-colors inline-block py-1">Private Sunrise Safari ({aed(PRICES.sunrise)})</Link>
+              <Link to="/self-drive" className="hover:text-[#C2410C] transition-colors inline-block py-1">Self-Drive Safari (from {aed(PRICES.selfDrive)})</Link>
+              <Link to="/vip-traditional-arabic" className="hover:text-[#C2410C] transition-colors inline-block py-1">VIP Traditional Arabic ({aed(PRICES.vipTraditional)})</Link>
+              <Link to="/tours/dubai-city-tour" className="hover:text-[#C2410C] transition-colors inline-block py-1">Dubai City Tour ({aed(PRICES.dubaiCityTour)})</Link>
+              <Link to="/tours/abu-dhabi-city-tour" className="hover:text-[#C2410C] transition-colors inline-block py-1">Abu Dhabi City Tour ({aed(PRICES.abuDhabiCityTour)})</Link>
+              <Link to="/tours/sheikh-zayed-grand-mosque-tour" className="hover:text-[#C2410C] transition-colors inline-block py-1">Grand Mosque Tour ({aed(PRICES.grandMosqueTour)})</Link>
+              <Link to="/tours/dinner-cruise-dubai-marina" className="hover:text-[#C2410C] transition-colors inline-block py-1">Marina Dinner Cruise ({aed(PRICES.dhowCruise)})</Link>
+              <Link to="/private-desert-setup" className="hover:text-[#C2410C] transition-colors inline-block py-1">Private Desert Camp Setup</Link>
+              <Link to="/evening-safari/private-overnight-safari" className="hover:text-[#C2410C] transition-colors inline-block py-1">Luxury Private Overnight ({aed(PRICES.privateOvernightSafari)})</Link>
+              <Link to="/evening-safari/private-overnight-camp" className="hover:text-[#C2410C] transition-colors inline-block py-1">Private Overnight Camp ({aed(PRICES.privateOvernight)})</Link>
+              <Link to="/evening-safari/lama-private-setup" className="hover:text-[#C2410C] transition-colors inline-block py-1">Lama Private Setup + Gazebo ({aed(PRICES.lamaPrivate)})</Link>
             </div>
           </div>
 
@@ -116,16 +116,16 @@ export default function Footer() {
               Quick Navigation
             </div>
             <div className="flex flex-col gap-2 text-xs sm:text-sm font-medium">
-              <Link to="/" className="hover:text-[#C2410C] transition-colors py-0.5">Home Page</Link>
-              <Link to="/desert-safari" className="hover:text-[#C2410C] transition-colors py-0.5">All Safari Packages</Link>
-              <Link to="/about" className="hover:text-[#C2410C] transition-colors py-0.5">About Our Fleet & Team</Link>
-              <Link to="/guides" className="hover:text-[#C2410C] transition-colors py-0.5">Travel Guides & Tips</Link>
-              <Link to="/book" className="hover:text-[#C2410C] transition-colors py-0.5">Book Online</Link>
-              <Link to="/attraction-tickets" className="hover:text-[#C2410C] transition-colors py-0.5">Attraction Tickets</Link>
-              <Link to="/transport" className="hover:text-[#C2410C] transition-colors py-0.5">Airport & Private Transfers</Link>
-              <Link to="/#itinerary" className="hover:text-[#C2410C] transition-colors py-0.5">6-Hour Safari Itinerary</Link>
-              <Link to="/#faq" className="hover:text-[#C2410C] transition-colors py-0.5">Frequently Asked Questions</Link>
-              <Link to="/contact" className="hover:text-[#C2410C] transition-colors py-0.5">Contact & Location</Link>
+              <Link to="/" className="hover:text-[#C2410C] transition-colors inline-block py-1">Home Page</Link>
+              <Link to="/desert-safari" className="hover:text-[#C2410C] transition-colors inline-block py-1">All Safari Packages</Link>
+              <Link to="/about" className="hover:text-[#C2410C] transition-colors inline-block py-1">About Our Fleet & Team</Link>
+              <Link to="/guides" className="hover:text-[#C2410C] transition-colors inline-block py-1">Travel Guides & Tips</Link>
+              <Link to="/book" className="hover:text-[#C2410C] transition-colors inline-block py-1">Book Online</Link>
+              <Link to="/attraction-tickets" className="hover:text-[#C2410C] transition-colors inline-block py-1">Attraction Tickets</Link>
+              <Link to="/transport" className="hover:text-[#C2410C] transition-colors inline-block py-1">Airport & Private Transfers</Link>
+              <Link to="/#itinerary" className="hover:text-[#C2410C] transition-colors inline-block py-1">6-Hour Safari Itinerary</Link>
+              <Link to="/#faq" className="hover:text-[#C2410C] transition-colors inline-block py-1">Frequently Asked Questions</Link>
+              <Link to="/contact" className="hover:text-[#C2410C] transition-colors inline-block py-1">Contact & Location</Link>
             </div>
           </div>
 
@@ -135,10 +135,10 @@ export default function Footer() {
               Direct Contact
             </div>
             <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-medium">
-              <a href="tel:+971556015834" onClick={() => trackPhoneClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors py-0.5">
+              <a href="tel:+971556015834" onClick={() => trackPhoneClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors inline-block py-1">
                 <Phone size={15} className="text-[#C2410C] shrink-0" /> +971 55 601 5834
               </a>
-              <a href="mailto:info@dubaidunetours.com" onClick={() => trackEmailClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors py-0.5">
+              <a href="mailto:info@dubaidunetours.com" onClick={() => trackEmailClick('footer')} className="flex items-center gap-2 hover:text-[#C2410C] transition-colors inline-block py-1">
                 <Mail size={15} className="text-[#C2410C] shrink-0" /> info@dubaidunetours.com
               </a>
               <div className="flex items-center gap-2 text-slate-400 py-0.5">
